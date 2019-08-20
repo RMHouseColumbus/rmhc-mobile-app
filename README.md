@@ -1,4 +1,5 @@
-# Install Instructions - Android only 
+
+# Install Instructions - Android 
 1. First read [react-native gettting started page](https://facebook.github.io/react-native/docs/getting-started.html).    Recommend installing Native IDEs first
 2. Install react-native-cli
 3. git clone repository
