@@ -1,12 +1,11 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
 import { Container, Content, Grid, Row, Col } from 'native-base';
-import { MainHeader } from '../components/mainheader.js';
+import { MainHeader } from '../components/header.js';
 
 export default class Home extends React.Component {
     render() {
         return (
-            
             <View style={{ flex: 1 }}>
                <MainHeader title="Welcome" navigation={this.props.navigation} />
                 <View style={{ flex: 1, flexDirection: 'row'}}>

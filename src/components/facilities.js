@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { MainHeader } from '../components/mainheader.js';
+import { MainHeader } from '../components/header.js';
 
 export default class Facilities extends React.Component {
     render() {

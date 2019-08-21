@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
-import { MainHeader } from '../components/mainheader.js';
+import { MainHeader } from '../components/header.js';
 
 export default class Faq extends React.Component {
     render() {
