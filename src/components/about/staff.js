@@ -1,15 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { MainHeader } from '../components/header.js';
+import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
 
-export default class Facilities extends React.Component {
+export default class Staff extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-               <MainHeader title="Facilities" navigation={this.props.navigation} />
-                <View style={{ flex: 1, flexDirection: 'row'}}>
+                
+                <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={main.container}>
-                        <Text style={main.welcomeText}>Facilities</Text>
+                        <Text style={main.welcomeText}>Staff</Text>
                     </View>
                 </View>
             </View>

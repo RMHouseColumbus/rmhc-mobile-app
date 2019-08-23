@@ -1,15 +1,20 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
-import { MainHeader } from '../components/header.js';
+
 
 export default class Neighborhood extends React.Component {
+
+    static navigationOptions = {
+
+        title: 'Neighborhood',   
+    } 
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <MainHeader title="Neighborhood" navigation={this.props.navigation} />
+                
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={main.container}>
-                        <Text style={main.welcomeText}>Meals</Text>
+                       
                     </View>
                 </View>
             </View>

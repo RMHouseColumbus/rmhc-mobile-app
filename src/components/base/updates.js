@@ -1,18 +1,26 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar, ActivityIndicator } from 'react-native';
 import { Container, Content, Card, CardItem } from 'native-base'
-import { MainHeader } from '../components/header.js';
 
 
-const content = require('../services/content.json');
+
+const content = require('../../services/content.json');
 export default class Updates extends React.Component {
     constructor(props){
         super(props)
         this.state = {
             isLoading:false,
-            content:content.content
+            updates:content.updates.content
         }
     }
+
+    static navigationOptions = {
+
+        title: 'Updates',  
+        headerStyle: {
+            backgroundColor: '#FFFFFF',
+        } 
+    }     
     //TODO Uncomment when ready to call the data from S3
     // componentDidMount() {
     //     return fetch("")
@@ -36,7 +44,7 @@ export default class Updates extends React.Component {
         if(this.state.isLoading){
             return(
                 <View style={{ flex: 1 }}>
-                <MainHeader title="Updates" navigation={this.props.navigation} />
+ 
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={main.container}>
                        <ActivityIndicator />
@@ -47,11 +55,11 @@ export default class Updates extends React.Component {
         }else{
             return(
             <Container>
-                <MainHeader title="Updates" navigation={this.props.navigation} />
+                
             <Content style={main.body}>
                
                    {
-                       this.state.content.map((item, index)=>{
+                       this.state.updates.map((item, index)=>{
                            return (
                             <Card  key={index} style={main.card}>
                                <CardItem bordered key={index} style={{borderRadius:20}}>
