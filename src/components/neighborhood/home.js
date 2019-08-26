@@ -6,15 +6,28 @@ export default class Neighborhood extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Neighborhood',   
-    } 
+        title: 'Neighborhood',
+    }
     render() {
         return (
             <View style={{ flex: 1 }}>
-                
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={main.container}>
-                       
+                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Delivery")}>
+                            <Text>Delivery</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Restaurants")}>
+                            <Text>Restaurants</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Shopping")}>
+                            <Text>Shopping</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("ThingsToDo")}>
+                            <Text>Things To Do</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Transportation")}>
+                            <Text>Transportation</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
