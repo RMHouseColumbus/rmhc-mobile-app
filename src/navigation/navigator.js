@@ -21,6 +21,7 @@ import Restaurants from "../screens/restaurants/restaurants";
 import Shopping from "../screens/shopping/shopping";
 import ThingsToDo from "../screens/things-to-do/things-to-do";
 import Transportation from "../screens/transportation/transportation";
+import AdultCare from "../screens/adult-care/adult-care";
 
 
 const defaultNavConfigs = {
@@ -130,6 +131,7 @@ const DrawerNavigator = createDrawerNavigator(
         Shopping: createStackNavigator({Shopping: Shopping}, defaultNavConfigs),
         ThingsToDo: createStackNavigator({ThingsToDo: ThingsToDo}, defaultNavConfigs),
         Transportation: createStackNavigator({Transportation: Transportation}, defaultNavConfigs),
+        AdultCare: createStackNavigator({AdultCare: AdultCare}, defaultNavConfigs),
     }, {
         drawerWidth: Dimensions.get("window").width * 0.83,
         contentComponent: ({navigation}) => {

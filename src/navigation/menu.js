@@ -32,12 +32,11 @@ export default class Menu extends React.Component {
                     {this.navLink("Shopping", "Shopping")}
                     {this.navLink("ThingsToDo", "Things to Do")}
                     {this.navLink("Transportation", "Transportation")}
+                    {this.navLink("AdultCare", "Adult Care")}
                     <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity = { .5 } onPress={ this.ButtonClickCheckFunction }>
                         <Text style={styles.TextStyle}>Donate</Text>
                     </TouchableOpacity>
                 </View>
-
-
             </View>
         )
     }
