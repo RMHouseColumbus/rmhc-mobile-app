@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
+import { Icon } from 'native-base'
 import BaseFooter from '../base/footer.js'
 
 export default class Neighborhood extends React.Component {
@@ -7,12 +8,16 @@ export default class Neighborhood extends React.Component {
     static navigationOptions = {
 
         title: 'Neighborhood',
+        
+        
+
     }
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.main}>
+                <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
                 <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <View style={main.container}>
+                    <View style={styles.container}>
                         <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Delivery")}>
                             <Text>Delivery</Text>
                         </TouchableOpacity>
@@ -33,17 +38,22 @@ export default class Neighborhood extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <BaseFooter navigation={this.props.navigation}/>
+                 <View style={{ flex: 0.1 }}>
+                    <BaseFooter navigation={this.props.navigation} />
+                </View>
             </View>
         );
     }
 }
 
-const main = StyleSheet.create({
+const styles = StyleSheet.create({
+    main:{
+        flex: 10, backgroundColor: "#638dc9" 
+    },
     container: {
         flex: 1,
         marginLeft: 20,
-        top: 50
+        top: 50,
     },
     welcomeText: {
         fontFamily: "System",

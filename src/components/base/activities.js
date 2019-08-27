@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar, ActivityIndicator } from 'react-native';
-import { Container, Content, Card, CardItem } from 'native-base'
+import { Container, Content, Card, CardItem, Icon } from 'native-base'
 import BaseFooter from './footer.js'
 
 
@@ -17,9 +17,22 @@ export default class Activities extends React.Component {
     static navigationOptions = {
 
         title: 'Activities',  
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        }, 
+    //     headerStyle: {
+    //         backgroundColor: '#FFFFFF',
+    //         color:"#000000"
+    //     }, 
+    //     headerTitleStyle: {
+    //         color: '#000000',
+    //         fontFamily: "System",
+    //         fontSize: 35,
+    // },
+    //     headerLeft: (
+    //         <Icon type="Ionicons" name='menu'
+    //             style={{ paddingLeft: 10, color:"#000000"}}
+    //             onPress={() => navigation.openDrawer()}
+    //             name="md-menu"
+    //             size={30}
+    //         />),
     }     
     //TODO Uncomment when ready to call the data from S3
     // componentDidMount() {
@@ -44,7 +57,7 @@ export default class Activities extends React.Component {
         if(this.state.isLoading){
             return(
                 <View style={{ flex: 1 }}>
- 
+                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={main.container}>
                        <ActivityIndicator />
@@ -54,9 +67,14 @@ export default class Activities extends React.Component {
             )
         }else{
             return(
-            <Container>
+                <React.Fragment>
+                <View style={{ flex: 10 }}>
+                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+                    <Container>
+
+                        <Content style={main.body}>
                 
-            <Content style={main.body}>
+            
                
                    {
                        this.state.activities.map((item, index)=>{
@@ -74,7 +92,14 @@ export default class Activities extends React.Component {
                        })
                    }
            </Content>
-         </Container>
+           </Container>
+                    </View>
+
+                    <View style={{ flex: 1 }}>
+                        <BaseFooter navigation={this.props.navigation} />
+
+                    </View>
+                </React.Fragment>
             )
         }
 
@@ -83,7 +108,7 @@ export default class Activities extends React.Component {
 
 const main = StyleSheet.create({
     container:{
-        flex:1,
+        flex:10,
         marginLeft:20,
         top:50
     },
@@ -98,7 +123,7 @@ const main = StyleSheet.create({
         top:"2%",
         width:"86%" 
     },
-    body:{ flex: 1, backgroundColor:"#FCCB00"},
+    body:{ flex: 1, backgroundColor:"#638dc9"},
     textType:{
         fontFamily:"System",
         fontSize:12,

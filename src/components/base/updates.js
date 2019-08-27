@@ -1,26 +1,32 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar, ActivityIndicator } from 'react-native';
-import { Container, Content, Card, CardItem } from 'native-base'
-
+import { Container, Content, Card, CardItem, Icon } from 'native-base'
+import BaseFooter from './footer.js'
 
 
 const content = require('../../services/content.json');
 export default class Updates extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            isLoading:false,
-            updates:content.updates.content
+            isLoading: false,
+            updates: content.updates.content
         }
     }
 
     static navigationOptions = {
 
-        title: 'Updates',  
+        title: 'Updates',
         headerStyle: {
             backgroundColor: '#FFFFFF',
-        } 
-    }     
+        },
+        // },
+        headerTitleStyle: {
+                color: '#000000',
+                fontFamily: "System",
+                fontSize: 35,
+        },
+     }
     //TODO Uncomment when ready to call the data from S3
     // componentDidMount() {
     //     return fetch("")
@@ -34,48 +40,59 @@ export default class Updates extends React.Component {
     //         .catch((error)=> {
     //             console.log(error)
     //     });
-    
-            
+
+
     // }
 
 
     render() {
-       
-        if(this.state.isLoading){
-            return(
+
+        if (this.state.isLoading) {
+            return (
                 <View style={{ flex: 1 }}>
- 
-                <View style={{ flex: 1, flexDirection: 'row' }}>
-                    <View style={main.container}>
-                       <ActivityIndicator />
+                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
+                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                        <View style={main.container}>
+                            <ActivityIndicator />
+                        </View>
                     </View>
                 </View>
-            </View>
             )
-        }else{
-            return(
-            <Container>
-                
-            <Content style={main.body}>
-               
-                   {
-                       this.state.updates.map((item, index)=>{
-                           return (
-                            <Card  key={index} style={main.card}>
-                               <CardItem bordered key={index} style={{borderRadius:20}}>
-                                   <View>
-                                       <Text style={main.textType}>{item.type}</Text>
-                                       <Text style={main.textTitle}>{item.title}</Text>
-                                       <Text style={main.textContent}>{item.text}</Text>
-                                   </View>
-                               </CardItem>
-                               </Card>
-                           )
-                       })
-                   }
-               
-           </Content>
-         </Container>
+        } else {
+            return (
+                <React.Fragment>
+                    <View style={{ flex: 10 }}>
+                    <StatusBar barStyle="dark-content" style={{color:"#FFFFFF"}} backgroundColor="#FFFFFF" />
+                        <Container>
+
+                            <Content style={main.body}>
+
+                                {
+                                    this.state.updates.map((item, index) => {
+                                        return (
+                                            <Card key={index} style={main.card}>
+                                                <CardItem bordered key={index} style={{ borderRadius: 20 }}>
+                                                    <View>
+                                                        <Text style={main.textType}>{item.type}</Text>
+                                                        <Text style={main.textTitle}>{item.title}</Text>
+                                                        <Text style={main.textContent}>{item.text}</Text>
+                                                    </View>
+                                                </CardItem>
+                                            </Card>
+                                        )
+                                    })
+                                }
+
+                            </Content>
+
+                        </Container>
+                    </View>
+
+                    <View style={{ flex: 1 }}>
+                        <BaseFooter navigation={this.props.navigation} />
+
+                    </View>
+                </React.Fragment>
             )
         }
 
@@ -83,38 +100,38 @@ export default class Updates extends React.Component {
 }
 
 const main = StyleSheet.create({
-    container:{
-        flex:1,
-        marginLeft:20,
-        top:50
+    container: {
+        flex: 1,
+        marginLeft: 20,
+        top: 50
     },
-    text:{
-        fontFamily:"System",
-        fontSize:20,
-        color:'black'
+    text: {
+        fontFamily: "System",
+        fontSize: 20,
+        color: 'black'
     },
-    card:{
-        marginLeft:"7%",
-        marginRight:"7%",
-        top:"2%",
-        width:"86%" 
+    card: {
+        marginLeft: "7%",
+        marginRight: "7%",
+        top: "2%",
+        width: "86%"
     },
-    body:{ flex: 1, backgroundColor:"#FCCB00"},
-    textType:{
-        fontFamily:"System",
-        fontSize:12,
-        color:'black'
+    body: { flex: 10, backgroundColor: "#638dc9" },
+    textType: {
+        fontFamily: "System",
+        fontSize: 12,
+        color: 'black'
     },
-    textTitle:{
-        fontFamily:"System",
-        fontSize:20,
-        color:'black',
-        fontWeight:"bold"
+    textTitle: {
+        fontFamily: "System",
+        fontSize: 20,
+        color: 'black',
+        fontWeight: "bold"
     },
-    textContent:{
-        marginTop:"1%",
-        fontFamily:"System",
-        fontSize:14,
-        color:'black'
+    textContent: {
+        marginTop: "1%",
+        fontFamily: "System",
+        fontSize: 14,
+        color: 'black'
     },
 });

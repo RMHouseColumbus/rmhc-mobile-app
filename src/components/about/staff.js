@@ -5,7 +5,7 @@ export default class Staff extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                
+                <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={main.container}>
                         <Text style={main.welcomeText}>Staff</Text>

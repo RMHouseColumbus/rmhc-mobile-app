@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity } from 'react-native';
+import { Container } from 'native-base'
 import BaseFooter from './footer.js'
 
 export default class Home extends React.Component {
@@ -10,47 +11,39 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <StatusBar backgroundColor="#FCCB00" barStyle="dark-content"/>
-                <View style={{ flex: 1, flexDirection: 'row' }}>
+            <View style={styles.main}>
+                <StatusBar backgroundColor="#4872ae" barStyle="default" style={{color:"#FFFFFF"}}/>
+                <View style={{ flex: 0.9 }}>
                     <View style={styles.container}>
                         <Text style={styles.welcomeText}>Welcome</Text>
                         <Text style={{ fontSize: 30, padding: 5 }}>to</Text>
                         <Text style={{ fontSize: 40 }}>Central Ohio</Text>
                     </View>
                 </View>
-                
-                <BaseFooter navigation={this.props.navigation}/>
-                
+                <View style={{ flex: 0.1 }}>
+                    <BaseFooter navigation={this.props.navigation} />
+                </View>
             </View>
+
+
 
         );
     }
 }
 
 const styles = StyleSheet.create({
+    main:{
+        flex: 1, backgroundColor: "#F9F9F9" 
+    },
     container: {
         flex: 1,
         marginLeft: 20,
-        top: 50
-    },
-    yellowContainer: {
-        backgroundColor: '#FCCB00'
+        top: 50,
     },
     welcomeText: {
         fontFamily: "System",
         fontSize: 45,
         color: 'red'
-    },
-    centralOHText: {
-        fontFamily: "System",
-        fontSize: 40,
-        color: 'black'
-    },
-    headerText: {
-        fontFamily: "System",
-        fontSize: 35,
-        color: '#000000'
     }
 
 });

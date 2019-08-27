@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import BaseFooter from '../base/footer.js'
 
 export default class Facilities extends React.Component {
@@ -10,6 +10,7 @@ export default class Facilities extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
+                <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
                 <View style={{ flex: 1, flexDirection: 'row'}}>
                     <View style={main.container}>
                       

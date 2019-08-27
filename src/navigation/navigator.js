@@ -24,24 +24,33 @@ import Transportation from "../screens/transportation/transportation";
 import AdultCare from "../screens/adult-care/adult-care";
 
 
+const navHeaderStyle= {
+    backgroundColor: '#4872ae',
+}
+
+const navHeaderTitleStyle = {
+    color: '#FFFFFF',
+    fontFamily: "System",
+    fontSize: 35,
+
+}
+const defaultStackConfigs = {
+    defaultNavigationOptions: ({ navigation }) => ({
+        headerStyle: navHeaderStyle,
+        headerTitleStyle: navHeaderTitleStyle
+    })
+}
 const defaultNavConfigs = {
     defaultNavigationOptions: ({ navigation }) => ({
         headerLeft: (
             <Icon type="Ionicons" name='menu'
-                style={{ paddingLeft: 10 }}
+                style={{ paddingLeft: 10, color:"#000000"}}
                 onPress={() => navigation.openDrawer()}
                 name="md-menu"
                 size={30}
             />),
-        headerStyle: {
-            backgroundColor: '#FCCB00',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 35,
-
-        }
+        headerStyle: navHeaderStyle,
+        headerTitleStyle: navHeaderTitleStyle
     })
 }
 const defaultTabIcons = {
@@ -51,74 +60,7 @@ const defaultTabIcons = {
     inactiveTintColor: 'black',
 }
 
-// const BottomTabBar = createBottomTabNavigator({
-//         Home: {
-//             screen: createStackNavigator({Home: Home}, defaultNavConfigs), navigationOptions: () => ({
-//                 tabBarIcon: ({tintColor}) => (
-//                     <Icon
-//                         type="Ionicons" name='home'
-//                         color={tintColor}
-//                         size={24}
-//                     />
-//                 )
-//                 , tabBarOptions: defaultTabIcons
-//             })
-//         },
-//         Map: {
-//             screen: createStackNavigator({Home: Home}, defaultNavConfigs), navigationOptions: () => ({
-//                 tabBarIcon: ({tintColor}) => (
-//                     <Icon
-//                         type="Ionicons" name='pin'
-//                         color={tintColor}
-//                         size={24}
-//                     />
-//                 )
-//                 , tabBarOptions: defaultTabIcons
-//             })
-//         },
-//         Facilities: {
-//             screen: createStackNavigator({Facilities: Facilities}, defaultNavConfigs), navigationOptions: () => ({
-//                 tabBarIcon: ({tintColor}) => (
-//                     <Icon
-//                         type="Ionicons" name='map'
-//                         color={tintColor}
-//                         size={24}
-//                     />
-//                 )
-//                 , tabBarOptions: defaultTabIcons
-//             })
-//         },
-//         Meals: {
-//             screen: createStackNavigator({Meals: Meals}, defaultNavConfigs), navigationOptions: () => ({
-//                 tabBarIcon: ({tintColor}) => (
-//                     <Icon
-//                         type="FontAwesome5" name='utensils'
-//                         color={tintColor}
-//                         size={5}
-//                     />
-//                 )
-//                 , tabBarOptions: defaultTabIcons
-//             })
-//         },
-//         Updates: {
-//             screen: createStackNavigator({Updates: Updates}, defaultNavConfigs), navigationOptions: () => ({
-//                 tabBarIcon: ({tintColor}) => (
-//                     <Icon
-//                         type="SimpleLineIcons" name='bell'
-//                         color={tintColor}
-//                         size={30}
-//                     />
-//                 )
-//                 , tabBarOptions: defaultTabIcons
-//             })
-//         }
-//     },
-//     {initialRouteName: 'Home'},
-//     {
-//         order: ['Home', 'Map', 'Facilities', 'Meals', 'Updates']
-//     });
-
-const neigborhood = createStackNavigator(
+const subNeigborhood = createStackNavigator(
     {
         Neighborhood: Neighborhood,
         Delivery:Delivery,
@@ -127,9 +69,8 @@ const neigborhood = createStackNavigator(
         ThingsToDo:ThingsToDo,
         Transportation:Transportation,
         AdultCare: AdultCare
-    },
-    {initialRouteName:"Neighborhood"},
-    defaultNavConfigs);
+    },defaultStackConfigs,
+    {initialRouteName:"Neighborhood"});
 
 
 const DrawerNavigator = createDrawerNavigator(
@@ -140,7 +81,7 @@ const DrawerNavigator = createDrawerNavigator(
         Updates: createStackNavigator({ Updates: Updates }, defaultNavConfigs),
         About: createStackNavigator({ About: About }, defaultNavConfigs),
         Activities: createStackNavigator({ Activities: Activities }, defaultNavConfigs),
-        Neighborhood: neigborhood,
+        Neighborhood: subNeigborhood,
         FAQ: createStackNavigator({ Faq: Faq }, defaultNavConfigs),
     }, {
         drawerWidth: Dimensions.get("window").width * 0.83,

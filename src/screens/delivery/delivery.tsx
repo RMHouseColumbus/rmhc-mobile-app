@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, TextStyle, View, ViewStyle } from "react-native"
+import { Text, TextStyle, View, ViewStyle, StatusBar } from "react-native"
 import { spacing } from "../../components/shared/spacing";
 import { Header } from "../../components/header/header";
+import BaseFooter from '../../components/base/footer.js'
 
 const FULL: ViewStyle = { flex: 1 };
 
@@ -29,6 +30,7 @@ const CONTENT = {
 
 export default class Delivery extends React.Component {
 
+
     static navigationOptions = {
         title: 'DELIVERY',
     };
@@ -37,6 +39,7 @@ export default class Delivery extends React.Component {
     render() {
         return (
             <View style={FULL}>
+                <StatusBar backgroundColor="#4872ae" barStyle="dark-content" />
                 <View>
                     <Header headerText={CONTENT.heading} titleStyle={TITLE}/>
                     <View>
@@ -49,6 +52,7 @@ export default class Delivery extends React.Component {
                         }
                     </View>
                 </View>
+                <BaseFooter navigation={this.props}/>
             </View>
         );
     }

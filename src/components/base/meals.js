@@ -10,13 +10,15 @@ export default class Meals extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                
-                <View style={{ flex: 1, flexDirection: 'row' }}>
+                <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
+                <View style={{ flex: 0.9, flexDirection: 'row' }}>
                     <View style={main.container}>
                        
                     </View>
                 </View>
-                <BaseFooter navigation={this.props.navigation}/>
+                <View style={{ flex: 0.1 }}>
+                    <BaseFooter navigation={this.props.navigation} />
+                </View>
             </View>
         );
     }
