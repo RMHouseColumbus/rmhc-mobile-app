@@ -28,6 +28,9 @@ export default class Neighborhood extends React.Component {
                         <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Transportation")}>
                             <Text>Transportation</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("AdultCare")}>
+                            <Text>Adult Care</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>

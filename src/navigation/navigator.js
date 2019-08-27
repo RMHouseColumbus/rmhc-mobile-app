@@ -126,10 +126,10 @@ const neigborhood = createStackNavigator(
         Shopping:Shopping,
         ThingsToDo:ThingsToDo,
         Transportation:Transportation,
-
+        AdultCare: AdultCare
     },
     {initialRouteName:"Neighborhood"},
-    defaultNavConfigs)
+    defaultNavConfigs);
 
 
 const DrawerNavigator = createDrawerNavigator(
