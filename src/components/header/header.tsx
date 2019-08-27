@@ -21,7 +21,7 @@ const ROOT: ViewStyle = {
     paddingHorizontal: spacing[4],
     alignItems: "center",
     paddingTop: spacing[5],
-    paddingBottom: spacing[5],
+    paddingBottom: spacing[1],
     justifyContent: "flex-start",
 }
 const TITLE: TextStyle = { textAlign: "center" }
@@ -35,10 +35,10 @@ const RIGHT: ViewStyle = { width: 32 }
 export class Header extends React.Component<HeaderProps, {}> {
     render() {
         const {
-            onLeftPress,
-            onRightPress,
-            rightIcon,
-            leftIcon,
+            // onLeftPress,
+            // onRightPress,
+            // rightIcon,
+            // leftIcon,
             headerText,
             titleStyle,
         } = this.props;
@@ -46,25 +46,11 @@ export class Header extends React.Component<HeaderProps, {}> {
 
         return (
             <View style={{ ...ROOT, ...this.props.style }}>
-                {leftIcon ? (
-                    <Button title={"back"} onPress={onLeftPress} >
-                        <Icon icon={leftIcon} />
-                    </Button>
-                ) : (
-                    <View style={LEFT} />
-                )}
                 <View style={TITLE_MIDDLE}>
                     <Text style={{ ...TITLE, ...titleStyle }}>
                         {header}
                     </Text>
                 </View>
-                {rightIcon ? (
-                    <Button title={"forward"} onPress={onRightPress}>
-                        <Icon icon={rightIcon} />
-                    </Button>
-                ) : (
-                    <View style={RIGHT} />
-                )}
             </View>
         )
     }

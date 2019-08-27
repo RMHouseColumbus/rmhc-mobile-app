@@ -37,8 +37,6 @@ export default class Restaurants extends React.Component {
     render() {
         return (
             <View style={FULL}>
-                <View>
-                    <Header titleStyle={TITLE} leftIcon={'back'}/>
                     <View>
                         {
                             CONTENT.restaurants.map(c => {
@@ -48,7 +46,6 @@ export default class Restaurants extends React.Component {
                             })
                         }
                     </View>
-                </View>
             </View>
         );
     }

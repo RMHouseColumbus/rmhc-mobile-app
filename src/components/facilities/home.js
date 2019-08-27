@@ -27,7 +27,7 @@ const main = StyleSheet.create({
         top:50
     },
     welcomeText:{
-        fontFamily:"sans-serif",
+        fontFamily:"System",
         fontSize:45,
         color:'black'
     }

@@ -38,17 +38,17 @@ const styles = StyleSheet.create({
         backgroundColor: '#FCCB00'
     },
     welcomeText: {
-        fontFamily: "sans-serif",
+        fontFamily: "System",
         fontSize: 45,
         color: 'red'
     },
     centralOHText: {
-        fontFamily: "sans-serif",
+        fontFamily: "System",
         fontSize: 40,
         color: 'black'
     },
     headerText: {
-        fontFamily: "sans-serif-thin",
+        fontFamily: "System",
         fontSize: 35,
         color: '#000000'
     }
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 //     },
 
 //     headerText:{
-//       fontFamily:"sans-serif-thin",
+//       fontFamily:"System",
 //       fontSize:35,
 //       color:'#000000'
 //     }

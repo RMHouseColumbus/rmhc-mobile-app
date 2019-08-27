@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text, TextStyle, View, ViewStyle } from "react-native"
-import { spacing } from "../../components/shared/spacing";
+import { Text, TextStyle, View, ViewStyle } from "react-native";
 import { Header } from "../../components/header/header";
+import { spacing } from "../../components/shared/spacing";
 
 const FULL: ViewStyle = { flex: 1 };
 
@@ -27,15 +27,17 @@ export default class ThingsToDo extends React.Component {
         return (
             <View style={FULL}>
                 <View>
-                    <Header titleStyle={TITLE} leftIcon={'back'} headerText={CONTENT.header}/>
+                    <Header titleStyle={TITLE} headerText={CONTENT.header} />
                     <View>
-                        {
-                            CONTENT.things.map(c => {
-                                return (
-                                    this.thingToDo(c)
-                                )
-                            })
-                        }
+                        <View>
+                            {
+                                CONTENT.things.map(c => {
+                                    return (
+                                        this.thingToDo(c)
+                                    )
+                                })
+                            }
+                        </View>
                     </View>
                 </View>
             </View>
@@ -59,7 +61,7 @@ const TITLE: TextStyle = {
     fontSize: 15,
     lineHeight: 38,
     textAlign: "center",
-    marginBottom: spacing[5],
+    marginBottom: spacing[1],
 };
 
 const ROW: ViewStyle = {

@@ -38,7 +38,7 @@ const defaultNavConfigs = {
         },
         headerTitleStyle: {
             color: '#000000',
-            fontFamily: "sans-serif-thin",
+            fontFamily: "System",
             fontSize: 35,
 
         }

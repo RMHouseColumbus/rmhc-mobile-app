@@ -38,7 +38,7 @@ export default class Delivery extends React.Component {
         return (
             <View style={FULL}>
                 <View>
-                    <Header headerText={CONTENT.heading} titleStyle={TITLE} leftIcon={'back'}/>
+                    <Header headerText={CONTENT.heading} titleStyle={TITLE}/>
                     <View>
                         {
                             CONTENT.carriers.map(c => {

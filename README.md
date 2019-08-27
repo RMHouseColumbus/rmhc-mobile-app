@@ -10,4 +10,11 @@
 6. react-native start
 7. react-native run-android
 
-# Install Instructions - iOS TBA
+# Install Instructions - iOS
+1. First read [react-native gettting started page](https://facebook.github.io/react-native/docs/getting-started.html).    Recommend installing Native IDEs first
+2. Install react-native-cli
+3. git clone repository
+4. npm install
+5. cd ios && pod install
+6. cd .. && react-native start
+7. react-native run-ios

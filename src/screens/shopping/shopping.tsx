@@ -39,16 +39,13 @@ export default class Shopping extends React.Component {
         return (
             <View style={FULL}>
                 <View>
-                    <Header titleStyle={TITLE} leftIcon={'back'}/>
-                    <View>
-                        {
-                            CONTENT.retailers.map(c => {
-                                return (
-                                    this.retailRow(c)
-                                )
-                            })
-                        }
-                    </View>
+                    {
+                        CONTENT.retailers.map(c => {
+                            return (
+                                this.retailRow(c)
+                            )
+                        })
+                    }
                 </View>
             </View>
         );
@@ -77,7 +74,7 @@ const TITLE: TextStyle = {
     marginBottom: spacing[5],
 };
 
-const ROW : ViewStyle = {
+const ROW: ViewStyle = {
     marginTop: spacing[5]
-} ;
+};
 

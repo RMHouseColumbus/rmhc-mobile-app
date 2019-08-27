@@ -64,7 +64,7 @@ export default class Transportation extends React.Component {
         return (
             <View style={FULL}>
                 <View>
-                    <Header titleStyle={TITLE} leftIcon={'back'} headerText={CONTENT.header}/>
+                    <Header titleStyle={TITLE} headerText={CONTENT.header}/>
                     <View style={SECTION}>
                         {
                             CONTENT.rideshare.map(c => {
@@ -122,7 +122,7 @@ const TITLE: TextStyle = {
     fontSize: 15,
     lineHeight: 38,
     textAlign: "center",
-    marginBottom: spacing[5],
+    marginBottom: spacing[1],
 };
 
 const SECTION: ViewStyle = {

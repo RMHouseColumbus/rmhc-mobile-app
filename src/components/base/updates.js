@@ -89,7 +89,7 @@ const main = StyleSheet.create({
         top:50
     },
     text:{
-        fontFamily:"sans-serif",
+        fontFamily:"System",
         fontSize:20,
         color:'black'
     },
@@ -101,19 +101,19 @@ const main = StyleSheet.create({
     },
     body:{ flex: 1, backgroundColor:"#FCCB00"},
     textType:{
-        fontFamily:"sans-serif",
+        fontFamily:"System",
         fontSize:12,
         color:'black'
     },
     textTitle:{
-        fontFamily:"sans-serif",
+        fontFamily:"System",
         fontSize:20,
         color:'black',
         fontWeight:"bold"
     },
     textContent:{
         marginTop:"1%",
-        fontFamily:"sans-serif",
+        fontFamily:"System",
         fontSize:14,
         color:'black'
     },

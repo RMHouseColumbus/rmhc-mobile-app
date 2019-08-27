@@ -30,8 +30,7 @@ export default class AdultCare extends React.Component {
         return (
             <View style={FULL}>
                 <View>
-                    <Header titleStyle={TITLE} leftIcon={'back'}/>
-                    <View>
+                    <View style={{marginTop: spacing[1] }}>
                         {
                             CONTENT.providers.map(c => {
                                 return (
@@ -64,10 +63,10 @@ const TITLE: TextStyle = {
     fontSize: 15,
     lineHeight: 38,
     textAlign: "center",
-    marginBottom: spacing[5],
+    marginBottom: spacing[1],
 };
 
 const ROW : ViewStyle = {
-    marginTop: spacing[5]
+    marginTop: spacing[3]
 } ;
 
