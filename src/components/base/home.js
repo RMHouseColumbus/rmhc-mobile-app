@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity } from 'react-native';
+import Footer from './footer.js'
 
 export default class Home extends React.Component {
 
@@ -10,18 +11,17 @@ export default class Home extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-                
+                <StatusBar backgroundColor="#FCCB00" barStyle="dark-content"/>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                     <View style={styles.container}>
-
                         <Text style={styles.welcomeText}>Welcome</Text>
                         <Text style={{ fontSize: 30, padding: 5 }}>to</Text>
                         <Text style={{ fontSize: 40 }}>Central Ohio</Text>
                     </View>
-                    <View style={{ flex: 1 }}>
-
-                    </View>
                 </View>
+                
+                <Footer navigation={this.props.navigation}/>
+                
             </View>
 
         );

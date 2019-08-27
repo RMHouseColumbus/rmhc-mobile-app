@@ -27,12 +27,6 @@ export default class Menu extends React.Component {
                     {this.navLink("Neighborhood", "Neighborhood Guide")}
                     {this.navLink("About", "About")}
                     {this.navLink("FAQ", "FAQ")}
-                    {this.navLink("Delivery", "Delivery")}
-                    {this.navLink("Restaurants", "Restaurants")}
-                    {this.navLink("Shopping", "Shopping")}
-                    {this.navLink("ThingsToDo", "Things to Do")}
-                    {this.navLink("Transportation", "Transportation")}
-                    {this.navLink("AdultCare", "Adult Care")}
                     <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity = { .5 } onPress={ this.ButtonClickCheckFunction }>
                         <Text style={styles.TextStyle}>Donate</Text>
                     </TouchableOpacity>
