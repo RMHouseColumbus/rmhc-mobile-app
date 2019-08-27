@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, Footer, FooterTab, Button, Icon } from 'native-base';
 
-export default class FooterTabsIconExample extends Component {
+export default class BaseFooter extends Component {
     constructor(props){
         super(props);
     }
   render() {
     return (
-      <Container styles={{backgroundColor:"#FFFFFF"}}>
+      <Container>
         <Content />
         <Footer>
           <FooterTab>

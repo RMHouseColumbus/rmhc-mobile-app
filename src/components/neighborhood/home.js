@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
-
+import BaseFooter from '../base/footer.js'
 
 export default class Neighborhood extends React.Component {
 
@@ -33,6 +33,7 @@ export default class Neighborhood extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
+                <BaseFooter navigation={this.props.navigation}/>
             </View>
         );
     }

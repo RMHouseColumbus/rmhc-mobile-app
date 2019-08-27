@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import BaseFooter from '../base/footer.js'
 
 export default class Facilities extends React.Component {
     static navigationOptions = {
@@ -15,6 +15,7 @@ export default class Facilities extends React.Component {
                       
                     </View>
                 </View>
+                <BaseFooter navigation={this.props.navigation}/>
             </View>
         );
     }

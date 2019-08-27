@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, StatusBar, TouchableOpacity } from 'react-native';
-import Footer from './footer.js'
+import BaseFooter from './footer.js'
 
 export default class Home extends React.Component {
 
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
                     </View>
                 </View>
                 
-                <Footer navigation={this.props.navigation}/>
+                <BaseFooter navigation={this.props.navigation}/>
                 
             </View>
 

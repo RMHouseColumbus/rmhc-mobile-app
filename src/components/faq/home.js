@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
-
+import BaseFooter from '../base/footer.js'
 
 export default class Faq extends React.Component {
 
@@ -16,6 +16,7 @@ export default class Faq extends React.Component {
                         
                     </View>
                 </View>
+                <BaseFooter navigation={this.props.navigation}/>
             </View>
         );
     }

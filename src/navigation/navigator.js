@@ -134,8 +134,9 @@ const neigborhood = createStackNavigator(
 
 const DrawerNavigator = createDrawerNavigator(
     {
-
         Home: createStackNavigator({ Home: Home }, defaultNavConfigs),
+        Meals: createStackNavigator({ Meals: Meals }, defaultNavConfigs),
+        Facilities: createStackNavigator({ Facilities: Facilities }, defaultNavConfigs),
         Updates: createStackNavigator({ Updates: Updates }, defaultNavConfigs),
         About: createStackNavigator({ About: About }, defaultNavConfigs),
         Activities: createStackNavigator({ Activities: Activities }, defaultNavConfigs),

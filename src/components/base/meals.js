@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
-
+import BaseFooter from './footer.js'
 export default class Meals extends React.Component {
 
     static navigationOptions = {
@@ -16,6 +16,7 @@ export default class Meals extends React.Component {
                        
                     </View>
                 </View>
+                <BaseFooter navigation={this.props.navigation}/>
             </View>
         );
     }

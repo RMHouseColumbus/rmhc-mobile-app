@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, Text, View, StatusBar, ActivityIndicator } from 'react-native';
 import { Container, Content, Card, CardItem } from 'native-base'
-
+import BaseFooter from './footer.js'
 
 
 const content = require('../../services/content.json');
@@ -73,7 +73,6 @@ export default class Activities extends React.Component {
                            )
                        })
                    }
-               
            </Content>
          </Container>
             )
