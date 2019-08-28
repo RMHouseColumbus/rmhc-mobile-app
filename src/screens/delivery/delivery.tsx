@@ -37,8 +37,6 @@ export default class Delivery extends React.Component<DeliveryScreenProps, objec
     static navigationOptions = {
         title: 'DELIVERY',
     };
-
-
     render() {
         return (
             <View style={FULL}>

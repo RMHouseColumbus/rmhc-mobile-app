@@ -16,23 +16,16 @@ export default class Activities extends React.Component {
 
     static navigationOptions = {
 
-        title: 'Activities',  
-    //     headerStyle: {
-    //         backgroundColor: '#FFFFFF',
-    //         color:"#000000"
-    //     }, 
-    //     headerTitleStyle: {
-    //         color: '#000000',
-    //         fontFamily: "System",
-    //         fontSize: 35,
-    // },
-    //     headerLeft: (
-    //         <Icon type="Ionicons" name='menu'
-    //             style={{ paddingLeft: 10, color:"#000000"}}
-    //             onPress={() => navigation.openDrawer()}
-    //             name="md-menu"
-    //             size={30}
-    //         />),
+        title: 'Activities',
+        headerStyle: {
+            backgroundColor: '#FFFFFF',
+        },
+        headerTitleStyle: {
+                color: '#000000',
+                fontFamily: "System",
+                fontSize: 35,
+        },
+     
     }     
     //TODO Uncomment when ready to call the data from S3
     // componentDidMount() {

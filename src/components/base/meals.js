@@ -9,10 +9,10 @@ export default class Meals extends React.Component {
     } 
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.main}>
                 <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
-                <View style={{ flex: 0.9, flexDirection: 'row' }}>
-                    <View style={main.container}>
+                <View style={{ flex: 0.9 }}>
+                    <View style={styles.container}>
                        
                     </View>
                 </View>
@@ -24,7 +24,10 @@ export default class Meals extends React.Component {
     }
 }
 
-const main = StyleSheet.create({
+const styles = StyleSheet.create({
+    main:{
+        flex: 1, backgroundColor: "#F1F1F1" 
+    },
     container:{
         flex:1,
         marginLeft:20,

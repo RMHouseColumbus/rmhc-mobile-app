@@ -6,8 +6,7 @@ import BaseFooter from './footer.js'
 export default class Home extends React.Component {
 
     static navigationOptions = {
-
-        title: 'Welcome'
+        title: 'Welcome',
     }
     render() {
         return (
@@ -24,16 +23,13 @@ export default class Home extends React.Component {
                     <BaseFooter navigation={this.props.navigation} />
                 </View>
             </View>
-
-
-
         );
     }
 }
 
 const styles = StyleSheet.create({
     main:{
-        flex: 1, backgroundColor: "#F9F9F9" 
+        flex: 1, backgroundColor: "#F1F1F1" 
     },
     container: {
         flex: 1,

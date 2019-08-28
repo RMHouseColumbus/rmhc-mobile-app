@@ -32,7 +32,9 @@ const navHeaderTitleStyle = {
     color: '#FFFFFF',
     fontFamily: "System",
     fontSize: 35,
-
+    alignSelf:'center',
+    justifyContent: 'space-between',
+    textAlign: 'center'
 }
 
 const defaultNavConfigs = {
@@ -45,14 +47,10 @@ const defaultNavConfigs = {
                 size={30}
             />),
         headerStyle: navHeaderStyle,
-        headerTitleStyle: navHeaderTitleStyle
+        headerTitleStyle: navHeaderTitleStyle,
+        headerLayoutPreset:'center',
+        headerMode:'none'
     })
-}
-const defaultTabIcons = {
-    showLabel: false,
-    showIcon: true,
-    activeTintColor: 'red',
-    inactiveTintColor: 'black',
 }
 
 const subNeigborhood = createStackNavigator(
