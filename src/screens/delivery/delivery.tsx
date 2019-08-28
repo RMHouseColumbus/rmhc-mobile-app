@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, TextStyle, View, ViewStyle, StatusBar } from "react-native"
+import { Text, TextStyle, View, ViewStyle, StatusBar, TouchableOpacity } from "react-native"
+import { NavigationScreenProp } from 'react-navigation'
 import { spacing } from "../../components/shared/spacing";
 import { Header } from "../../components/header/header";
 import BaseFooter from '../../components/base/footer.js'
@@ -27,9 +28,11 @@ const CONTENT = {
     ]
 };
 
+export interface DeliveryScreenProps {
+    navigation: NavigationScreenProp<any,any>
+  };
 
-export default class Delivery extends React.Component {
-
+export default class Delivery extends React.Component<DeliveryScreenProps, object> {
 
     static navigationOptions = {
         title: 'DELIVERY',
@@ -42,6 +45,9 @@ export default class Delivery extends React.Component {
                 <StatusBar backgroundColor="#4872ae" barStyle="dark-content" />
                 <View>
                     <Header headerText={CONTENT.heading} titleStyle={TITLE}/>
+                    <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Neighborhood")}>
+                            <Text>Back</Text>
+                        </TouchableOpacity>
                     <View>
                         {
                             CONTENT.carriers.map(c => {

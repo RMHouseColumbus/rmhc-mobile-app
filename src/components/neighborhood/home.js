@@ -6,12 +6,19 @@ import BaseFooter from '../base/footer.js'
 export default class Neighborhood extends React.Component {
 
     static navigationOptions = {
-
-        title: 'Neighborhood',
+        title: "Neighborhood",
+        headerStyle: {
+            backgroundColor: '#FFFFFF',
+        },
+        headerTitleStyle: {
+            color: '#000000',
+            fontFamily: "System",
+            fontSize: 35,
         
-        
+        }
+      };
 
-    }
+
     render() {
         return (
             <View style={styles.main}>

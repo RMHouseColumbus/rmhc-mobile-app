@@ -12,7 +12,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <View style={styles.main}>
-                <StatusBar backgroundColor="#4872ae" barStyle="default" style={{color:"#FFFFFF"}}/>
+                <StatusBar backgroundColor="#4872ae" barStyle="dark-content" style={{color:"#FFFFFF"}}/>
                 <View style={{ flex: 0.9 }}>
                     <View style={styles.container}>
                         <Text style={styles.welcomeText}>Welcome</Text>

@@ -34,12 +34,7 @@ const navHeaderTitleStyle = {
     fontSize: 35,
 
 }
-const defaultStackConfigs = {
-    defaultNavigationOptions: ({ navigation }) => ({
-        headerStyle: navHeaderStyle,
-        headerTitleStyle: navHeaderTitleStyle
-    })
-}
+
 const defaultNavConfigs = {
     defaultNavigationOptions: ({ navigation }) => ({
         headerLeft: (
@@ -69,7 +64,7 @@ const subNeigborhood = createStackNavigator(
         ThingsToDo:ThingsToDo,
         Transportation:Transportation,
         AdultCare: AdultCare
-    },defaultStackConfigs,
+    },defaultNavConfigs,
     {initialRouteName:"Neighborhood"});
 
 
