@@ -56,9 +56,9 @@ export default class Neighborhood extends React.Component {
                         <SVGButton text={"Transportation"} onPress={() => this.props.navigation.navigate("Transportation")}>
                             <Transportation {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Adult Medical Care"} onPress={() => this.props.navigation.navigate("AdultCare")}>
-                            <MedCare {...SVG}/>
-                        </SVGButton>
+                        {/*<SVGButton text={"Adult Medical Care"} onPress={() => this.props.navigation.navigate("AdultCare")}>*/}
+                        {/*    <MedCare {...SVG}/>*/}
+                        {/*</SVGButton>*/}
                     </View>
                     <View style={{flex: .1}}>
                         <BaseFooter navigation={this.props.navigation}/>

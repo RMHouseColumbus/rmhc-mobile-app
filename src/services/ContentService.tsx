@@ -11,6 +11,14 @@ export class ContentService {
             });
     }
 
+    public static contentForPageLoad(page: string): Promise<any> {
+        return this.load()
+            .then(json => {
+                this.content = json;
+                return json[page];
+            });
+    }
+
     public static contentForPage(page: string): Promise<any> {
         let content = this.content;
         if (content === null || content === undefined) {

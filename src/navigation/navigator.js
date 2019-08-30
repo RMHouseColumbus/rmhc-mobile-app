@@ -14,14 +14,13 @@ import Restaurants from "../screens/restaurants/restaurants";
 import Shopping from "../screens/shopping/shopping";
 import ThingsToDo from "../screens/things-to-do/things-to-do";
 import Transportation from "../screens/transportation/transportation";
-import AdultCare from "../screens/adult-care/adult-care";
 import Updates from "../components/base/updates";
 import Activities from "../components/base/activities";
 
 
 const navHeaderStyle = {
     backgroundColor: '#4872ae',
-}
+};
 
 const navHeaderTitleStyle = {
     color: '#FFFFFF',
@@ -30,7 +29,7 @@ const navHeaderTitleStyle = {
     alignSelf: 'center',
     justifyContent: 'space-between',
     textAlign: 'center'
-}
+};
 
 const defaultNavConfigs = {
     defaultNavigationOptions: ({navigation}) => ({
@@ -55,8 +54,7 @@ const subNeigborhood = createStackNavigator(
         Restaurants: Restaurants,
         Shopping: Shopping,
         ThingsToDo: ThingsToDo,
-        Transportation: Transportation,
-        AdultCare: AdultCare
+        Transportation: Transportation
     }, defaultNavConfigs,
     {initialRouteName: "Neighborhood"});
 
