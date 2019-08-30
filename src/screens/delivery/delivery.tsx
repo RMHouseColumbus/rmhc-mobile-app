@@ -3,6 +3,8 @@ import {Text, TextStyle, View, ViewStyle, StatusBar, TouchableOpacity} from "rea
 import {NavigationScreenProp} from 'react-navigation'
 import BaseFooter from '../../components/base/footer.js'
 import LeftArrow from '../../images/left_arrow.svg';
+import {getStatusBar} from '../../components/statusBar/statusBar';
+
 const FULL: ViewStyle = {
     flex: 1,
     padding: 20
@@ -42,7 +44,9 @@ export default class Delivery extends React.Component<DeliveryScreenProps, objec
     render() {
         return (
             <View style={FULL}>
-                <StatusBar backgroundColor="#4872ae" barStyle="dark-content"/>
+                {
+                    getStatusBar()
+                }
                 <View>
                     <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={() => this.props.navigation.navigate("Neighborhood")}>
                         <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
