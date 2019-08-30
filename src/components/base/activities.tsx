@@ -1,59 +1,64 @@
-import React, { Fragment } from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, StatusBar, ActivityIndicator } from 'react-native';
-import { Container, Content, Card, CardItem, Icon } from 'native-base'
+import React from 'react';
+import {ActivityIndicator, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {Card, CardItem, Container, Content} from 'native-base'
 import BaseFooter from './footer.js'
+import {ContentService} from "../../services/ContentService";
+import {NavigationNavigatorProps} from "react-navigation";
+
+interface ActivitiesState {
+    isLoading: boolean,
+    activities: any
+}
+
+export interface ActivityProps extends NavigationNavigatorProps {
+}
 
 
-const content = require('../../services/content.json');
-export default class Updates extends React.Component {
+export default class Activities extends React.Component<ActivityProps, ActivitiesState> {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             isLoading: false,
-            updates: content.updates.content
+            activities: []
         }
     }
 
     static navigationOptions = {
 
-        title: 'Updates',
+        title: 'Activities',
         headerStyle: {
             backgroundColor: '#FFFFFF',
         },
-        // },
         headerTitleStyle: {
-                color: '#000000',
-                fontFamily: "System",
-                fontSize: 35,
+            color: '#000000',
+            fontFamily: "System",
+            fontSize: 35,
         },
-     }
-    //TODO Uncomment when ready to call the data from S3
-    // componentDidMount() {
-    //     return fetch("")
-    //         .then( (response) =>response.json() )
-    //         .then( (responseJson) =>{
-    //             this.setState({
-    //                 isLoading:false,
-    //                 content:responseJson.content
-    //             })
-    //         })
-    //         .catch((error)=> {
-    //             console.log(error)
-    //     });
 
+    };
 
-    // }
+    componentDidMount(): void {
+        ContentService.contentForPage("activities")
+            .then((result) => {
+                    this.setState({
+                        isLoading: false,
+                        activities: result.content
+                    })
+                }
+            )
+    }
 
 
     render() {
+        const {isLoading, activities} = this.state;
 
-        if (this.state.isLoading) {
+        if (isLoading) {
             return (
-                <View style={{ flex: 1 }}>
-                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF" />
-                    <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{flex: 1}}>
+                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
+                    <View style={{flex: 1, flexDirection: 'row'}}>
                         <View style={main.container}>
-                            <ActivityIndicator />
+                            <ActivityIndicator/>
                         </View>
                     </View>
                 </View>
@@ -61,17 +66,18 @@ export default class Updates extends React.Component {
         } else {
             return (
                 <React.Fragment>
-                    <View style={{ flex: 10 }}>
-                    <StatusBar barStyle="dark-content" style={{color:"#FFFFFF"}} backgroundColor="#FFFFFF" />
+                    <View style={{flex: 10}}>
+                        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                         <Container>
 
                             <Content style={main.body}>
 
+
                                 {
-                                    this.state.updates.map((item, index) => {
+                                    activities.map((item, index) => {
                                         return (
                                             <Card key={index} style={main.card}>
-                                                <CardItem bordered key={index} style={{ borderRadius: 20 }}>
+                                                <CardItem bordered key={index} style={{borderRadius: 20}}>
                                                     <View>
                                                         <Text style={main.textType}>{item.type}</Text>
                                                         <Text style={main.textTitle}>{item.title}</Text>
@@ -82,14 +88,12 @@ export default class Updates extends React.Component {
                                         )
                                     })
                                 }
-
                             </Content>
-
                         </Container>
                     </View>
 
-                    <View style={{ flex: 1 }}>
-                        <BaseFooter navigation={this.props.navigation} />
+                    <View style={{flex: 1}}>
+                        <BaseFooter navigation={this.props.navigation}/>
 
                     </View>
                 </React.Fragment>
@@ -101,7 +105,7 @@ export default class Updates extends React.Component {
 
 const main = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 10,
         marginLeft: 20,
         top: 50
     },
@@ -116,7 +120,7 @@ const main = StyleSheet.create({
         top: "2%",
         width: "86%"
     },
-    body: { flex: 10, backgroundColor: "#638dc9" },
+    body: {flex: 1, backgroundColor: "#638dc9"},
     textType: {
         fontFamily: "System",
         fontSize: 12,

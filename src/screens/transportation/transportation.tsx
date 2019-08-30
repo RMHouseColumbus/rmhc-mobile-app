@@ -1,66 +1,41 @@
 import React from 'react';
-import { Text, TextStyle, View, ViewStyle } from "react-native"
-import { spacing } from "../../components/shared/spacing";
-import { Header } from "../../components/header/header";
+import {Text, TextStyle, View, ViewStyle} from "react-native"
+import {spacing} from "../../components/shared/spacing";
+import {Header} from "../../components/header/header";
+import {ContentService} from "../../services/ContentService";
 
-const FULL: ViewStyle = { flex: 1 };
+const FULL: ViewStyle = {flex: 1};
 
-const CONTENT = {
-    header: "Find ride share information by visiting:",
-    rideshare: [
-        {
-            id: 0,
-            name: 'Lyft',
-            url: 'https://www.lyft.com'
-        },
-        {
-            id: 1,
-            name: 'Uber',
-            url: 'https://www.uber.com'
+export interface TransportationState {
+    content: any
+}
+
+export default class Transportation extends React.Component<{}, TransportationState> {
+
+    public constructor(props) {
+        super(props);
+        this.state = {
+            content: {
+                rideshare: [],
+                services: [],
+                header: "Find ride share information by visiting:"
+            }
         }
-    ],
-    services: [
-        {
-            id: 0,
-            name: "Cab Services",
-            values: [
-                {
-                    name: "Yellow Cab of Columbus",
-                    contact: '614-444-4445'
-                },
-                {
-                    name: "Express Cab of Columbus",
-                    contact: '614-822-8666'
-                },
-                {
-                    name: "Ohio Taxi Service",
-                    contact: '614-562-7959'
-                }
-            ]
-        },
-        {
-            id: 1,
-            name: "Public Transportation",
-            values: [
-                {
-                    name: "Central Ohio Transit Authority (COTA)",
-                    sub: "COTA Trip Planner:",
-                    contact: "https://www.cota.com/trip-planner"
-                }
-            ]
-        }
-    ]
-};
+    }
 
-
-export default class Transportation extends React.Component {
+    componentDidMount(): void {
+        const data = ContentService.contentForPage("transportation");
+        this.setState({
+            content: data
+        })
+    }
 
     static navigationOptions = {
         title: 'TRANSPORTATION',
     };
 
-
     render() {
+        const CONTENT = this.state.content;
         return (
             <View style={FULL}>
                 <View>
@@ -101,7 +76,7 @@ export default class Transportation extends React.Component {
             <View key={c.id} style={SECTION}>
                 <Text style={BOLD}>{c.name}</Text>
                 {
-                    c.values.map((v,i) => {
+                    c.values.map((v, i) => {
                         return (
                             <View key={i}>
                                 <Text>{v.name}:{v.contact}</Text>
@@ -115,7 +90,7 @@ export default class Transportation extends React.Component {
 
 }
 
-const BOLD: TextStyle = { fontWeight: "bold" };
+const BOLD: TextStyle = {fontWeight: "bold"};
 
 const TITLE: TextStyle = {
     ...BOLD,
