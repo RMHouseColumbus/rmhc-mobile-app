@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native"
+import {ActivityIndicator, Linking, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native"
 import {NavigationScreenProps} from 'react-navigation'
 import BaseFooter from '../../components/base/footer.js'
 import LeftArrow from '../../images/left_arrow.svg';
@@ -103,7 +103,8 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
         return (
             <View key={c.id}>
                 <Text style={CONTENTSTYLE}>{c.name}</Text>
-                <Text style={LINKSTYLE}>{c.url}</Text>
+                <Text onPress={() => Linking.openURL(c.url)}
+                    style={LINKSTYLE}>{c.url}</Text>
             </View>
         )
     }
