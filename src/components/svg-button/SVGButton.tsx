@@ -17,6 +17,7 @@ const SVG : ViewStyle = {
     flexDirection : 'row',
     width: 333,
     height: 81,
+    backgroundColor: '#FFFFFF',
 };
 
 const BOLD: TextStyle = { fontWeight: "bold" };
@@ -26,7 +27,7 @@ const TEXT: TextStyle = {
     fontSize: 15,
     lineHeight: 38,
     textAlign: "center",
-    marginBottom: spacing[5],
+    maxWidth: 162
 };
 
 export class SVGButton extends React.Component<SVGButtonProps, {}> {

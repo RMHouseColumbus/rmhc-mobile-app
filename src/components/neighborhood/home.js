@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import BaseFooter from '../base/footer.js'
 
 
@@ -15,9 +15,9 @@ import {spacing} from "../shared/spacing";
 
 
 const SVG = {
-    width: 333,
-    height: 81,
-    marginBottom: spacing[4]
+    width: 200,
+    height: 52,
+    // marginBottom: spacing[4]
 };
 
 export default class Neighborhood extends React.Component {
@@ -37,7 +37,7 @@ export default class Neighborhood extends React.Component {
 
     render() {
         return (
-            <View style={styles.main}>
+            <ScrollView style={styles.main}>
                 <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     <View style={styles.container}>
@@ -60,23 +60,23 @@ export default class Neighborhood extends React.Component {
                             <MedCare {...SVG}/>
                         </SVGButton>
                     </View>
+                    <View style={{flex: .1}}>
+                        <BaseFooter navigation={this.props.navigation}/>
+                    </View>
                 </View>
-                <View style={{flex: 0.1}}>
-                    <BaseFooter navigation={this.props.navigation}/>
-                </View>
-            </View>
+
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
     main: {
-        flex: 10, backgroundColor: "#ffffff"
+        flex: 10, backgroundColor: "#638dc9"
     },
     container: {
         flex: 1,
         marginLeft: 20,
-        top: 50,
     },
     welcomeText: {
         fontFamily: "System",
