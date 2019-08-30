@@ -69,6 +69,6 @@ export default class Restaurants extends React.Component {
 
 const BOLD: TextStyle = { fontWeight: "bold" };
 const ROW: ViewStyle = {
-    marginTop: spacing[5]
+    marginBottom: spacing[5]
 };
 
