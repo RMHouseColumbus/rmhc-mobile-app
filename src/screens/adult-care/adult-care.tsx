@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, TextStyle, View, ViewStyle } from "react-native"
+import {StatusBar, Text, TextStyle, TouchableOpacity, View, ViewStyle} from "react-native"
 import { spacing } from "../../components/shared/spacing";
 import { Header } from "../../components/header/header";
+import LeftArrow from '../../images/left_arrow.svg';
 
-const FULL: ViewStyle = { flex: 1 };
+const FULL: ViewStyle = { flex: 1, padding: 20 };
 
 const CONTENT = {
     providers: [
@@ -29,8 +30,14 @@ export default class AdultCare extends React.Component {
     render() {
         return (
             <View style={FULL}>
+                <StatusBar backgroundColor="#4872ae" barStyle="dark-content"/>
                 <View>
-                    <View style={{marginTop: spacing[1] }}>
+                    <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={() => this.props.navigation.navigate("Neighborhood")}>
+                        <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
+                        <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
+                    </TouchableOpacity>
+
+                    <View>
                         {
                             CONTENT.providers.map(c => {
                                 return (

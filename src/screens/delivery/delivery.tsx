@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TextStyle, View, ViewStyle, StatusBar, TouchableOpacity} from "react-native"
 import {NavigationScreenProp} from 'react-navigation'
 import BaseFooter from '../../components/base/footer.js'
-import LeftArrow from "../../images/left_arrow.svg";
+import LeftArrow from '../../images/left_arrow.svg';
 const FULL: ViewStyle = {
     flex: 1,
     padding: 20
@@ -70,13 +70,13 @@ export default class Delivery extends React.Component<DeliveryScreenProps, objec
     private carrierRow(c: any) {
         return (
             <View key={c.id}>
-                <Text style={CARRIERNAMESTYLE}>{c.name}</Text>
-                <Text style={CARRIERTEXTSTYLE}>{c.url}</Text>
+                <Text style={CONTENTSTYLE}>{c.name}</Text>
+                <Text style={LINKSTYLE}>{c.url}</Text>
             </View>
         )
     }
 }
-const CARRIERNAMESTYLE : TextStyle = {
+const CONTENTSTYLE : TextStyle = {
     fontWeight: 'bold',
     fontSize: 16,
     lineHeight: 24,
@@ -84,7 +84,7 @@ const CARRIERNAMESTYLE : TextStyle = {
     marginBottom: 5,
 };
 
-const CARRIERTEXTSTYLE : TextStyle = {
+const LINKSTYLE : TextStyle = {
     color: "#0078d7",
     fontSize: 16,
     lineHeight: 24,

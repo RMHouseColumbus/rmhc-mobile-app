@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, TextStyle, View, ViewStyle } from "react-native"
+import {StatusBar, Text, TextStyle, TouchableOpacity, View, ViewStyle} from "react-native"
 import { spacing } from "../../components/shared/spacing";
+import LeftArrow from '../../images/left_arrow.svg';
 
-const FULL: ViewStyle = { flex: 1 };
+const FULL: ViewStyle = { flex: 1, padding: 20};
 
 const CONTENT = {
     restaurants: [
@@ -37,6 +38,10 @@ export default class Restaurants extends React.Component {
         return (
             <View style={FULL}>
                 <View>
+                    <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={() => this.props.navigation.navigate("Neighborhood")}>
+                        <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
+                        <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
+                    </TouchableOpacity>
                     {
                         CONTENT.restaurants.map(c => {
                             return (
