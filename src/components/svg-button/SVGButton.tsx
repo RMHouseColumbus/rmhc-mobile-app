@@ -27,8 +27,8 @@ const SVG : ViewStyle = {
 const TEXT: TextStyle = {
     fontSize: 25,
     flex: 1,
-    alignSelf: 'flex-start',
-    justifyContent: 'center',
+    // alignSelf: 'flex-start',
+    // justifyContent: 'center',
     paddingTop: 19
 };
 

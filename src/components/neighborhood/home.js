@@ -31,8 +31,7 @@ export default class Neighborhood extends React.Component {
         headerTitleStyle: {
             color: '#000000',
             fontFamily: "System",
-            fontSize: 35,
-
+            fontSize: 25,
         }
     };
 
