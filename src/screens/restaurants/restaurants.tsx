@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, TextStyle, View, ViewStyle } from "react-native"
 import { spacing } from "../../components/shared/spacing";
-import { Header } from "../../components/header/header";
 
 const FULL: ViewStyle = { flex: 1 };
 
@@ -37,15 +36,15 @@ export default class Restaurants extends React.Component {
     render() {
         return (
             <View style={FULL}>
-                    <View>
-                        {
-                            CONTENT.restaurants.map(c => {
-                                return (
-                                    this.restaurantRow(c)
-                                )
-                            })
-                        }
-                    </View>
+                <View>
+                    {
+                        CONTENT.restaurants.map(c => {
+                            return (
+                                this.restaurantRow(c)
+                            )
+                        })
+                    }
+                </View>
             </View>
         );
     }
@@ -64,16 +63,7 @@ export default class Restaurants extends React.Component {
 }
 
 const BOLD: TextStyle = { fontWeight: "bold" };
-
-const TITLE: TextStyle = {
-    ...BOLD,
-    fontSize: 15,
-    lineHeight: 38,
-    textAlign: "center",
-    marginBottom: spacing[5],
-};
-
-const ROW : ViewStyle = {
+const ROW: ViewStyle = {
     marginTop: spacing[5]
-} ;
+};
 

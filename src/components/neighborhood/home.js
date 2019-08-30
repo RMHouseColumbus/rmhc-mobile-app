@@ -1,7 +1,24 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View, StatusBar } from 'react-native';
-import { Icon } from 'native-base'
+import {StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import BaseFooter from '../base/footer.js'
+
+
+import Delivery from "./delivery.svg";
+import Restaurants from "./restaurants.svg";
+import MedCare from "./medcare.svg";
+import Shopping from "./shoppping.svg";
+import ToDo from "./toDo.svg";
+import Transportation from "./transporation.svg";
+
+import {SVGButton} from "../svg-button/SVGButton";
+import {spacing} from "../shared/spacing";
+
+
+const SVG = {
+    width: 333,
+    height: 81,
+    marginBottom: spacing[4]
+};
 
 export default class Neighborhood extends React.Component {
 
@@ -14,39 +31,38 @@ export default class Neighborhood extends React.Component {
             color: '#000000',
             fontFamily: "System",
             fontSize: 35,
-        
-        }
-      };
 
+        }
+    };
 
     render() {
         return (
             <View style={styles.main}>
-                <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
-                <View style={{ flex: 1, flexDirection: 'row' }}>
+                <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
+                <View style={{flex: 1, flexDirection: 'row'}}>
                     <View style={styles.container}>
-                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Delivery")}>
-                            <Text>Delivery</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Restaurants")}>
-                            <Text>Restaurants</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Shopping")}>
-                            <Text>Shopping</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("ThingsToDo")}>
-                            <Text>Things To Do</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("Transportation")}>
-                            <Text>Transportation</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ height: 50 }} onPress={() => this.props.navigation.navigate("AdultCare")}>
-                            <Text>Adult Care</Text>
-                        </TouchableOpacity>
+                        <SVGButton text={"Food Delivery"} onPress={() => this.props.navigation.navigate("Delivery")} >
+                            <Delivery {...SVG}/>
+                        </SVGButton>
+                        <SVGButton text={"Area Restaurants"} onPress={() => this.props.navigation.navigate("Restaurants")} >
+                            <Restaurants {...SVG}/>
+                        </SVGButton>
+                        <SVGButton text={"Shopping"}  onPress={() => this.props.navigation.navigate("Shopping")}>
+                            <Shopping {...SVG}/>
+                        </SVGButton>
+                        <SVGButton text={"Things to Do in Columbus"} onPress={() => this.props.navigation.navigate("ThingsToDo")}>
+                            <ToDo {...SVG}/>
+                        </SVGButton>
+                        <SVGButton text={"Transportation"} onPress={() => this.props.navigation.navigate("Transportation")}>
+                            <Transportation {...SVG}/>
+                        </SVGButton>
+                        <SVGButton text={"Adult Medical Care"} onPress={() => this.props.navigation.navigate("AdultCare")}>
+                            <MedCare {...SVG}/>
+                        </SVGButton>
                     </View>
                 </View>
-                 <View style={{ flex: 0.1 }}>
-                    <BaseFooter navigation={this.props.navigation} />
+                <View style={{flex: 0.1}}>
+                    <BaseFooter navigation={this.props.navigation}/>
                 </View>
             </View>
         );
@@ -54,8 +70,8 @@ export default class Neighborhood extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    main:{
-        flex: 10, backgroundColor: "#638dc9" 
+    main: {
+        flex: 10, backgroundColor: "#ffffff"
     },
     container: {
         flex: 1,
