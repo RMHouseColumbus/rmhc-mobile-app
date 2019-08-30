@@ -14,7 +14,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <View style={styles.main}>
-                <Henry navigation={this.props.navigation} style={{ position: 'absolute', bottom: 249, zIndex: 1000, left: 50}}/>
+
                 <StatusBar backgroundColor="#4872ae" barStyle="dark-content" style={{color:"#FFFFFF"}}/>
 
                 <View style={{ flex: 1 }}>
@@ -23,8 +23,10 @@ export default class Home extends React.Component {
 
                 <Logo style={{flex: 5, alignSelf: 'center'}}></Logo>
 
-                <View style={{ flex: 3, alignSelf: 'center', flexDirection: 'row'}}>
-                    <Bubble navigation={this.props.navigation} style={{ position: 'absolute', top: 20, zIndex: 1000, left: -15}}/>
+                <View style={{ flex: 3, alignSelf: 'stretch', flexDirection: 'row'}}>
+                    <Henry width={375} height={400}
+                           style={{ alignSelf: 'stretch'}}/>
+                    {/*<Bubble navigation={this.props.navigation} style={{ position: 'absolute', top: 20, zIndex: 1000, left: -15}}/>*/}
                 </View>
                 <View style={{ flex: 1.5, backgroundColor: "#4872ae", padding: 40}}>
                     <Text style={{color: '#ffffff', fontSize: 40, alignSelf: 'center'}}>Manage Your Stay With Us.</Text>
