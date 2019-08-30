@@ -3,7 +3,8 @@ import {Text, TextStyle, View, ViewStyle, StatusBar, TouchableOpacity} from "rea
 import {NavigationScreenProp} from 'react-navigation'
 import BaseFooter from '../../components/base/footer.js'
 import LeftArrow from '../../images/left_arrow.svg';
-import {getStatusBar} from '../../components/statusBar/statusBar';
+import {getStatusBar} from '../../components/shared/statusBar';
+import { CONTENTSTYLE, LINKSTYLE, TITLE } from '../../components/shared/fonts';
 
 const FULL: ViewStyle = {
     flex: 1,
@@ -80,26 +81,5 @@ export default class Delivery extends React.Component<DeliveryScreenProps, objec
         )
     }
 }
-const CONTENTSTYLE : TextStyle = {
-    fontWeight: 'bold',
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: 0,
-    marginBottom: 5,
-};
 
-const LINKSTYLE : TextStyle = {
-    color: "#0078d7",
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: 0,
-    marginBottom: 15
-};
-
-const TITLE: TextStyle = {
-    fontSize: 16,
-    lineHeight: 24,
-    letterSpacing: 0,
-    marginBottom: 20
-};
 
