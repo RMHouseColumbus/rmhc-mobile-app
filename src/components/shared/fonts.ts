@@ -5,7 +5,14 @@ export const CONTENTSTYLE : TextStyle = {
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0,
-    marginBottom: 5,
+    marginBottom: 1,
+};
+
+export const TEXTSTYLE : TextStyle = {
+    fontSize: 16,
+    lineHeight: 24,
+    letterSpacing: 0,
+    marginBottom: 1,
 };
 
 export const LINKSTYLE : TextStyle = {

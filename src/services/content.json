@@ -44,7 +44,7 @@
   },
   "transportation": {
     "header": "Find ride share information by visiting:",
-    "rideshare": [
+    "Rideshare": [
       {
         "id": 0,
         "name": "Lyft",
@@ -56,35 +56,29 @@
         "url": "https://www.uber.com"
       }
     ],
-    "services": [
+    "CabServices": [
       {
         "id": 0,
-        "name": "Cab Services",
-        "values": [
-          {
-            "name": "Yellow Cab of Columbus",
-            "contact": "614-444-4445"
-          },
-          {
-            "name": "Express Cab of Columbus",
-            "contact": "614-822-8666"
-          },
-          {
-            "name": "Ohio Taxi Service",
-            "contact": "614-562-7959"
-          }
-        ]
+        "name": "Yellow Cab of Columbus",
+        "contact": "614-444-4445"
       },
       {
         "id": 1,
-        "name": "Public Transportation",
-        "values": [
-          {
-            "name": "Central Ohio Transit Authority (COTA)",
-            "sub": "COTA Trip Planner:",
-            "contact": "https://www.cota.com/trip-planner"
-          }
-        ]
+        "name": "Express Cab of Columbus",
+        "contact": "614-822-8666"
+      },
+      {
+        "id": 2,
+        "name": "Ohio Taxi Service",
+        "contact": "614-562-7959"
+      }
+    ],
+    "PublicTransportation": [
+      {
+        "id": 0
+        "name": "Central Ohio Transit Authority (COTA)",
+        "sub": "COTA Trip Planner:",
+        "contact": "https://www.cota.com/trip-planner"
       }
     ]
   }
