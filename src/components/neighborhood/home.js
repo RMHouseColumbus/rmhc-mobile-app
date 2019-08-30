@@ -15,8 +15,9 @@ import {spacing} from "../shared/spacing";
 
 
 const SVG = {
-    width: 200,
-    height: 52,
+    // alignSelf: 'flex-end',
+    Width: 200,
+    Height: 52,
     // marginBottom: spacing[4]
 };
 
@@ -72,11 +73,12 @@ export default class Neighborhood extends React.Component {
 
 const styles = StyleSheet.create({
     main: {
-        flex: 10, backgroundColor: "#638dc9"
+        // flex: 1, backgroundColor: "red"
     },
     container: {
-        flex: 1,
-        marginLeft: 20,
+        flex: 15,
+        padding: 20,
+        backgroundColor: "#4872ae"
     },
     welcomeText: {
         fontFamily: "System",

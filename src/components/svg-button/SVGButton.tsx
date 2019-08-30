@@ -8,35 +8,37 @@ interface SVGButtonProps {
 }
 
 const VIEW  : ViewStyle = {
-    marginBottom: spacing[1],
     flex: 1,
-    justifyContent: "space-evenly"
+}
+
+const PARENT  : ViewStyle = {
+    marginBottom: spacing[1],
+    flexDirection : 'row',
+    backgroundColor: '#ffffff',
+    borderRadius: 12,
+    paddingLeft: 20
 };
 
 const SVG : ViewStyle = {
-    flexDirection : 'row',
-    width: 333,
-    height: 81,
-    backgroundColor: '#FFFFFF',
+    alignSelf: 'flex-end',
+    alignContent: 'flex-end'
 };
 
-const BOLD: TextStyle = { fontWeight: "bold" };
-
 const TEXT: TextStyle = {
-    ...BOLD,
-    fontSize: 15,
-    lineHeight: 38,
-    textAlign: "center",
-    maxWidth: 162
+    fontSize: 25,
+    flex: 1,
+    alignSelf: 'flex-start',
+    justifyContent: 'center',
+    paddingTop: 19
 };
 
 export class SVGButton extends React.Component<SVGButtonProps, {}> {
     render() {
         return (
             <View style={VIEW}>
-                <TouchableOpacity onPress={this.props.onPress} style={SVG}>
+                <TouchableOpacity onPress={this.props.onPress} style={PARENT}>
                     <Text style={TEXT}>{this.props.text}</Text>
-                    {this.props.children}
+                    <View style={SVG}>{this.props.children}</View>
                 </TouchableOpacity>
             </View>
         )
