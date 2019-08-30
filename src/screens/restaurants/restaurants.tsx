@@ -49,7 +49,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
             .then((result) => {
                     this.setState({
                         isLoading: false,
-                        restaurants: result.content
+                        restaurants: result.content.restaurants
                     })
                 }
             )
@@ -73,7 +73,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
                     <View>
                         <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
                                           onPress={() => this.props.navigation.navigate("Neighborhood")}>
-                            <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
+                            <LeftArrow stle={{flex: 1}} width={20} height={20}/>
                             <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
                         </TouchableOpacity>
 
