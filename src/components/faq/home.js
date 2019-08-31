@@ -32,26 +32,27 @@ export default class Faq extends React.Component {
 
     render() {
         return (
-            <ScrollView style={styles.main}>
+            <View style={{flex: 10}}>
                 <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
                 <View style={{flex: 1, flexDirection: 'column'}}>
-                    <View style={styles.container}>
-                        <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
-                            <Before {...SVG}/>
-                        </SVGButton>
-                        <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
-                            <During {...SVG}/>
-                        </SVGButton>
+                    <ScrollView style={styles.main}>
+                        <View style={styles.container}>
+                            <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
+                                <Before {...SVG}/>
+                            </SVGButton>
+                            <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
+                                <During {...SVG}/>
+                            </SVGButton>
 
-                        <SVGButton text={"After Your Stay"} onPress={() => this.props.navigation.navigate("After")}>
-                            <After {...SVG}/>
-                        </SVGButton>
-                    </View>
+                            <SVGButton text={"After Your Stay"} onPress={() => this.props.navigation.navigate("After")}>
+                                <After {...SVG}/>
+                            </SVGButton>
+                        </View>
+                    </ScrollView>
                 </View>
-                <View style={{flex: .1}}>
-                    <BaseFooter navigation={this.props.navigation}/>
-                </View>
-            </ScrollView>
+                
+                <BaseFooter navigation={this.props.navigation}/>
+            </View>
         );
     }
 }
