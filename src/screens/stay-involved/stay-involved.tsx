@@ -6,6 +6,7 @@ import {
     StatusBar,
     StyleSheet,
     Text,
+    TextStyle,
     TouchableOpacity,
     View,
     ViewStyle
@@ -14,18 +15,8 @@ import {getStatusBar} from "../../components/shared/statusBar";
 import BaseFooter from "../../components/base/footer";
 import {NavigationScreenProps} from "react-navigation";
 import LeftArrow from "../../images/left_arrow.svg";
-import {TITLE} from "../../components/shared/fonts";
 import {spacing} from "../../components/shared/spacing";
 import {mergeLinkText} from "../../components/link-text-merge/LinkTextMerge";
-
-
-//     Ronald McDonald Family Room Volunteers
-// The Ronald McDonald Family Room at OhioHealth Riverside Methodist Hospital serves as a respite for mothers-to-be and families with babies & children receiving medical care at the hospital. We provide a relaxed space for guests to grab a snack or drink, take a shower, do a load of laundry, or take a quick break just a short distance from the inpatient’s room. To learn more about volunteering at the family room, or to apply to volunteer at this location, click here.
-//     Community Service Hours: If you need to complete service hours for an educational requirement you can do so through our welcome blanket or baking programs. RMHC does not accept volunteers completing court-ordered community service at this time.
-//     For more information, please email Meika.Hilles@rmhc-centralohio.org, Volunteer
-// Manager.
-//
-//     Current Volunteers: Click here to access the scheduling system.
 
 const FULL: ViewStyle = {
     flex: 1,
@@ -57,7 +48,7 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
 
     componentDidMount(): void {
 
-        ContentService.contentForPage("care-mobile")
+        ContentService.contentForPage("stay-involved")
             .then((result) => {
                     this.setState({
                         isLoading: false,
@@ -71,6 +62,7 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
     render() {
         const isLoading = this.state.isLoading;
         const content = this.state.content['values'] || "Content is Unavailable";
+        const paratext = this.state.content.main;
 
         if (isLoading) {
             return this.loadingComponent();
@@ -81,34 +73,34 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
                     {
                         getStatusBar()
                     }
-                    <View>
-                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
+                    <ScrollView >
+                        <TouchableOpacity style={{flexDirection: 'row'}}
                                           onPress={() => this.props.navigation.navigate("About")}>
                             <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
                             <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
                         </TouchableOpacity>
-                        <ScrollView>
+                        <View style={{marginTop: 25}}>
                             <Text>
-                                {content.main}
+                                {paratext}
                             </Text>
-                            <View style={{marginTop: 20}}>
+                            <View>
                                 {
                                     content.map(c => {
                                         return (
                                             <View style={SECTION}>
-                                                <Text style={TITLE}>
+                                                <Text style={INVOLVED_TITLE}>
                                                     {c.title}
                                                 </Text>
-                                                    {
-                                                        mergeLinkText(c.content, c.links)
-                                                    }
+                                                {
+                                                    mergeLinkText(c.content, c.links)
+                                                }
                                             </View>
                                         )
                                     })
                                 }
                             </View>
-                        </ScrollView>
-                    </View>
+                        </View>
+                    </ScrollView>
                     <BaseFooter navigation={this.props}/>
                 </View>
             )
@@ -140,5 +132,14 @@ const main = StyleSheet.create({
 
 
 const SECTION: ViewStyle = {
-    marginTop: spacing[4]
+    marginTop: spacing[3]
+};
+
+
+export const INVOLVED_TITLE: TextStyle = {
+    fontWeight: 'bold',
+    fontSize: 16,
+    lineHeight: 20,
+    letterSpacing: 0,
+    marginBottom: 10
 };
