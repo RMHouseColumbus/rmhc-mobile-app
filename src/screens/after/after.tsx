@@ -8,6 +8,7 @@ import { getStatusBar } from '../../components/shared/statusBar';
 import { CONTENTSTYLE, LINKSTYLE, TEXTSTYLE } from '../../components/shared/fonts';
 import { spacing } from "../../components/shared/spacing";
 import BaseFooter from './footer.js'
+import { mergeLinkText } from '../../components/link-text-merge/LinkTextMerge';
 
 
 const FULL: ViewStyle = {
@@ -93,7 +94,9 @@ export default class After extends React.Component<AfterProps, AfterState> {
                                                     <View>
                                                         <Text style={main.textType}>After Your Stay</Text>
                                                         <Text style={main.textTitle}>{item.question}</Text>
-                                                        <Text style={main.textContent}>{item.answer}</Text>
+                                                        {
+                                                            mergeLinkText(item.answer, item.links)
+                                                        }
                                                     </View>
                                                 </CardItem>
                                             </Card>
