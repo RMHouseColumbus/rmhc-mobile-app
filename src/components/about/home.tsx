@@ -1,6 +1,7 @@
 import React from 'react';
-import {ScrollView, StatusBar, StyleSheet, View} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, View, Linking} from 'react-native';
 import BaseFooter from '../base/footer.js'
+import {NavigationNavigatorProps} from "react-navigation";
 
 
 import CareMobile from "./caremobile.svg";
@@ -9,6 +10,7 @@ import Share from "./share.svg";
 import Staff from "./staff.svg";
 import StayInvolved from "./stayinvolved.svg";
 import {SVGButton} from "../svg-button/SVGButton";
+import {ContentService} from "../../services/ContentService";
 
 
 const SVG = {
@@ -18,7 +20,26 @@ const SVG = {
     // marginBottom: spacing[4]
 };
 
-export default class About extends React.Component {
+export interface AboutState {
+    isLoading: boolean,
+    content: any
+}
+
+export interface AboutProps extends NavigationNavigatorProps {
+    navigation: any
+}
+
+export default class About extends React.Component <AboutProps,AboutState>  {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: true,
+            content: []
+        }
+
+    }
+
 
     static navigationOptions = {
         title: "About",
@@ -32,7 +53,20 @@ export default class About extends React.Component {
         }
     };
 
+
+    componentDidMount(): void {
+        ContentService.contentForPage("about")
+            .then((result) => {
+                    this.setState({
+                        isLoading: false,
+                        content: result.content.links.sharestory
+                    })
+                }
+            )
+    }
+
     render() {
+        const link = this.state.content.url;
         return (
             <ScrollView style={styles.main}>
                 <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
@@ -49,7 +83,7 @@ export default class About extends React.Component {
                             <StayInvolved {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Share Your Story"}
-                                   onPress={() => this.props.navigation.navigate("ThingsToDo")}>
+                                   onPress={() => Linking.openURL(link)}>
                             <Share {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Family Room"}

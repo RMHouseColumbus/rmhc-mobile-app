@@ -2,7 +2,7 @@ import React from 'react';
 import {Dimensions} from 'react-native'
 import {createAppContainer, createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import Home from '../components/base/home.js';
-import About from '../components/about/home.js';
+import About from '../components/about/home';
 import Faq from '../components/faq/home.js';
 import Meals from '../components/base/meals.js';
 import Neighborhood from '../components/neighborhood/home.js';
