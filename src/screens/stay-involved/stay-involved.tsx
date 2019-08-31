@@ -1,12 +1,22 @@
 import * as React from "react";
 import {ContentService} from "../../services/ContentService";
-import {ActivityIndicator, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native";
+import {
+    ActivityIndicator,
+    ScrollView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TouchableOpacity,
+    View,
+    ViewStyle
+} from "react-native";
 import {getStatusBar} from "../../components/shared/statusBar";
 import BaseFooter from "../../components/base/footer";
 import {NavigationScreenProps} from "react-navigation";
 import LeftArrow from "../../images/left_arrow.svg";
 import {TITLE} from "../../components/shared/fonts";
-
+import {spacing} from "../../components/shared/spacing";
+import {mergeLinkText} from "../../components/link-text-merge/LinkTextMerge";
 
 
 //     Ronald McDonald Family Room Volunteers
@@ -60,7 +70,7 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
 
     render() {
         const isLoading = this.state.isLoading;
-        const content = this.state.content || "Content is Unavailable";
+        const content = this.state.content['values'] || "Content is Unavailable";
 
         if (isLoading) {
             return this.loadingComponent();
@@ -72,29 +82,32 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
                         getStatusBar()
                     }
                     <View>
-                        <View>
-                            <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
-                                              onPress={() => this.props.navigation.navigate("About")}>
-                                <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
-                                <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
-                            </TouchableOpacity>
+                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
+                                          onPress={() => this.props.navigation.navigate("About")}>
+                            <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
+                            <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
+                        </TouchableOpacity>
+                        <ScrollView>
                             <Text>
-                                {content.text}
+                                {content.main}
                             </Text>
                             <View style={{marginTop: 20}}>
                                 {
-                                    content.values.map(c => {
+                                    content.map(c => {
                                         return (
-                                            [<Text style={TITLE}>
-                                                {c.title}
-                                            </Text>,
-                                                <Text>{c.content}</Text>
-                                            ]
+                                            <View style={SECTION}>
+                                                <Text style={TITLE}>
+                                                    {c.title}
+                                                </Text>
+                                                    {
+                                                        mergeLinkText(c.content, c.links)
+                                                    }
+                                            </View>
                                         )
                                     })
                                 }
                             </View>
-                        </View>
+                        </ScrollView>
                     </View>
                     <BaseFooter navigation={this.props}/>
                 </View>
@@ -124,3 +137,8 @@ const main = StyleSheet.create({
         top: 50
     }
 });
+
+
+const SECTION: ViewStyle = {
+    marginTop: spacing[4]
+};

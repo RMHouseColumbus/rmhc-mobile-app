@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    ActivityIndicator,
+    ActivityIndicator, ScrollView,
     StatusBar,
     StyleSheet,
     Text,
@@ -70,7 +70,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
         } else {
 
             return (
-                <View style={FULL}>
+                <ScrollView style={FULL}>
                     {
                         getStatusBar()
                     }
@@ -95,7 +95,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
                         </View>
                     </View>
                     <BaseFooter navigation={this.props}/>
-                </View>
+                </ScrollView>
             )
         }
     }
