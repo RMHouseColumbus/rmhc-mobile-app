@@ -33,6 +33,10 @@ export default class ThingsToDo extends React.Component<ThingsToDoProps, ThingsT
 
     static navigationOptions = {
         title: 'Things To Do',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     };
 
     public constructor(props) {

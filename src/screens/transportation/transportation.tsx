@@ -29,6 +29,10 @@ export default class Transportation extends React.Component<TransportationProps,
 
     static navigationOptions = {
         title: 'Transportation',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     };
 
     public constructor(props) {

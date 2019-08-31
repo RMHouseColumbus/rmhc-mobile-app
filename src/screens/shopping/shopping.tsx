@@ -32,6 +32,10 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
 
     static navigationOptions = {
         title: 'Shopping',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     };
 
     public constructor(props) {

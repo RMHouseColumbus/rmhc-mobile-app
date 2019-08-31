@@ -25,6 +25,10 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
 
     static navigationOptions = {
         title: 'DELIVERY',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     };
 
     public constructor(props) {

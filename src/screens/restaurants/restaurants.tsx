@@ -33,6 +33,10 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
 
     static navigationOptions = {
         title: 'Restaurants',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     };
 
     constructor(props) {
