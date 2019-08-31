@@ -96,7 +96,6 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
 
                     <View style={{flex: 1}}>
                         <BaseFooter navigation={this.props.navigation}/>
-
                     </View>
                 </React.Fragment>
             )

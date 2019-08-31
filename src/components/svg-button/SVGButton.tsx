@@ -9,6 +9,7 @@ interface SVGButtonProps {
 
 const VIEW  : ViewStyle = {
     flex: 1,
+    paddingBottom: 15
 }
 
 const PARENT  : ViewStyle = {
@@ -26,10 +27,12 @@ const SVG : ViewStyle = {
 
 const TEXT: TextStyle = {
     fontSize: 25,
-    flex: 1,
-    // alignSelf: 'flex-start',
-    // justifyContent: 'center',
-    paddingTop: 19
+    // flex: 1,
+    paddingTop: 19,
+    alignSelf: 'flex-start',
+    position: "absolute",
+    left: 20,
+    width: 180
 };
 
 export class SVGButton extends React.Component<SVGButtonProps, {}> {
@@ -37,6 +40,7 @@ export class SVGButton extends React.Component<SVGButtonProps, {}> {
         return (
             <View style={VIEW}>
                 <TouchableOpacity onPress={this.props.onPress} style={PARENT}>
+                    <Text style={{flex: 1}}></Text>
                     <Text style={TEXT}>{this.props.text}</Text>
                     <View style={SVG}>{this.props.children}</View>
                 </TouchableOpacity>

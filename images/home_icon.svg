@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27.5 23.88"><defs><style>.cls-1,.cls-2{fill:none;stroke:#000;stroke-linecap:round;stroke-linejoin:round;}.cls-1{stroke-width:1.4px;}.cls-2{stroke-width:1.5px;}</style></defs><title>Asset 1</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polyline class="cls-1" points="23.75 8.68 23.75 23.18 3.75 23.18 3.75 8.68"/><polyline class="cls-1" points="10.25 23.18 10.25 12.68 17.25 12.68 17.25 23.18"/><polyline class="cls-2" points="0.75 10.68 14.21 0.75 26.75 10.68"/></g></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.6, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 27.5 23.9" style="enable-background:new 0 0 27.5 23.9;" xml:space="preserve">
+<title>Asset 1</title>
+<path d="M27.2,10.1L14.7,0.2c-0.3-0.2-0.6-0.2-0.9,0L0.3,10.1c-0.3,0.2-0.4,0.7-0.2,1c0.1,0.2,0.4,0.3,0.6,0.3c0.2,0,0.3,0,0.4-0.1
+	L3,9.9v13.3c0,0.4,0.3,0.7,0.7,0.7h20c0.4,0,0.7-0.3,0.7-0.7V9.8l1.8,1.5c0.3,0.3,0.8,0.2,1.1-0.1C27.6,10.8,27.5,10.3,27.2,10.1z
+	 M16.5,22.5H11v-9.1h5.6V22.5z M23,22.5H18v-9.8c0-0.4-0.3-0.7-0.7-0.7h-7c-0.4,0-0.7,0.3-0.7,0.7v9.8H4.5V8.9l9.7-7.2l8.9,7V22.5z"
+	/>
+</svg>

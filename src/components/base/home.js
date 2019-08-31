@@ -10,6 +10,10 @@ export default class Home extends React.Component {
 
     static navigationOptions = {
         title: 'RMHC Central Ohio',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     }
     render() {
         return (
@@ -21,16 +25,15 @@ export default class Home extends React.Component {
                     <Text style={styles.welcomeText}>Welcome To</Text>
                 </View>
 
-                <Logo style={{flex: 5, alignSelf: 'center'}}></Logo>
+                <Logo style={{flex: 5, alignSelf: 'center'}}/>
 
                 <View style={{ flex: 3, alignSelf: 'stretch', flexDirection: 'row'}}>
-                    <Henry width={375} height={400}
-                           style={{ alignSelf: 'stretch'}}/>
-                    {/*<Bubble navigation={this.props.navigation} style={{ position: 'absolute', top: 20, zIndex: 1000, left: -15}}/>*/}
+                    <Henry width={375} height={400} style={{ alignSelf: 'stretch'}}/>
                 </View>
                 <View style={{ flex: 1.5, backgroundColor: "#4872ae", padding: 40}}>
                     <Text style={{color: '#ffffff', fontSize: 40, alignSelf: 'center'}}>Manage Your Stay With Us.</Text>
                 </View>
+
                 <View style={{ flex: 1 }}>
                     <BaseFooter navigation={this.props.navigation} />
                 </View>

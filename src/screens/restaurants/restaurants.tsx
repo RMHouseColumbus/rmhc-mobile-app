@@ -1,57 +1,116 @@
 import React from 'react';
-import {StatusBar, Text, TextStyle, TouchableOpacity, View, ViewStyle} from "react-native"
-import { spacing } from "../../components/shared/spacing";
+import {
+    ActivityIndicator,
+    StatusBar,
+    StyleSheet,
+    Text,
+    TextStyle,
+    TouchableOpacity,
+    View,
+    ViewStyle
+} from "react-native"
+import {spacing} from "../../components/shared/spacing";
 import LeftArrow from '../../images/left_arrow.svg';
+import {NavigationScreenProps} from "react-navigation";
+import {getStatusBar} from "../../components/shared/statusBar";
+import {TITLE} from "../../components/shared/fonts";
+import BaseFooter from "../../components/base/footer";
+import {ContentService} from "../../services/ContentService";
 
-const FULL: ViewStyle = { flex: 1, padding: 20};
+const FULL: ViewStyle = {flex: 1, padding: 20};
 
-const CONTENT = {
-    restaurants: [
-        {
-            id: 0,
-            name: "Koko (Inside Nationwide Children's Hospital)",
-            address: "123 street",
-            desc: "Fresh, light fare",
-            cat: "Chinese Restaurant",
-            dist: 0.0
-        },
-        {
-            id: 1,
-            name: "Subway (Inside Nationwide Children's Hospital)",
-            address: "124 street",
-            desc: "Open 24 hours",
-            cat: "Fast Food",
-            dist: 0.0
-        }
-    ]
-};
+interface RestaurantsProps extends NavigationScreenProps {
+
+}
+
+interface RestaurantsState {
+    isLoading: boolean,
+    restaurants: any
+}
 
 
-export default class Restaurants extends React.Component {
+export default class Restaurants extends React.Component<RestaurantsProps, RestaurantsState> {
 
     static navigationOptions = {
         title: 'Restaurants',
+        headerTitleStyle: {
+            fontSize: 20,
+            color: '#ffffff'
+        }
     };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            isLoading: true,
+            restaurants: []
+        }
+    }
+
+    componentDidMount(): void {
+
+        ContentService.contentForPage("restaurants")
+            .then((result) => {
+                    this.setState({
+                        isLoading: false,
+                        restaurants: result.content.restaurants
+                    })
+                }
+            )
+    }
 
 
     render() {
-        return (
-            <View style={FULL}>
-                <View>
-                    <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={() => this.props.navigation.navigate("Neighborhood")}>
-                        <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
-                        <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
-                    </TouchableOpacity>
+
+        const isLoading = this.state.isLoading;
+        const restaurants = this.state.restaurants;
+
+        if (isLoading) {
+            return this.loadingComponent();
+        } else {
+
+            return (
+                <View style={FULL}>
                     {
-                        CONTENT.restaurants.map(c => {
-                            return (
-                                this.restaurantRow(c)
-                            )
-                        })
+                        getStatusBar()
                     }
+                    <View>
+                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
+                                          onPress={() => this.props.navigation.navigate("Neighborhood")}>
+                            <LeftArrow stle={{flex: 1}} width={20} height={20}/>
+                            <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
+                        </TouchableOpacity>
+
+                        <View>
+                            <Text style={TITLE}>
+                                Find restaurants that deliver by carrier:
+                            </Text>
+                            {
+                                restaurants.map(c => {
+                                    return (
+                                        this.restaurantRow(c)
+                                    )
+                                })
+                            }
+                        </View>
+                    </View>
+                    <BaseFooter navigation={this.props}/>
+                </View>
+            )
+        }
+    }
+
+    private loadingComponent() {
+        return (
+            <View style={{flex: 1}}>
+                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
+                <View style={{flex: 1, flexDirection: 'row'}}>
+                    <View style={main.container}>
+                        <ActivityIndicator/>
+                    </View>
                 </View>
             </View>
-        );
+        )
     }
 
     private restaurantRow(c: any) {
@@ -67,8 +126,16 @@ export default class Restaurants extends React.Component {
     }
 }
 
-const BOLD: TextStyle = { fontWeight: "bold" };
+const BOLD: TextStyle = {fontWeight: "bold"};
 const ROW: ViewStyle = {
     marginBottom: spacing[5]
 };
+const main = StyleSheet.create({
+    container: {
+        flex: 1,
+        marginLeft: 20,
+        top: 50
+    }
+});
+
 
