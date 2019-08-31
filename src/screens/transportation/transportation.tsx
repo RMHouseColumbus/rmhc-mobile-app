@@ -1,12 +1,13 @@
 import React from 'react';
-import { ActivityIndicator, StatusBar, StyleSheet, Text, View, ViewStyle } from "react-native"
-import { spacing } from "../../components/shared/spacing";
-import { ContentService } from "../../services/ContentService";
-import { CONTENTSTYLE, LINKSTYLE, TEXTSTYLE } from '../../components/shared/fonts';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {ActivityIndicator, StatusBar, StyleSheet, Text, View, ViewStyle} from "react-native"
+import {spacing} from "../../components/shared/spacing";
+import {ContentService} from "../../services/ContentService";
+import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE} from '../../components/shared/fonts';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import LeftArrow from '../../images/left_arrow.svg';
-import { getStatusBar } from '../../components/shared/statusBar';
-import { NavigationScreenProps } from 'react-navigation';
+import {getStatusBar} from '../../components/shared/statusBar';
+import {NavigationScreenProps} from 'react-navigation';
+import BaseFooter from "../../components/base/footer";
 
 const FULL: ViewStyle = {
     flex: 1,
@@ -70,9 +71,9 @@ export default class Transportation extends React.Component<TransportationProps,
                         getStatusBar()
                     }
                     <View>
-                        <TouchableOpacity style={{ height: 50, flexDirection: 'row' }} onPress={backTo}>
-                            <LeftArrow stle={{ flex: 1 }} width={20} height={20}/>
-                            <Text style={{ flex: 1, marginLeft: 5 }}>Back</Text>
+                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={backTo}>
+                            <LeftArrow stle={{flex: 1}} width={20} height={20}/>
+                            <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
                         </TouchableOpacity>
                         <View style={SECTION}>
                             <Text style={CONTENTSTYLE}>Rideshare</Text>
@@ -107,6 +108,10 @@ export default class Transportation extends React.Component<TransportationProps,
                             }
                         </View>
                     </View>
+
+
+                    <BaseFooter navigation={this.props.navigation}/>
+
                 </View>
             );
         }
@@ -114,9 +119,9 @@ export default class Transportation extends React.Component<TransportationProps,
 
     private loadingComponent() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={{flex: 1}}>
                 <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                <View style={{ flex: 1, flexDirection: 'row' }}>
+                <View style={{flex: 1, flexDirection: 'row'}}>
                     <View style={main.container}>
                         <ActivityIndicator/>
                     </View>

@@ -35,10 +35,10 @@ export default class Neighborhood extends React.Component {
 
     render() {
         return (
-            <ScrollView style={styles.main}>
+            <View style={{flex: 10}}>
                 <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={styles.container}>
+                    <ScrollView style={styles.container}>
                         <SVGButton text={"Food Delivery"} onPress={() => this.props.navigation.navigate("Delivery")}>
                             <Delivery {...SVG}/>
                         </SVGButton>
@@ -57,16 +57,11 @@ export default class Neighborhood extends React.Component {
                                    onPress={() => this.props.navigation.navigate("Transportation")}>
                             <Transportation {...SVG}/>
                         </SVGButton>
-                        {/*<SVGButton text={"Adult Medical Care"} onPress={() => this.props.navigation.navigate("AdultCare")}>*/}
-                        {/*    <MedCare {...SVG}/>*/}
-                        {/*</SVGButton>*/}
-                    </View>
-                    <View style={{flex: .1}}>
-                        <BaseFooter navigation={this.props.navigation}/>
-                    </View>
+                    </ScrollView>
                 </View>
 
-            </ScrollView>
+                <BaseFooter navigation={this.props.navigation}/>
+            </View>
         );
     }
 }
