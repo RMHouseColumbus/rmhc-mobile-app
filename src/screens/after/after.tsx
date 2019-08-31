@@ -76,6 +76,12 @@ export default class After extends React.Component<AfterProps, AfterState> {
             return (
                 <React.Fragment>
                     <View style={{flex: 10}}>
+                        <View>
+                            <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={backTo}>
+                                <LeftArrow stle={{flex: 1}} width={20} height={20}/>
+                                <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
+                            </TouchableOpacity>
+                        </View>
                         <StatusBar barStyle="dark-content" style={{color: "#FFFFFF"}} backgroundColor="#FFFFFF"/>
                         <Container>
                             <Content style={main.body}>
