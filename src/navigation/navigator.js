@@ -7,6 +7,7 @@ import Faq from '../components/faq/home.js';
 import Meals from '../components/base/meals.js';
 import Neighborhood from '../components/neighborhood/home.js';
 import Facilities from '../components/facilities/home.js';
+import FloorPlan from '../components/facilities/floorplan.js';
 import Menu from './menu.js'
 import {Icon} from 'native-base';
 import Delivery from "../screens/delivery/delivery";
@@ -60,12 +61,17 @@ const subNeigborhood = createStackNavigator(
     }, defaultNavConfigs,
     {initialRouteName: "Neighborhood"});
 
-
+    const subFacilities = createStackNavigator(
+        {
+            Facilities:Facilities, FloorPlan: FloorPlan}, defaultNavConfigs,
+        {initialRouteName: "Facilities"});
+    
+    
 const DrawerNavigator = createDrawerNavigator(
     {
         Home: createStackNavigator({Home: Home}, defaultNavConfigs),
         Meals: createStackNavigator({Meals: Meals}, defaultNavConfigs),
-        Facilities: createStackNavigator({Facilities: Facilities}, defaultNavConfigs),
+        Facilities: subFacilities,
         Updates: createStackNavigator({Updates: Updates}, defaultNavConfigs),
         About: createStackNavigator({About: About}, defaultNavConfigs),
         Activities: createStackNavigator({Activities: Activities}, defaultNavConfigs),
