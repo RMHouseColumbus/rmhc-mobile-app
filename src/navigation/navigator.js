@@ -21,6 +21,7 @@ import CareMobile from "../screens/care-mobile/care-mobile";
 import StayInvolved from "../screens/stay-involved/stay-involved";
 import Before from "../screens/before/before"
 import During from "../screens/during/during"
+import After from "../screens/after/after"
 
 
 const navHeaderStyle = {
@@ -82,7 +83,8 @@ const subFAQ = createStackNavigator(
     {
         Faq: Faq,
         Before: Before,
-        During: During
+        During: During,
+        After: After
     }, defaultNavConfigs,
     {initialRouteName:"FAQ"});
 

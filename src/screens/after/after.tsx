@@ -15,36 +15,36 @@ const FULL: ViewStyle = {
     padding: 20
 };
 
-interface BeforeProps extends NavigationScreenProps{}
+interface AfterProps extends NavigationScreenProps{}
 
-interface BeforeState {
+interface AfterState {
     isLoading: boolean,
-    duringData: any
+    afterData: any
 }
 
-export default class Before extends React.Component<BeforeProps, BeforeState> {
+export default class After extends React.Component<AfterProps, AfterState> {
 
     public constructor(props){
         super(props);
         this.state = {
             isLoading: true,
-            duringData: []
+            afterData: []
         }
     }
 
     componentDidMount(): void {
-        ContentService.contentForPage("duringyourstay")
+        ContentService.contentForPage("afteryourstay")
             .then((result) => {
                 this.setState({
                     isLoading: false,
-                    duringData: result.content
+                    afterData: result.content
                 })
             }
         );
     }
 
     static navigationOptions = {
-        title: 'During Your Stay',
+        title: 'After Your Stay',
         headerStyle: {
             backgroundColor: '#FFFFFF',
         },
@@ -58,7 +58,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
     render(){
 
         const isLoading = this.state.isLoading;
-        const duringData = this.state.duringData;
+        const afterData = this.state.afterData;
         const backTo = () => this.props.navigation.navigate("Faq");
 
         if (isLoading){
@@ -80,12 +80,12 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
                         <Container>
                             <Content style={main.body}>
                                 {
-                                    duringData.map((item, index) => {
+                                    afterData.map((item, index) => {
                                         return (
                                             <Card key={index} style={main.card}>
                                                 <CardItem bordered key={index} style={{borderRadius: 20}}>
                                                     <View>
-                                                        <Text style={main.textType}>During Your Stay</Text>
+                                                        <Text style={main.textType}>After Your Stay</Text>
                                                         <Text style={main.textTitle}>{item.question}</Text>
                                                         <Text style={main.textContent}>{item.answer}</Text>
                                                     </View>
