@@ -1,17 +1,15 @@
 import React from 'react';
-import {ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, View} from 'react-native';
 import BaseFooter from '../base/footer.js'
 
 
 import Delivery from "./delivery.svg";
 import Restaurants from "./restaurants.svg";
-import MedCare from "./medcare.svg";
 import Shopping from "./shoppping.svg";
 import ToDo from "./toDo.svg";
 import Transportation from "./transporation.svg";
 
 import {SVGButton} from "../svg-button/SVGButton";
-import {spacing} from "../shared/spacing";
 
 
 const SVG = {
@@ -41,19 +39,22 @@ export default class Neighborhood extends React.Component {
                 <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     <View style={styles.container}>
-                        <SVGButton text={"Food Delivery"} onPress={() => this.props.navigation.navigate("Delivery")} >
+                        <SVGButton text={"Food Delivery"} onPress={() => this.props.navigation.navigate("Delivery")}>
                             <Delivery {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Area Restaurants"} onPress={() => this.props.navigation.navigate("Restaurants")} >
+                        <SVGButton text={"Area Restaurants"}
+                                   onPress={() => this.props.navigation.navigate("Restaurants")}>
                             <Restaurants {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Shopping"}  onPress={() => this.props.navigation.navigate("Shopping")}>
+                        <SVGButton text={"Shopping"} onPress={() => this.props.navigation.navigate("Shopping")}>
                             <Shopping {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Things to Do in Columbus"} onPress={() => this.props.navigation.navigate("ThingsToDo")}>
+                        <SVGButton text={"Things to Do in Columbus"}
+                                   onPress={() => this.props.navigation.navigate("ThingsToDo")}>
                             <ToDo {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Transportation"} onPress={() => this.props.navigation.navigate("Transportation")}>
+                        <SVGButton text={"Transportation"}
+                                   onPress={() => this.props.navigation.navigate("Transportation")}>
                             <Transportation {...SVG}/>
                         </SVGButton>
                         {/*<SVGButton text={"Adult Medical Care"} onPress={() => this.props.navigation.navigate("AdultCare")}>*/}
