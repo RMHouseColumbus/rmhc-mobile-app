@@ -25,7 +25,13 @@ export class ContentService {
     public static contentForPage(page: string): Promise<any> {
         return this.load()
             .then(json => {
-                return json[page];
+                if (json[page]) {
+                    return json[page];
+                } else {
+                    return {
+                        content: null
+                    }
+                }
             });
     }
 

@@ -40,6 +40,7 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
     }
 
     componentDidMount(): void {
+
         ContentService.contentForPage("delivery")
             .then((result) => {
                     this.setState({

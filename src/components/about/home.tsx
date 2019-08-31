@@ -76,10 +76,10 @@ export default class About extends React.Component <AboutProps,AboutState>  {
                             <Staff {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Care Mobile"}
-                                   onPress={() => this.props.navigation.navigate("Restaurants")}>
+                                   onPress={() => this.props.navigation.navigate("CareMobile")}>
                             <CareMobile {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Ways to Stay Involved"} onPress={() => this.props.navigation.navigate("Shopping")}>
+                        <SVGButton text={"Ways to Stay Involved"} onPress={() => this.props.navigation.navigate("StayInvolved")}>
                             <StayInvolved {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Share Your Story"}

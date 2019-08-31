@@ -17,6 +17,8 @@ import ThingsToDo from "../screens/things-to-do/things-to-do";
 import Transportation from "../screens/transportation/transportation";
 import Updates from "../components/base/updates";
 import Activities from "../components/base/activities";
+import CareMobile from "../screens/care-mobile/care-mobile";
+import StayInvolved from "../screens/stay-involved/stay-involved";
 import Before from "../screens/before/before"
 
 
@@ -65,8 +67,15 @@ const subNeigborhood = createStackNavigator(
         {
             Facilities:Facilities, FloorPlan: FloorPlan}, defaultNavConfigs,
         {initialRouteName: "Facilities"});
-    
-    
+
+
+const subAbout = createStackNavigator(
+    {
+        About: About,
+        CareMobile: CareMobile,
+        StayInvolved: StayInvolved
+    }, defaultNavConfigs,
+    {initialRouteName: "About"});
 
 const subFAQ = createStackNavigator(
     {
@@ -82,7 +91,7 @@ const DrawerNavigator = createDrawerNavigator(
         Meals: createStackNavigator({Meals: Meals}, defaultNavConfigs),
         Facilities: subFacilities,
         Updates: createStackNavigator({Updates: Updates}, defaultNavConfigs),
-        About: createStackNavigator({About: About}, defaultNavConfigs),
+        About: subAbout,
         Activities: createStackNavigator({Activities: Activities}, defaultNavConfigs),
         Neighborhood: subNeigborhood,
         FAQ: subFAQ,

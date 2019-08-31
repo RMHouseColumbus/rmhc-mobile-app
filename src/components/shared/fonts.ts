@@ -24,6 +24,7 @@ export const LINKSTYLE : TextStyle = {
 };
 
 export const TITLE: TextStyle = {
+    fontWeight: 'bold',
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0,
