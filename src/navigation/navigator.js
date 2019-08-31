@@ -17,6 +17,7 @@ import ThingsToDo from "../screens/things-to-do/things-to-do";
 import Transportation from "../screens/transportation/transportation";
 import Updates from "../components/base/updates";
 import Activities from "../components/base/activities";
+import Before from "../screens/before/before"
 
 
 const navHeaderStyle = {
@@ -59,12 +60,22 @@ const subNeigborhood = createStackNavigator(
     }, defaultNavConfigs,
     {initialRouteName: "Neighborhood"});
 
+
     const subFacilities = createStackNavigator(
         {
             Facilities:Facilities, FloorPlan: FloorPlan}, defaultNavConfigs,
         {initialRouteName: "Facilities"});
     
     
+
+const subFAQ = createStackNavigator(
+    {
+        Faq: Faq,
+        Before: Before
+    }, defaultNavConfigs,
+    {initialRouteName:"FAQ"});
+
+
 const DrawerNavigator = createDrawerNavigator(
     {
         Home: createStackNavigator({Home: Home}, defaultNavConfigs),
@@ -74,7 +85,7 @@ const DrawerNavigator = createDrawerNavigator(
         About: createStackNavigator({About: About}, defaultNavConfigs),
         Activities: createStackNavigator({Activities: Activities}, defaultNavConfigs),
         Neighborhood: subNeigborhood,
-        FAQ: createStackNavigator({Faq: Faq}, defaultNavConfigs),
+        FAQ: subFAQ,
     }, {
         drawerWidth: Dimensions.get("window").width * 0.83,
         contentComponent: ({navigation}) => {
