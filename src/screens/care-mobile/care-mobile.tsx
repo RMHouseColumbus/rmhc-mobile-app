@@ -18,7 +18,7 @@ import {mergeLinkText} from "../../components/link-text-merge/LinkTextMerge";
 
 const FULL: ViewStyle = {
     flex: 1,
-    padding: 20
+
 };
 
 
@@ -71,8 +71,8 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
                     {
                         getStatusBar()
                     }
-                    <ScrollView>
-                        <View>
+                    <ScrollView style={{flex: 0.9}}>
+
                             <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
                                               onPress={() => this.props.navigation.navigate("About")}>
                                 <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
@@ -83,9 +83,11 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
                                 merged
                             }
 
-                        </View>
+
                     </ScrollView>
-                    <BaseFooter navigation={this.props}/>
+                    <View style={{ flex: 0.1 }}>
+                    <BaseFooter style={{flex: .1}} navigation={this.props}/>
+                    </View>
                 </View>
             )
         }
