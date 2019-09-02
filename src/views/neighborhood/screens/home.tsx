@@ -1,6 +1,7 @@
 import React from 'react';
-import {ScrollView, StatusBar, StyleSheet, View} from 'react-native';
+import {ScrollView, StatusBar, StyleSheet, View, Linking} from 'react-native';
 import BaseFooter from '../../shared/footer'
+import {ContentService} from "../../../services/ContentService";
 
 
 import Delivery from "../assets/delivery.svg";
@@ -23,8 +24,12 @@ const SVG = {
 export interface NeighborhoodNavigationProps extends NavigationScreenProps {
 }
 
+export interface NeighborhoodState {
+    links: any
+}
 
-export default class Neighborhood extends React.Component<NeighborhoodNavigationProps, {}> {
+
+export default class Neighborhood extends React.Component<NeighborhoodNavigationProps, NeighborhoodState> {
 
     static navigationOptions = {
         title: "Neighborhood",
@@ -37,6 +42,24 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
             fontSize: 20,
         }
     };
+
+    public constructor(props) {
+        super(props);
+        this.state = {
+           
+            links:{}
+        }
+    }
+
+    componentDidMount(): void {
+        ContentService.contentForPage("neighborhood")
+            .then((result) => {
+                    this.setState({
+                        links: result.content.links
+                    })
+                }
+            )
+    }
 
     render() {
         return (
@@ -55,7 +78,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
                             <Shopping {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Things to Do in Columbus"}
-                                   onPress={() => this.props.navigation.navigate("ThingsToDo")}>
+                                   onPress={() => Linking.openURL(this.state.links.thingstodo.url)}>
                             <ToDo {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Transportation"}
