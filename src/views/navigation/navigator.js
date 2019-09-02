@@ -13,7 +13,6 @@ import {Icon} from 'native-base';
 import Delivery from "../neighborhood/screens/delivery";
 import Restaurants from "../neighborhood/screens/restaurants";
 import Shopping from "../neighborhood/screens/shopping";
-import ThingsToDo from "../neighborhood/screens/things-to-do";
 import Transportation from "../neighborhood/screens/transportation";
 import Updates from "../main/screens/updates";
 import Activities from "../main/screens/activities";
@@ -59,7 +58,6 @@ const subNeigborhood = createStackNavigator(
         Delivery: Delivery,
         Restaurants: Restaurants,
         Shopping: Shopping,
-        ThingsToDo: ThingsToDo,
         Transportation: Transportation
     }, defaultNavConfigs,
     {initialRouteName: "Neighborhood"});

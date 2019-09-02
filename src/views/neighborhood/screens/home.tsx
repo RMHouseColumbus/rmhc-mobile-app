@@ -77,8 +77,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
                         <SVGButton text={"Shopping"} onPress={() => this.props.navigation.navigate("Shopping")}>
                             <Shopping {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Things to Do in Columbus"}
-                                   onPress={() => Linking.openURL(this.state.links.thingstodo.url)}>
+                        <SVGButton text={"Things to Do in Columbus"} onPress={() => Linking.openURL(this.state.links.thingstodo.url)} >
                             <ToDo {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Transportation"}
