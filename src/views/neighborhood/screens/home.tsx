@@ -10,6 +10,7 @@ import ToDo from "../assets/toDo.svg";
 import Transportation from "../assets/transporation.svg";
 
 import {SVGButton} from "../../svg-button/SVGButton";
+import { NavigationScreenProps } from "react-navigation"
 
 
 const SVG = {
@@ -19,7 +20,11 @@ const SVG = {
     // marginBottom: spacing[4]
 };
 
-export default class Neighborhood extends React.Component {
+export interface NeighborhoodNavigationProps extends NavigationScreenProps {
+}
+
+
+export default class Neighborhood extends React.Component<NeighborhoodNavigationProps, {}> {
 
     static navigationOptions = {
         title: "Neighborhood",
