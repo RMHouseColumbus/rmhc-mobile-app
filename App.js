@@ -14,4 +14,5 @@ const App = () => {
     <DrawerNavigator />
   );
 };
+console.disableYellowBox = true;
 export default App;
