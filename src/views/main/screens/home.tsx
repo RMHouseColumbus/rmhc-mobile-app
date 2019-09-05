@@ -23,7 +23,6 @@ export default class Home extends React.Component <HomeScreenProps,{}> {
                 <StatusBar backgroundColor="#4872ae" barStyle="dark-content" style={{color:"#FFFFFF"}}/>
 
                 <View style={{ flex: 1 }}>
-                    <Text></Text>
                     <Text style={styles.welcomeText}>Welcome To</Text>
                 </View>
 
