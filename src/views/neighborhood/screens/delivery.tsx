@@ -1,7 +1,7 @@
 import React from 'react';
 import {Linking, Text, View} from "react-native"
 import {NavigationScreenProps} from 'react-navigation'
-import {CONTENTSTYLE, LINKSTYLE, TITLE, HEADERTITLESTYLE, HEADERSTYLE} from '../../shared/fonts';
+import {CONTENTSTYLE, LINKSTYLE, TITLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 export interface DeliveryScreenProps extends NavigationScreenProps {
@@ -15,8 +15,8 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
 
     static navigationOptions = {
         title: 'DELIVERY',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {

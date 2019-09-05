@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, StatusBar, ImageBackground, Linking } from 'react-native';
 import { NavigationScreenProps } from 'react-navigation';
 import BaseFooter from '../../shared/footer'
-import {CONTENTSTYLE, LINKSTYLE, TITLE} from '../../shared/fonts';
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 
 export interface FindUscreenProps extends NavigationScreenProps {
 }
@@ -11,10 +11,8 @@ export default class FindUs extends React.Component <FindUscreenProps,{}> {
 
     static navigationOptions = {
         title: 'Find Us',
-        headerTitleStyle: {
-            fontSize: 20,
-            color: '#ffffff'
-        }
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     }
     render() {
         return (

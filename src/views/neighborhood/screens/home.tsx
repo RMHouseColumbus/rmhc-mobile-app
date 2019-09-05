@@ -12,7 +12,7 @@ import {SVGButton} from "../../svg-button/SVGButton";
 import {NavigationScreenProps} from "react-navigation"
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
-import {HEADERSTYLE, HEADERTITLESTYLE} from '../../shared/fonts';
+import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 
 export interface NeighborhoodNavigationProps extends NavigationScreenProps {
 }
@@ -26,8 +26,8 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
 
     static navigationOptions = {
         title: "Neighborhood",
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEWHITE,
+        headerTitleStyle: HEADERTITLESTYLEBLACK
     };
 
     public constructor(props) {

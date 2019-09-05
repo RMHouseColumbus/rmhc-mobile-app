@@ -8,6 +8,7 @@ import After from "../assets/after.svg"
 import {SVGButton} from "../../svg-button/SVGButton";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 import Henry from "../assets/henry_faq.svg"
+import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 
 const SVG = {
     // alignSelf: 'flex-end',
@@ -23,14 +24,8 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
 
     static navigationOptions = {
         title: "FAQ",
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 25,
-        }
+        headerStyle: HEADERSTYLEWHITE,
+        headerTitleStyle: HEADERTITLESTYLEBLACK
     };
 
     viewFunction = () => {

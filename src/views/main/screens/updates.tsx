@@ -6,7 +6,7 @@ import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 import g from '../../styles/global';
 
-import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
+import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 
 
 
@@ -35,8 +35,8 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
     static navigationOptions = {
 
         title: 'Updates',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEWHITE,
+        headerTitleStyle: HEADERTITLESTYLEBLACK
     };
 
     viewFunction = () => {

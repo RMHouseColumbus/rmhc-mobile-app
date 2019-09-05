@@ -5,6 +5,7 @@ import {Card, CardItem, Container, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 import g from '../../styles/global';
+import { HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE } from '../../shared/fonts';
 
 interface BeforeProps extends NavigationScreenProps {
 }
@@ -30,14 +31,8 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
 
     static navigationOptions = {
         title: 'Before Your Stay',
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 35,
-        }
+        headerStyle: HEADERSTYLEWHITE,
+        headerTitleStyle: HEADERTITLESTYLEBLACK
     };
 
     viewFunction = () => {

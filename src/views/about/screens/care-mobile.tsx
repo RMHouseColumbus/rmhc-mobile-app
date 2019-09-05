@@ -3,7 +3,7 @@ import {NavigationScreenProps} from "react-navigation";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 import {View} from "react-native";
-import { HEADERTITLESTYLE, HEADERSTYLE } from "../../shared/fonts";
+import { HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 
 export interface CareMobileScreenProps extends NavigationScreenProps {
@@ -17,8 +17,8 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
 
     static navigationOptions = {
         title: 'CARE MOBILE',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {

@@ -2,7 +2,7 @@ import * as React from "react";
 import {Text, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
-import { HEADERTITLESTYLE, HEADERSTYLE } from "../../shared/fonts";
+import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 export interface StaffScreenProps extends NavigationScreenProps {
 }
@@ -15,8 +15,8 @@ export default class StaffScreen extends React.Component<StaffScreenProps, Staff
 
     static navigationOptions = {
         title: 'STAFF',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {

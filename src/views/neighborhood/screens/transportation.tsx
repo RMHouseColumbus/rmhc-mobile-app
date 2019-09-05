@@ -1,7 +1,7 @@
 import React from 'react';
 import {Linking, Text, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
-import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE, HEADERTITLESTYLE, HEADERSTYLE} from '../../shared/fonts';
+import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import {NavigationScreenProps} from 'react-navigation';
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
@@ -19,8 +19,8 @@ export default class Transportation extends React.Component<TransportationProps,
 
     static navigationOptions = {
         title: 'Transportation',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {

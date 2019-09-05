@@ -37,11 +37,26 @@ export const PAGETITLE: TextStyle = {
     fontSize: 20
 }
 
-export const HEADERSTYLE: TextStyle = {
-    backgroundColor: `#FFFFFF`
+export const HEADERSTYLEWHITE: TextStyle = {
+    backgroundColor: `#FFFFFF`,
+    height: 65
 }
 
-export const HEADERTITLESTYLE: TextStyle = {
-    backgroundColor: `#FFFFFF`,
+export const HEADERSTYLEBLUE: TextStyle = {
+    backgroundColor: `#1c5ca3`,
+    height: 65
+}
+
+export const HEADERTITLESTYLEWHITE: TextStyle = {
+    color: `#FFFFFF`,
+    fontSize: 30,
+    fontFamily: "System",
+    textAlign: "center", flex:.8
+}
+
+export const HEADERTITLESTYLEBLACK: TextStyle = {
+    color: `#000000`,
+    fontSize: 30,
+    fontFamily: "System",
     textAlign: "center", flex:.8
 }

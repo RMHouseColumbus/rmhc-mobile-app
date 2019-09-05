@@ -2,7 +2,7 @@ import * as React from "react";
 import {Text} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
-import { HEADERTITLESTYLE, HEADERSTYLE } from "../../shared/fonts";
+import { HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 export interface FamilyRoomScreenProps extends NavigationScreenProps {
 }
@@ -15,8 +15,8 @@ export default class FamilyRoom extends React.Component<FamilyRoomScreenProps, F
 
     static navigationOptions = {
         title: 'FAMILY ROOM',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {

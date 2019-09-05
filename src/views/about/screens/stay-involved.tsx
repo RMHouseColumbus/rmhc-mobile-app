@@ -4,7 +4,7 @@ import {NavigationScreenProps} from "react-navigation";
 import {spacing} from "../../shared/spacing";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 import ScrollablePage from "../../base-page/ScrollablePage";
-import { HEADERTITLESTYLE, HEADERSTYLE } from "../../shared/fonts";
+import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 export interface StayInvolvedScreenProps extends NavigationScreenProps {
 }
@@ -17,8 +17,8 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
 
     static navigationOptions = {
         title: 'STAY INVOLVED',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {

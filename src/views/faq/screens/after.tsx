@@ -5,6 +5,7 @@ import {Card, CardItem, Container, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 import g from '../../styles/global';
+import { HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE } from '../../shared/fonts';
 
 interface AfterProps extends NavigationScreenProps {
 }
@@ -32,14 +33,8 @@ export default class After extends React.Component<AfterProps, AfterState> {
 
     static navigationOptions = {
         title: 'After Your Stay',
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 35,
-        }
+        headerStyle: HEADERSTYLEWHITE,
+        headerTitleStyle: HEADERTITLESTYLEBLACK
     };
 
     viewFunction = () => {

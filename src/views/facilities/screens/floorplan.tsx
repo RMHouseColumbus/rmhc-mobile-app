@@ -5,15 +5,15 @@ import BaseFooter from '../../shared/footer'
 
 
 import { NavigationScreenProps } from "react-navigation";
-import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
+import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
 
 export interface FloorPlanNavigationScreenProps extends NavigationScreenProps {}
 
 export default class FloorPlan extends React.Component<FloorPlanNavigationScreenProps, {}> {
     static navigationOptions = {
         title: 'FloorPlan',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     }
 
     render() {

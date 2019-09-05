@@ -5,8 +5,9 @@ import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 import g from '../../styles/global';
+import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 
-import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
+
 
 
 interface ActivitiesState {
@@ -28,8 +29,8 @@ export default class Activities extends React.Component<ActivityProps, Activitie
     static navigationOptions = {
 
         title: 'Activities',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEWHITE,
+        headerTitleStyle: HEADERTITLESTYLEBLACK
 
     };
 

@@ -7,7 +7,7 @@ import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 import g from '../../styles/global';
 
-import { HEADERSTYLE, HEADERTITLESTYLE } from '../../shared/fonts';
+import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
 
 
 export interface MealsScreenProps extends NavigationScreenProps {
@@ -21,8 +21,8 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
 
     static navigationOptions = {
         title: 'Meals',
-        headerStyle: HEADERSTYLE,
-        headerTitleStyle: HEADERTITLESTYLE
+        headerStyle: HEADERSTYLEBLUE,
+        headerTitleStyle: HEADERTITLESTYLEWHITE
     };
 
     public constructor(props) {
