@@ -3,6 +3,7 @@ import {Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
 
 interface ShoppingProps extends NavigationScreenProps {
 
@@ -17,10 +18,8 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
 
     static navigationOptions = {
         title: 'Shopping',
-        headerTitleStyle: {
-            fontSize: 20,
-            color: '#ffffff'
-        }
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     };
 
     public constructor(props) {

@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
-import {TITLE} from "../../shared/fonts";
+import {TITLE, HEADERTITLESTYLE, HEADERSTYLE} from "../../shared/fonts";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 interface RestaurantsProps extends NavigationScreenProps {
@@ -18,10 +18,8 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
 
     static navigationOptions = {
         title: 'Restaurants',
-        headerTitleStyle: {
-            fontSize: 20,
-            color: '#ffffff'
-        }
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     };
 
     constructor(props) {

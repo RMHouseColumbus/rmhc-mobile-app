@@ -3,7 +3,11 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+
 import g from '../../styles/global';
+
+import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
+
 
 interface ActivitiesState {
     activities: any
@@ -24,14 +28,8 @@ export default class Activities extends React.Component<ActivityProps, Activitie
     static navigationOptions = {
 
         title: 'Activities',
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 35,
-        },
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
 
     };
 

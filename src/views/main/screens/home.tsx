@@ -4,6 +4,7 @@ import { NavigationNavigatorProps } from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import Logo from '../../../images/logo_landscape.svg'
 import Henry from '../../../images/henry_landingpage.svg'
+import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
 
 export interface HomeScreenProps extends NavigationNavigatorProps {
 }
@@ -12,10 +13,8 @@ export default class Home extends React.Component <HomeScreenProps,{}> {
 
     static navigationOptions = {
         title: 'RMHC Central Ohio',
-        headerTitleStyle: {
-            fontSize: 20,
-            color: '#ffffff'
-        }
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     }
     render() {
         return (

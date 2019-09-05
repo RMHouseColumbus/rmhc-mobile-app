@@ -10,6 +10,7 @@ import Staff from "../assets/staff.svg";
 import StayInvolved from "../assets/stayinvolved.svg";
 import {SVGButton} from "../../svg-button/SVGButton";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
 
 
 const SVG = {
@@ -42,14 +43,8 @@ export default class About extends React.Component <AboutProps, AboutState> {
 
     static navigationOptions = {
         title: "About",
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 25,
-        }
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     };
 
 

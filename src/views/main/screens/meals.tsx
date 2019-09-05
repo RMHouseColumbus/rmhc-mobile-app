@@ -4,7 +4,11 @@ import {NavigationScreenProps} from "react-navigation";
 import {ContentService, MealItem} from "../../../services/ContentService";
 import {Card, CardItem} from "native-base";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+
 import g from '../../styles/global';
+
+import { HEADERSTYLE, HEADERTITLESTYLE } from '../../shared/fonts';
+
 
 export interface MealsScreenProps extends NavigationScreenProps {
 }
@@ -17,6 +21,8 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
 
     static navigationOptions = {
         title: 'Meals',
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     };
 
     public constructor(props) {

@@ -30,3 +30,18 @@ export const TITLE: TextStyle = {
     letterSpacing: 0,
     marginBottom: 20
 };
+
+export const PAGETITLE: TextStyle = {
+    color: '#000000',
+    fontFamily: "System",
+    fontSize: 20
+}
+
+export const HEADERSTYLE: TextStyle = {
+    backgroundColor: `#FFFFFF`
+}
+
+export const HEADERTITLESTYLE: TextStyle = {
+    backgroundColor: `#FFFFFF`,
+    textAlign: "center", flex:.8
+}

@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, StatusBar, ImageBackground } from 'react-native
 import { Button } from 'native-base';
 import BaseFooter from '../../shared/footer'
 import { NavigationScreenProps } from "react-navigation";
+import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
 
 
 export interface FacilitiesNavigationScreenProps extends NavigationScreenProps {}
@@ -10,6 +11,8 @@ export interface FacilitiesNavigationScreenProps extends NavigationScreenProps {
 export default class Facilities extends React.Component<FacilitiesNavigationScreenProps,{}> {
     static navigationOptions = {
         title: 'Facilities',
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     }
 
     render() {

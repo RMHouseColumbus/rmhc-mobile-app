@@ -3,7 +3,12 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+
 import g from '../../styles/global';
+
+import { HEADERTITLESTYLE, HEADERSTYLE } from '../../shared/fonts';
+
+
 
 export interface UpdateState {
     content: any
@@ -30,15 +35,8 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
     static navigationOptions = {
 
         title: 'Updates',
-        headerStyle: {
-            backgroundColor: '#FFFFFF',
-        },
-        headerTitleStyle: {
-            color: '#000000',
-            fontFamily: "System",
-            fontSize: 20,
-            textAlign: 'center'
-        }
+        headerStyle: HEADERSTYLE,
+        headerTitleStyle: HEADERTITLESTYLE
     };
 
     viewFunction = () => {
