@@ -1,45 +1,31 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, TouchableOpacity, View, ViewStyle} from "react-native";
+import {StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
-import {ContentService} from '../../../services/ContentService';
 import {Card, CardItem, Container, Content, Text} from 'native-base';
-import LeftArrow from '../../../images/left_arrow.svg';
-import {spacing} from "../../shared/spacing";
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
-
-const FULL: ViewStyle = {
-    flex: 1,
-    padding: 20
-};
-
-interface BeforeProps extends NavigationScreenProps{}
+interface BeforeProps extends NavigationScreenProps {
+}
 
 interface BeforeState {
-    isLoading: boolean,
     beforeData: any
 }
 
 export default class Before extends React.Component<BeforeProps, BeforeState> {
 
-    public constructor(props){
+    public constructor(props) {
         super(props);
         this.state = {
-            isLoading: true,
             beforeData: []
         }
     }
 
-    componentDidMount(): void {
-        ContentService.contentForPage("beforeyourstay")
-            .then((result) => {
-                this.setState({
-                    isLoading: false,
-                    beforeData: result.content
-                })
-            }
-        );
-    }
+    onContentUpdate = (content: any) => {
+        this.setState({
+            beforeData: content
+        })
+    };
 
     static navigationOptions = {
         title: 'Before Your Stay',
@@ -53,67 +39,43 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
         }
     };
 
-    render(){
-
-        const isLoading = this.state.isLoading;
+    viewFunction = () => {
         const beforeData = this.state.beforeData;
-        const backTo = () => this.props.navigation.navigate("Faq");
+        return (
+            <Container>
+                <Content style={main.body}>
+                    {
+                        beforeData.map((item, index) => {
+                            return (
+                                <Card key={index} style={main.card}>
+                                    <CardItem bordered key={index} style={{borderRadius: 20}}>
+                                        <View>
+                                            <Text style={main.textType}>Before Your Stay</Text>
+                                            <Text style={main.textTitle}>{item.question}</Text>
+                                            {
+                                                mergeLinkText(item.answer, item.links)
+                                            }
+                                        </View>
+                                    </CardItem>
+                                </Card>
+                            )
+                        })
+                    }
+                </Content>
+            </Container>
+        )
+    };
 
-        if (isLoading){
-            return (
-                <View style={{flex: 1}}>
-                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                    <View style={{flex: 1, flexDirection: 'row'}}>
-                        <View style={main.container}>
-                            <ActivityIndicator/>
-                        </View>
-                    </View>
-                </View>
-            ) 
-        } else { 
-            return (
-                <React.Fragment>
-                    <View style={{flex: 10}}>
-                        <View>
-                            <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={backTo}>
-                                <LeftArrow stle={{flex: 1}} width={20} height={20}/>
-                                <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <StatusBar barStyle="dark-content" style={{color: "#FFFFFF"}} backgroundColor="#FFFFFF"/>
-                        <Container>
-                            <Content style={main.body}>
-                                {
-                                    beforeData.map((item, index) => {
-                                        return (
-                                            <Card key={index} style={main.card}>
-                                                <CardItem bordered key={index} style={{borderRadius: 20}}>
-                                                    <View>
-                                                        <Text style={main.textType}>Before Your Stay</Text>
-                                                        <Text style={main.textTitle}>{item.question}</Text>
-                                                        {
-                                                            mergeLinkText(item.answer,  item.links)
-                                                        }
-                                                    </View>
-                                                </CardItem>
-                                            </Card>
-                                        )
-                                    })
-                                }
-                            </Content>
-                        </Container>
-                    </View>
-
-                    
-                </React.Fragment>
-            )  
-        }
-    }    
+    render() {
+        return (<BaseScrollablePage contentView={this.viewFunction}
+                                    navigation={this.props.navigation}
+                                    onContentLoad={this.onContentUpdate}
+                                    contentLoad={"beforeyourstay"}
+                                    back={"Faq"}/>
+        )
+    }
 }
 
-const SECTION: ViewStyle = {
-    marginTop: spacing[5]
-}
 
 const main = StyleSheet.create({
     container: {
@@ -151,7 +113,3 @@ const main = StyleSheet.create({
         color: 'black'
     },
 });
-
-// const SECTION: ViewStyle = {
-//     marginTop: spacing[5]
-// };

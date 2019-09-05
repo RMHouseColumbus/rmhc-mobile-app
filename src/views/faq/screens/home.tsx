@@ -1,12 +1,12 @@
 import React from 'react';
-import {ScrollView, StatusBar, View, StyleSheet} from 'react-native';
-import BaseFooter from '../../shared/footer'
-import { NavigationScreenProps } from "react-navigation";
+import {StyleSheet, View} from 'react-native';
+import {NavigationScreenProps} from "react-navigation";
 import Before from "../assets/before.svg"
 import During from "../assets/during.svg"
 import After from "../assets/after.svg"
 
 import {SVGButton} from "../../svg-button/SVGButton";
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 const SVG = {
     // alignSelf: 'flex-end',
@@ -15,7 +15,8 @@ const SVG = {
     // marginBottom: spacing[4]
 };
 
-export interface FAQNavigationScreenProps extends NavigationScreenProps {}
+export interface FAQNavigationScreenProps extends NavigationScreenProps {
+}
 
 export default class Faq extends React.Component <FAQNavigationScreenProps, {}> {
 
@@ -31,30 +32,30 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
         }
     };
 
+    viewFunction = () => {
+        return (
+            <View style={styles.container}>
+                <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
+                    <Before {...SVG}/>
+                </SVGButton>
+                <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
+                    <During {...SVG}/>
+                </SVGButton>
+
+                <SVGButton text={"After Your Stay"} onPress={() => this.props.navigation.navigate("After")}>
+                    <After {...SVG}/>
+                </SVGButton>
+            </View>
+        )
+    };
+
 
     render() {
         return (
-            <View style={{flex: 10}}>
-                <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
-                <View style={{flex: 1, flexDirection: 'column'}}>
-                    <ScrollView style={styles.main}>
-                        <View style={styles.container}>
-                            <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
-                                <Before {...SVG}/>
-                            </SVGButton>
-                            <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
-                                <During {...SVG}/>
-                            </SVGButton>
-
-                            <SVGButton text={"After Your Stay"} onPress={() => this.props.navigation.navigate("After")}>
-                                <After {...SVG}/>
-                            </SVGButton>
-                        </View>
-                    </ScrollView>
-                </View>
-                
-                <BaseFooter navigation={this.props.navigation}/>
-            </View>
+            <BaseScrollablePage
+                contentView={this.viewFunction}
+                navigation={this.props.navigation}
+            />
         );
     }
 }
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
         // flex: 1, backgroundColor: "red"
     },
     container: {
-        flex: 15,
+        flex: 1,
         padding: 20,
         backgroundColor: "#4872ae"
     },

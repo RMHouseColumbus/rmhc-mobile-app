@@ -23,8 +23,8 @@ const FULL: ViewStyle = {
 
 export interface BaseScreenProps extends NavigationScreenProps {
     back?: string,
-    contentLoad: string,
-    onContentLoad: (content: any) => void,
+    contentLoad?: string,
+    onContentLoad?: (content: any) => void,
     contentView: () => any;
 }
 
@@ -43,25 +43,30 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
     }
 
     componentDidMount(): void {
-        ContentService.contentForPage(this.props.contentLoad)
-            .then((result) => {
-                    this.setState({
-                        isLoading: false
-                    });
-                    this.props.onContentLoad(result.content);
-                }
-            )
+        if (!this.props.contentLoad) {
+            this.setState({
+                isLoading: false
+            });
+        } else {
+            ContentService.contentForPage(this.props.contentLoad)
+                .then((result) => {
+                        this.setState({
+                            isLoading: false
+                        });
+                        if (this.props.contentLoad) {
+                            this.props.onContentLoad(result.content);
+                        }
+                    }
+                )
+        }
     }
 
     backButton() {
-        if(!this.props.back){
+        if (!this.props.back) {
             return <></>
         }
-        const goBack = () => {
-            if(this.props.back){
-                this.props.navigation.navigate(this.props.back);
-            }
-        };
+        const goBack = () => this.props.navigation.navigate(this.props.back);
+
         return (
             <TouchableOpacity style={{flexDirection: 'row'}}
                               onPress={goBack}>

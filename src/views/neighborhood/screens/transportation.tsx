@@ -94,7 +94,8 @@ export default class Transportation extends React.Component<TransportationProps,
                                 onContentLoad={this.onContentUpdate}
                                 contentView={this.viewFunction}
                                 navigation={this.props.navigation}
-                                back={"Neighborhood"}/>
+                                back={"Neighborhood"}>
+            </BaseScrollablePage>
         )
 
     }
