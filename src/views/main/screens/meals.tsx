@@ -1,17 +1,18 @@
 import React from 'react';
 import { StyleSheet, View, StatusBar } from 'react-native';
 import BaseFooter from '../../shared/footer'
-import { NavigationNavigatorProps } from "react-navigation";
+import {NavigationNavigatorProps, NavigationScreenProps} from "react-navigation";
 
-export interface MealsScreenProps extends NavigationNavigatorProps {
+export interface MealsScreenProps extends NavigationScreenProps {
 }
 
 export default class Meals extends React.Component <MealsScreenProps,{}>{
 
     static navigationOptions = {
-
         title: 'Meals',   
-    } 
+    };
+
+
     render() {
         return (
             <View style={styles.main}>

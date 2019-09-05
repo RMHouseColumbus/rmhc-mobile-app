@@ -1,40 +1,31 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
-import BaseFooter from '../../shared/footer'
-import {ContentService} from "../../../services/ContentService";
-import {NavigationNavigatorProps} from "react-navigation";
+import {NavigationScreenProps} from "react-navigation";
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 
 export interface UpdateState {
-    isLoading: boolean,
     content: any
 }
 
-export interface UpdateProps extends NavigationNavigatorProps {
+export interface UpdateProps extends NavigationScreenProps {
 }
 
 export default class Updates extends React.Component<UpdateProps, UpdateState> {
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: true,
             content: []
         }
 
     }
 
-    componentDidMount(): void {
-        ContentService.contentForPage("updates")
-            .then((result) => {
-                    this.setState({
-                        isLoading: false,
-                        content: result.content
-                    })
-                }
-            )
-    }
-
+    onContentUpdate = (content: any) => {
+        this.setState({
+            content: content
+        })
+    };
 
     static navigationOptions = {
 
@@ -49,58 +40,44 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
         },
     };
 
-    render() {
-        const isLoading = this.state.isLoading;
+    viewFunction = () => {
         const content = this.state.content;
+        return (
+            <Container>
 
-        if (isLoading) {
-            return (
-                <View style={{flex: 1}}>
-                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                    <View style={{flex: 1, flexDirection: 'row'}}>
-                        <View style={main.container}>
-                            <ActivityIndicator/>
-                        </View>
-                    </View>
-                </View>
-            )
-        } else {
-            return (
-                <React.Fragment>
-                    <View style={{flex: 10}}>
-                        <StatusBar barStyle="dark-content" style={{color: "#FFFFFF"}} backgroundColor="#FFFFFF"/>
-                        <Container>
+                <Content style={main.body}>
 
-                            <Content style={main.body}>
+                    {
+                        content.map((item, index) => {
+                            return (
+                                <Card key={index} style={main.card}>
+                                    <CardItem bordered key={index} style={{borderRadius: 20}}>
+                                        <View>
+                                            <Text style={main.textType}>{item.type}</Text>
+                                            <Text style={main.textTitle}>{item.title}</Text>
+                                            <Text style={main.textContent}>{item.text}</Text>
+                                        </View>
+                                    </CardItem>
+                                </Card>
+                            )
+                        })
+                    }
 
-                                {
-                                    content.map((item, index) => {
-                                        return (
-                                            <Card key={index} style={main.card}>
-                                                <CardItem bordered key={index} style={{borderRadius: 20}}>
-                                                    <View>
-                                                        <Text style={main.textType}>{item.type}</Text>
-                                                        <Text style={main.textTitle}>{item.title}</Text>
-                                                        <Text style={main.textContent}>{item.text}</Text>
-                                                    </View>
-                                                </CardItem>
-                                            </Card>
-                                        )
-                                    })
-                                }
+                </Content>
 
-                            </Content>
+            </Container>
+        )
+    };
 
-                        </Container>
-                    </View>
+    render() {
 
-                    <View style={{flex: 1}}>
-                        <BaseFooter navigation={this.props.navigation}/>
-                    </View>
-                </React.Fragment>
-            )
-        }
-
+        return (
+            <BaseScrollablePage contentView={this.viewFunction}
+                                navigation={this.props.navigation}
+                                onContentLoad={this.onContentUpdate}
+                                contentLoad={"updates"}
+            />
+        )
     }
 }
 

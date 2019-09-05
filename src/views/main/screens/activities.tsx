@@ -1,16 +1,14 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
-import BaseFooter from '../../shared/footer'
-import {ContentService} from "../../../services/ContentService";
-import {NavigationNavigatorProps} from "react-navigation";
+import {NavigationScreenProps} from "react-navigation";
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 interface ActivitiesState {
-    isLoading: boolean,
     activities: any
 }
 
-export interface ActivityProps extends NavigationNavigatorProps {
+export interface ActivityProps extends NavigationScreenProps {
 }
 
 
@@ -18,7 +16,6 @@ export default class Activities extends React.Component<ActivityProps, Activitie
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: false,
             activities: []
         }
     }
@@ -37,68 +34,50 @@ export default class Activities extends React.Component<ActivityProps, Activitie
 
     };
 
-    componentDidMount(): void {
-        ContentService.contentForPage("activities")
-            .then((result) => {
-                    this.setState({
-                        isLoading: false,
-                        activities: result.content
-                    })
-                }
-            )
-    }
+    onContentUpdate = (content: any) => {
+
+        this.setState({
+            activities: content
+        });
+
+    };
+
+    viewFunction = () => {
+        const {activities} = this.state;
+
+        return (
+            <Container>
+
+                <Content style={main.body}>
+
+
+                    {
+                        activities.map((item, index) => {
+                            return (
+                                <Card key={index} style={main.card}>
+                                    <CardItem bordered key={index} style={{borderRadius: 20}}>
+                                        <View>
+                                            <Text style={main.textType}>{item.type}</Text>
+                                            <Text style={main.textTitle}>{item.title}</Text>
+                                            <Text style={main.textContent}>{item.text}</Text>
+                                        </View>
+                                    </CardItem>
+                                </Card>
+                            )
+                        })
+                    }
+                </Content>
+            </Container>
+        )
+    };
 
 
     render() {
-        const {isLoading, activities} = this.state;
-
-        if (isLoading) {
-            return (
-                <View style={{flex: 1}}>
-                    <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                    <View style={{flex: 1, flexDirection: 'row'}}>
-                        <View style={main.container}>
-                            <ActivityIndicator/>
-                        </View>
-                    </View>
-                </View>
-            )
-        } else {
-            return (
-                <React.Fragment>
-                    <View style={{flex: 10}}>
-                        <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                        <Container>
-
-                            <Content style={main.body}>
-
-
-                                {
-                                    activities.map((item, index) => {
-                                        return (
-                                            <Card key={index} style={main.card}>
-                                                <CardItem bordered key={index} style={{borderRadius: 20}}>
-                                                    <View>
-                                                        <Text style={main.textType}>{item.type}</Text>
-                                                        <Text style={main.textTitle}>{item.title}</Text>
-                                                        <Text style={main.textContent}>{item.text}</Text>
-                                                    </View>
-                                                </CardItem>
-                                            </Card>
-                                        )
-                                    })
-                                }
-                            </Content>
-                        </Container>
-                    </View>
-
-                    <View style={{flex: 1}}>
-                        <BaseFooter navigation={this.props.navigation}/>
-
-                    </View>
-                </React.Fragment>
-            )
-        }
+        return (<BaseScrollablePage contentView={this.viewFunction}
+                                    navigation={this.props.navigation}
+                                    onContentLoad={this.onContentUpdate}
+                                    contentLoad={"activities"}/>
+        )
 
     }
 }
