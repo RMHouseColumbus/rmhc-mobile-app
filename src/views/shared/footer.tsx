@@ -20,7 +20,7 @@ export default class BaseFooter extends Component <FooterScreenProps, {}> {
                         <Button onPress={() => this.props.navigation.navigate("Home")}>
                             <Icon type="Ionicons" name='home' size={24} style={styles.icon}/>
                         </Button>
-                        <Button onPress={() => this.props.navigation.navigate("Home")}>
+                        <Button onPress={() => this.props.navigation.navigate("FindUs")}>
                             <Icon type="Ionicons" name='pin' size={24} style={styles.icon}/>
                         </Button>
                         <Button onPress={() => this.props.navigation.navigate("Facilities")}>

@@ -2,6 +2,7 @@ import React from 'react';
 import {Dimensions} from 'react-native'
 import {createAppContainer, createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import Home from '../main/screens/home';
+import FindUs from '../main/screens/findus'
 import About from '../about/screens/home';
 import Faq from '../faq/screens/home';
 import Meals from '../main/screens/meals';
@@ -94,6 +95,7 @@ const subFAQ = createStackNavigator(
 const DrawerNavigator = createDrawerNavigator(
     {
         Home: createStackNavigator({Home: Home}, defaultNavConfigs),
+        FindUs: createStackNavigator({FindUs: FindUs}, defaultNavConfigs),
         Meals: createStackNavigator({Meals: Meals}, defaultNavConfigs),
         Facilities: subFacilities,
         Updates: createStackNavigator({Updates: Updates}, defaultNavConfigs),
