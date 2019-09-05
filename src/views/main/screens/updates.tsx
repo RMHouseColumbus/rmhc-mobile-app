@@ -36,8 +36,9 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
         headerTitleStyle: {
             color: '#000000',
             fontFamily: "System",
-            fontSize: 35,
-        },
+            fontSize: 20,
+            textAlign: 'center'
+        }
     };
 
     viewFunction = () => {
