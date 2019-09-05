@@ -27,7 +27,7 @@ export function mergeLinkText(text: string, links: any) {
                 createText(split[0])
             );
             subSplit.push(
-                createLink(data.text, data.url)
+                createLink(data.text, data.url, data.type)
             );
             unsplit = split[1];
         }
@@ -60,12 +60,21 @@ export function createText(text: string) {
     )
 }
 
-export function createLink(text: string, url: string) {
-    return (
-        <Text style={LINK_STYLE} onPress={() => Linking.openURL(url)}>
-            {text}
-        </Text>
-    )
+export function createLink(text: string, url: string, type: string) {
+    if (type === "ph") {   //if a ph number
+        return (
+            <Text style={LINK_STYLE} onPress={() => Linking.openURL(`tel:${url}`)}>
+                {text}
+            </Text>
+        )
+    } else {    //if a web page
+        return (
+            <Text style={LINK_STYLE} onPress={() => Linking.openURL(url)}>
+                {text}
+            </Text>
+        )
+    }
+
 }
 
 export const LINK_STYLE: TextStyle = {

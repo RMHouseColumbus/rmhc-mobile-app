@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native"
+import {ActivityIndicator, Linking, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {ContentService} from "../../../services/ContentService";
 import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE} from '../../shared/fonts';
@@ -7,6 +7,7 @@ import LeftArrow from '../../../images/left_arrow.svg';
 import {getStatusBar} from '../../shared/statusBar';
 import {NavigationScreenProps} from 'react-navigation';
 import BaseFooter from '../../shared/footer';
+
 
 const FULL: ViewStyle = {
     flex: 1,
@@ -137,7 +138,8 @@ export default class Transportation extends React.Component<TransportationProps,
         return (
             <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}:</Text>
-                <Text style={LINKSTYLE}>{c.url}</Text>
+                <Text onPress={() => Linking.openURL(c.url)}
+                      style={LINKSTYLE}>{c.url}</Text>
             </View>
         )
     }
@@ -145,7 +147,9 @@ export default class Transportation extends React.Component<TransportationProps,
     private cabServiceData(c: any) {
         return (
             <View key={c.name}>
-                <Text style={TEXTSTYLE}>{c.name}:{c.contact}</Text>
+                <Text style={TEXTSTYLE}>{c.name}:</Text>
+                <Text onPress={() => Linking.openURL(`tel:${c.contact}`)}
+                      style={LINKSTYLE}>{c.contact}</Text>
             </View>
         )
     }
@@ -155,7 +159,8 @@ export default class Transportation extends React.Component<TransportationProps,
             <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}</Text>
                 <Text style={TEXTSTYLE}>{c.sub}</Text>
-                <Text style={LINKSTYLE}>{c.contact}</Text>
+                <Text onPress={() => Linking.openURL(c.contact)}
+                      style={LINKSTYLE}>{c.contact}</Text>
             </View>
         )
     }
