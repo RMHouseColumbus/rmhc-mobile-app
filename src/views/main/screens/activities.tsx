@@ -3,6 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+import g from '../../styles/global';
 
 interface ActivitiesState {
     activities: any
@@ -54,7 +55,7 @@ export default class Activities extends React.Component<ActivityProps, Activitie
                     {
                         activities.map((item, index) => {
                             return (
-                                <Card key={index} style={main.card}>
+                                <Card key={index} style={g.card}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
                                             <Text style={main.textType}>{item.type}</Text>
@@ -92,14 +93,6 @@ const main = StyleSheet.create({
         fontFamily: "System",
         fontSize: 20,
         color: 'black'
-    },
-    card: {
-        marginLeft: "7%",
-        marginRight: "7%",
-        top: "2%",
-        width: "86%",
-        borderRadius: 15
-
     },
     body: {flex: 1, backgroundColor: "#638dc9"},
     textType: {

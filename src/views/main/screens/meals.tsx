@@ -4,6 +4,7 @@ import {NavigationScreenProps} from "react-navigation";
 import {ContentService, MealItem} from "../../../services/ContentService";
 import {Card, CardItem} from "native-base";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+import g from '../../styles/global';
 
 export interface MealsScreenProps extends NavigationScreenProps {
 }
@@ -53,7 +54,7 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
                 {
                     meals.map((item, i) => {
                         return (
-                            <Card key={i} style={styles.card}>
+                            <Card key={i} style={g.card}>
                                 <CardItem bordered key={i} style={{borderRadius: 20}}>
                                     <View>
                                         <Text style={styles.textTitle}>{item.summary}</Text>
@@ -83,22 +84,9 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
 }
 
 const styles = StyleSheet.create({
-    main: {
-        flex: 1, backgroundColor: "#F1F1F1"
-    },
     container: {
         flex: 1,
-    },
-    welcomeText: {
-        fontFamily: "System",
-        fontSize: 45,
-        color: 'black'
-    },
-    card: {
-        marginLeft: "7%",
-        marginRight: "7%",
-        top: "2%",
-        width: "86%"
+        backgroundColor: "#638dc9"
     },
     textType: {
         fontFamily: "System",

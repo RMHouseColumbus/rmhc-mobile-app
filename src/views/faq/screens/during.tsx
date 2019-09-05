@@ -4,7 +4,7 @@ import {NavigationScreenProps} from "react-navigation";
 import {Card, CardItem, Container, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../base-page/ScrollablePage";
-
+import g from '../../styles/global';
 
 interface BeforeProps extends NavigationScreenProps {
 }
@@ -49,7 +49,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
                     {
                         duringData.map((item, index) => {
                             return (
-                                <Card key={index} style={main.card}>
+                                <Card key={index} style={g.card}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
                                             <Text style={main.textType}>During Your Stay</Text>
@@ -89,12 +89,6 @@ const main = StyleSheet.create({
         fontFamily: "System",
         fontSize: 20,
         color: 'black'
-    },
-    card: {
-        marginLeft: "7%",
-        marginRight: "7%",
-        top: "2%",
-        width: "86%"
     },
     body: {flex: 10, backgroundColor: "#638dc9"},
     textType: {
