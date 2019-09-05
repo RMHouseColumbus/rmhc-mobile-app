@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {StyleSheet, Text, TouchableOpacity, View, Linking} from 'react-native'
 import {NavigationScreenProps} from "react-navigation";
 
 
@@ -22,7 +22,7 @@ export default class Menu extends React.Component<NavigationScreenProps, {}> {
                     {this.navLink("About", "About")}
                     {this.navLink("Faq", "FAQ")}
                     <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity={.5}
-                                      onPress={this.ButtonClickCheckFunction}>
+                                      onPress={() => Linking.openURL("http://rmhc-centralohio.org/donation-form/")}>
                         <Text style={styles.TextStyle}>Donate</Text>
                     </TouchableOpacity>
                 </View>
