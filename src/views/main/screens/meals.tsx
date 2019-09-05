@@ -73,8 +73,11 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
     render() {
 
         return (
-            <BaseScrollablePage onContentLoad={this.onContentUpdate} contentView={this.viewFunction}
-                                navigation={this.props.navigation} contentFunction={ContentService.mealFeed}/>
+            <BaseScrollablePage onContentLoad={this.onContentUpdate}
+                                contentView={this.viewFunction}
+                                navigation={this.props.navigation}
+                                contentFunction={ContentService.mealFeed}
+            />
         );
     }
 }
