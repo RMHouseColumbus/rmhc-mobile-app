@@ -22,7 +22,8 @@ const FULL: ViewStyle = {
 
 export interface BaseScreenProps extends NavigationScreenProps {
     back?: string,
-    contentLoad?: string,
+    contentLoad?: string
+    contentFunction?: () => Promise<any>
     onContentLoad?: (content: any) => void,
     contentView: () => any;
 }
@@ -42,21 +43,24 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
     }
 
     componentDidMount(): void {
-        if (!this.props.contentLoad) {
+        // no content to load
+        if (!this.props.contentLoad && !this.props.contentFunction) {
             this.setState({
                 isLoading: false
             });
         } else {
-            ContentService.contentForPage(this.props.contentLoad)
-                .then((result) => {
-                        this.setState({
-                            isLoading: false
-                        });
-                        if (this.props.contentLoad) {
-                            this.props.onContentLoad(result.content);
-                        }
+            // user page function or passed in function
+            const contentFunction = this.props.contentLoad ? ContentService.contentForPage(this.props.contentLoad) : this.props.contentFunction();
+            contentFunction.then((result) => {
+                    this.setState({
+                        isLoading: false
+                    });
+                    if (this.props.onContentLoad) {
+                        const resolve = this.props.contentLoad ? result.content : result;
+                        this.props.onContentLoad(resolve);
                     }
-                )
+                }
+            )
         }
     }
 

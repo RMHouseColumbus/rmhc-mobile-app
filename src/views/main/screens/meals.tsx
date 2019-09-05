@@ -1,47 +1,117 @@
 import React from 'react';
-import { StyleSheet, View, StatusBar } from 'react-native';
-import BaseFooter from '../../shared/footer'
-import {NavigationNavigatorProps, NavigationScreenProps} from "react-navigation";
+import {StyleSheet, Text, View} from 'react-native';
+import {NavigationScreenProps} from "react-navigation";
+import {ContentService, MealItem} from "../../../services/ContentService";
+import {Card, CardItem} from "native-base";
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 export interface MealsScreenProps extends NavigationScreenProps {
 }
 
-export default class Meals extends React.Component <MealsScreenProps,{}>{
+export interface MealsScreenState {
+    meals: MealItem[]
+}
+
+export default class Meals extends React.Component <MealsScreenProps, MealsScreenState> {
 
     static navigationOptions = {
-        title: 'Meals',   
+        title: 'Meals',
     };
 
+    public constructor(props) {
+        super(props);
+        this.state = {
+            meals: []
+        }
+    }
+
+    onContentUpdate = (content: any) => {
+        this.setState({
+            meals: content
+        })
+    };
+
+    getHour = (time: Date) => {
+        let h = time.getHours();
+        let m = time.getMinutes();
+        const x = h >= 12 ? 'pm' : 'am';
+        h = h % 12;
+        h = h ? h : 12;
+        const final = m < 10 ? '0' + m : m;
+        return h + ':' + final + ' ' + x;
+    };
+
+    getTextForDate = (start: Date, end: Date) => {
+        return `${start.toDateString()} ${this.getHour(start)}-${this.getHour(end)}`;
+    };
+
+    viewFunction = () => {
+        const {meals} = this.state;
+
+        return (
+            <View style={styles.container}>
+                {
+                    meals.map((item, i) => {
+                        return (
+                            <Card key={i} style={styles.card}>
+                                <CardItem bordered key={i} style={{borderRadius: 20}}>
+                                    <View>
+                                        <Text style={styles.textTitle}>{item.summary}</Text>
+                                        <Text
+                                            style={styles.textType}>{this.getTextForDate(item.start, item.end)}</Text>
+                                        <Text style={styles.textContent}>{item.description}</Text>
+                                    </View>
+                                </CardItem>
+                            </Card>
+                        )
+                    })
+                }
+            </View>
+        )
+    };
 
     render() {
+
         return (
-            <View style={styles.main}>
-                <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
-                <View style={{ flex: 0.9 }}>
-                    <View style={styles.container}>
-                       
-                    </View>
-                </View>
-                <View style={{ flex: 0.1 }}>
-                    <BaseFooter navigation={this.props.navigation} />
-                </View>
-            </View>
+            <BaseScrollablePage onContentLoad={this.onContentUpdate} contentView={this.viewFunction}
+                                navigation={this.props.navigation} contentFunction={ContentService.mealFeed}/>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    main:{
-        flex: 1, backgroundColor: "#F1F1F1" 
+    main: {
+        flex: 1, backgroundColor: "#F1F1F1"
     },
-    container:{
-        flex:1,
-        marginLeft:20,
-        top:50
+    container: {
+        flex: 1,
     },
-    welcomeText:{
-        fontFamily:"System",
-        fontSize:45,
-        color:'black'
+    welcomeText: {
+        fontFamily: "System",
+        fontSize: 45,
+        color: 'black'
+    },
+    card: {
+        marginLeft: "7%",
+        marginRight: "7%",
+        top: "2%",
+        width: "86%"
+    },
+    textType: {
+        fontFamily: "System",
+        fontSize: 12,
+        color: 'black'
+    },
+    textTitle: {
+        fontFamily: "System",
+        fontSize: 20,
+        color: 'black',
+        fontWeight: "bold"
+    },
+    textContent: {
+        marginTop: "1%",
+        fontFamily: "System",
+        fontSize: 14,
+        color: 'black'
     }
 });
