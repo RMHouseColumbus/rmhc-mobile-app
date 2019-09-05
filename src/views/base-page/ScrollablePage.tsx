@@ -89,7 +89,7 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
                     {
                         getStatusBar()
                     }
-                    <ScrollView style={{flex: 9, marginBottom: 25}}>
+                    <ScrollView style={{flex: 9}}>
                         {this.backButton()}
                         <View>
                             {

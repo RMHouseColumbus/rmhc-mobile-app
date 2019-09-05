@@ -15,8 +15,8 @@ export default class BaseFooter extends Component <FooterScreenProps, {}> {
     render() {
         return (
             <React.Fragment>
-                <Footer style={styles.footer}>
-                    <FooterTab>
+                <Footer >
+                    <FooterTab style={{backgroundColor:'#F9F9F9'}}>
                         <Button onPress={() => this.props.navigation.navigate("Home")}>
                             <Icon type="Ionicons" name='home' size={24} style={styles.icon}/>
                         </Button>
@@ -41,11 +41,4 @@ export default class BaseFooter extends Component <FooterScreenProps, {}> {
 
 const styles = StyleSheet.create({
     icon: {color: "#000000"},
-    footer: {
-        backgroundColor: "#FFFFFF",
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0
-    }
 });
