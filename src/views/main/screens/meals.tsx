@@ -57,10 +57,10 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
                             <Card key={i} style={g.card}>
                                 <CardItem bordered key={i} style={{borderRadius: 20}}>
                                     <View>
-                                        <Text style={styles.textTitle}>{item.summary}</Text>
+                                        <Text style={g.textTitle}>{item.summary}</Text>
                                         <Text
-                                            style={styles.textType}>{this.getTextForDate(item.start, item.end)}</Text>
-                                        <Text style={styles.textContent}>{item.description}</Text>
+                                            style={g.textType}>{this.getTextForDate(item.start, item.end)}</Text>
+                                        <Text style={g.textContent}>{item.description}</Text>
                                     </View>
                                 </CardItem>
                             </Card>
@@ -87,22 +87,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#638dc9"
-    },
-    textType: {
-        fontFamily: "System",
-        fontSize: 12,
-        color: 'black'
-    },
-    textTitle: {
-        fontFamily: "System",
-        fontSize: 20,
-        color: 'black',
-        fontWeight: "bold"
-    },
-    textContent: {
-        marginTop: "1%",
-        fontFamily: "System",
-        fontSize: 14,
-        color: 'black'
     }
 });

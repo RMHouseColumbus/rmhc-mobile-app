@@ -58,8 +58,8 @@ export default class Activities extends React.Component<ActivityProps, Activitie
                                 <Card key={index} style={g.card}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
-                                            <Text style={main.textType}>{item.type}</Text>
-                                            <Text style={main.textTitle}>{item.title}</Text>
+                                            <Text style={g.textType}>{item.type}</Text>
+                                            <Text style={g.textTitle}>{item.title}</Text>
                                             <Text style={main.textContent}>{item.text}</Text>
                                         </View>
                                     </CardItem>
@@ -95,17 +95,6 @@ const main = StyleSheet.create({
         color: 'black'
     },
     body: {flex: 1, backgroundColor: "#638dc9"},
-    textType: {
-        fontFamily: "System",
-        fontSize: 12,
-        color: 'black'
-    },
-    textTitle: {
-        fontFamily: "System",
-        fontSize: 20,
-        color: 'black',
-        fontWeight: "bold"
-    },
     textContent: {
         marginTop: "1%",
         fontFamily: "System",

@@ -52,9 +52,9 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
                                 <Card key={index} style={g.card}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
-                                            <Text style={main.textType}>{item.type}</Text>
-                                            <Text style={main.textTitle}>{item.title}</Text>
-                                            <Text style={main.textContent}>{item.text}</Text>
+                                            <Text style={g.textType}>{item.type}</Text>
+                                            <Text style={g.textTitle}>{item.title}</Text>
+                                            <Text style={g.textContent}>{item.text}</Text>
                                         </View>
                                     </CardItem>
                                 </Card>
@@ -92,21 +92,4 @@ const main = StyleSheet.create({
         color: 'black'
     },
     body: {flex: 10, backgroundColor: "#638dc9"},
-    textType: {
-        fontFamily: "System",
-        fontSize: 12,
-        color: 'black'
-    },
-    textTitle: {
-        fontFamily: "System",
-        fontSize: 20,
-        color: 'black',
-        fontWeight: "bold"
-    },
-    textContent: {
-        marginTop: "1%",
-        fontFamily: "System",
-        fontSize: 14,
-        color: 'black'
-    },
 });

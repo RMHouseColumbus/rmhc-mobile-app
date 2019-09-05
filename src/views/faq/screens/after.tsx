@@ -53,8 +53,8 @@ export default class After extends React.Component<AfterProps, AfterState> {
                                 <Card key={index} style={g.card}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
-                                            <Text style={main.textType}>After Your Stay</Text>
-                                            <Text style={main.textTitle}>{item.question}</Text>
+                                            <Text style={g.textType}>After Your Stay</Text>
+                                            <Text style={g.textTitle}>{item.question}</Text>
                                             {
                                                 mergeLinkText(item.answer, item.links)
                                             }
@@ -92,21 +92,5 @@ const main = StyleSheet.create({
         color: 'black'
     },
     body: {flex: 10, backgroundColor: "#638dc9"},
-    textType: {
-        fontFamily: "System",
-        fontSize: 12,
-        color: 'black'
-    },
-    textTitle: {
-        fontFamily: "System",
-        fontSize: 20,
-        color: 'black',
-        fontWeight: "bold"
-    },
-    textContent: {
-        marginTop: "1%",
-        fontFamily: "System",
-        fontSize: 14,
-        color: 'black'
-    },
+
 });
