@@ -1,29 +1,14 @@
 import React from 'react';
-import {
-    ActivityIndicator,
-    StatusBar,
-    StyleSheet,
-    Text,
-    TextStyle,
-    TouchableOpacity,
-    View,
-    ViewStyle
-} from "react-native"
+import {Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
-import LeftArrow from '../../../images/left_arrow.svg';
-import {ContentService} from "../../../services/ContentService";
 import {NavigationScreenProps} from "react-navigation";
-import {getStatusBar} from "../../shared/statusBar";
-import BaseFooter from '../../shared/footer';
-
-const FULL: ViewStyle = {flex: 1, padding: 20};
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 interface ShoppingProps extends NavigationScreenProps {
 
 }
 
 interface ShoppingState {
-    isLoading: boolean,
     retailers: any
 }
 
@@ -39,72 +24,45 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
     };
 
     public constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            isLoading: true,
             retailers: []
         }
     }
 
-    componentDidMount(): void {
-        ContentService.contentForPage("shopping")
-            .then((result) => {
-                    this.setState({
-                        isLoading: false,
-                        retailers: result.content.retailers
+    onContentUpdate = (content: any) => {
+
+        this.setState({
+            retailers: content.retailers
+        });
+
+    };
+
+    viewFunction = () => {
+        const retailers = this.state.retailers;
+
+        return (
+            <View>
+                {
+                    retailers.map(c => {
+                        return (
+                            this.retailRow(c)
+                        )
                     })
                 }
-            )
-    }
+            </View>
+        )
+    };
 
 
     render() {
-
-        const isLoading = this.state.isLoading;
-        const retailers = this.state.retailers;
-
-        if (isLoading) {
-            return this.loadingComponent();
-        } else {
-
-            return (
-                <View style={FULL}>
-                    {
-                        getStatusBar()
-                    }
-                    <View>
-                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
-                                          onPress={() => this.props.navigation.navigate("Neighborhood")}>
-                            <LeftArrow stle={{flex: 1}} width={20} height={20}/>
-                            <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
-                        </TouchableOpacity>
-
-                        <View>
-                            {
-                                retailers.map(c => {
-                                    return (
-                                        this.retailRow(c)
-                                    )
-                                })
-                            }
-                        </View>
-                    </View>
-                    <BaseFooter navigation={this.props}/>
-                </View>
-            )
-        }
-    }
-
-    private loadingComponent() {
         return (
-            <View style={{flex: 1}}>
-                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={main.container}>
-                        <ActivityIndicator/>
-                    </View>
-                </View>
-            </View>
+            <BaseScrollablePage
+                contentLoad={"shopping"}
+                onContentLoad={this.onContentUpdate}
+                contentView={this.viewFunction}
+                navigation={this.props.navigation}
+                back={"Neighborhood"}/>
         )
     }
 
@@ -127,11 +85,3 @@ const BOLD: TextStyle = {fontWeight: "bold"};
 const ROW: ViewStyle = {
     marginBottom: spacing[5]
 };
-
-const main = StyleSheet.create({
-    container: {
-        flex: 1,
-        marginLeft: 20,
-        top: 50
-    }
-});

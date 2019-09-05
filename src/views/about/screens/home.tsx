@@ -89,7 +89,9 @@ export default class About extends React.Component <AboutProps, AboutState> {
 
     render() {
         return (
-            <BaseScrollablePage contentLoad={"about"} onContentLoad={this.onContentLoad} contentView={this.viewFunction}
+            <BaseScrollablePage contentLoad={"about"}
+                                onContentLoad={this.onContentLoad}
+                                contentView={this.viewFunction}
                                 navigation={this.props.navigation}/>
         );
     }
