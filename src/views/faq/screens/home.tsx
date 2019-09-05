@@ -7,6 +7,7 @@ import After from "../assets/after.svg"
 
 import {SVGButton} from "../../svg-button/SVGButton";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+import Henry from "../assets/henry_faq.svg"
 
 const SVG = {
     // alignSelf: 'flex-end',
@@ -34,17 +35,20 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
 
     viewFunction = () => {
         return (
-            <View style={{padding: 20, backgroundColor: "#4872ae"}}>
-                <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
-                    <Before {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
-                    <During {...SVG}/>
-                </SVGButton>
+            <View style={{padding: 20, backgroundColor: "#4872ae", flexDirection: 'column-reverse'}}>
+                <Henry width={375} height={375} style={{flex: 1}}/>
+                <View style={{flex: 2}}>
+                    <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
+                        <Before {...SVG}/>
+                    </SVGButton>
+                    <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
+                        <During {...SVG}/>
+                    </SVGButton>
 
-                <SVGButton text={"After Your Stay"} onPress={() => this.props.navigation.navigate("After")}>
-                    <After {...SVG}/>
-                </SVGButton>
+                    <SVGButton text={"After Your Stay"} onPress={() => this.props.navigation.navigate("After")}>
+                        <After {...SVG}/>
+                    </SVGButton>
+                </View>
             </View>
         )
     };
