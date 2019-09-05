@@ -59,7 +59,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
     viewFunction = () => {
         return (
             <View style={styles.container}>
-                <SVGButton text={"Food Delivery"} onPress={() => this.props.navigation.navigate("Delivery")}>
+                <SVGButton text={"Food\nDelivery"} onPress={() => this.props.navigation.navigate("Delivery")}>
                     <Delivery {...SVG}/>
                 </SVGButton>
                 <SVGButton text={"Area Restaurants"}
