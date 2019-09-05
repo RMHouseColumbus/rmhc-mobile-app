@@ -22,7 +22,8 @@ const PARENT  : ViewStyle = {
 
 const SVG : ViewStyle = {
     alignSelf: 'flex-end',
-    alignContent: 'flex-end'
+    alignContent: 'flex-end',
+    justifyContent: 'flex-end'
 };
 
 const TEXT: TextStyle = {
