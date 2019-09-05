@@ -1,20 +1,12 @@
 import React from 'react';
-import { ViewStyle, View, TouchableOpacity, StatusBar, ActivityIndicator, StyleSheet } from "react-native";
-import { NavigationScreenProps } from "react-navigation";
-import { ContentService } from '../../../services/ContentService';
-import { Text, Container, Content, Card, CardItem } from 'native-base';
+import {ActivityIndicator, StatusBar, StyleSheet, TouchableOpacity, View, ViewStyle} from "react-native";
+import {NavigationScreenProps} from "react-navigation";
+import {ContentService} from '../../../services/ContentService';
+import {Card, CardItem, Container, Content, Text} from 'native-base';
 import LeftArrow from '../../../images/left_arrow.svg';
-import { getStatusBar } from '../../shared/statusBar';
-import { CONTENTSTYLE, LINKSTYLE, TEXTSTYLE } from '../../shared/fonts';
-import { spacing } from "../../shared/spacing";
-import BaseFooter from '../../shared/footer'
-import { mergeLinkText } from '../../link-text-merge/LinkTextMerge';
+import {spacing} from "../../shared/spacing";
+import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 
-
-const FULL: ViewStyle = {
-    flex: 1,
-    padding: 20
-};
 
 interface AfterProps extends NavigationScreenProps{}
 

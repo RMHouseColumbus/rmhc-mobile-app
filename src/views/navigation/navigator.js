@@ -86,7 +86,7 @@ const subFAQ = createStackNavigator(
         During: During,
         After: After
     }, defaultNavConfigs,
-    {initialRouteName:"FAQ"});
+    {initialRouteName:"Faq"});
 
 
 const DrawerNavigator = createDrawerNavigator(
@@ -98,7 +98,7 @@ const DrawerNavigator = createDrawerNavigator(
         About: subAbout,
         Activities: createStackNavigator({Activities: Activities}, defaultNavConfigs),
         Neighborhood: subNeigborhood,
-        FAQ: subFAQ,
+        Faq: subFAQ,
     }, {
         drawerWidth: Dimensions.get("window").width * 0.83,
         contentComponent: ({navigation}) => {
