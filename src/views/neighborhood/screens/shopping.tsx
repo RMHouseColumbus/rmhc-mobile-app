@@ -110,7 +110,7 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
 
     private retailRow(c: any) {
         return (
-            <View key={c.id} style={ROW}>
+            <View key={c.name} style={ROW}>
                 <Text style={BOLD}>{c.name}</Text>
                 <Text>{c.address}</Text>
                 <Text>Description: {c.desc}</Text>

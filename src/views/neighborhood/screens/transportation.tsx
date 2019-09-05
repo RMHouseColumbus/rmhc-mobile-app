@@ -135,7 +135,7 @@ export default class Transportation extends React.Component<TransportationProps,
 
     private rideShareInfo(c: any) {
         return (
-            <View key={c.id}>
+            <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}:</Text>
                 <Text style={LINKSTYLE}>{c.url}</Text>
             </View>
@@ -144,7 +144,7 @@ export default class Transportation extends React.Component<TransportationProps,
 
     private cabServiceData(c: any) {
         return (
-            <View key={c.id}>
+            <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}:{c.contact}</Text>
             </View>
         )
@@ -152,7 +152,7 @@ export default class Transportation extends React.Component<TransportationProps,
 
     private publicTransportationData(c: any) {
         return (
-            <View key={c.id}>
+            <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}</Text>
                 <Text style={TEXTSTYLE}>{c.sub}</Text>
                 <Text style={LINKSTYLE}>{c.contact}</Text>
