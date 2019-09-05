@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native"
+import {ActivityIndicator, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle, Linking} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {ContentService} from "../../../services/ContentService";
 import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE} from '../../shared/fonts';
@@ -137,7 +137,8 @@ export default class Transportation extends React.Component<TransportationProps,
         return (
             <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}:</Text>
-                <Text style={LINKSTYLE}>{c.url}</Text>
+                <Text onPress={() => Linking.openURL(c.url)}
+                      style={LINKSTYLE}>{c.url}</Text>
             </View>
         )
     }
@@ -155,7 +156,8 @@ export default class Transportation extends React.Component<TransportationProps,
             <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}</Text>
                 <Text style={TEXTSTYLE}>{c.sub}</Text>
-                <Text style={LINKSTYLE}>{c.contact}</Text>
+                <Text onPress={() => Linking.openURL(c.contact)}
+                      style={LINKSTYLE}>{c.contact}</Text>
             </View>
         )
     }
