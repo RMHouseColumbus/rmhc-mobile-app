@@ -1,6 +1,5 @@
 import React from 'react';
-import {Linking, ScrollView, StatusBar, StyleSheet, View} from 'react-native';
-import BaseFooter from '../../shared/footer'
+import {Linking, StyleSheet, View} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 
 
@@ -10,18 +9,15 @@ import Share from "../assets/share.svg";
 import Staff from "../assets/staff.svg";
 import StayInvolved from "../assets/stayinvolved.svg";
 import {SVGButton} from "../../svg-button/SVGButton";
-import {ContentService} from "../../../services/ContentService";
+import BaseScrollablePage from "../../base-page/ScrollablePage";
 
 
 const SVG = {
-    // alignSelf: 'flex-end',
     Width: 200,
-    Height: 52,
-    // marginBottom: spacing[4]
+    Height: 52
 };
 
 export interface AboutState {
-    isLoading: boolean,
     content: any
 }
 
@@ -33,12 +29,16 @@ export default class About extends React.Component <AboutProps, AboutState> {
     constructor(props) {
         super(props);
         this.state = {
-            isLoading: true,
-            content: []
+            content: {
+                links: {
+                    sharestory: {
+                        url: ""
+                    }
+                }
+            }
         }
 
     }
-
 
     static navigationOptions = {
         title: "About",
@@ -53,50 +53,44 @@ export default class About extends React.Component <AboutProps, AboutState> {
     };
 
 
-    componentDidMount(): void {
-        ContentService.contentForPage("about")
-            .then((result) => {
-                    this.setState({
-                        isLoading: false,
-                        content: result.content.links.sharestory
-                    })
-                }
-            )
-    }
+    onContentLoad = (content: any) => {
+        this.setState({
+            content: content
+        })
+    };
+
+    viewFunction = () => {
+        const link = this.state.content.links.sharestory.url;
+        return (
+            <View style={styles.container}>
+                <SVGButton text={"Meet the Staff"} onPress={() => this.props.navigation.navigate("Staff")}>
+                    <Staff {...SVG}/>
+                </SVGButton>
+                <SVGButton text={"Care Mobile"}
+                           onPress={() => this.props.navigation.navigate("CareMobile")}>
+                    <CareMobile {...SVG}/>
+                </SVGButton>
+                <SVGButton text={"Ways to Stay Involved"}
+                           onPress={() => this.props.navigation.navigate("StayInvolved")}>
+                    <StayInvolved {...SVG}/>
+                </SVGButton>
+                <SVGButton text={"Share Your Story"}
+                           onPress={() => Linking.openURL(link)}>
+                    <Share {...SVG}/>
+                </SVGButton>
+                <SVGButton text={"Family Room"}
+                           onPress={() => this.props.navigation.navigate("FamilyRoom")}>
+                    <FamilyRoom {...SVG}/>
+                </SVGButton>
+            </View>
+        )
+    };
+
 
     render() {
-        const link = this.state.content.url;
         return (
-            <ScrollView style={styles.main}>
-                <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
-                <View style={{flex: 1, flexDirection: 'row'}}>
-                    <View style={styles.container}>
-                        <SVGButton text={"Meet the Staff"} onPress={() => this.props.navigation.navigate("Staff")}>
-                            <Staff {...SVG}/>
-                        </SVGButton>
-                        <SVGButton text={"Care Mobile"}
-                                   onPress={() => this.props.navigation.navigate("CareMobile")}>
-                            <CareMobile {...SVG}/>
-                        </SVGButton>
-                        <SVGButton text={"Ways to Stay Involved"}
-                                   onPress={() => this.props.navigation.navigate("StayInvolved")}>
-                            <StayInvolved {...SVG}/>
-                        </SVGButton>
-                        <SVGButton text={"Share Your Story"}
-                                   onPress={() => Linking.openURL(link)}>
-                            <Share {...SVG}/>
-                        </SVGButton>
-                        <SVGButton text={"Family Room"}
-                                   onPress={() => this.props.navigation.navigate("FamilyRoom")}>
-                            <FamilyRoom {...SVG}/>
-                        </SVGButton>
-                    </View>
-                    <View style={{flex: .1}}>
-                        <BaseFooter navigation={this.props.navigation}/>
-                    </View>
-                </View>
-
-            </ScrollView>
+            <BaseScrollablePage contentLoad={"about"} onContentLoad={this.onContentLoad} contentView={this.viewFunction}
+                                navigation={this.props.navigation}/>
         );
     }
 }
