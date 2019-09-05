@@ -63,7 +63,7 @@ export default class About extends React.Component <AboutProps, AboutState> {
         const link = this.state.content.links.sharestory.url;
         return (
             <View style={{padding: 20, backgroundColor: "#4872ae"}}>
-                <SVGButton text={"Meet the\nStaff"} onPress={() => this.props.navigation.navigate("Staff")}>
+                <SVGButton text={"Meet the\nStaff"} onPress={() => Linking.openURL("http://rmhc-centralohio.org/who-we-are/staff/")}>
                     <Staff {...SVG}/>
                 </SVGButton>
                 <SVGButton text={"Care\nMobile"}
