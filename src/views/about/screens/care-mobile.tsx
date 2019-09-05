@@ -2,6 +2,7 @@ import * as React from "react";
 import {NavigationScreenProps} from "react-navigation";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
+import {View} from "react-native";
 
 
 export interface CareMobileScreenProps extends NavigationScreenProps {
@@ -35,12 +36,14 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
 
     viewFunction = () => {
         const content = this.state.content || "Content is Unavailable";
-        return mergeLinkText(content.text, content.links);
+        return (
+            <View style={{padding: 20}}>
+                {mergeLinkText(content.text, content.links)}
+            </View>
+        );
     };
 
     render() {
-
-
         return (
             <BaseScrollablePage
                 back={"About"}

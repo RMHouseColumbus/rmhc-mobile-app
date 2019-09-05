@@ -34,7 +34,7 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
 
     viewFunction = () => {
         return (
-            <View style={styles.container}>
+            <View style={{padding: 20, backgroundColor: "#4872ae"}}>
                 <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
                     <Before {...SVG}/>
                 </SVGButton>
@@ -59,19 +59,3 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
         );
     }
 }
-
-const styles = StyleSheet.create({
-    main: {
-        // flex: 1, backgroundColor: "red"
-    },
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: "#4872ae"
-    },
-    welcomeText: {
-        fontFamily: "System",
-        fontSize: 45,
-        color: 'black'
-    }
-});
