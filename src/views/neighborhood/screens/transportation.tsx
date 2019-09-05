@@ -1,9 +1,8 @@
 import React from 'react';
-import {ActivityIndicator, StatusBar, StyleSheet, Text, View, ViewStyle} from "react-native"
+import {ActivityIndicator, StatusBar, StyleSheet, Text, TouchableOpacity, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {ContentService} from "../../../services/ContentService";
 import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE} from '../../shared/fonts';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import LeftArrow from '../../../images/left_arrow.svg';
 import {getStatusBar} from '../../shared/statusBar';
 import {NavigationScreenProps} from 'react-navigation';
@@ -60,11 +59,10 @@ export default class Transportation extends React.Component<TransportationProps,
 
     render() {
 
-        const isLoading = this.state.isLoading;
-        const rideShares = this.state.rideShares;
+        const isLoading    = this.state.isLoading;
+        const rideShares   = this.state.rideShares;
         const cabCompanies = this.state.cabCompanies;
-        const publicTrans = this.state.publicTrans;
-        const backTo = () => this.props.navigation.navigate("Neighborhood");
+        const publicTrans  = this.state.publicTrans;
 
         if (isLoading) {
             return this.loadingComponent();
@@ -75,8 +73,9 @@ export default class Transportation extends React.Component<TransportationProps,
                         getStatusBar()
                     }
                     <View>
-                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}} onPress={backTo}>
-                            <LeftArrow stle={{flex: 1}} width={20} height={20}/>
+                        <TouchableOpacity style={{height: 50, flexDirection: 'row'}}
+                                          onPress={() => this.props.navigation.navigate("Neighborhood")}>
+                            <LeftArrow stle={{flex: 1}} width={20} height={20}></LeftArrow>
                             <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
                         </TouchableOpacity>
                         <View style={SECTION}>
@@ -117,7 +116,7 @@ export default class Transportation extends React.Component<TransportationProps,
                     <BaseFooter navigation={this.props.navigation}/>
 
                 </View>
-            );
+            )
         }
     }
 
