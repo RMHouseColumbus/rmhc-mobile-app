@@ -42,7 +42,7 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
         const retailers = this.state.retailers;
 
         return (
-            <View>
+            <View  style={{padding: 20}}>
                 {
                     retailers.map(c => {
                         return (

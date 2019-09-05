@@ -39,7 +39,7 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
         const paratext = this.state.content.main;
 
         return (
-            <View style={{marginTop: 25}}>
+            <View  style={{padding: 20}}>
                 <Text>
                     {paratext}
                 </Text>

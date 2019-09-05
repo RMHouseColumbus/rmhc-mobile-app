@@ -41,7 +41,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
     viewFunction = () => {
         const restaurants = this.state.restaurants;
         return (
-            <View>
+            <View  style={{padding: 20}}>
                 <Text style={TITLE}>
                     Find restaurants that deliver by carrier:
                 </Text>

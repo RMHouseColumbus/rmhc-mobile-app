@@ -12,14 +12,6 @@ import {SVGButton} from "../../svg-button/SVGButton";
 import {NavigationScreenProps} from "react-navigation"
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
-
-const SVG = {
-    // alignSelf: 'flex-end',
-    Width: 200,
-    Height: 52,
-    // marginBottom: spacing[4]
-};
-
 export interface NeighborhoodNavigationProps extends NavigationScreenProps {
 }
 
@@ -89,15 +81,22 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
     }
 }
 
+const SVG = {
+    // alignSelf: 'flex-end',
+    Width: 200,
+    Height: 52,
+    // marginBottom: spacing[4]
+};
+
 const styles = StyleSheet.create({
     container: {
-        flex: 15,
+        // flex: 15,
         padding: 20,
         backgroundColor: "#4872ae"
     },
-    welcomeText: {
-        fontFamily: "System",
-        fontSize: 45,
-        color: 'black'
-    }
+    // welcomeText: {
+    //     fontFamily: "System",
+    //     fontSize: 45,
+    //     color: 'black'
+    // }
 });

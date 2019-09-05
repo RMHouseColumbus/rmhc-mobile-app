@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Text} from "react-native";
+import {Text, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../base-page/ScrollablePage";
 
@@ -31,7 +31,7 @@ export default class StaffScreen extends React.Component<StaffScreenProps, Staff
 
     viewFunction = () => {
         return (
-            <Text>
+            <Text  style={{padding: 20}}>
                 {"Staff Content Here"}
             </Text>
         )

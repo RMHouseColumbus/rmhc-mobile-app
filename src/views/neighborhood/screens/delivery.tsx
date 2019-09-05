@@ -39,7 +39,7 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
     viewFunction = () => {
         const carriers = this.state.content.carriers;
         return (
-            <View>
+            <View style={{padding: 20}}>
                 <Text style={TITLE}>
                     Find restaurants that deliver by carrier:
                 </Text>

@@ -33,7 +33,7 @@ export default class FamilyRoom extends React.Component<FamilyRoomScreenProps, F
     viewFunction = () => {
         const content = this.state.content;
         return (
-            <Text>
+            <Text  style={{padding: 20}}>
                 {content.text || "Content Unavailable Right Now"}
             </Text>
         )

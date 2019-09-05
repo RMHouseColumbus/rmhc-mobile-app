@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, StyleSheet, View} from 'react-native';
+import {Linking, View} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 
 
@@ -62,7 +62,7 @@ export default class About extends React.Component <AboutProps, AboutState> {
     viewFunction = () => {
         const link = this.state.content.links.sharestory.url;
         return (
-            <View style={styles.container}>
+            <View style={{padding: 20, backgroundColor: "#4872ae"}}>
                 <SVGButton text={"Meet the Staff"} onPress={() => this.props.navigation.navigate("Staff")}>
                     <Staff {...SVG}/>
                 </SVGButton>
@@ -96,19 +96,3 @@ export default class About extends React.Component <AboutProps, AboutState> {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    main: {
-        // flex: 1, backgroundColor: "red"
-    },
-    container: {
-        flex: 15,
-        padding: 20,
-        backgroundColor: "#4872ae"
-    },
-    welcomeText: {
-        fontFamily: "System",
-        fontSize: 45,
-        color: 'black'
-    }
-});

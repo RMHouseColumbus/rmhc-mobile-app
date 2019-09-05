@@ -49,7 +49,7 @@ export default class Transportation extends React.Component<TransportationProps,
         const publicTrans = this.state.publicTrans;
 
         return (
-            <View>
+            <View style={{padding: 20}}>
                 <View style={SECTION}>
                     <Text style={CONTENTSTYLE}>Rideshare</Text>
                     {
@@ -134,5 +134,5 @@ export default class Transportation extends React.Component<TransportationProps,
 }
 
 const SECTION: ViewStyle = {
-    marginTop: spacing[5]
+    marginBottom: spacing[5]
 };
