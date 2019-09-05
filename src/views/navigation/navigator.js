@@ -21,6 +21,7 @@ import StayInvolved from "../about/screens/stay-involved";
 import Before from "../faq/screens/before"
 import During from "../faq/screens/during"
 import After from "../faq/screens/after"
+import FamilyRoom from "../about/screens/family-room";
 
 
 const navHeaderStyle = {
@@ -73,7 +74,8 @@ const subAbout = createStackNavigator(
     {
         About: About,
         CareMobile: CareMobile,
-        StayInvolved: StayInvolved
+        StayInvolved: StayInvolved,
+        FamilyRoom: FamilyRoom
     }, defaultNavConfigs,
     {initialRouteName: "About"});
 

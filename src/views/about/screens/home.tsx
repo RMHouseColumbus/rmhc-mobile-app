@@ -87,7 +87,7 @@ export default class About extends React.Component <AboutProps,AboutState>  {
                             <Share {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Family Room"}
-                                   onPress={() => this.props.navigation.navigate("Transportation")}>
+                                   onPress={() => this.props.navigation.navigate("FamilyRoom")}>
                             <FamilyRoom {...SVG}/>
                         </SVGButton>
                     </View>
