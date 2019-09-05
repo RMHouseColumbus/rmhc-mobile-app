@@ -97,7 +97,9 @@ const main = StyleSheet.create({
         marginLeft: "7%",
         marginRight: "7%",
         top: "2%",
-        width: "86%"
+        width: "86%",
+        borderRadius: 15
+
     },
     body: {flex: 1, backgroundColor: "#638dc9"},
     textType: {
