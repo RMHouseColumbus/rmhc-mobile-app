@@ -22,6 +22,7 @@ import Before from "../faq/screens/before"
 import During from "../faq/screens/during"
 import After from "../faq/screens/after"
 import FamilyRoom from "../about/screens/family-room";
+import StaffScreen from "../about/screens/staff";
 
 
 const navHeaderStyle = {
@@ -73,6 +74,7 @@ const subNeigborhood = createStackNavigator(
 const subAbout = createStackNavigator(
     {
         About: About,
+        Staff: StaffScreen,
         CareMobile: CareMobile,
         StayInvolved: StayInvolved,
         FamilyRoom: FamilyRoom

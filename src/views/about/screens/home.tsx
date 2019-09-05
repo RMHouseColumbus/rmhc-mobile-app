@@ -71,7 +71,7 @@ export default class About extends React.Component <AboutProps, AboutState> {
                 <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content"/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     <View style={styles.container}>
-                        <SVGButton text={"Meet the Staff"} onPress={() => this.props.navigation.navigate("Delivery")}>
+                        <SVGButton text={"Meet the Staff"} onPress={() => this.props.navigation.navigate("Staff")}>
                             <Staff {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Care Mobile"}

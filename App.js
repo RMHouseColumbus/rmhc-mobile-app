@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import DrawerNavigator  from './src/views/navigation/navigator.js'
+import DrawerNavigator  from './src/views/navigation/navigator'
 
 const App = () => {
   return (
