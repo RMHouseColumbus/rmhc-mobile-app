@@ -1,24 +1,18 @@
 import React from 'react'
-import {View, Text, Dimensions, StyleSheet, TouchableOpacity} from 'react-native'
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
+import {NavigationScreenProps} from "react-navigation";
 
 
-const WIDTH = Dimensions.get("window").width
-const HEIGHT = Dimensions.get("window").height
+export default class Menu extends React.Component<NavigationScreenProps, {}> {
 
-export default class Menu extends React.Component {
-    navLink(nav, text) {
-        return (
-            <TouchableOpacity style={{height: 50}} onPress={() => this.props.navigation.navigate(nav)}>
-                <Text style={styles.link}>{text}</Text>
-            </TouchableOpacity>
-        )
+    public constructor(props: any) {
+        super(props);
     }
 
     render() {
         return (
             <View style={styles.container}>
                 <View style={{flex: 1, borderColor: 'black'}}>
-
                     {this.navLink("Home", "Home")}
                     {this.navLink("Updates", "Updates")}
                     {this.navLink("Meals", "Meals")}
@@ -34,6 +28,19 @@ export default class Menu extends React.Component {
                 </View>
             </View>
         )
+    }
+
+    private navLink(nav, text) {
+        return (
+            <TouchableOpacity style={{height: 50}} onPress={() => this.navigateAndCloseDrawer(nav)}>
+                <Text style={styles.link}>{text}</Text>
+            </TouchableOpacity>
+        )
+    }
+
+    private navigateAndCloseDrawer(nav) {
+        this.props.navigation.closeDrawer();
+        this.props.navigation.navigate(nav);
     }
 }
 

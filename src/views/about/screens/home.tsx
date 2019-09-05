@@ -1,7 +1,7 @@
 import React from 'react';
-import {ScrollView, StatusBar, StyleSheet, View, Linking} from 'react-native';
+import {Linking, ScrollView, StatusBar, StyleSheet, View} from 'react-native';
 import BaseFooter from '../../shared/footer'
-import {NavigationNavigatorProps} from "react-navigation";
+import {NavigationScreenProps} from "react-navigation";
 
 
 import CareMobile from "../assets/caremobile.svg";
@@ -25,11 +25,10 @@ export interface AboutState {
     content: any
 }
 
-export interface AboutProps extends NavigationNavigatorProps {
-    navigation: any
+export interface AboutProps extends NavigationScreenProps {
 }
 
-export default class About extends React.Component <AboutProps,AboutState>  {
+export default class About extends React.Component <AboutProps, AboutState> {
 
     constructor(props) {
         super(props);
@@ -79,7 +78,8 @@ export default class About extends React.Component <AboutProps,AboutState>  {
                                    onPress={() => this.props.navigation.navigate("CareMobile")}>
                             <CareMobile {...SVG}/>
                         </SVGButton>
-                        <SVGButton text={"Ways to Stay Involved"} onPress={() => this.props.navigation.navigate("StayInvolved")}>
+                        <SVGButton text={"Ways to Stay Involved"}
+                                   onPress={() => this.props.navigation.navigate("StayInvolved")}>
                             <StayInvolved {...SVG}/>
                         </SVGButton>
                         <SVGButton text={"Share Your Story"}
