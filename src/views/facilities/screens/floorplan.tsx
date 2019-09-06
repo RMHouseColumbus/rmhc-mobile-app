@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         top: 50
     },
     welcomeText: {
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 45,
         color: 'black'
     },

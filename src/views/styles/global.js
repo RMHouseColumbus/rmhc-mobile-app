@@ -16,19 +16,19 @@ module.exports = StyleSheet.create({
     },
 
     textType: {
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 12,
         color: 'black'
     },
     textTitle: {
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 20,
         color: 'black',
         fontWeight: "bold"
     },
     textContent: {
         marginTop: "1%",
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 14,
         color: 'black'
     }

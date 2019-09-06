@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#4872ae"
     },
     // welcomeText: {
-    //     fontFamily: "System",
+    //     fontFamily: "Raleway-Regular",
     //     fontSize: 45,
     //     color: 'black'
     // }

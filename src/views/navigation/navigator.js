@@ -32,7 +32,7 @@ const navHeaderStyle = {
 
 const navHeaderTitleStyle = {
     color: '#FFFFFF',
-    fontFamily: "System",
+    fontFamily: "Raleway-Regular",
     fontSize: 35,
     alignSelf: 'center',
     justifyContent: 'space-between',

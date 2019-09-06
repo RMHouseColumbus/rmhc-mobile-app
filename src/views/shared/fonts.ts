@@ -33,7 +33,7 @@ export const TITLE: TextStyle = {
 
 export const PAGETITLE: TextStyle = {
     color: '#000000',
-    fontFamily: "System",
+    fontFamily: "Raleway-Regular",
     fontSize: 20
 }
 
@@ -49,14 +49,15 @@ export const HEADERSTYLEBLUE: TextStyle = {
 
 export const HEADERTITLESTYLEWHITE: TextStyle = {
     color: `#FFFFFF`,
-    fontSize: 30,
-    fontFamily: "System",
+    fontSize: 28,
+    fontFamily: "Raleway-Regular",
+    
     textAlign: "center", flex:.8
 }
 
 export const HEADERTITLESTYLEBLACK: TextStyle = {
     color: `#000000`,
-    fontSize: 30,
-    fontFamily: "System",
+    fontSize: 28,
+    fontFamily: "Raleway-Regular",
     textAlign: "center", flex:.8
 }

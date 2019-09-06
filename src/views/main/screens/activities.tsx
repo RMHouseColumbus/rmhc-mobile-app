@@ -89,14 +89,14 @@ const main = StyleSheet.create({
         top: 50
     },
     text: {
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 20,
         color: 'black'
     },
     body: {flex: 1, backgroundColor: "#638dc9"},
     textContent: {
         marginTop: "1%",
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 14,
         color: 'black'
     },

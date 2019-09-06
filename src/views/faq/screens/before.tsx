@@ -80,7 +80,7 @@ const main = StyleSheet.create({
         top: 50
     },
     text: {
-        fontFamily: "System",
+        fontFamily: "Raleway-Regular",
         fontSize: 20,
         color: 'black'
     },
