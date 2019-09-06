@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, StatusBar, ImageBackground, Linking, Platform, 
 import { NavigationScreenProps } from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
+import { createOpenLink } from 'react-native-open-maps';
 
 export interface FindUscreenProps extends NavigationScreenProps {
 }Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });export default class FindUs extends React.Component <FindUscreenProps,{}> {
@@ -13,11 +14,11 @@ export interface FindUscreenProps extends NavigationScreenProps {
         headerTitleStyle: HEADERTITLESTYLEWHITE
     }
     render() {
-        const lat = "39.951073"
-        const long = "-82.978959" 
+        const lat = 39.951073
+        const long = -82.978959
         const rmhcPhoneNumber = "tel:614-227-3700"
         const rmhcEmail = "mailto:rmhccommunications@rmhc-centralohio.org"
-        const rmhcGeoCoordinates = Platform.select({ ios: 'maps:'+lat+','+long, android: 'geo:'+lat+','+long });
+        const rmhcGeoCoordinates = Platform.select({ ios: 'http://maps.apple.com/?ll='+lat+','+long, android: 'geo:'+lat+','+long });
         return (
             <View style={styles.main}>
                 
@@ -34,7 +35,7 @@ export interface FindUscreenProps extends NavigationScreenProps {
                 
                 </View>
                 <View style={{flex:0.7, marginLeft:'1%',width:'98%'}}>
-                <TouchableOpacity onPress={() => Linking.openURL(rmhcGeoCoordinates)}>
+                <TouchableOpacity onPress={createOpenLink({latitude:lat, longitude:long,query:"Ronald McDonald House"})}>
                 <ImageBackground source={require('./assets/findusmap.png')} imageStyle={{resizeMode: 'stretch', overflow:'visible'}} style={{width: '100%', height: '100%'}} />
                 </TouchableOpacity>
                        
