@@ -35,7 +35,7 @@ export interface FindUscreenProps extends NavigationScreenProps {
                 
                 </View>
                 <View style={{flex:0.7, marginLeft:'1%',width:'98%'}}>
-                <TouchableOpacity onPress={createOpenLink({latitude:lat, longitude:long,query:"Ronald McDonald House"})}>
+                <TouchableOpacity onPress={createOpenLink({latitude:lat, longitude:long,query:"Ronald McDonald House - Central Ohio"})}>
                 <ImageBackground source={require('./assets/findusmap.png')} imageStyle={{resizeMode: 'stretch', overflow:'visible'}} style={{width: '100%', height: '100%'}} />
                 </TouchableOpacity>
                        
