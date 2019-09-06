@@ -10,7 +10,7 @@ interface SVGButtonProps {
 const VIEW  : ViewStyle = {
     flex: 1,
     paddingBottom: 15
-}
+};
 
 const PARENT  : ViewStyle = {
     marginBottom: spacing[1],
@@ -41,7 +41,7 @@ export class SVGButton extends React.Component<SVGButtonProps, {}> {
         return (
             <View style={VIEW}>
                 <TouchableOpacity onPress={this.props.onPress} style={PARENT}>
-                    <Text style={{flex: 1}}></Text>
+                    <Text style={{flex: 1}}/>
                     <Text style={TEXT}>{this.props.text}</Text>
                     <View style={SVG}>{this.props.children}</View>
                 </TouchableOpacity>
