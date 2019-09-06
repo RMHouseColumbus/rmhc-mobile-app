@@ -65,11 +65,15 @@ export default class After extends React.Component<AfterProps, AfterState> {
     };
 
     render() {
+        const overrideBGColor = {
+            backgroundColor: "#638dc9"
+        };
 
         return (<BaseScrollablePage contentView={this.viewFunction}
                                     navigation={this.props.navigation}
                                     onContentLoad={this.onContentUpdate}
                                     contentLoad={"afteryourstay"}
+                                    containerStyle={overrideBGColor}
                                     back={"Faq"}/>
                                     )
     }

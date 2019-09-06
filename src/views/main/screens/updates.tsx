@@ -41,13 +41,17 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
 
     viewFunction = () => {
         const content = this.state.content;
+        const cardStyle = {
+            ...g.card,
+            top: '2%'
+        };
         return (
             <Container>
                 <Content style={main.body}>
                     {
                         content.map((item, index) => {
                             return (
-                                <Card key={index} style={g.card}>
+                                <Card key={index} style={cardStyle}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
                                             <Text style={g.textType}>{item.type}</Text>

@@ -63,10 +63,14 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
     };
 
     render() {
+        const overrideBGColor = {
+            backgroundColor: "#638dc9"
+        };
         return (<BaseScrollablePage contentView={this.viewFunction}
                                     navigation={this.props.navigation}
                                     onContentLoad={this.onContentUpdate}
                                     contentLoad={"beforeyourstay"}
+                                    containerStyle={overrideBGColor}
                                     back={"Faq"}/>
         )
     }

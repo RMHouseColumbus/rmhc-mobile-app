@@ -44,7 +44,10 @@ export default class Activities extends React.Component<ActivityProps, Activitie
 
     viewFunction = () => {
         const {activities} = this.state;
-
+        const cardStyle = {
+            ...g.card,
+            top: '2%'
+        };
         return (
             <Container>
 
@@ -54,7 +57,7 @@ export default class Activities extends React.Component<ActivityProps, Activitie
                     {
                         activities.map((item, index) => {
                             return (
-                                <Card key={index} style={g.card}>
+                                <Card key={index} style={cardStyle}>
                                     <CardItem bordered key={index} style={{borderRadius: 20}}>
                                         <View>
                                             <Text style={g.textType}>{item.type}</Text>

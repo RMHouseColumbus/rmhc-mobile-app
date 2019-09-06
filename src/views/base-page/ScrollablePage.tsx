@@ -12,7 +12,6 @@ import {
 import {NavigationScreenProps} from "react-navigation";
 import LeftArrow from "../../images/left_arrow.svg";
 import BaseFooter from "../shared/footer";
-import {getStatusBar} from "../shared/statusBar";
 import {ContentService} from "../../services/ContentService";
 
 const FULL: ViewStyle = {
@@ -26,6 +25,7 @@ export interface BaseScreenProps extends NavigationScreenProps {
     contentFunction?: () => Promise<any>
     onContentLoad?: (content: any) => void,
     contentView: () => any;
+    containerStyle?: ViewStyle;
 }
 
 export interface BaseScreenState {
@@ -69,17 +69,20 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
             return <></>
         }
         const goBack = () => this.props.navigation.navigate(this.props.back);
-
         return (
-            <TouchableOpacity style={{flexDirection: 'row', margin: 20}}
+            <TouchableOpacity style={baseBackStyle}
                               onPress={goBack}>
-                <LeftArrow stle={{flex: 1}} width={20} height={20}/>
+                <LeftArrow width={20} height={20}/>
                 <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
             </TouchableOpacity>
         )
     }
     render() {
         const isLoading = this.state.isLoading;
+        const scrollViewStyle = {
+            ...baseScrollViewStyle,
+            ...this.props.containerStyle
+        };
 
         if (isLoading) {
             return this.loadingComponent();
@@ -87,15 +90,15 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
             return (
                 <View style={FULL}>
                     {
-                        getStatusBar()
+                        this.getStatusBar()
                     }
-                    <ScrollView style={{flex: 9}}>
+                    <ScrollView style={scrollViewStyle}>
                         {this.backButton()}
-                        <View>
+
                             {
                                 this.props.contentView()
                             }
-                        </View>
+
                     </ScrollView>
                     {this.getFooter()}
                 </View>
@@ -107,6 +110,10 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
         return (
             <BaseFooter navigation={this.props.navigation}/>
         )
+    }
+
+    getStatusBar(){
+        return <StatusBar {...backStatusStyle}/>;
     }
 
     private loadingComponent() {
@@ -124,10 +131,23 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
 
 }
 
+
+const baseScrollViewStyle : ViewStyle = {
+    flex: 9
+};
+
+const backStatusStyle :ViewStyle = {
+    backgroundColor:"#4872ae"
+};
+
+const baseBackStyle : ViewStyle = {
+    flexDirection: 'row',
+    margin: 20,
+};
+
 const main = StyleSheet.create({
     container: {
         flex: 1,
         margin: 0,
-        // top: 50
     }
 });
