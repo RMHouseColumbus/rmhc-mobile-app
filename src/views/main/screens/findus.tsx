@@ -18,7 +18,7 @@ export interface FindUscreenProps extends NavigationScreenProps {
         const long = -82.978959
         const rmhcPhoneNumber = "tel:614-227-3700"
         const rmhcEmail = "mailto:rmhccommunications@rmhc-centralohio.org"
-        const rmhcGeoCoordinates = Platform.select({ ios: 'http://maps.apple.com/?ll='+lat+','+long, android: 'geo:'+lat+','+long });
+        
         return (
             <View style={styles.main}>
                 
@@ -35,7 +35,7 @@ export interface FindUscreenProps extends NavigationScreenProps {
                 
                 </View>
                 <View style={{flex:0.7, marginLeft:'1%',width:'98%'}}>
-                <TouchableOpacity onPress={createOpenLink({latitude:lat, longitude:long,query:"Ronald McDonald House - Central Ohio"})}>
+                <TouchableOpacity onPress={createOpenLink({latitude:lat, longitude:long,query:"Ronald McDonald House Charities of Central Ohio"})}>
                 <ImageBackground source={require('./assets/findusmap.png')} imageStyle={{resizeMode: 'stretch', overflow:'visible'}} style={{width: '100%', height: '100%'}} />
                 </TouchableOpacity>
                        
