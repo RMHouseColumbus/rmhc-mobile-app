@@ -188,6 +188,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-splash-screen')
     implementation project(':react-native-pdf')
     implementation project(':rn-fetch-blob')
     implementation fileTree(dir: "libs", include: ["*.jar"])

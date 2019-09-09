@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Alert, AlertIOS } from 'react-native';
 import { NavigationNavigatorProps } from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import Logo from '../../../images/logo_landscape.svg'
 import Henry from '../../../images/henry_landingpage.svg'
 import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
-
+import SplashScreen from 'react-native-splash-screen'
 export interface HomeScreenProps extends NavigationNavigatorProps {
 }
 
@@ -15,6 +15,10 @@ export default class Home extends React.Component <HomeScreenProps,{}> {
         title: 'RMHC Central Ohio',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
+    }
+
+    componentDidMount() {
+        SplashScreen.hide();
     }
     render() {
         return (
