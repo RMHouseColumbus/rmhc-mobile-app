@@ -72,7 +72,7 @@ export default class BaseFooter extends Component <FooterScreenProps, FooterScre
         return (
             <React.Fragment>
                 <Footer>
-                    <FooterTab style={{backgroundColor: '#F9F9F9'}}>
+                    <FooterTab style={styles.footer}>
                         {
                             tabs.map(tab => {
                                 return this.tab(tab.route, tab.icon, tab.type)
@@ -88,5 +88,8 @@ export default class BaseFooter extends Component <FooterScreenProps, FooterScre
 const styles = StyleSheet.create({
     icon: {
         color: "#000000"
+    },
+    footer: {
+        backgroundColor: '#F9F9F9'
     }
 });

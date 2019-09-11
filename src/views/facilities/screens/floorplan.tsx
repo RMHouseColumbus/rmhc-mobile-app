@@ -14,7 +14,7 @@ export default class FloorPlan extends React.Component<FloorPlanNavigationScreen
         title: 'FloorPlan',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
-    }
+    };
 
     render() {
         const source = require('../assets/floorplan.pdf')
@@ -24,7 +24,7 @@ export default class FloorPlan extends React.Component<FloorPlanNavigationScreen
                 <View style={{ flex: 0.9 }}>
                     <Pdf source={source} style={styles.pdf} />
                 </View>
-                <View style={{ flex: 0.1 }}>
+                <View style={styles.footer}>
                     <BaseFooter navigation={this.props.navigation} />
                 </View>
             </View>
@@ -49,5 +49,10 @@ const styles = StyleSheet.create({
     pdf: {
         flex: 1,
         width: Dimensions.get('window').width,
+    },
+    footer: {
+        minHeight: 63,
+        maxHeight: 63,
+        flex: 0.1
     }
 });

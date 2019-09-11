@@ -1,25 +1,27 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Alert, AlertIOS } from 'react-native';
-import { NavigationNavigatorProps } from 'react-navigation';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {NavigationNavigatorProps, NavigationScreenProps} from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import Logo from '../../../images/logo_landscape.svg'
 import Henry from '../../../images/henry_landingpage.svg'
-import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import SplashScreen from 'react-native-splash-screen'
+
 export interface HomeScreenProps extends NavigationNavigatorProps {
 }
 
-export default class Home extends React.Component <HomeScreenProps,{}> {
+export default class Home extends React.Component <NavigationScreenProps,{}> {
 
     static navigationOptions = {
         title: 'RMHC Central Ohio',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
-    }
+    };
 
     componentDidMount() {
         SplashScreen.hide();
     }
+
     render() {
         return (
             <View style={styles.main}>
@@ -39,7 +41,7 @@ export default class Home extends React.Component <HomeScreenProps,{}> {
                     <Text style={{color: '#ffffff', fontSize: 40, alignSelf: 'center'}}>Manage Your Stay With Us.</Text>
                 </View>
 
-                <View style={{ flex: 1 }}>
+                <View style={styles.footer}>
                     <BaseFooter navigation={this.props.navigation} />
                 </View>
             </View>
@@ -67,5 +69,10 @@ const styles = StyleSheet.create({
         letterSpacing: 0,
         textAlign: "center",
         color: '#da291c'
+    },
+    footer: {
+        minHeight: 63,
+        maxHeight: 63,
+        flex: 1
     }
 });

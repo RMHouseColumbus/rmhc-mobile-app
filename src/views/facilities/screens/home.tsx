@@ -13,7 +13,7 @@ export default class Facilities extends React.Component<FacilitiesNavigationScre
         title: 'Facilities',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
-    }
+    };
 
     render() {
         return (
@@ -29,7 +29,7 @@ export default class Facilities extends React.Component<FacilitiesNavigationScre
                         </Button>
                     </View>
                 </View>
-                <View style={{ flex: 0.1 }}>
+                <View style={styles.footer}>
                     <BaseFooter navigation={this.props.navigation} />
                 </View>
             </View>
@@ -67,5 +67,10 @@ const styles = StyleSheet.create({
         color: '#000000',
         textAlign: 'center',
         fontSize: 20
-    }
+    },
+    footer: {
+        flex: 0.1,
+        minHeight: 63,
+        maxHeight: 63,
+     }
 });

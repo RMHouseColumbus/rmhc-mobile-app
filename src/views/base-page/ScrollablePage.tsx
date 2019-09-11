@@ -100,7 +100,9 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
                             }
 
                     </ScrollView>
-                    {this.getFooter()}
+                    <View style={main.footer}>
+                        {this.getFooter()}
+                    </View>
                 </View>
             )
         }
@@ -149,5 +151,9 @@ const main = StyleSheet.create({
     container: {
         flex: 1,
         margin: 0,
+    },
+    footer: {
+        minHeight: 63,
+        maxHeight: 63,
     }
 });
