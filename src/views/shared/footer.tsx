@@ -50,23 +50,23 @@ export default class BaseFooter extends Component <FooterScreenProps, FooterScre
         return [
             {
                 route: "Home",
-                icon: <HomeIcon fill={this.fillFunction("Home")} {...styles.svg}/>,
+                icon: <HomeIcon fill={this.fillFunction("Home")} {...styles.homeSvg}/>,
             },
             {
                 route: "FindUs",
-                icon: <Location fill={this.fillFunction("FindUs")} {...styles.svg}/>,
+                icon: <Location fill={this.fillFunction("FindUs")} {...styles.findUsSvg}/>,
             },
             {
                 route: "Facilities",
-                icon: <FloorPlan fill={this.fillFunction("Facilities")} {...styles.svg}/>,
+                icon: <FloorPlan fill={this.fillFunction("Facilities")} {...styles.facilitiesSvg}/>,
             },
             {
                 route: "Meals",
-                icon: <MealIcon fill={this.fillFunction("Meals")} {...styles.svg}/>,
+                icon: <MealIcon fill={this.fillFunction("Meals")} {...styles.mealSvg}/>,
             },
             {
                 route: "Updates",
-                icon: <Bell fill={this.fillFunction("Updates")} {...styles.svg}/>,
+                icon: <Bell fill={this.fillFunction("Updates")} {...styles.updatesSvg}/>,
             }
         ];
     }
@@ -96,8 +96,24 @@ const styles = StyleSheet.create({
     footer: {
         backgroundColor: '#F9F9F9'
     },
-    svg: {
-        height:"32",
-        width: "32"
+    homeSvg: {
+        height:"23",
+        width: "23"
+    },
+    findUsSvg: {
+        height:"23",
+        width: "23"
+    },
+    facilitiesSvg: {
+        height:"23",
+        width: "23"
+    },
+    mealSvg: {
+        height:"23",
+        width: "35.4"
+    },
+    updatesSvg:{
+        height:"23",
+        width: "18.7"
     }
 });
