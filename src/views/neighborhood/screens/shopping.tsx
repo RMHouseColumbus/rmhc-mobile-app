@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
 
 interface ShoppingProps extends NavigationScreenProps {

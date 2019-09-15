@@ -3,7 +3,7 @@ import {Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
 import {TITLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 
 interface RestaurantsProps extends NavigationScreenProps {
 

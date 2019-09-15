@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import g from '../../styles/global';
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';

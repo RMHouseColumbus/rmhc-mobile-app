@@ -6,7 +6,7 @@ import During from "../assets/during.svg"
 import After from "../assets/after.svg"
 
 import {SVGButton} from "../../svg-button/SVGButton";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 import Henry from "../assets/henry_faq.svg"
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 

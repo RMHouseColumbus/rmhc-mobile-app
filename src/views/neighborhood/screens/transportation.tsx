@@ -3,7 +3,7 @@ import {Linking, Text, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import {NavigationScreenProps} from 'react-navigation';
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 
 
 interface TransportationProps extends NavigationScreenProps {

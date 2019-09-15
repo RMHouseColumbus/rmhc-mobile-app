@@ -3,7 +3,7 @@ import {Text, TextStyle, View, ViewStyle} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import {spacing} from "../../shared/spacing";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
-import ScrollablePage from "../../base-page/ScrollablePage";
+import ScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 export interface StayInvolvedScreenProps extends NavigationScreenProps {

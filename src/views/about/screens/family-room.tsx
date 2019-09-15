@@ -1,7 +1,7 @@
 import * as React from "react";
 import {Text} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 export interface FamilyRoomScreenProps extends NavigationScreenProps {

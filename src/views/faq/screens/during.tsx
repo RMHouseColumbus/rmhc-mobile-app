@@ -3,7 +3,7 @@ import {StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import {Card, CardItem, Container, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 import g from '../../styles/global';
 import { HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE } from '../../shared/fonts';
 

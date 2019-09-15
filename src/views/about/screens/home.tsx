@@ -9,7 +9,7 @@ import Share from "../assets/share.svg";
 import Staff from "../assets/staff.svg";
 import StayInvolved from "../assets/stayinvolved.svg";
 import {SVGButton} from "../../svg-button/SVGButton";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 
 

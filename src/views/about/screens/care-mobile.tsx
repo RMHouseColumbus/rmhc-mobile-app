@@ -1,7 +1,7 @@
 import * as React from "react";
 import {NavigationScreenProps} from "react-navigation";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 import {View} from "react-native";
 import { HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 

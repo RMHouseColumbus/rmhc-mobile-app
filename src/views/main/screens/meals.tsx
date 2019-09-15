@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 import {ContentService, MealItem} from "../../../services/ContentService";
 import {Card, CardItem} from "native-base";
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import g from '../../styles/global';
 

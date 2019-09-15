@@ -2,7 +2,7 @@ import React from 'react';
 import {Linking, Text, View} from "react-native"
 import {NavigationScreenProps} from 'react-navigation'
 import {CONTENTSTYLE, LINKSTYLE, TITLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 
 export interface DeliveryScreenProps extends NavigationScreenProps {
 }

@@ -10,7 +10,7 @@ import Transportation from "../assets/transporation.svg";
 
 import {SVGButton} from "../../svg-button/SVGButton";
 import {NavigationScreenProps} from "react-navigation"
-import BaseScrollablePage from "../../base-page/ScrollablePage";
+import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 
