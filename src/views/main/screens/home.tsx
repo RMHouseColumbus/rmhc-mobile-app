@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View, Dimensions} from 'react-native';
 import {NavigationNavigatorProps, NavigationScreenProps} from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import Logo from '../../../images/logo_landscape.svg'
@@ -15,7 +15,10 @@ export default class Home extends React.Component <NavigationScreenProps,{}> {
     static navigationOptions = {
         title: 'RMHC Central Ohio',
         headerStyle: HEADERSTYLEBLUE,
-        headerTitleStyle: HEADERTITLESTYLEWHITE
+        headerTitleStyle: {    color: `#FFFFFF`,
+        fontSize: 28,
+        fontFamily: "Raleway-Regular",
+        width : Dimensions.get('window').width}
     };
 
     componentDidMount() {
