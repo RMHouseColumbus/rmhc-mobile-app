@@ -20,7 +20,7 @@ export interface MealsScreenState {
 export default class Meals extends React.Component <MealsScreenProps, MealsScreenState> {
 
     static navigationOptions = {
-        title: 'Meals',
+        title: 'MEALS',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
     };

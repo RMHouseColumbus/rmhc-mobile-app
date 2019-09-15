@@ -32,7 +32,7 @@ export default class After extends React.Component<AfterProps, AfterState> {
     };
 
     static navigationOptions = {
-        title: 'After Your Stay',
+        title: 'AFTER YOUR STAY',
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };

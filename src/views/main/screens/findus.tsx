@@ -9,7 +9,7 @@ export interface FindUscreenProps extends NavigationScreenProps {
 }Platform.select({ ios: 'maps:0,0?q=', android: 'geo:0,0?q=' });export default class FindUs extends React.Component <FindUscreenProps,{}> {
 
     static navigationOptions = {
-        title: 'Find Us',
+        title: 'FIND US',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
     }
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     container: {flex:1, top:'5%', width:'100%'},
     locationTextMain: {
         
-        
+        fontFamily:'Raleway-Regular',
         fontSize: 20,
         fontWeight: "600",
         fontStyle: "normal",
@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         
     },
     locationTextSub:{
+        fontFamily:'Raleway-Regular',
             fontSize: 16,
             fontWeight: "600",
             fontStyle: "normal",
@@ -77,6 +78,7 @@ const styles = StyleSheet.create({
             color: '#999999'
     },
     locationLinkStyle:{
+        fontFamily:'Raleway-Regular',
     color: "#0078d7",
     fontSize: 16,
     lineHeight: 24,

@@ -42,7 +42,7 @@ export default class About extends React.Component <AboutProps, AboutState> {
     }
 
     static navigationOptions = {
-        title: "About",
+        title: "ABOUT",
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };

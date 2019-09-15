@@ -17,7 +17,7 @@ interface RestaurantsState {
 export default class Restaurants extends React.Component<RestaurantsProps, RestaurantsState> {
 
     static navigationOptions = {
-        title: 'Restaurants',
+        title: 'RESTAURANTS',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
     };
@@ -68,16 +68,18 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
         return (
             <View key={c.name} style={ROW}>
                 <Text style={BOLD}>{c.name}</Text>
-                <Text>{c.address}</Text>
-                <Text>Description: {c.desc}</Text>
-                <Text>Category: {c.cat}</Text>
-                <Text>Distance: {c.dist} miles</Text>
+                <Text style={REGULAR}>{c.address}</Text>
+                <Text style={REGULAR}>Description: {c.desc}</Text>
+                <Text style={REGULAR}>Category: {c.cat}</Text>
+                <Text style={REGULAR}>Distance: {c.dist} miles</Text>
             </View>
         )
     }
 }
 
-const BOLD: TextStyle = {fontWeight: "bold"};
+const BOLD: TextStyle = {fontWeight: "bold", fontFamily:'Raleway-Bold', paddingBottom:5, fontSize:16};
+const REGULAR: TextStyle = {fontFamily:'Raleway-Regular', paddingBottom:5, fontSize:16};
+
 const ROW: ViewStyle = {
     marginBottom: spacing[5]
 };

@@ -18,7 +18,7 @@ interface TransportationState {
 export default class Transportation extends React.Component<TransportationProps, TransportationState> {
 
     static navigationOptions = {
-        title: 'Transportation',
+        title: 'TRANSPORTATION',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
     };
@@ -51,6 +51,7 @@ export default class Transportation extends React.Component<TransportationProps,
             <View style={{padding: 20}}>
                 <View style={SECTION}>
                     <Text style={CONTENTSTYLE}>Rideshare</Text>
+                    <Text style={TEXTSTYLE}>Find ride share information by visiting:</Text>
                     {
                         rideShares.map(c => {
                             return (
@@ -101,17 +102,16 @@ export default class Transportation extends React.Component<TransportationProps,
 
     private rideShareInfo(c: any) {
         return (
-            <View key={c.name}>
-                <Text style={TEXTSTYLE}>{c.name}:</Text>
+            <View style={{marginTop:"2%"}} key={c.name}>
                 <Text onPress={() => Linking.openURL(c.url)}
-                      style={LINKSTYLE}>{c.url}</Text>
+                      style={LINKSTYLE}>{c.name}</Text>
             </View>
         )
     }
 
     private cabServiceData(c: any) {
         return (
-            <View key={c.name}>
+            <View style={{flexDirection:"row"}} key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}:</Text>
                 <Text onPress={() => Linking.openURL(`tel:${c.contact}`)}
                       style={LINKSTYLE}>{c.contact}</Text>
@@ -123,9 +123,8 @@ export default class Transportation extends React.Component<TransportationProps,
         return (
             <View key={c.name}>
                 <Text style={TEXTSTYLE}>{c.name}</Text>
-                <Text style={TEXTSTYLE}>{c.sub}</Text>
                 <Text onPress={() => Linking.openURL(c.contact)}
-                      style={LINKSTYLE}>{c.contact}</Text>
+                      style={LINKSTYLE}>{c.sub}</Text>
             </View>
         )
     }

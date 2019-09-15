@@ -72,8 +72,8 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
         return (
             <TouchableOpacity style={baseBackStyle}
                               onPress={goBack}>
-                <LeftArrow width={20} height={20}/>
-                <Text style={{flex: 1, marginLeft: 5}}>Back</Text>
+                <LeftArrow width={35} height={20} style={{marginTop:'1%'}}/>
+                <Text style={{flex: 1, marginLeft: 5, fontSize:20}}>Back</Text>
             </TouchableOpacity>
         )
     }

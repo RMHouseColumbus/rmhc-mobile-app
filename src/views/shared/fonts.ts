@@ -1,7 +1,8 @@
-import { TextStyle } from "react-native";
+import { TextStyle, Platform, Dimensions } from "react-native";
 
 export const CONTENTSTYLE : TextStyle = {
     fontWeight: 'bold',
+    fontFamily: "Raleway-Bold",
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0,
@@ -9,6 +10,7 @@ export const CONTENTSTYLE : TextStyle = {
 };
 
 export const TEXTSTYLE : TextStyle = {
+    fontFamily: "Raleway-Regular",
     fontSize: 16,
     lineHeight: 24,
     letterSpacing: 0,
@@ -25,6 +27,7 @@ export const LINKSTYLE : TextStyle = {
 
 export const TITLE: TextStyle = {
     fontWeight: 'bold',
+    fontFamily: "Raleway-Bold",
     fontSize: 16,
     lineHeight: 20,
     letterSpacing: 0,
@@ -49,15 +52,23 @@ export const HEADERSTYLEBLUE: TextStyle = {
 
 export const HEADERTITLESTYLEWHITE: TextStyle = {
     color: `#FFFFFF`,
-    fontSize: 28,
+    fontSize: 24,
     fontFamily: "Raleway-Regular",
-    
-    textAlign: "center", flex:.8
+    width : Dimensions.get('window').width,
+    ...Platform.select({
+        android: {
+            textAlign: "center", flex:.8
+        }})
+   
 }
 
 export const HEADERTITLESTYLEBLACK: TextStyle = {
     color: `#000000`,
-    fontSize: 28,
+    fontSize: 24,
     fontFamily: "Raleway-Regular",
-    textAlign: "center", flex:.8
+    width : Dimensions.get('window').width,
+    ...Platform.select({
+        android: {
+            textAlign: "center", flex:.8
+        }})
 }

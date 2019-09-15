@@ -28,7 +28,7 @@ const SVG : ViewStyle = {
 
 const TEXT: TextStyle = {
     fontSize: 25,
-    // flex: 1,
+    fontFamily:'Raleway-Regular',
     paddingTop: 22,
     alignSelf: 'flex-start',
     position: "absolute",

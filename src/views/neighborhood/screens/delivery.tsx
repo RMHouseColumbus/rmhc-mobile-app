@@ -65,9 +65,8 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
     private carrierRow(c: any) {
         return (
             <View key={c.name}>
-                <Text style={CONTENTSTYLE}>{c.name}</Text>
                 <Text onPress={() => Linking.openURL(c.url)}
-                      style={LINKSTYLE}>{c.url}</Text>
+                      style={LINKSTYLE}>{c.name}</Text>
             </View>
         )
     }

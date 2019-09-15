@@ -28,7 +28,7 @@ export default class Activities extends React.Component<ActivityProps, Activitie
 
     static navigationOptions = {
 
-        title: 'Activities',
+        title: 'ACTIVITIES',
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
 

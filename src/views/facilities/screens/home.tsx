@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     },
     floorPlanBackground: { borderColor: 'black', borderWidth: 5, width: '60%', height: '35%', backgroundColor: '#FFFFFF', position: 'absolute', top: '35%', left: '20%', opacity: 0.85 },
     floorPlanTextContainer: { justifyContent: 'center', alignItems: 'center', width: 120, position: 'absolute', top: '39%', left: '34%' },
-    floorPlanText: { fontSize: 35, fontWeight: "bold", textAlign:'center',justifyContent:'center',},
+    floorPlanText: { fontSize: 35, fontFamily:'Raleway-Bold', fontWeight: "bold", textAlign:'center',justifyContent:'center',},
     floorPlanButton: {
         top:'25%',
         textAlign:'center',
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
     TextStyle: {
         color: '#000000',
         textAlign: 'center',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily:'Raleway-Regular'
     },
     footer: {
         flex: 0.1,

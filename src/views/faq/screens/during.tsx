@@ -30,7 +30,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
     };
 
     static navigationOptions = {
-        title: 'During Your Stay',
+        title: 'DURING YOUR STAY',
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };

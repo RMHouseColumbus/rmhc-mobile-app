@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, StyleSheet, View} from 'react-native';
+import {Linking, StyleSheet, View, Dimensions} from 'react-native';
 
 
 import Delivery from "../assets/delivery.svg";
@@ -25,7 +25,7 @@ export interface NeighborhoodState {
 export default class Neighborhood extends React.Component<NeighborhoodNavigationProps, NeighborhoodState> {
 
     static navigationOptions = {
-        title: "Neighborhood",
+        title: "NEIGHBORHOOD",
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };
@@ -78,21 +78,13 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
 }
 
 const SVG = {
-    // alignSelf: 'flex-end',
     Width: 200,
     Height: 52,
-    // marginBottom: spacing[4]
 };
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 15,
         padding: 20,
         backgroundColor: "#4872ae"
     },
-    // welcomeText: {
-    //     fontFamily: "Raleway-Regular",
-    //     fontSize: 45,
-    //     color: 'black'
-    // }
 });

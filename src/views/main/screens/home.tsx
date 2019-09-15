@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 33,
         fontWeight: "600",
         fontStyle: "normal",
+        fontFamily:'Raleway-Regular',
         letterSpacing: 0,
         textAlign: "center",
         color: '#da291c'

@@ -34,7 +34,7 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
 
     static navigationOptions = {
 
-        title: 'Updates',
+        title: 'UPDATES',
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };
