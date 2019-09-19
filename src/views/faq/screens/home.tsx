@@ -34,7 +34,7 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
                 <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Henry width={375} height={375} style={{flex: 1}}/>
                 <View style={{flex: 2}}>
-                    <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>
+                    <SVGButton text={"Before Your Stay"} onPress={() => this.props.navigation.navigate("Before")}>
                         <Before {...SVG}/>
                     </SVGButton>
                     <SVGButton text={"During Your Stay"} onPress={() => this.props.navigation.navigate("During")}>
