@@ -11,10 +11,8 @@ import Henry from "../assets/henry_faq.svg"
 import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
 
 const SVG = {
-    // alignSelf: 'flex-end',
     Width: 200,
     Height: 52,
-    // marginBottom: spacing[4]
 };
 
 export interface FAQNavigationScreenProps extends NavigationScreenProps {
@@ -35,23 +33,26 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
                 <Henry width={375} height={375} style={{flex: 1}}/>
                 <View style={{flex: 2}}>
                     <SVGButton
-                        text={"Before Your Stay"}
-                        textOverride={{paddingTop: 7}}
+                        text={"Before\nYour Stay"}
+                        textOverride={{paddingTop: 19, fontSize: 27, lineHeight: 41}}
+                        buttonOverride={{paddingRight: 30, paddingTop:19, paddingBottom: 19}}
                         onPress={() => this.props.navigation.navigate("Before")}
                     >
                         <Before {...SVG}/>
                     </SVGButton>
                     <SVGButton
-                        text={"During Your Stay"}
-                        textOverride={{paddingTop: 15}}
+                        text={"During\nYour Stay"}
+                        textOverride={{paddingTop: 19, fontSize: 27, lineHeight: 41}}
+                        buttonOverride={{paddingRight: 30, paddingTop:19, paddingBottom: 19}}
                         onPress={() => this.props.navigation.navigate("During")}
                     >
                         <During {...SVG}/>
                     </SVGButton>
 
                     <SVGButton
-                        text={"After Your Stay"}
-                        textOverride={{paddingTop: 23}}
+                        text={"After\nYour Stay"}
+                        textOverride={{paddingTop: 19, fontSize: 27, lineHeight: 41}}
+                        buttonOverride={{paddingRight: 30, paddingTop:19, paddingBottom: 19}}
                         onPress={() => this.props.navigation.navigate("After")}
                     >
                         <After {...SVG}/>

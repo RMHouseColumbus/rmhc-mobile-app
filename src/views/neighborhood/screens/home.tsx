@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, StyleSheet, View, Dimensions, StatusBar} from 'react-native';
+import {GestureResponderEvent, Linking, StatusBar, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
 
 
 import Delivery from "../assets/delivery.svg";
@@ -12,7 +12,7 @@ import {SVGButton} from "../../svg-button/SVGButton";
 import {NavigationScreenProps} from "react-navigation"
 import BaseScrollablePage from "../../shared/ScrollablePage";
 
-import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
+import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
 
 export interface NeighborhoodNavigationProps extends NavigationScreenProps {
 }
@@ -21,6 +21,14 @@ export interface NeighborhoodState {
     links: any
 }
 
+export interface SVGButtonInterface {
+    route?: string
+    onPress?: (event: GestureResponderEvent) => void;
+    text: string
+    svg: JSX.Element,
+    tOverride?: TextStyle,
+    bOverride?: ViewStyle
+}
 
 export default class Neighborhood extends React.Component<NeighborhoodNavigationProps, NeighborhoodState> {
 
@@ -44,28 +52,68 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
         })
     };
 
+    buttons(): SVGButtonInterface[] {
+
+        const state = this.state;
+
+        const textOverride = {paddingTop: 8, fontSize: 27, lineHeight: 41};
+        const buttonOverride = {};
+
+        return [
+            {
+                route: "Delivery",
+                text: "Food\nDelivery",
+                svg: <Delivery {...SVG}/>,
+                tOverride: {...textOverride, paddingBottom: 0},
+                bOverride: buttonOverride
+            },
+            {
+                text: "Area Restaurants",
+                route: "Restaurants",
+                svg: <Restaurants {...SVG}/>,
+                tOverride: textOverride,
+                bOverride: buttonOverride
+            },
+            {
+                route: "Shopping",
+                text: "Retail\nShopping",
+                svg: <Shopping {...SVG}/>,
+                tOverride: textOverride,
+                bOverride: buttonOverride
+            },
+            {
+                text: "Things to Do\nIn Columbus",
+                onPress: () => Linking.openURL(state.links.thingstodo.url),
+                svg: <ToDo {...SVG}/>,
+                tOverride: textOverride,
+                bOverride: buttonOverride
+            },
+            {
+                route: "Transportation",
+                text: "Transportation",
+                svg: <Transportation {...SVG}/>,
+                tOverride: {...textOverride},
+                bOverride: buttonOverride
+            }
+        ];
+    }
+
     viewFunction = () => {
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
-                <SVGButton text={"Food\nDelivery"} onPress={() => this.props.navigation.navigate("Delivery")}>
-                    <Delivery {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Area Restaurants"}
-                           onPress={() => this.props.navigation.navigate("Restaurants")}>
-                    <Restaurants {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Shopping"} onPress={() => this.props.navigation.navigate("Shopping")}>
-                    <Shopping {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Things to Do in Columbus"}
-                           onPress={() => Linking.openURL(this.state.links.thingstodo.url)}>
-                    <ToDo {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Transportation"}
-                           onPress={() => this.props.navigation.navigate("Transportation")}>
-                    <Transportation {...SVG}/>
-                </SVGButton>
+                {
+                    this.buttons().map(b => {
+                        const press = b.onPress ? b.onPress : () => this.props.navigation.navigate(b.route);
+                        return (
+                            <SVGButton text={b.text} onPress={press} textOverride={b.tOverride} buttonOverride={b.bOverride}>
+                                {
+                                    b.svg
+                                }
+                            </SVGButton>
+                        )
+                    })
+                }
             </View>
         )
     };
@@ -81,6 +129,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
 const SVG = {
     Width: 200,
     Height: 52,
+    zIndex: -100
 };
 
 const styles = StyleSheet.create({
