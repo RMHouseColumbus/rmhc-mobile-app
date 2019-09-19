@@ -13,6 +13,7 @@ import {NavigationScreenProps} from "react-navigation"
 import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 export interface NeighborhoodNavigationProps extends NavigationScreenProps {
 }
@@ -42,7 +43,8 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
         super(props);
         this.state = {
             links: {}
-        }
+        };
+        setStatusBar(this, "#ffffff");
     }
 
     onContentUpdate = (content: any) => {
@@ -106,7 +108,8 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
                     this.buttons().map(b => {
                         const press = b.onPress ? b.onPress : () => this.props.navigation.navigate(b.route);
                         return (
-                            <SVGButton text={b.text} onPress={press} textOverride={b.tOverride} buttonOverride={b.bOverride}>
+                            <SVGButton text={b.text} onPress={press} textOverride={b.tOverride}
+                                       buttonOverride={b.bOverride}>
                                 {
                                     b.svg
                                 }
@@ -114,6 +117,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
                         )
                     })
                 }
+
             </View>
         )
     };

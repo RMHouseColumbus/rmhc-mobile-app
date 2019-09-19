@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, StatusBar, View} from 'react-native';
+import {Linking, View} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 
 
@@ -11,6 +11,7 @@ import StayInvolved from "../assets/stayinvolved.svg";
 import {SVGButton} from "../../svg-button/SVGButton";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 
 const SVG = {
@@ -37,8 +38,8 @@ export default class About extends React.Component <AboutProps, AboutState> {
                     }
                 }
             }
-        }
-
+        };
+        setStatusBar(this, "#ffffff");
     }
 
     static navigationOptions = {
@@ -58,7 +59,6 @@ export default class About extends React.Component <AboutProps, AboutState> {
         const link = this.state.content.links.sharestory.url;
         return (
             <View style={{padding: 20, backgroundColor: "#4872ae"}}>
-                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <SVGButton text={"Meet the\nStaff"} onPress={() => Linking.openURL("http://rmhc-centralohio.org/who-we-are/staff/")}>
                     <Staff {...SVG}/>
                 </SVGButton>

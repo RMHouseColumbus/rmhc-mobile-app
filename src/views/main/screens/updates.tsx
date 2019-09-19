@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
@@ -7,6 +7,7 @@ import BaseScrollablePage from "../../shared/ScrollablePage";
 import g from '../../styles/global';
 
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 
 
@@ -22,8 +23,8 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
         super(props);
         this.state = {
             content: []
-        }
-
+        };
+        setStatusBar(this, "#ffffff");
     }
 
     onContentUpdate = (content: any) => {
@@ -47,7 +48,6 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
         };
         return (
             <Container>
-                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
                         content.map((item, index) => {

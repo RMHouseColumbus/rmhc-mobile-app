@@ -1,15 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar, Dimensions } from 'react-native';
+import { StyleSheet, View, Dimensions } from 'react-native';
 import Pdf from 'react-native-pdf';
 import BaseFooter from '../../shared/footer'
 
 
 import { NavigationScreenProps } from "react-navigation";
 import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 export interface FloorPlanNavigationScreenProps extends NavigationScreenProps {}
 
 export default class FloorPlan extends React.Component<FloorPlanNavigationScreenProps, {}> {
+
+    constructor(props: Readonly<FloorPlanNavigationScreenProps>) {
+        super(props);
+        setStatusBar(this, "#1c5ca3");
+    }
+
     static navigationOptions = {
         title: 'FloorPlan',
         headerStyle: HEADERSTYLEBLUE,
@@ -17,10 +24,9 @@ export default class FloorPlan extends React.Component<FloorPlanNavigationScreen
     };
 
     render() {
-        const source = require('../assets/floorplan.pdf')
+        const source = require('../assets/floorplan.pdf');
         return (
             <View style={styles.main}>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <View style={{ flex: 0.9 }}>
                     <Pdf source={source} style={styles.pdf} />
                 </View>

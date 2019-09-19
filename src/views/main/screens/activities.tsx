@@ -1,11 +1,12 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import g from '../../styles/global';
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 
 
@@ -23,7 +24,8 @@ export default class Activities extends React.Component<ActivityProps, Activitie
         super(props);
         this.state = {
             activities: []
-        }
+        };
+        setStatusBar(this, "#ffffff");
     }
 
     static navigationOptions = {
@@ -50,10 +52,7 @@ export default class Activities extends React.Component<ActivityProps, Activitie
         };
         return (
             <Container>
-                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
-
-
                     {
                         activities.map((item, index) => {
                             return (

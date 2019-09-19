@@ -2,8 +2,9 @@ import * as React from "react";
 import {NavigationScreenProps} from "react-navigation";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 import BaseScrollablePage from "../../shared/ScrollablePage";
-import {StatusBar, View} from "react-native";
-import { HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
+import {View} from "react-native";
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from "../../shared/fonts";
+import {setStatusBar} from "../../shared/status-bar";
 
 
 export interface CareMobileScreenProps extends NavigationScreenProps {
@@ -28,7 +29,8 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
                 text: "Content is Unavailable",
                 links: {}
             }
-        }
+        };
+        setStatusBar(this, "#1c5ca3");
     }
 
     onContentUpdate = (content: any) => {
@@ -41,7 +43,6 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
         const content = this.state.content || "Content is Unavailable";
         return (
             <View style={{padding: 20}}>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 {mergeLinkText(content.text, content.links)}
             </View>
         );

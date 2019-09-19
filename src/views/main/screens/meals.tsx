@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 import {ContentService, MealItem} from "../../../services/ContentService";
 import {Card, CardItem} from "native-base";
@@ -7,7 +7,8 @@ import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import g from '../../styles/global';
 
-import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 
 export interface MealsScreenProps extends NavigationScreenProps {
@@ -29,7 +30,8 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
         super(props);
         this.state = {
             meals: []
-        }
+        };
+        setStatusBar(this, "#1c5ca3");
     }
 
     onContentUpdate = (content: any) => {
@@ -57,7 +59,6 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
 
         return (
             <View style={styles.container}>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 {
                     meals.map((item, i) => {
                         return (

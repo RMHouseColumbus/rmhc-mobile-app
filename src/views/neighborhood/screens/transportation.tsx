@@ -1,9 +1,10 @@
 import React from 'react';
-import {Linking, StatusBar, Text, View, ViewStyle} from "react-native"
+import {Linking, Text, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {CONTENTSTYLE, LINKSTYLE, TEXTSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import {NavigationScreenProps} from 'react-navigation';
 import BaseScrollablePage from "../../shared/ScrollablePage";
+import {setStatusBar} from "../../shared/status-bar";
 
 
 interface TransportationProps extends NavigationScreenProps {
@@ -29,7 +30,8 @@ export default class Transportation extends React.Component<TransportationProps,
             rideShares: [],
             cabCompanies: [],
             publicTrans: []
-        }
+        };
+        setStatusBar(this, "#1c5ca3");
     }
 
 
@@ -49,7 +51,6 @@ export default class Transportation extends React.Component<TransportationProps,
 
         return (
             <View style={{padding: 20}}>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <View style={SECTION}>
                     <Text style={CONTENTSTYLE}>Rideshare</Text>
                     <Text style={TEXTSTYLE}>Find ride share information by visiting:</Text>

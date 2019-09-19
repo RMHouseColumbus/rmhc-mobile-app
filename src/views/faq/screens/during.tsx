@@ -1,11 +1,12 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import {Card, CardItem, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import g from '../../styles/global';
-import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
+import {HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE} from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 interface DuringProps extends NavigationScreenProps {
 }
@@ -20,7 +21,8 @@ export default class During extends React.Component<DuringProps, DuringState> {
         super(props);
         this.state = {
             duringData: []
-        }
+        };
+        setStatusBar(this, "#ffffff");
     }
 
     onContentUpdate = (content: any) => {
@@ -40,7 +42,6 @@ export default class During extends React.Component<DuringProps, DuringState> {
 
         return (
             <View style={main.container}>
-                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
                         duringData.map((item, index) => {

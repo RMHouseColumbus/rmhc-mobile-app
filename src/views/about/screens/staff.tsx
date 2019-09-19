@@ -3,6 +3,7 @@ import {StatusBar, Text, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from "../../shared/fonts";
+import {setStatusBar} from "../../shared/status-bar";
 
 export interface StaffScreenProps extends NavigationScreenProps {
 }
@@ -23,7 +24,8 @@ export default class StaffScreen extends React.Component<StaffScreenProps, Staff
         super(props);
         this.state = {
             content: []
-        }
+        };
+        setStatusBar(this, "#1c5ca3");
     }
 
     onContentUpdate = (content: any) => {
@@ -35,7 +37,6 @@ export default class StaffScreen extends React.Component<StaffScreenProps, Staff
     viewFunction = () => {
         return (
             <View>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <Text style={{padding: 20}}>
                     {"Staff Content Here"}
                 </Text>

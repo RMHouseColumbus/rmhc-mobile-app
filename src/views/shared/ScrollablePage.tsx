@@ -72,11 +72,12 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
         return (
             <TouchableOpacity style={baseBackStyle}
                               onPress={goBack}>
-                <LeftArrow width={35} height={20} style={{marginTop:'1%'}}/>
-                <Text style={{flex: 1, marginLeft: 5, fontSize:20}}>Back</Text>
+                <LeftArrow width={35} height={20} style={{marginTop: '1%'}}/>
+                <Text style={{flex: 1, marginLeft: 5, fontSize: 20}}>Back</Text>
             </TouchableOpacity>
         )
     }
+
     render() {
         const isLoading = this.state.isLoading;
         const scrollViewStyle = {
@@ -89,15 +90,12 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
         } else {
             return (
                 <View style={FULL}>
-                    {
-                        this.getStatusBar()
-                    }
                     <ScrollView style={scrollViewStyle}>
                         {this.backButton()}
 
-                            {
-                                this.props.contentView()
-                            }
+                        {
+                            this.props.contentView()
+                        }
 
                     </ScrollView>
                     <View style={main.footer}>
@@ -112,10 +110,6 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
         return (
             <BaseFooter navigation={this.props.navigation}/>
         )
-    }
-
-    getStatusBar(){
-        return <StatusBar {...backStatusStyle}/>;
     }
 
     private loadingComponent() {
@@ -134,15 +128,11 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
 }
 
 
-const baseScrollViewStyle : ViewStyle = {
+const baseScrollViewStyle: ViewStyle = {
     flex: 9
 };
 
-const backStatusStyle :ViewStyle = {
-    backgroundColor:"#4872ae"
-};
-
-const baseBackStyle : ViewStyle = {
+const baseBackStyle: ViewStyle = {
     flexDirection: 'row',
     margin: 20,
 };

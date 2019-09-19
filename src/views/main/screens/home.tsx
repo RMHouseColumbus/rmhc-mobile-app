@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatusBar, StyleSheet, Text, View, Dimensions, TouchableOpacity, Linking} from 'react-native';
+import {StyleSheet, Text, View, Dimensions, TouchableOpacity, Linking} from 'react-native';
 import {NavigationNavigatorProps, NavigationScreenProps} from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import Logo from '../../../images/logo_landscape.svg'
@@ -7,6 +7,7 @@ import Henry from '../../../images/henry_landingpage.svg'
 import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import SplashScreen from 'react-native-splash-screen'
 import Youtube from "../../navigation/assets/youTube.svg";
+import {setStatusBar} from "../../shared/status-bar";
 
 export interface HomeScreenProps extends NavigationNavigatorProps {
 }
@@ -26,14 +27,12 @@ export default class Home extends React.Component <NavigationScreenProps, {}> {
 
     componentDidMount() {
         SplashScreen.hide();
+        setStatusBar(this, "#1c5ca3");
     }
 
     render() {
         return (
             <View style={styles.main}>
-
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
-
                 <View style={{flex: 1}}>
                     <Text style={styles.welcomeText}>Welcome To</Text>
                 </View>

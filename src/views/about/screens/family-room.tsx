@@ -1,8 +1,9 @@
 import * as React from "react";
-import {StatusBar, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
-import {HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from "../../shared/fonts";
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from "../../shared/fonts";
+import {setStatusBar} from "../../shared/status-bar";
 
 export interface FamilyRoomScreenProps extends NavigationScreenProps {
 }
@@ -23,7 +24,8 @@ export default class FamilyRoom extends React.Component<FamilyRoomScreenProps, F
         super(props);
         this.state = {
             content: []
-        }
+        };
+        setStatusBar(this, "#1c5ca3");
     }
 
     onContentUpdate = (content: any) => {
@@ -37,7 +39,6 @@ export default class FamilyRoom extends React.Component<FamilyRoomScreenProps, F
         const content = this.state.content;
         return (
             <View>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <Text style={{padding: 20}}>
                     {content.text || "Content Unavailable Right Now"}
                 </Text>

@@ -1,9 +1,10 @@
 import React from 'react';
-import {StatusBar, Text, TextStyle, View, ViewStyle} from "react-native"
+import {Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from '../../shared/fonts';
+import {setStatusBar} from "../../shared/status-bar";
 
 interface ShoppingProps extends NavigationScreenProps {
 
@@ -26,7 +27,8 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
         super(props);
         this.state = {
             retailers: []
-        }
+        };
+        setStatusBar(this, "#1c5ca3");
     }
 
     onContentUpdate = (content: any) => {
@@ -42,7 +44,6 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
 
         return (
             <View  style={{padding: 20}}>
-                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 {
                     retailers.map(c => {
                         return (
