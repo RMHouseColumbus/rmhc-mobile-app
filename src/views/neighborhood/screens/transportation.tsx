@@ -31,7 +31,7 @@ export default class Transportation extends React.Component<TransportationProps,
             cabCompanies: [],
             publicTrans: []
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
 

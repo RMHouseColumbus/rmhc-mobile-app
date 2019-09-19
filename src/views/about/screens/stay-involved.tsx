@@ -30,7 +30,7 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
                 main: "Content is Unavailable"
             }
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     onContentLoad = (content: any) => {

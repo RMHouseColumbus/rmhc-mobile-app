@@ -25,7 +25,7 @@ export default class Activities extends React.Component<ActivityProps, Activitie
         this.state = {
             activities: []
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     static navigationOptions = {

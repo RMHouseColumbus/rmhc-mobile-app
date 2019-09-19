@@ -24,7 +24,7 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
         this.state = {
             content: []
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     onContentUpdate = (content: any) => {

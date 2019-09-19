@@ -22,7 +22,7 @@ export default class During extends React.Component<DuringProps, DuringState> {
         this.state = {
             duringData: []
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     onContentUpdate = (content: any) => {

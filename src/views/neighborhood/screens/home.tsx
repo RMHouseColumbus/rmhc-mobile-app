@@ -44,7 +44,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
         this.state = {
             links: {}
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     onContentUpdate = (content: any) => {

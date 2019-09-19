@@ -14,7 +14,7 @@ export default class FloorPlan extends React.Component<FloorPlanNavigationScreen
 
     constructor(props: Readonly<FloorPlanNavigationScreenProps>) {
         super(props);
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     static navigationOptions = {

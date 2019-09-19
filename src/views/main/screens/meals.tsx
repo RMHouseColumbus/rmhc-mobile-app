@@ -31,7 +31,7 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
         this.state = {
             meals: []
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     onContentUpdate = (content: any) => {

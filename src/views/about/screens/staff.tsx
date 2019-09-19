@@ -25,7 +25,7 @@ export default class StaffScreen extends React.Component<StaffScreenProps, Staff
         this.state = {
             content: []
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", "light-content");
     }
 
     onContentUpdate = (content: any) => {

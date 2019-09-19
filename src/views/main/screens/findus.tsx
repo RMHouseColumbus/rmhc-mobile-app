@@ -20,7 +20,7 @@ export default class FindUs extends React.Component <FindUscreenProps, {}> {
 
     constructor(props: Readonly<FindUscreenProps>) {
         super(props);
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     render() {

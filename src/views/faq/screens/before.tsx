@@ -22,7 +22,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
         this.state = {
             beforeData: []
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     onContentUpdate = (content: any) => {

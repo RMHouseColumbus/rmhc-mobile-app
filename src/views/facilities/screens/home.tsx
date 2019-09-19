@@ -19,7 +19,7 @@ export default class Facilities extends React.Component<FacilitiesNavigationScre
 
     constructor(props: Readonly<FacilitiesNavigationScreenProps>) {
         super(props);
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     render() {

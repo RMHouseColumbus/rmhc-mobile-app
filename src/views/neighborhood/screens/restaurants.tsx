@@ -28,7 +28,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
         this.state = {
             restaurants: []
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     onContentUpdate = (content: any) => {

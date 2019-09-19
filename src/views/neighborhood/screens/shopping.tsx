@@ -28,7 +28,7 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
         this.state = {
             retailers: []
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     onContentUpdate = (content: any) => {

@@ -42,7 +42,7 @@ export default class About extends React.Component <AboutProps, AboutState> {
         this.state = {
             links: {}
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     onContentLoad = (content: any) => {

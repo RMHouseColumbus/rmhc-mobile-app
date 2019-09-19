@@ -27,7 +27,7 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
                 carriers: []
             }
         };
-        setStatusBar(this, "#1c5ca3");
+        setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
     onContentUpdate = (content: any) => {

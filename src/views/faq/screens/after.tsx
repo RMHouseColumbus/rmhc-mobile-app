@@ -22,7 +22,7 @@ export default class After extends React.Component<AfterProps, AfterState> {
         this.state = {
             afterData: []
         };
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     onContentUpdate = (content: any) => {

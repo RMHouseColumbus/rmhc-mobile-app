@@ -29,7 +29,7 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
 
     constructor(props: Readonly<FAQNavigationScreenProps>) {
         super(props);
-        setStatusBar(this, "#ffffff");
+        setStatusBar(this, "#ffffff", 'dark-content');
     }
 
     viewFunction = () => {
