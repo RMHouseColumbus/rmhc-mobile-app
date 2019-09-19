@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TextStyle, View, ViewStyle} from "react-native"
+import {StatusBar, Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
 import {TITLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
@@ -40,6 +40,7 @@ export default class Restaurants extends React.Component<RestaurantsProps, Resta
         const restaurants = this.state.restaurants;
         return (
             <View  style={{padding: 20}}>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <Text style={TITLE}>
                     Find restaurants that deliver by carrier:
                 </Text>

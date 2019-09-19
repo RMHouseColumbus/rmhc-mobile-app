@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TextStyle, View, ViewStyle} from "react-native"
+import {StatusBar, Text, TextStyle, View, ViewStyle} from "react-native"
 import {spacing} from "../../shared/spacing";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
@@ -42,6 +42,7 @@ export default class Shopping extends React.Component<ShoppingProps, ShoppingSta
 
         return (
             <View  style={{padding: 20}}>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 {
                     retailers.map(c => {
                         return (

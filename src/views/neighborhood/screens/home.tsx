@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, StyleSheet, View, Dimensions} from 'react-native';
+import {Linking, StyleSheet, View, Dimensions, StatusBar} from 'react-native';
 
 
 import Delivery from "../assets/delivery.svg";
@@ -47,6 +47,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
     viewFunction = () => {
         return (
             <View style={styles.container}>
+                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <SVGButton text={"Food\nDelivery"} onPress={() => this.props.navigation.navigate("Delivery")}>
                     <Delivery {...SVG}/>
                 </SVGButton>

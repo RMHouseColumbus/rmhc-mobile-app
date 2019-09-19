@@ -18,7 +18,7 @@ export default class Facilities extends React.Component<FacilitiesNavigationScre
     render() {
         return (
             <View style={styles.main}>
-                <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <View style={{ flex: 0.9 }}>
                     <ImageBackground source={require('../assets/floorplan_bckgrd.png')} style={{ width: '100%', height: '100%' }} />
                     <View style={styles.floorPlanBackground} />

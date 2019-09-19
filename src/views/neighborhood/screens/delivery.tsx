@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, Text, View} from "react-native"
+import {Linking, StatusBar, Text, View} from "react-native"
 import {NavigationScreenProps} from 'react-navigation'
 import {CONTENTSTYLE, LINKSTYLE, TITLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import BaseScrollablePage from "../../shared/ScrollablePage";
@@ -38,6 +38,7 @@ export default class Delivery extends React.Component<DeliveryScreenProps, Deliv
         const carriers = this.state.content.carriers;
         return (
             <View style={{padding: 20}}>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <Text style={TITLE}>
                     Find restaurants that deliver by carrier:
                 </Text>

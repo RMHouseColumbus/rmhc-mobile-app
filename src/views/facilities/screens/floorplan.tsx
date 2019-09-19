@@ -20,7 +20,7 @@ export default class FloorPlan extends React.Component<FloorPlanNavigationScreen
         const source = require('../assets/floorplan.pdf')
         return (
             <View style={styles.main}>
-                <StatusBar backgroundColor="#4872ae" barStyle="light-content" />
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <View style={{ flex: 0.9 }}>
                     <Pdf source={source} style={styles.pdf} />
                 </View>

@@ -32,7 +32,7 @@ export default class Home extends React.Component <NavigationScreenProps, {}> {
         return (
             <View style={styles.main}>
 
-                <StatusBar backgroundColor="#4872ae" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
 
                 <View style={{flex: 1}}>
                     <Text style={styles.welcomeText}>Welcome To</Text>

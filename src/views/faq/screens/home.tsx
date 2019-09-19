@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StatusBar, StyleSheet, View} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 import Before from "../assets/before.svg"
 import During from "../assets/during.svg"
@@ -31,6 +31,7 @@ export default class Faq extends React.Component <FAQNavigationScreenProps, {}> 
     viewFunction = () => {
         return (
             <View style={{padding: 20, backgroundColor: "#4872ae", flexDirection: 'column-reverse'}}>
+                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Henry width={375} height={375} style={{flex: 1}}/>
                 <View style={{flex: 2}}>
                     <SVGButton text={"Before You Stay"} onPress={() => this.props.navigation.navigate("Before")}>

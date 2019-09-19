@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StatusBar, StyleSheet, Text, View} from 'react-native';
 import {Card, CardItem, Container, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
@@ -47,6 +47,7 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
         };
         return (
             <Container>
+                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
                         content.map((item, index) => {

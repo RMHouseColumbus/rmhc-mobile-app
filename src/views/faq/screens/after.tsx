@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from "react-native";
+import {StatusBar, StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import {Card, CardItem, Container, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
@@ -41,6 +41,7 @@ export default class After extends React.Component<AfterProps, AfterState> {
         const afterData = this.state.afterData;
         return (
             <Container>
+                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
                         afterData.map((item, index) => {

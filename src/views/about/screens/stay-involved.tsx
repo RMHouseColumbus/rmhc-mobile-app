@@ -1,10 +1,10 @@
 import * as React from "react";
-import {Text, TextStyle, View, ViewStyle} from "react-native";
+import {StatusBar, Text, TextStyle, View, ViewStyle} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import {spacing} from "../../shared/spacing";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 import ScrollablePage from "../../shared/ScrollablePage";
-import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from "../../shared/fonts";
 
 export interface StayInvolvedScreenProps extends NavigationScreenProps {
 }
@@ -25,7 +25,7 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
         super(props);
         this.state = {
             content: {
-                values : [],
+                values: [],
                 main: "Content is Unavailable"
             }
         }
@@ -42,7 +42,8 @@ export default class StayInvolved extends React.Component<StayInvolvedScreenProp
         const paratext = this.state.content.main;
 
         return (
-            <View  style={{padding: 20}}>
+            <View style={{padding: 20}}>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 <Text>
                     {paratext}
                 </Text>

@@ -2,7 +2,7 @@ import * as React from "react";
 import {NavigationScreenProps} from "react-navigation";
 import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 import BaseScrollablePage from "../../shared/ScrollablePage";
-import {View} from "react-native";
+import {StatusBar, View} from "react-native";
 import { HEADERTITLESTYLE, HEADERSTYLE, HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
 
 
@@ -41,6 +41,7 @@ export default class CareMobile extends React.Component<CareMobileScreenProps, C
         const content = this.state.content || "Content is Unavailable";
         return (
             <View style={{padding: 20}}>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
                 {mergeLinkText(content.text, content.links)}
             </View>
         );

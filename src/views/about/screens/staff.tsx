@@ -1,8 +1,8 @@
 import * as React from "react";
-import {Text, View} from "react-native";
+import {StatusBar, Text, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
-import { HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE } from "../../shared/fonts";
+import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from "../../shared/fonts";
 
 export interface StaffScreenProps extends NavigationScreenProps {
 }
@@ -34,9 +34,12 @@ export default class StaffScreen extends React.Component<StaffScreenProps, Staff
 
     viewFunction = () => {
         return (
-            <Text  style={{padding: 20}}>
-                {"Staff Content Here"}
-            </Text>
+            <View>
+                <StatusBar backgroundColor="#1c5ca3" barStyle="dark-content" style={{color: "#FFFFFF"}}/>
+                <Text style={{padding: 20}}>
+                    {"Staff Content Here"}
+                </Text>
+            </View>
         )
     };
 
