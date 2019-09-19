@@ -1,11 +1,11 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
-import {Card, CardItem, Container, Content, Text} from 'native-base';
+import {Card, CardItem, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import g from '../../styles/global';
-import { HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE } from '../../shared/fonts';
+import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
 
 interface AfterProps extends NavigationScreenProps {
 }
@@ -40,7 +40,7 @@ export default class After extends React.Component<AfterProps, AfterState> {
     viewFunction = () => {
         const afterData = this.state.afterData;
         return (
-            <Container>
+            <View style={main.container}>
                 <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
@@ -61,7 +61,7 @@ export default class After extends React.Component<AfterProps, AfterState> {
                         })
                     }
                 </Content>
-            </Container>
+            </View>
         )
     };
 
@@ -82,9 +82,7 @@ export default class After extends React.Component<AfterProps, AfterState> {
 
 const main = StyleSheet.create({
     container: {
-        flex: 1,
-        marginLeft: 20,
-        top: 50
+        flex: 1
     },
     text: {
         fontFamily: "Raleway-Regular",

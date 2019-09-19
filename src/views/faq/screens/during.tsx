@@ -1,20 +1,20 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
-import {Card, CardItem, Container, Content, Text} from 'native-base';
+import {Card, CardItem, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import g from '../../styles/global';
-import { HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE } from '../../shared/fonts';
+import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
 
-interface BeforeProps extends NavigationScreenProps {
+interface DuringProps extends NavigationScreenProps {
 }
 
-interface BeforeState {
+interface DuringState {
     duringData: any
 }
 
-export default class Before extends React.Component<BeforeProps, BeforeState> {
+export default class During extends React.Component<DuringProps, DuringState> {
 
     public constructor(props) {
         super(props);
@@ -39,7 +39,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
         const duringData = this.state.duringData;
 
         return (
-            <Container>
+            <View style={main.container}>
                 <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
@@ -60,7 +60,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
                         })
                     }
                 </Content>
-            </Container>
+            </View>
         )
     };
 
@@ -81,9 +81,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
 
 const main = StyleSheet.create({
     container: {
-        flex: 1,
-        marginLeft: 20,
-        top: 50
+        flex: 1
     },
     text: {
         fontFamily: "Raleway-Regular",

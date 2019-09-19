@@ -1,11 +1,11 @@
 import React from 'react';
 import {StatusBar, StyleSheet, View} from "react-native";
 import {NavigationScreenProps} from "react-navigation";
-import {Card, CardItem, Container, Content, Text} from 'native-base';
+import {Card, CardItem, Content, Text} from 'native-base';
 import {mergeLinkText} from '../../link-text-merge/LinkTextMerge';
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import g from '../../styles/global';
-import { HEADERTITLESTYLEBLACK, HEADERSTYLEWHITE } from '../../shared/fonts';
+import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
 
 interface BeforeProps extends NavigationScreenProps {
 }
@@ -38,7 +38,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
     viewFunction = () => {
         const beforeData = this.state.beforeData;
         return (
-            <Container>
+            <View style={main.container}>
                 <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
                 <Content style={main.body}>
                     {
@@ -59,7 +59,7 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
                         })
                     }
                 </Content>
-            </Container>
+            </View>
         )
     };
 
@@ -81,8 +81,6 @@ export default class Before extends React.Component<BeforeProps, BeforeState> {
 const main = StyleSheet.create({
     container: {
         flex: 1,
-        marginLeft: 20,
-        top: 50
     },
     text: {
         fontFamily: "Raleway-Regular",
