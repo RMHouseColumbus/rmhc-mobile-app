@@ -14,7 +14,7 @@ export class ContentService {
 
     public static checkCache(key: string) {
         return load(key)
-            .then(res => res ? res : null)
+            .then(res => res ? null : null)
             .catch(e => null);
     }
 
@@ -45,7 +45,7 @@ export class ContentService {
                 return this.load()
                     .then(json => {
                         if (json[page]) {
-                            save(page, json[page]);
+                            // save(page, json[page]);
                             return json[page];
                         } else {
                             return {
@@ -94,7 +94,7 @@ export class ContentService {
                         .then(async res => {
                             const mealJson = await res.json();
                             const items = mealJson.items.map(i => mapMealJson(i));
-                            save(cacheKey, mealJson.items);
+                            // save(cacheKey, mealJson.items);
                             return items;
                         });
                 }
