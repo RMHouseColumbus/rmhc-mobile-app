@@ -2,7 +2,6 @@ import * as React from "react";
 import {
     ActivityIndicator,
     ScrollView,
-    StatusBar,
     StyleSheet,
     Text,
     TouchableOpacity,
@@ -33,8 +32,6 @@ export interface BaseScreenState {
 }
 
 export default class BaseScrollablePage extends React.Component<BaseScreenProps, BaseScreenState> {
-
-
     public constructor(props) {
         super(props);
         this.state = {
@@ -115,7 +112,6 @@ export default class BaseScrollablePage extends React.Component<BaseScreenProps,
     private loadingComponent() {
         return (
             <View style={{flex: 1}}>
-                <StatusBar barStyle="dark-content" backgroundColor="#FFFFFF"/>
                 <View style={{flex: 1, flexDirection: 'row'}}>
                     <View style={main.container}>
                         <ActivityIndicator/>
