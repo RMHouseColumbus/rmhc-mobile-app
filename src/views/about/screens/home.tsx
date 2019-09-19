@@ -1,5 +1,5 @@
 import React from 'react';
-import {Linking, View} from 'react-native';
+import {Linking, StatusBar, View, StyleSheet, GestureResponderEvent, TextStyle, ViewStyle} from 'react-native';
 import {NavigationScreenProps} from "react-navigation";
 
 
@@ -13,34 +13,23 @@ import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 import {setStatusBar} from "../../shared/status-bar";
 
-
-const SVG = {
-    Width: 200,
-    Height: 52
-};
-
-export interface AboutState {
-    content: any
-}
-
 export interface AboutProps extends NavigationScreenProps {
 }
 
-export default class About extends React.Component <AboutProps, AboutState> {
+export interface AboutState {
+    links: any
+}
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            content: {
-                links: {
-                    sharestory: {
-                        url: ""
-                    }
-                }
-            }
-        };
-        setStatusBar(this, "#ffffff");
-    }
+export interface SVGButtonInterface {
+    route?: string
+    onPress?: (event: GestureResponderEvent) => void;
+    text: string
+    svg: JSX.Element,
+    tOverride?: TextStyle,
+    bOverride?: ViewStyle
+}
+
+export default class About extends React.Component <AboutProps, AboutState> {
 
     static navigationOptions = {
         title: "ABOUT",
@@ -48,36 +37,85 @@ export default class About extends React.Component <AboutProps, AboutState> {
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };
 
+    public constructor(props) {
+        super(props);
+        this.state = {
+            links: {}
+        };
+        setStatusBar(this, "#ffffff");
+    }
 
     onContentLoad = (content: any) => {
         this.setState({
-            content: content
+            links: content.links
         })
     };
 
+    
+
+buttons(): SVGButtonInterface[] {
+
+    const state = this.state;
+    const textOverride = {paddingTop: 8, fontSize: 27, lineHeight: 41};
+    const buttonOverride = {};
+
+    return [
+        {
+            text: "Meet The Staff",
+            onPress: () => Linking.openURL(state.links.meetstaff.url),
+            svg: <Staff {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        },
+        {
+            route: "CareMobile",
+            text: "Care\nMobile",
+            svg: <CareMobile {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        },
+        {
+            route: "StayInvolved",
+            text: "Ways To Stay Involved",
+            svg: <StayInvolved {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        },
+        {
+            text: "Share Your Story",
+            onPress: () => Linking.openURL(state.links.sharestory.url),
+            svg: <Share {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        },
+        {
+            route: "FamilyRoom",
+            text: "Family Room",
+            svg: <FamilyRoom {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        }
+
+    ];
+}
+
+
     viewFunction = () => {
-        const link = this.state.content.links.sharestory.url;
         return (
-            <View style={{padding: 20, backgroundColor: "#4872ae"}}>
-                <SVGButton text={"Meet the\nStaff"} onPress={() => Linking.openURL("http://rmhc-centralohio.org/who-we-are/staff/")}>
-                    <Staff {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Care\nMobile"}
-                           onPress={() => this.props.navigation.navigate("CareMobile")}>
-                    <CareMobile {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Ways to\nStay Involved"}
-                           onPress={() => this.props.navigation.navigate("StayInvolved")}>
-                    <StayInvolved {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Share Your\nStory"}
-                           onPress={() => Linking.openURL(link)}>
-                    <Share {...SVG}/>
-                </SVGButton>
-                <SVGButton text={"Family\nRoom"}
-                           onPress={() => this.props.navigation.navigate("FamilyRoom")}>
-                    <FamilyRoom {...SVG}/>
-                </SVGButton>
+            <View style={styles.container}>
+                <StatusBar backgroundColor="#fff" barStyle="dark-content"/>
+                {
+                    this.buttons().map(b => {
+                        const press = b.onPress ? b.onPress : () => this.props.navigation.navigate(b.route);
+                        return (
+                            <SVGButton text={b.text} onPress={press} textOverride={b.tOverride} buttonOverride={b.bOverride}>
+                                {
+                                    b.svg
+                                }
+                            </SVGButton>
+                        )
+                    })
+                }
             </View>
         )
     };
@@ -92,3 +130,17 @@ export default class About extends React.Component <AboutProps, AboutState> {
         );
     }
 }
+
+
+const SVG = {
+    Width: 200,
+    Height: 52,
+    zIndex: -100
+};
+
+const styles = StyleSheet.create({
+    container: {
+        padding: 20,
+        backgroundColor: "#4872ae"
+    },
+});
