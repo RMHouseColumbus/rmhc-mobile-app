@@ -12,7 +12,7 @@ export interface FacilitiesNavigationScreenProps extends NavigationScreenProps {
 
 export default class Facilities extends React.Component<FacilitiesNavigationScreenProps, {}> {
     static navigationOptions = {
-        title: 'Facilities',
+        title: 'FACILITIES',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
     };
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         borderColor: 'black',
         borderWidth: 5,
         width: '60%',
-        height: '35%',
+        height: '37%',
         backgroundColor: '#FFFFFF',
         position: 'absolute',
         top: '35%',
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     floorPlanButton: {
-        top: '25%',
+        top: '23%',
         textAlign: 'center',
         justifyContent: 'center',
         width: 120,

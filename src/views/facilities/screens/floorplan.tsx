@@ -18,7 +18,7 @@ export default class FloorPlan extends React.Component<FloorPlanNavigationScreen
     }
 
     static navigationOptions = {
-        title: 'FloorPlan',
+        title: 'FLOOR PLAN',
         headerStyle: HEADERSTYLEBLUE,
         headerTitleStyle: HEADERTITLESTYLEWHITE
     };

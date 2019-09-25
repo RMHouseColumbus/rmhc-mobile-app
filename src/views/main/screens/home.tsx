@@ -1,18 +1,20 @@
 import React from 'react';
-import {Dimensions, Linking, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {NavigationNavigatorProps, NavigationScreenProps} from 'react-navigation';
+import { Dimensions, Linking, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { Grid, Col, Row, Container, Content } from 'native-base';
+import { NavigationNavigatorProps, NavigationScreenProps } from 'react-navigation';
 import BaseFooter from '../../shared/footer'
 import Logo from '../../../images/logo_landscape.svg'
 import Henry from '../../../images/henry_landingpage.svg'
-import {HEADERSTYLEBLUE} from '../../shared/fonts';
+import { HEADERSTYLEBLUE } from '../../shared/fonts';
 import SplashScreen from 'react-native-splash-screen'
 import Youtube from "../../navigation/assets/youTube.svg";
-import {setStatusBar} from "../../shared/status-bar";
+import { setStatusBar } from "../../shared/status-bar";
+
 
 export interface HomeScreenProps extends NavigationNavigatorProps {
 }
 
-export default class Home extends React.Component <NavigationScreenProps, {}> {
+export default class Home extends React.Component<NavigationScreenProps, {}> {
 
     static navigationOptions = {
         title: 'RMHC Central Ohio',
@@ -33,24 +35,26 @@ export default class Home extends React.Component <NavigationScreenProps, {}> {
     render() {
         return (
             <View style={styles.main}>
-                <View style={{flex: 1}}>
-                    <Text style={styles.welcomeText}>Welcome To</Text>
-                </View>
 
-                <Logo style={{flex: 5, alignSelf: 'center'}}/>
-
-                <View style={{flex: 5, alignSelf: 'stretch', position: "relative"}}>
-                    <Henry width={400} height={425} style={{alignSelf: 'center', zIndex: 100}}/>
+                <Grid style={{ flex: 4 }}>
+                    <Row>
+                        <Text style={styles.welcomeText}>Welcome To</Text>
+                    </Row>
+                    <Row style={{alignSelf: 'center' }}>
+                        <Logo style={{ flex: 1, alignSelf: 'center', position: 'relative', marginBottom: '1%' }} />
+                    </Row>
+                </Grid>
+                <View style={styles.henry}>
+                    <Henry width={'100%'} height={'100%'} />
                     <TouchableOpacity
                         style={{
                             position: 'absolute',
                             left: 220,
-                            bottom: 40,
-                            flexDirection: 'row',
+                            bottom: '50%',
                             alignItems: 'center'
                         }}
                         onPress={() => Linking.openURL("https://www.youtube.com/user/RMHCofCentralOhio")}>
-                        <Youtube {...SVG}/>
+                        <Youtube {...SVG} />
                         <Text style={{
                             fontSize: 20,
                             marginLeft: 8,
@@ -58,14 +62,12 @@ export default class Home extends React.Component <NavigationScreenProps, {}> {
                             color: "#0078d7"
                         }}>Welcome...</Text>
                     </TouchableOpacity>
+                    <View style={{ flex: 1, backgroundColor: "4872ae", alignSelf: 'center', zIndex: 101, position: 'absolute', bottom: '20%' }}>
+                        <Text style={styles.manage}>{"Manage Your\nStay with Us."}</Text>
+                    </View>
                 </View>
-                <View style={{flex: 3, backgroundColor: "4872ae", alignSelf: 'center', zIndex: 101}}>
-                    <Text style={styles.manage}>{"Manage Your\nStay with Us."}</Text>
-                </View>
-
-
                 <View style={styles.footer}>
-                    <BaseFooter navigation={this.props.navigation}/>
+                    <BaseFooter navigation={this.props.navigation} />
                 </View>
             </View>
         );
@@ -79,6 +81,8 @@ const SVG = {
 };
 
 const styles = StyleSheet.create({
+
+    henry: { flex: 6, position: 'relative', top: '5%' },
     main: {
         flex: 1,
         flexDirection: 'column',
@@ -88,6 +92,8 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
+
+
     },
     welcomeText: {
         flex: 1,
@@ -108,12 +114,14 @@ const styles = StyleSheet.create({
         lineHeight: 38,
         letterSpacing: 0,
         textAlign: "center",
-        color: "#ffffff",
-        paddingTop: 25,
+        color: "#FFFFFF",
+
     },
     footer: {
         minHeight: 63,
         maxHeight: 63,
-        flex: 1
+        flex: 5
+        , position: 'relative',
+        bottom: -.20
     }
 });

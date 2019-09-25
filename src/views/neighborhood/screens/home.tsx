@@ -58,7 +58,7 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
 
         const state = this.state;
 
-        const textOverride = {paddingTop: 8, fontSize: 27, lineHeight: 41};
+        const textOverride = {paddingTop: 8, fontSize: 26, lineHeight: 41};
         const buttonOverride = {};
 
         return [
