@@ -299,7 +299,7 @@
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = Q278PZC43H;
+						DevelopmentTeam = 4XBTHHRLP4;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -508,11 +508,11 @@
 			baseConfigurationReference = 60A62FF14AE527C142232C30 /* Pods-rmhcmobileapp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = Q278PZC43H;
+				DEVELOPMENT_TEAM = 4XBTHHRLP4;
 				INFOPLIST_FILE = rmhcmobileapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -520,9 +520,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cas.dev.rmhcmobileapp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rmhc.rmhcmobileapp;
 				PRODUCT_NAME = rmhcmobileapp;
-				PROVISIONING_PROFILE_SPECIFIER = "DEV RMHC Mobile";
+				PROVISIONING_PROFILE_SPECIFIER = "RMHC Distribution Profile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -534,8 +534,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = Q278PZC43H;
+				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = 4XBTHHRLP4;
 				INFOPLIST_FILE = rmhcmobileapp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -543,9 +543,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.cas.dev.rmhcmobileapp;
+				PRODUCT_BUNDLE_IDENTIFIER = org.rmhc.rmhcmobileapp;
 				PRODUCT_NAME = rmhcmobileapp;
-				PROVISIONING_PROFILE_SPECIFIER = "PROD RMHC Mobile";
+				PROVISIONING_PROFILE_SPECIFIER = "RMHC Distribution Profile";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
