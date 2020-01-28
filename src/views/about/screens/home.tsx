@@ -68,13 +68,6 @@ buttons(): SVGButtonInterface[] {
             bOverride: buttonOverride
         },
         {
-            route: "CareMobile",
-            text: "Care\nMobile",
-            svg: <CareMobile {...SVG}/>,
-            tOverride: textOverride,
-            bOverride: buttonOverride
-        },
-        {
             route: "StayInvolved",
             text: "Ways To Stay Involved",
             svg: <StayInvolved {...SVG}/>,
@@ -92,6 +85,13 @@ buttons(): SVGButtonInterface[] {
             route: "FamilyRoom",
             text: "Family Room",
             svg: <FamilyRoom {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        },
+        {
+            route: "CareMobile",
+            text: "Care\nMobile",
+            svg: <CareMobile {...SVG}/>,
             tOverride: textOverride,
             bOverride: buttonOverride
         }
