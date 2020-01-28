@@ -35,6 +35,10 @@ export default class Home extends React.Component<NavigationScreenProps, {}> {
         setStatusBar(this, "#1c5ca3", 'light-content');
     }
 
+    private onClickOfYourState = () => {
+        this.props.navigation.navigate("Faq");
+    };
+
     render() {
         return (
             <View style={styles.main}>
@@ -65,8 +69,11 @@ export default class Home extends React.Component<NavigationScreenProps, {}> {
                             color: "#0078d7"
                         }}>Welcome...</Text>
                     </TouchableOpacity>
-                    <View style={{ flex: 1, backgroundColor: "4872ae", alignSelf: 'center', zIndex: 101, position: 'absolute', bottom: '20%' }}>
-                        <Text style={styles.manage}>{"Manage Your\nStay with Us."}</Text>
+                    <View
+                          style={{ flex: 1, backgroundColor: "4872ae", alignSelf: 'center', zIndex: 101, position: 'absolute', bottom: '20%' }}>
+                        <TouchableOpacity onPress={this.onClickOfYourState}>
+                            <Text style={styles.manage}>{"Manage Your\nStay with Us."}</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
                 <View style={styles.footer}>
