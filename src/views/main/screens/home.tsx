@@ -1,20 +1,23 @@
 import React from 'react';
-import { Dimensions, Linking, StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
-import { Grid, Col, Row, Container, Content } from 'native-base';
-import { NavigationNavigatorProps, NavigationScreenProps } from 'react-navigation';
-import BaseFooter from '../../shared/footer'
-import Logo from '../../../images/logo_landscape.svg'
-import Henry from '../../../images/henry_landingpage.svg'
-import { HEADERSTYLEBLUE } from '../../shared/fonts';
-import SplashScreen from 'react-native-splash-screen'
-import Youtube from "../../navigation/assets/youTube.svg";
-import { setStatusBar } from "../../shared/status-bar";
+import {Dimensions, Linking, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Grid, Row} from 'native-base';
+import {NavigationNavigatorProps, NavigationScreenProps} from 'react-navigation';
+import BaseFooter from '../../shared/footer';
+import Logo from '../../../images/logo_landscape.svg';
+import Henry from '../../../images/henry_landingpage.svg';
+import {HEADERSTYLEBLUE} from '../../shared/fonts';
+import SplashScreen from 'react-native-splash-screen';
+import Youtube from '../../navigation/assets/youTube.svg';
+import {setStatusBar} from '../../shared/status-bar';
 
 
 export interface HomeScreenProps extends NavigationNavigatorProps {
 }
 
+const YOUTUBE_LINK= "https://youtu.be/9ypZmfHSiXg";
+
 export default class Home extends React.Component<NavigationScreenProps, {}> {
+
 
     static navigationOptions = {
         title: 'RMHC Central Ohio',
@@ -53,7 +56,7 @@ export default class Home extends React.Component<NavigationScreenProps, {}> {
                             bottom: '50%',
                             alignItems: 'center'
                         }}
-                        onPress={() => Linking.openURL("https://www.youtube.com/user/RMHCofCentralOhio")}>
+                        onPress={() => Linking.openURL(YOUTUBE_LINK)}>
                         <Youtube {...SVG} />
                         <Text style={{
                             fontSize: 20,
