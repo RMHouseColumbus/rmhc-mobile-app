@@ -9,6 +9,7 @@ import g from '../../styles/global';
 
 import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import {setStatusBar} from "../../shared/status-bar";
+import {getTextForDate} from "../../shared/Helpers";
 
 
 export interface MealsScreenProps extends NavigationScreenProps {
@@ -40,20 +41,6 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
         })
     };
 
-    getHour = (time: Date) => {
-        let h = time.getHours();
-        let m = time.getMinutes();
-        const x = h >= 12 ? 'pm' : 'am';
-        h = h % 12;
-        h = h ? h : 12;
-        const final = m < 10 ? '0' + m : m;
-        return h + ':' + final + ' ' + x;
-    };
-
-    getTextForDate = (start: Date, end: Date) => {
-        return `${start.toDateString()} ${this.getHour(start)}-${this.getHour(end)}`;
-    };
-
     viewFunction = () => {
         const {meals} = this.state;
 
@@ -67,7 +54,7 @@ export default class Meals extends React.Component <MealsScreenProps, MealsScree
                                     <View>
                                         <Text style={g.textTitle}>{item.summary}</Text>
                                         <Text
-                                            style={g.textType}>{this.getTextForDate(item.start, item.end)}</Text>
+                                            style={g.textType}>{getTextForDate(item.start, item.end)}</Text>
                                         <Text style={g.textContent}>{item.description}</Text>
                                     </View>
                                 </CardItem>
