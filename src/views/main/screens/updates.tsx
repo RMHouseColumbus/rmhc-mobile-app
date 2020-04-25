@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {Card, CardItem, Container, Content} from 'native-base'
+import {Card, CardItem, Content} from 'native-base'
 import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 
@@ -8,6 +8,7 @@ import g from '../../styles/global';
 
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
 import {setStatusBar} from "../../shared/status-bar";
+import {mergeLinkText} from "../../link-text-merge/LinkTextMerge";
 
 
 
@@ -43,12 +44,11 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
     viewFunction = () => {
         const content = this.state.content;
         const cardStyle = {
-            ...g.card,
-            top: '2%'
+            ...g.card
         };
         return (
-            <Container>
-                <Content style={main.body}>
+            <View style={main.container}>
+            <Content style={main.body}>
                     {
                         content.map((item, index) => {
                             return (
@@ -57,7 +57,9 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
                                         <View>
                                             <Text style={g.textType}>{item.type}</Text>
                                             <Text style={g.textTitle}>{item.title}</Text>
-                                            <Text style={g.textContent}>{item.text}</Text>
+                                            {
+                                                mergeLinkText(item.text, item.links, g.textContent)
+                                            }
                                         </View>
                                     </CardItem>
                                 </Card>
@@ -67,7 +69,7 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
 
                 </Content>
 
-            </Container>
+            </View>
         )
     };
 
@@ -85,9 +87,7 @@ export default class Updates extends React.Component<UpdateProps, UpdateState> {
 
 const main = StyleSheet.create({
     container: {
-        flex: 1,
-        marginLeft: 20,
-        top: 50
+        flex: 1
     },
     text: {
         fontFamily: "Raleway-Regular",
