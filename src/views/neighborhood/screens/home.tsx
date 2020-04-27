@@ -1,5 +1,5 @@
 import React from 'react';
-import {GestureResponderEvent, Linking, StatusBar, StyleSheet, TextStyle, View, ViewStyle} from 'react-native';
+import {GestureResponderEvent, Linking, StatusBar, StyleSheet, TextStyle, View, ViewStyle, Platform} from 'react-native';
 
 
 import Delivery from "../assets/delivery.svg";
@@ -14,6 +14,7 @@ import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
 import {setStatusBar} from "../../shared/status-bar";
+import {GlobalCoordinates} from "../../shared/global";
 
 export interface NeighborhoodNavigationProps extends NavigationScreenProps {
 }
@@ -60,6 +61,15 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
 
         const textOverride = {paddingTop: 8, fontSize: 26, lineHeight: 41};
         const buttonOverride = {};
+        
+        const nearbyRestaurantsLink = Platform.select(
+            {   ios:"http://maps.apple.com/?sll=" +`${GlobalCoordinates.latitude}`+","+`${GlobalCoordinates.longitude}`+"&z=10&q=restaurants", 
+                android:"geo:" + `${GlobalCoordinates.latitude},${GlobalCoordinates.longitude}`+"?q=restaurants"
+            });
+        const nearbyShoppingsLink = Platform.select(
+            {   ios:"http://maps.apple.com/?sll=" +`${GlobalCoordinates.latitude}`+","+`${GlobalCoordinates.longitude}`+"&z=10&q=shopping", 
+                android:"geo:" + `${GlobalCoordinates.latitude},${GlobalCoordinates.longitude}`+"?q=shopping"
+            });
 
         return [
             {
@@ -71,13 +81,14 @@ export default class Neighborhood extends React.Component<NeighborhoodNavigation
             },
             {
                 text: "Area Restaurants",
-                route: "Restaurants",
+                onPress: () =>Linking.openURL(nearbyRestaurantsLink),
                 svg: <Restaurants {...SVG}/>,
                 tOverride: textOverride,
                 bOverride: buttonOverride
             },
             {
                 route: "Shopping",
+                onPress: () =>Linking.openURL(nearbyShoppingsLink),
                 text: "Retail\nShopping",
                 svg: <Shopping {...SVG}/>,
                 tOverride: textOverride,

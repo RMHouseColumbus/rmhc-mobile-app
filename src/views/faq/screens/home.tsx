@@ -22,7 +22,7 @@ export interface FAQNavigationScreenProps extends NavigationScreenProps {
 export default class Faq extends React.Component <FAQNavigationScreenProps, {}> {
 
     static navigationOptions = {
-        title: "FAQs",
+        title: "Your Stay",
         headerStyle: HEADERSTYLEWHITE,
         headerTitleStyle: HEADERTITLESTYLEBLACK
     };

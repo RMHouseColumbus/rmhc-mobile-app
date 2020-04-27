@@ -8,6 +8,7 @@ import FamilyRoom from "../assets/familyroom.svg";
 import Share from "../assets/share.svg";
 import Staff from "../assets/staff.svg";
 import StayInvolved from "../assets/stayinvolved.svg";
+import Globe from "../assets/globe_image.svg";
 import {SVGButton} from "../../svg-button/SVGButton";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 import { HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK } from '../../shared/fonts';
@@ -28,6 +29,8 @@ export interface SVGButtonInterface {
     tOverride?: TextStyle,
     bOverride?: ViewStyle
 }
+
+const HOME_PAGE  = "http://rmhc-centralohio.org/";
 
 export default class About extends React.Component <AboutProps, AboutState> {
 
@@ -68,9 +71,9 @@ buttons(): SVGButtonInterface[] {
             bOverride: buttonOverride
         },
         {
-            route: "CareMobile",
-            text: "Care\nMobile",
-            svg: <CareMobile {...SVG}/>,
+            text: "Visit Our Website",
+            onPress: () => Linking.openURL(HOME_PAGE),
+            svg: <Globe {...SVG}/>,
             tOverride: textOverride,
             bOverride: buttonOverride
         },
@@ -92,6 +95,13 @@ buttons(): SVGButtonInterface[] {
             route: "FamilyRoom",
             text: "Family Room",
             svg: <FamilyRoom {...SVG}/>,
+            tOverride: textOverride,
+            bOverride: buttonOverride
+        },
+        {
+            route: "CareMobile",
+            text: "Care\nMobile",
+            svg: <CareMobile {...SVG}/>,
             tOverride: textOverride,
             bOverride: buttonOverride
         }

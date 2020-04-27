@@ -5,6 +5,7 @@ import BaseFooter from '../../shared/footer'
 import {HEADERSTYLEBLUE, HEADERTITLESTYLEWHITE} from '../../shared/fonts';
 import {createOpenLink} from 'react-native-open-maps';
 import {setStatusBar} from "../../shared/status-bar";
+import {GlobalCoordinates} from "../../shared/global";
 
 export interface FindUscreenProps extends NavigationScreenProps {
 }
@@ -24,8 +25,6 @@ export default class FindUs extends React.Component <FindUscreenProps, {}> {
     }
 
     render() {
-        const lat = 39.951073;
-        const long = -82.978959;
         const rmhcPhoneNumber = "tel:614-227-3700"
         const rmhcEmail = "mailto:rmhccommunications@rmhc-centralohio.org"
 
@@ -45,8 +44,8 @@ export default class FindUs extends React.Component <FindUscreenProps, {}> {
                 </View>
                 <View style={{flex: 0.7, marginLeft: '1%', width: '98%'}}>
                     <TouchableOpacity onPress={createOpenLink({
-                        latitude: lat,
-                        longitude: long,
+                        latitude: GlobalCoordinates.latitude,
+                        longitude: GlobalCoordinates.longitude,
                         query: "Ronald McDonald House Charities of Central Ohio"
                     })}>
                         <ImageBackground source={require('./assets/findusmap.png')}
