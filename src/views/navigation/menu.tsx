@@ -25,6 +25,7 @@ export default class Menu extends React.Component<NavigationScreenProps, {}> {
                     {this.navLink("Neighborhood", "Neighborhood Guide")}
                     {this.navLink("About", "About")}
                     {this.navLink("Faq", "Your Stay")}
+                    {this.externalLink("Perscription Services", "http://go.scripthero.com/RMHC")}
                     <TouchableOpacity style={styles.SubmitButtonStyle} activeOpacity={.5}
                         onPress={() => Linking.openURL("http://rmhc-centralohio.org/app_donation_page/")}>
                         <Text style={styles.TextStyle}>Donate</Text>
@@ -43,6 +44,14 @@ export default class Menu extends React.Component<NavigationScreenProps, {}> {
                 </View>
                
             </View>
+        )
+    }
+
+    private externalLink(text, link) {
+        return (
+            <TouchableOpacity style={{ height: 50 }} onPress={() => Linking.openURL(link)}>
+                <Text style={styles.link}>{text}</Text>
+            </TouchableOpacity>
         )
     }
 
@@ -98,9 +107,22 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff'
     },
+    SubmitLinkStyle: {
+
+        marginTop: 5,
+        paddingTop: 15,
+        paddingBottom: 15,
+        marginLeft: 20
+    },
+    LinkStyle:{
+        color: '#000',
+        textAlign: 'center',
+        fontSize: 20
+    },
     TextStyle: {
         color: '#fff',
         textAlign: 'center',
         fontSize: 20
-    }
+    },
+
 });
