@@ -44,30 +44,50 @@ export default class Activities extends React.Component<ActivityProps, Activitie
 
     };
 
+    contentEmpty = () => {
+        const cardStyle = {
+            ...g.card
+        };
+        return (
+            <View style={styles.container}>
+                <Card key={0} style={cardStyle}>
+                    <CardItem bordered key={1} style={{borderRadius: 20}}>
+                        <View>
+                            <Text style={g.textContent}>No Activities</Text>
+                        </View>
+                    </CardItem>
+                </Card>
+            </View>
+        )
+    }
+
+    contentAvail = (activities: ActivityItem[]) => {
+
+        return <View style={styles.container}>
+            {
+                activities.map((item, index) => {
+                    return (
+                        <Card key={index} style={g.card}>
+                            <CardItem bordered key={index} style={{borderRadius: 20}}>
+                                <View>
+                                    <Text style={g.textTitle}>{item.summary}</Text>
+                                    <Text style={g.textType}>{getTextForDate(item.start, item.end)}</Text>
+                                    <Text style={g.textContent}>{item.description}</Text>
+                                </View>
+                            </CardItem>
+                        </Card>
+                    )
+                })
+            }
+        </View>
+
+    }
 
 
     viewFunction = () => {
         const {activities} = this.state;
-
-        return (
-            <View style={styles.container}>
-                {
-                    activities.map((item, i) => {
-                        return (
-                            <Card key={i} style={g.card}>
-                                <CardItem bordered key={i} style={{borderRadius: 20}}>
-                                    <View>
-                                        <Text style={g.textTitle}>{item.summary}</Text>
-                                        <Text style={g.textType}>{getTextForDate(item.start, item.end)}</Text>
-                                        <Text style={g.textContent}>{item.description}</Text>
-                                    </View>
-                                </CardItem>
-                            </Card>
-                        )
-                    })
-                }
-            </View>
-        )
+        const hasActivities = activities ? activities.length > 0 : false;
+        return hasActivities ? this.contentAvail(activities) : this.contentEmpty();
     };
 
 
