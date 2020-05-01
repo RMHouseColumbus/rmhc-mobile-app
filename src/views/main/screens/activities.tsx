@@ -58,8 +58,7 @@ export default class Activities extends React.Component<ActivityProps, Activitie
                                 <CardItem bordered key={i} style={{borderRadius: 20}}>
                                     <View>
                                         <Text style={g.textTitle}>{item.summary}</Text>
-                                        <Text
-                                            style={g.textType}>{getTextForDate(item.start, item.end)}</Text>
+                                        <Text style={g.textType}>{getTextForDate(item.start, item.end)}</Text>
                                         <Text style={g.textContent}>{item.description}</Text>
                                     </View>
                                 </CardItem>
