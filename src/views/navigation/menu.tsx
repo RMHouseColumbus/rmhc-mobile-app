@@ -22,6 +22,7 @@ export default class Menu extends React.Component<NavigationScreenProps, {}> {
                     {this.navLink("Meals", "Meals")}
                     {this.navLink("Activities", "Activities")}
                     {this.navLink("Facilities", "Facilities/Floor Plan")}
+                    {this.navLink("HospitalServices", "In Hospital Services")}
                     {this.navLink("Neighborhood", "Neighborhood Guide")}
                     {this.navLink("About", "About")}
                     {this.navLink("Faq", "Your Stay")}

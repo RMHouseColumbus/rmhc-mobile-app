@@ -1,5 +1,8 @@
 import {load} from "./StorageService";
 
+export interface HospitalItem extends GoogleCalendarItem {
+}
+
 export interface MealItem extends GoogleCalendarItem {
 }
 
@@ -11,6 +14,7 @@ export interface GoogleCalendarItem {
     description: string
     start: Date
     end: Date
+    htmlLink: string
 }
 
 export class ContentService {
@@ -18,6 +22,7 @@ export class ContentService {
     private static readonly S3_URL = "https://rmhc-central-oh.s3.us-east-2.amazonaws.com/content.json";
     private static readonly MEAL_FEED = "https://www.googleapis.com/calendar/v3/calendars/lqqc0o0vqck3c2gr99gfapqrks@group.calendar.google.com/events?calendarId=lqqc0o0vqck3c2gr99gfapqrks%40group.calendar.google.com&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
     private static readonly ACTIVITY_FEED = "https://www.googleapis.com/calendar/v3/calendars/3fhqva87ob641vg51ubph8r0ks%40group.calendar.google.com/events?cId=M2ZocXZhODdvYjY0MXZnNTF1YnBoOHIwa3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
+    private static readonly HOSPITAL_FEED = "https://www.googleapis.com/calendar/v3/calendars/lqqc0o0vqck3c2gr99gfapqrks@group.calendar.google.com/events?calendarId=lqqc0o0vqck3c2gr99gfapqrks%40group.calendar.google.com&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
 
     public static checkCache(key: string) {
         return load(key)
@@ -87,6 +92,10 @@ export class ContentService {
         return ContentService.buildGoogleCalendarUrl(ContentService.ACTIVITY_FEED);
     };
 
+    public static buildHospitalCalendarUrl: () => string = () => {
+        return ContentService.buildGoogleCalendarUrl(ContentService.HOSPITAL_FEED);
+    };
+
     public static getGoogleFeed: <T>(name: string, url: () => string, mapper: (item: any) => T) => Promise<T[]> = (name: string, url: () => string, mapper: (item: any) => any) => {
         const today = new Date();
         const cacheKey = `${today.getMonth().toString()}-${today.getDay().toString()}-${name}`;
@@ -109,7 +118,8 @@ export class ContentService {
             summary: item.summary,
             description: item.description,
             start: new Date(item.start.dateTime),
-            end: new Date(item.end.dateTime)
+            end: new Date(item.end.dateTime),
+            htmlLink: item.htmlLink
         };
         return gItem;
     };
@@ -120,5 +130,9 @@ export class ContentService {
 
     public static mealFeed: () => Promise<MealItem[]> = () => {
         return ContentService.getGoogleFeed<MealItem>('meals', ContentService.buildMealCalendarUrl, ContentService.mapGoogleCalendarItem);
+    };
+
+    public static hospitalFeed: () => Promise<HospitalItem[]> = () => {
+        return ContentService.getGoogleFeed<HospitalItem>('hospital', ContentService.buildHospitalCalendarUrl, ContentService.mapGoogleCalendarItem);
     };
 }

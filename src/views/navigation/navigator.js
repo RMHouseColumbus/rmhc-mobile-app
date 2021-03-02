@@ -7,6 +7,7 @@ import About from '../about/screens/home';
 import Faq from '../faq/screens/home';
 import Meals from '../main/screens/meals';
 import Neighborhood from '../neighborhood/screens/home';
+import HospitalServices from '../hospital-services/screens/home';
 import Facilities from '../facilities/screens/home';
 import FloorPlan from '../facilities/screens/floorplan';
 import Menu from './menu'
@@ -65,12 +66,10 @@ const subNeigborhood = createStackNavigator(
     }, defaultNavConfigs,
     {initialRouteName: "Neighborhood"});
 
-
-    const subFacilities = createStackNavigator(
+const subFacilities = createStackNavigator(
         {
             Facilities:Facilities, FloorPlan: FloorPlan}, defaultNavConfigs,
         {initialRouteName: "Facilities"});
-
 
 const subAbout = createStackNavigator(
     {
@@ -98,6 +97,7 @@ const DrawerNavigator = createDrawerNavigator(
         FindUs: createStackNavigator({FindUs: FindUs}, defaultNavConfigs),
         Meals: createStackNavigator({Meals: Meals}, defaultNavConfigs),
         Facilities: subFacilities,
+        HospitalServices: createStackNavigator({HospitalServices: HospitalServices}, defaultNavConfigs),
         Updates: createStackNavigator({Updates: Updates}, defaultNavConfigs),
         About: subAbout,
         Activities: createStackNavigator({Activities: Activities}, defaultNavConfigs),
