@@ -53,13 +53,13 @@ export default class HostipalServices extends React.Component<HospitalServicePro
     cards(): CardItemInterface[] {
         return [
             {
-                title: "OhioHealth Riverside Methodist Hospital",
+                title: "OhioHealth Riverside\nMethodist Hospital",
                 text: "Ronald McDonald family rooms at OhioHealth Riverside Methodist Hospital",
                 route: "RiversideFamilyRoom"
 
             },
             {
-                title:"Nationwide Children’s Hospital Big Lots Behavioral Health Pavilion",
+                title:"Nationwide Children’s\nHospital Big Lots\nBehavioral Health Pavilion",
                 text: "Ronald McDonald family rooms at the Nationwide Children’s Hospital Big Lots Behavioral Health Pavilion",
                 route: "BHPFamilyRoom"
             }

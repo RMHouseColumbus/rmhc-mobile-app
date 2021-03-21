@@ -5,7 +5,7 @@ import {NavigationScreenProps} from "react-navigation";
 import BaseScrollablePage from "../../shared/ScrollablePage";
 
 import g from '../../styles/global';
-import {HEADERSTYLEWHITE, HEADERTITLESTYLEBLACK} from '../../shared/fonts';
+import {HEADERSTYLEWHITE} from '../../shared/fonts';
 import {setStatusBar} from "../../shared/status-bar";
 import {ActivityItem, ContentService} from "../../../services/ContentService";
 import {getTextForDate} from "../../shared/Helpers";
