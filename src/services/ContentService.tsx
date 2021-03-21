@@ -1,6 +1,6 @@
 import {load} from "./StorageService";
 
-export interface HospitalItem extends GoogleCalendarItem {
+export interface FamilyRoomItem extends GoogleCalendarItem {
 }
 
 export interface MealItem extends GoogleCalendarItem {
@@ -22,8 +22,9 @@ export class ContentService {
     private static readonly S3_URL = "https://rmhc-central-oh.s3.us-east-2.amazonaws.com/content.json";
     private static readonly MEAL_FEED = "https://www.googleapis.com/calendar/v3/calendars/lqqc0o0vqck3c2gr99gfapqrks@group.calendar.google.com/events?calendarId=lqqc0o0vqck3c2gr99gfapqrks%40group.calendar.google.com&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
     private static readonly ACTIVITY_FEED = "https://www.googleapis.com/calendar/v3/calendars/3fhqva87ob641vg51ubph8r0ks%40group.calendar.google.com/events?cId=M2ZocXZhODdvYjY0MXZnNTF1YnBoOHIwa3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
-    private static readonly HOSPITAL_FEED = "https://www.googleapis.com/calendar/v3/calendars/lqqc0o0vqck3c2gr99gfapqrks@group.calendar.google.com/events?calendarId=lqqc0o0vqck3c2gr99gfapqrks%40group.calendar.google.com&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
-
+    private static readonly BHP_FEED = "https://www.googleapis.com/calendar/v3/calendars/rmhceventvolunteers%40gmail.com/events?cId=M2FqZjE4cTZkdmxndXRsbGkyaG5kaW11b3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
+    private static readonly RIVERSIDE_FEED="https://www.googleapis.com/calendar/v3/calendars/3fhqva87ob641vg51ubph8r0ks%40group.calendar.google.com/events?cId=MjJoczQ0a3M4aHJiM20xZHFwNWxocmRodWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
+                                            
     public static checkCache(key: string) {
         return load(key)
             .then(res => res ? null : null)
@@ -92,8 +93,12 @@ export class ContentService {
         return ContentService.buildGoogleCalendarUrl(ContentService.ACTIVITY_FEED);
     };
 
-    public static buildHospitalCalendarUrl: () => string = () => {
-        return ContentService.buildGoogleCalendarUrl(ContentService.HOSPITAL_FEED);
+    public static buildBHPCalendarUrl: () => string = () => {
+        return ContentService.buildGoogleCalendarUrl(ContentService.BHP_FEED);
+    };
+
+    public static buildRiversideCalendarUrl: () => string = () => {
+        return ContentService.buildGoogleCalendarUrl(ContentService.RIVERSIDE_FEED);
     };
 
     public static getGoogleFeed: <T>(name: string, url: () => string, mapper: (item: any) => T) => Promise<T[]> = (name: string, url: () => string, mapper: (item: any) => any) => {
@@ -132,7 +137,10 @@ export class ContentService {
         return ContentService.getGoogleFeed<MealItem>('meals', ContentService.buildMealCalendarUrl, ContentService.mapGoogleCalendarItem);
     };
 
-    public static hospitalFeed: () => Promise<HospitalItem[]> = () => {
-        return ContentService.getGoogleFeed<HospitalItem>('hospital', ContentService.buildHospitalCalendarUrl, ContentService.mapGoogleCalendarItem);
+    public static bhpFamilyRoomFeed: () => Promise<FamilyRoomItem[]> = () => {
+        return ContentService.getGoogleFeed<FamilyRoomItem>('bhp', ContentService.buildBHPCalendarUrl, ContentService.mapGoogleCalendarItem);
+    };
+    public static riversideFamilyRoomFeed: () => Promise<FamilyRoomItem[]> = () => {
+        return ContentService.getGoogleFeed<FamilyRoomItem>('riverside', ContentService.buildRiversideCalendarUrl, ContentService.mapGoogleCalendarItem);
     };
 }

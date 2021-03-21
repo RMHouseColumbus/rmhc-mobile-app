@@ -8,6 +8,9 @@ import Faq from '../faq/screens/home';
 import Meals from '../main/screens/meals';
 import Neighborhood from '../neighborhood/screens/home';
 import HospitalServices from '../hospital-services/screens/home';
+import RiversideHR from '../hospital-services/screens/home';
+import BHPFamilyRoom from '../hospital-services/screens/bhpfamilyroom';
+import RiversideFamilyRoom from '../hospital-services/screens/riversidefamilyroom';
 import Facilities from '../facilities/screens/home';
 import FloorPlan from '../facilities/screens/floorplan';
 import Menu from './menu'
@@ -23,7 +26,7 @@ import StayInvolved from "../about/screens/stay-involved";
 import Before from "../faq/screens/before"
 import During from "../faq/screens/during"
 import After from "../faq/screens/after"
-import FamilyRoom from "../about/screens/family-room";
+import FamilyRoomContent from "../about/screens/family-room";
 import StaffScreen from "../about/screens/staff";
 
 
@@ -71,13 +74,21 @@ const subFacilities = createStackNavigator(
             Facilities:Facilities, FloorPlan: FloorPlan}, defaultNavConfigs,
         {initialRouteName: "Facilities"});
 
+const subHospitalServices = createStackNavigator(
+    {
+        HospitalServices: HospitalServices,
+        BHPFamilyRoom: BHPFamilyRoom,
+        RiversideFamilyRoom: RiversideFamilyRoom
+    }, defaultNavConfigs, {initialRouteName: 'HospitalService'}
+)
+
 const subAbout = createStackNavigator(
     {
         About: About,
         Staff: StaffScreen,
         CareMobile: CareMobile,
         StayInvolved: StayInvolved,
-        FamilyRoom: FamilyRoom
+        FamilyRoomContent: FamilyRoomContent
     }, defaultNavConfigs,
     {initialRouteName: "About"});
 
@@ -97,7 +108,7 @@ const DrawerNavigator = createDrawerNavigator(
         FindUs: createStackNavigator({FindUs: FindUs}, defaultNavConfigs),
         Meals: createStackNavigator({Meals: Meals}, defaultNavConfigs),
         Facilities: subFacilities,
-        HospitalServices: createStackNavigator({HospitalServices: HospitalServices}, defaultNavConfigs),
+        HospitalServices: subHospitalServices,
         Updates: createStackNavigator({Updates: Updates}, defaultNavConfigs),
         About: subAbout,
         Activities: createStackNavigator({Activities: Activities}, defaultNavConfigs),
