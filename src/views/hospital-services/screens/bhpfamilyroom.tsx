@@ -53,7 +53,7 @@ export default class BHPFamilyRoom extends React.Component<BHPFamilyRoomProps, B
                 <Card key={0} style={cardStyle}>
                     <CardItem bordered key={1} style={{borderRadius: 20}}>
                         <View>
-                            <Text style={g.textContent}>Room Information Unavailable</Text>
+                            <Text style={g.textTitle}>No events are currently scheduled.</Text>
                         </View>
                     </CardItem>
                 </Card>
@@ -95,7 +95,7 @@ export default class BHPFamilyRoom extends React.Component<BHPFamilyRoomProps, B
         return (<BaseScrollablePage back={"HospitalServices"} contentView={this.viewFunction}
                                     navigation={this.props.navigation}
                                     onContentLoad={this.onContentUpdate}
-                                    contentFunction={ContentService.activityFeed}
+                                    contentFunction={ContentService.bhpFamilyRoomFeed}
             />
         )
 

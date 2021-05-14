@@ -22,9 +22,9 @@ export class ContentService {
     private static readonly S3_URL = "https://rmhc-central-oh.s3.us-east-2.amazonaws.com/content.json";
     private static readonly MEAL_FEED = "https://www.googleapis.com/calendar/v3/calendars/lqqc0o0vqck3c2gr99gfapqrks@group.calendar.google.com/events?calendarId=lqqc0o0vqck3c2gr99gfapqrks%40group.calendar.google.com&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
     private static readonly ACTIVITY_FEED = "https://www.googleapis.com/calendar/v3/calendars/3fhqva87ob641vg51ubph8r0ks%40group.calendar.google.com/events?cId=M2ZocXZhODdvYjY0MXZnNTF1YnBoOHIwa3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
-    private static readonly BHP_FEED = "https://www.googleapis.com/calendar/v3/calendars/rmhceventvolunteers%40gmail.com/events?cId=M2FqZjE4cTZkdmxndXRsbGkyaG5kaW11b3NAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
-    private static readonly RIVERSIDE_FEED="https://www.googleapis.com/calendar/v3/calendars/3fhqva87ob641vg51ubph8r0ks%40group.calendar.google.com/events?cId=MjJoczQ0a3M4aHJiM20xZHFwNWxocmRodWNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
-                                            
+    private static readonly BHP_FEED = "https://www.googleapis.com/calendar/v3/calendars/22hs44ks8hrb3m1dqp5lhrdhuc%40group.calendar.google.com/events?key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
+    private static readonly RIVERSIDE_FEED="https://www.googleapis.com/calendar/v3/calendars/3ajf18q6dvlgutlli2hndimuos%40group.calendar.google.com/events?key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs";
+                                
     public static checkCache(key: string) {
         return load(key)
             .then(res => res ? null : null)
