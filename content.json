@@ -1,0 +1,510 @@
+{
+  "updates": {
+    "content": [
+      {
+        "type": "General Information",
+        "title": "Masks must be worn at all times in the House"
+      },
+      {
+        "type": "Construction Update",
+        "title": "The playground is closed"
+      }
+    ]
+  },
+  "about": {
+    "content": {
+      "links": {
+        "meetstaff": {
+          "url": "http://rmhc-centralohio.org/who-we-are/staff/",
+          "text": "Meet The Staff"
+        },
+        "sharestory": {
+          "url": "https://docs.google.com/forms/d/e/1FAIpQLSeJ3tFZTZ8QfSintJzB2d2gfHyFZKipkXFFLn7DM00xXQz9fA/viewform?vc=0&c=0&w=1",
+          "text": "Share Your Story"
+        }
+      }
+    }
+  },
+  "beforeyourstay": {
+    "content": [
+      {
+        "question": "How do I request a room?",
+        "answer": "Referrals come from a hospital. Contact your child’s unit or [[applink]]",
+        "links": {
+          "applink": {
+            "url": "https://www.nationwidechildrens.org/your-visit/global-patient-services/global-patient-services-request-for-ronald-mcdonald-house",
+            "text": "Global Patient Services"
+          }
+        }
+      },
+      {
+        "question": "Do I qualify to stay?",
+        "answer": "Each stay is evaluated on a case by case basis depending upon home address and background check."
+      },
+      {
+        "question": "Who is eligible to stay?",
+        "answer": "We allow a maximum of 4 guests per room; children of all ages and the patient, if staying, are counted as guests. The hospital is still restricting some visitors. Please check with your unit or clinic to see what restrictions are in place."
+      },
+      {
+        "question": "What do I need to bring?",
+        "answer": "Please bring personal items. Your room will be stocked with linens and towels."
+      },
+      {
+        "question": "What time can I check in?",
+        "answer": "Once approved, check in time is after 4:00 pm. Please have your photo ID ready at check in."
+      },
+      {
+        "question": "What happens if I am on the waitlist?",
+        "answer": "Please call after 2:00 pm on the date of arrival to determine if room is available."
+      },
+      {
+        "question": "Are meals provided?",
+        "answer": "Meals are provided by community volunteer groups. Guests with specific dietary needs should bring required/safe food."
+      },
+      {
+        "question": "Where can I get directions to the Ronald McDonald House?",
+        "answer": "The Ronald McDonald House in Columbus is located at 711 E Livingston Ave, Columbus, OH 43205. Find directions using your preferred map program or by visiting this [[applink]].",
+        "links": {
+          "applink": {
+            "url": "https://goo.gl/maps/VEEwrCpaX7an4Qrz5",
+            "text": "link"
+          }
+        }
+      },
+      {
+        "question": "Where can I park?",
+        "answer": "Our gated parking lot is on the corner of 17th street and Livingston Ave."
+      },
+      {
+        "question": "How do I contact the Ronald McDonald House?",
+        "answer": "The Ronald McDonald House in Columbus is located at 711 E Livingston Ave, Columbus, OH 43205. You can also call the main phone line at the house by dialing [[ph]], or by e-mailing familyservices@rmhc-centralohio.org.",
+        "links": {
+          "ph": {
+            "url": "(614) 227-3734",
+            "text": "(614) 227-3734",
+            "type": "ph"
+          }
+        }
+      },
+      {
+        "question": "How much does it cost to stay?",
+        "answer": "You will be given the opportunity to make a donation at check-out. A $20 per night donation is recommended. Families will not be turned away if they are unable to pay."
+      },
+      {
+        "question": "Does Medicaid or my private insurance pay for lodging?",
+        "answer": "You might have benefits available to you for mileage, fuel, meals and lodging. Call the number on the back of your Medicaid or health insurance card to see if you are eligible for benefits for travel. Let us know what you find out."
+      }
+    ]
+  },
+  "duringyourstay": {
+    "content": [
+      {
+        "question": "How do I check out?",
+        "answer": "We ask that you clean your bedroom, bathroom and place all linens and towels on the floor at the end of the bed and remove trash. Please bring your key card, remote, locker key and any other borrowed items to the Family Services office to check out."
+      },
+      {
+        "question": "Where do I take my trash?",
+        "answer": "Please empty your trash in the dumpster behind the brick wall to the right of the garage in the back yard. You may ask for directions at the front desk."
+      },
+      {
+        "question": "May I eat and drink in my room?",
+        "answer": "We ask that all food and beverages be kept in the dining room. Food lockers and refrigerators are provided if needed. You may have non-flavored water in the room. *During COVID restrictions, food is allowed in the guest rooms. We ask families to take trash out often."
+      },
+      {
+        "question": "How do I sign on to the WIFI network?",
+        "answer": "WIFI is provided to guests of the House. From your device, choose NCH-GuestWiFi and accept the terms and conditions. There is no password necessary."
+      },
+      {
+        "question": "Where can I smoke?",
+        "answer": "The Ronald McDonald House is a tobacco free facility including e-cigarettes and vapping. Guests are allowed to smoke in the park across from the House. Smoking on any Ronald McDonald House grounds will result in immediate removal from the House."
+      },
+      {
+        "question": "What happens if I lose my key?",
+        "answer": "Your keycard gives you access to the parking gate, front door, bedroom and dining room patio doors. Please keep your keycard with you at all times. A $2.00 charge will be requested for a replacement key card or locker key if lost."
+      },
+      {
+        "question": "When are room inspections conducted?",
+        "answer": "RMH staff will conduct regular inspections of guest rooms."
+      },
+      {
+        "question": "Is there a shuttle to the hospital?",
+        "answer": "Shuttles, walking escorts or security vehicles from Nationwide Children’s Hospital Security are available by request. Please let the front desk know if you are in need of transportation to the hospital.  Please note, Security is not able to transport patients under any circumstances."
+      },
+      {
+        "question": "How can I get mail?",
+        "answer": "Please be sure to have the guest name and room number on package. Our front desk will call when the package arrives."
+      },
+      {
+        "question": "Does the House have child care?",
+        "answer": "Child care is not provided at the House."
+      },
+      {
+        "question": "Do you have laundry facilities?",
+        "answer": "Laundry facilities are located in the basement and 2nd and 3rd floors."
+      },
+      {
+        "question": "Why do I have to sign in everyday?",
+        "answer": "By signing in each day, you are letting us know you are using your room. Families who do not sign in daily are subject to losing their room."
+      }
+    ]
+  },
+  "afteryourstay": {
+    "content": [
+      {
+        "question": "How can my company match my donation?",
+        "answer": "Please contact Megan at [[ph]] or abigail.brumme@rmhc-centralohio.org.",
+        "links": {
+          "ph": {
+            "url": "(614) 227-3776",
+            "text": "(614) 227-3776",
+            "type": "ph"
+          }
+        }
+      },
+      {
+        "question": "How do I host a community fundraiser?",
+        "answer": "Please contact Megan at [[ph]] or abigail.brumme@rmhc-centralohio.org.",
+        "links": {
+          "ph": {
+            "url": "(614) 227-3776",
+            "text": "(614) 227-3776",
+            "type": "ph"
+          }
+        }
+      },
+      {
+        "question": "How do I set up a fundraising page?",
+        "answer": "Please contact Megan at [[ph]] or abigail.brumme@rmhc-centralohio.org.",
+        "links": {
+          "ph": {
+            "url": "(614) 227-3776",
+            "text": "(614) 227-3776",
+            "type": "ph"
+          }
+        }
+      },
+      {
+        "question": "How do I stay involved?",
+        "answer": "Please contact Megan at [[ph]] or abigail.brumme@rmhc-centralohio.org.",
+        "links": {
+          "ph": {
+            "url": "(614) 227-3776",
+            "text": "(614) 227-3776",
+            "type": "ph"
+          }
+        }
+      },
+      {
+        "question": "Where can I rate the RMHC?",
+        "answer": "You can submit your rating at the front desk. We'd love to get your feedback."
+      },
+      {
+        "question": "How do I donate?",
+        "answer": "Donations can be made through our website: [[applink]]",
+        "links": {
+          "applink": {
+            "url": "http://rmhc-centralohio.org/donation-form/",
+            "text": "link"
+          }
+        }
+      }
+    ]
+  },
+  "activities": {
+    "content": [
+      {
+        "type": "In the House",
+        "title": "House Activities",
+        "text": "You can find all House activities displayed on the screens in the  lobby and outside the kitchen.  You may also pick up an activities calendar at the front desk."
+      }
+    ]
+  },
+  "neighborhood": {
+    "content": {
+      "links": {
+        "thingstodo": {
+          "url": "https://www.experiencecolumbus.com/",
+          "text": "Things To Do"
+        }
+      }
+    }
+  },
+  "delivery": {
+    "content": {
+      "carriers": [
+        {
+          "name": "DoorDash",
+          "url": "https://www.doordash.com/food-delivery"
+        },
+        {
+          "name": "UberEats",
+          "url": "https://www.ubereats.com/en-US/"
+        },
+        {
+          "name": "GrubHub",
+          "url": "https://www.grubhub.com/"
+        }
+      ]
+    }
+  },
+  "restaurants": {
+    "content": {
+      "restaurants": [
+        {
+          "name": "Koko (inside Nationwide Children’s Hospital)",
+          "address": "700 Childrens Drive (Education Bldg, Food Court) Columbus, OH 43205",
+          "desc": "Fresh, light fare",
+          "cat": "Chinese restaurants",
+          "dist": 0
+        },
+        {
+          "name": "Subway (inside Nationwide Children’s Hospital)",
+          "address": "700 Childrens Drive Columbus, OH 43205",
+          "desc": "Located in Nationwide Childrens - open 24 hours",
+          "cat": "Fast Food",
+          "dist": 0
+        },
+        {
+          "name": "Panera Bread",
+          "address": "611 E Livingston Ave Columbus OH 43205",
+          "desc": "Dining restaurant",
+          "cat": "Sandwiches, salads & more - free wifi",
+          "dist": 0.1
+        },
+        {
+          "name": "The Crest Gastropub",
+          "address": "621 Parsons Avenue Columbus, OH 43206",
+          "desc": "Dining restaurant",
+          "cat": "Locally grown & sourced, seasonal menu",
+          "dist": 0.2
+        },
+        {
+          "name": "Alchemy Juice Bar + Cafe",
+          "address": "625 Parsons Avenue Columbus, OH 43206",
+          "desc": "Cafes",
+          "cat": "Smoothies, sandwiches & coffee",
+          "dist": 0.3
+        },
+        {
+          "name": "Scrambler Marie’s",
+          "address": "567 E Livingston Ave Columbus, OH 43215",
+          "desc": "Dining restaurants",
+          "cat": "Breakfast all day long",
+          "dist": 0.3
+        },
+        {
+          "name": "Tim Hortons",
+          "address": "505 E Livingston Ave Columbus, OH 43215",
+          "desc": "Fast food",
+          "cat": "Coffee, donuts & more",
+          "dist": 0.4
+        },
+        {
+          "name": "Plank’s Cafe & Pizzeria Delivery",
+          "address": "743 Parsons Ave Columbus, OH 43206",
+          "desc": "Pizza",
+          "cat": "Columbus landmark since 1939... 14 TVs",
+          "dist": 0.4
+        },
+        {
+          "name": "Crazy Chicken",
+          "address": "804 Parsons Ave Columbus, OH 43206",
+          "desc": "Dining restaurant",
+          "cat": "Known for the cheesesteak",
+          "dist": 0.4
+        }
+      ],
+      "restaurantswrap": [
+        {
+          "desc": "For more restaurants near the Ronald McDonald House visit Nationwide Children’s Hospital’s website:",
+          "url": "https://www.zappenin.com/z/restaurants-near- nationwide-childrens-hospital"
+        }
+      ]
+    }
+  },
+  "shopping": {
+    "content": {
+      "retailers": [
+        {
+          "name": "Short North Shopping and Arts District",
+          "address": "High St between King Ave and Goodale St",
+          "desc": "Art, Culture, Shopping, Eating and Drinking",
+          "cat": "Art, Culture, Shopping, Eating and Drinking",
+          "dist": 3
+        },
+        {
+          "name": "Easton Town Center",
+          "address": "160 Easton Town Center Columbus, OH 43219",
+          "desc": "Boutique and Big Box Stores",
+          "cat": "Shopping Mall",
+          "dist": 10.3
+        },
+        {
+          "name": "Polaris Fashion Place",
+          "address": "1500 Polaris Pkwy Columbus, OH 43240",
+          "desc": "Boutique and Big Box Stores",
+          "cat": "Shopping Mall",
+          "dist": 15.8
+        }
+      ]
+    }
+  },
+  "things-to-do": {
+    "content": {
+      "things": [
+        {
+          "content": "Find events, museums, and places to visit around Columbus by visiting Experience Columbus:",
+          "exLink": "https://www.experiencecolumbus.com"
+        }
+      ]
+    }
+  },
+  "transportation": {
+    "content": {
+      "Rideshare": [
+        {
+          "name": "Lyft",
+          "url": "https://www.lyft.com"
+        },
+        {
+          "name": "Uber",
+          "url": "https://www.uber.com"
+        }
+      ],
+      "CabServices": [
+        {
+          "name": "Yellow Cab of Columbus",
+          "contact": " (614) 444-4445"
+        },
+        {
+          "name": "Express Cab of Columbus",
+          "contact": " (614) 822-8666"
+        },
+        {
+          "name": "Ohio Taxi Service",
+          "contact": " (614) 562-7959"
+        }
+      ],
+      "PublicTransportation": [
+        {
+          "name": "Central Ohio Transit Authority (COTA)",
+          "sub": "COTA Trip Planner:",
+          "contact": "https://www.cota.com/trip-planner"
+        }
+      ]
+    }
+  },
+  "care-mobile": {
+    "content": {
+      "text": "The Ronald McDonald Care Mobile is a state-of-the-art pediatric clinic on wheels. Designed from the ground up to meet the specific well-care and treatment needs of children, it is staffed by pediatric doctors and nurses from Nationwide Children’s Hospital, one of “America’s Best Children’s Hospitals” as ranked in U.S. News & World Report.\n        Providing services at little or no cost to the patient, the Care Mobile virtually eliminates financial and geographic barriers to healthcare access. All insurances including Medicaid are accepted. It also reduces the strain placed on local emergency rooms by families using them for non-emergency care.        Working in partnership with your community’s healthcare leaders, the Care Mobile bridges gaps between underserved children and local communities. It travels to locations that your community identifies as lacking in pediatric resources or underutilizing existing ones.\n        \n        To learn more about where your child can receive treatment on the Ronald McDonald Care Mobile, please click on this [[link1]].\n        \n        The generosity of sponsors and donors make it possible for the Care Mobile to provide pediatric services in your community at little or no cost.\n        \n        Ronald McDonald Care Mobile capabilities and pediatric primary care services provided will vary by each community’s needs and may include:\n        \n           • Immunizations\n           • Well-child and sick visits\n           • Body Mass Index calculations and nutrition   \n             counseling\n           • Developmental screenings\n           • Vision, hearing and lead screening\n           • Blood collection and point of care testing\n           • Childhood health education and injury   \n              prevention education\n           • Specialty care referrals including mental   \n              health and social service referrals",
+      "links": {
+        "link1": {
+          "text": "link",
+          "url": "http://rmhc-centralohio.org/what-we-do/care-mobile/"
+        }
+      }
+    }
+  },
+  "family-room": {
+    "content": {
+      "text": "Ronald McDonald House Charities of Central Ohio has partnered with OhioHealth to launch central Ohio’s first Ronald McDonald Family Room. This space serves as a respite for families with babies & children receiving medical care at OhioHealth Riverside Methodist Hospital. We provide a relaxed space for families to grab a snack or a drink, take a shower, do a load of laundry, or take a quick break just steps from their inpatient child, if only for a few moments. \n\n     The 1,000-square foot space on the fifth floor of the Yellow Area features: \n     • Family gathering area with recliners and a television \n     • Dining area with a kitchenette, table and chairs \n     • Complimentary laundry machines (detergent provided) \n     • Children’s play area (games, crafts and gaming system) \n     • Multi-purpose space for massage, haircuts and other restorative practices \n     • Complimentary snack food and coffee \n     • ADA accessible shower (toiletries and linens provided) \n     • Work station with iPads and complimentary Wifi \n\n     Dee Anders, CEO and Executive Director of Ronald McDonald House Charities of Central Ohio says, 'The Ronald McDonald Family Room concept has proven to be a tremendous service to children and families within hospitals around the world, and we are thrilled to partner with OhioHealth to bring the program to life in Columbus. Being the first of its kind in Central Ohio, we look forward to serving thousands of our neighbors at Riverside.' \n\n     Thanks to the many donors making this space possible including the Blue Jackets Foundation, the Lady Jackets, Worthington Industries, and Safelite AutoGlass. \n"
+    }
+  },
+  "stay-involved": {
+    "content": {
+      "main": "\tThe Ronald McDonald House is supported by a strong foundation of volunteers. Their\n gifts of love and compassion make this House more than just a place to stay, they make it a home. Whether you are an individual wanting to support our families in or out of House, or a group looking to come to the House for a few hours, there is an opportunity to give that is perfect for all!\n    \n    Anyone under the age of 18 must be accompanied by an adult at all times. Ronald\nMcDonald House Charities of Central Ohio cannot provide adult supervision.",
+      "values": [
+        {
+          "title": "Special Events Volunteer",
+          "content": "Event volunteers are a high priority need for RMHC, as our events help us in keeping families close for thousands of families each year. The most recent list of special event volunteer needs can be found by clicking [[events]].",
+          "links": {
+            "events": {
+              "url": "http://www.rmhc-centralohio.org/volunteer-at-special-events/",
+              "text": "here"
+            }
+          }
+        },
+        {
+          "title": "Corporate Team Building",
+          "content": "Experience the positive impact that helping others in need can have upon the dynamics and potential of your team. Develop the potential of your team with a unique volunteer experience at Ronald McDonald House Charities of Central Ohio. Groups of 2-20 work best for these in-house volunteer experiences. PLEASE NOTE: Corporate groups should plan to schedule 6 to 8 weeks in advance of their volunteer event. For information on corporate volunteer opportunities, please email Katherine.Becker@rmhc-centralohio.org."
+        },
+        {
+          "title": "Housewarming Volunteer",
+          "content": "Work inside RMHC to provide a home-like environment for families. There are a variety of different roles available, including Craftsmen, Front Desk and Go-Getter Volunteers. More information can be found on the application [[applink]]. We ask that our Housewarming volunteers commit to volunteering at least 4 hours every month.",
+          "links": {
+            "applink": {
+              "url": "https://www.volgistics.com/ex/portal.dll/ap?ap=922577048",
+              "text": "link"
+            }
+          }
+        },
+        {
+          "title": "Meal Volunteers",
+          "content": "For more information on how you can make a meal, please click [[meallink]], and you will be redirected to our Meal Program page.",
+          "links": {
+            "meallink": {
+              "url": "http://rmhc-centralohio.org/volunteer/meals/",
+              "text": "here"
+            }
+          }
+        },
+        {
+          "title": "Baking Volunteers",
+          "content": "Create homemade snacks for the families at Ronald McDonald House Charities of Central Ohio. Click [[herelink]] to sign up to bake once you have chosen a baking date.",
+          "links": {
+            "herelink": {
+              "url": "https://docs.google.com/forms/d/1xgSe5-MGtVPBSfsIkykrcwOMXKUKuAocAzz3ySM48H0/viewform",
+              "text": "here"
+            }
+          }
+        },
+        {
+          "title": "Family Activities",
+          "content": "If you are interested in hosting an in House activity for RMHC families, please complete this [[formlink]].",
+          "links": {
+            "formlink": {
+              "url": "https://docs.google.com/forms/d/e/1FAIpQLSfIVULQgX2XvWRn4kUG4QNQadbIZJ95F3hOGGEEoeYzj_ZF9g/viewform",
+              "text": "form"
+            }
+          }
+        },
+        {
+          "title": "Welcome Blanket Volunteers",
+          "content": "Each new family coming in to Ronald McDonald House receives a Welcome Bag, along with a [[welcomeblanket]] These blankets can be very comforting to the children and serve as a treasured memento of their time spent here at our House. What’s great about being a Welcome Blanket Volunteer is that you do it at your home or your group’s location instead of doing this activity at our location. That’s because you simply make the blankets wherever you and your group gather, and then someone drops them off at the Ronald McDonald House when they’re done. If you’re not sure what’s needed or how to make no-sew blankets, click here for a [[tutorial]]. If you have questions or would like a tour for your blanket-making group, please contact Abigail.Brumme@rmhc-centralohio.org.",
+          "links": {
+            "welcomeblanket": {
+              "name": "blanket",
+              "text": "Welcome Blanket.",
+              "type": "pdf"
+            },
+            "tutorial": {
+              "url": "https://www.youtube.com/watch?v=8rQ89wbLOZ8",
+              "text": "tutorial"
+            }
+          }
+        },
+        {
+          "title": "Snack Pack Volunteers",
+          "content": "[[snackpack]] allows volunteers to prepare bags in their own setting, and drop them off at the House anytime.",
+          "links": {
+            "snackpack": {
+              "name": "snackpack",
+              "text": "The Snack Pack Program",
+              "type": "pdf"
+            }
+          }
+        },
+        {
+          "title": "Ronald McDonald Family Room Volunteers",
+          "content": "The Ronald McDonald Family Room at OhioHealth Riverside Methodist Hospital serves as a respite for mothers-to-be and families with babies & children receiving medical care at the hospital. We provide a relaxed space for guests to grab a snack or drink, take a shower, do a load of laundry, or take a quick break just a short distance from the inpatient’s room. To learn more about volunteering at the family room, or to apply to volunteer at this location, [[clickhere]].\n   Community Service Hours: If you need to complete service hours for an educational requirement you can do so through our welcome blanket or baking programs. RMHC does not accept volunteers completing court-ordered community service at this time.\n  For more information, please email Meika.Hilles@rmhc-centralohio.org, Volunteer\n                    Manager.",
+          "links": {
+            "clickhere": {
+              "url": "https://www.volgistics.com/ex/portal.dll/ap?ap=1239980647",
+              "text": "click here"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,1 +1,0 @@
-export const GlobalCoordinates = {"latitude":39.951073, "longitude":-82.978959}
