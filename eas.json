@@ -4,6 +4,7 @@
   },
   "build": {
     "development": {
+      "releaseChannel": "production",
       "distribution": "internal",
       "android": {
         "buildType": "apk",
