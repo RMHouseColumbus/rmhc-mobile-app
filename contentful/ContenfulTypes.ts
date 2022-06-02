@@ -5,6 +5,9 @@ export interface ContentfulEntries {
     "stay-involved": CEntry;
     "family-room": CEntry;
   };
+  assets: {
+    floorplan: CAsset;
+  };
   updates: Entries;
   transportation: Entries;
   beforeStay: Entries;
@@ -13,6 +16,10 @@ export interface ContentfulEntries {
 }
 
 export interface CEntry {
+  id: string;
+}
+
+export interface CAsset {
   id: string;
 }
 
@@ -55,6 +62,11 @@ export const entries: ContentfulEntries = {
     },
     "family-room": {
       id: "6IN9nwNC3ktADhU17vwo6v",
+    },
+  },
+  assets: {
+    floorplan: {
+      id: "3fzCGmY1yMoVA8DMFkJ8jb",
     },
   },
   updates: {

@@ -5,6 +5,7 @@ const colors = {
   backgroundBlue: "#638dc9",
   statusBarBlue: "#4872ae",
   buttonBlue: "#0077B5",
+  gray: "#504D4DFF",
   white: "#FFFFFF",
   black: "#000000",
   light: {

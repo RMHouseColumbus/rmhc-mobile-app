@@ -6,7 +6,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import type { ParamListBase, RouteProp } from "@react-navigation/native";
 import {
-  DarkTheme,
   DefaultTheme,
   getFocusedRouteNameFromRoute,
   NavigationContainer,
@@ -22,20 +21,23 @@ import {
   DrawerContentScrollView,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { ArrowBackIcon, Box, Button, ChevronLeftIcon, Text } from "native-base";
+import {
+  Box,
+  Button,
+  ChevronLeftIcon,
+  Icon,
+  IconButton,
+  Text,
+} from "native-base";
 import DrawerToggleButton from "@react-navigation/drawer/src/views/DrawerToggleButton";
-import { ScreenStackHeaderBackButtonImage } from "react-native-screens";
-import { NativeStackNavigationOptions } from "react-native-screens/src/native-stack/types";
 
 import Colors from "../constants/Colors";
-import useColorScheme from "../hooks/useColorScheme";
 import HomeScreen from "../screens/home/HomeScreen";
 import type {
   AboutStackList,
   HospitalStackList,
   NeighborhoodStackList,
   RootTabParamList,
-  RootTabScreenProps,
   YourStayStackList,
 } from "../types";
 import FindUs from "../screens/find_us/FindUs";
@@ -58,6 +60,8 @@ import AfterYourStay from "../screens/your_stay/after_your_stay/AfterYourStay";
 import DuringYourStay from "../screens/your_stay/during_your_stay/DuringYourStay";
 import BeforeYourStay from "../screens/your_stay/before_your_stay/BeforeYourStay";
 import Fonts from "../constants/Fonts";
+import StaffUse from "../screens/staff_use/StaffUse";
+import FacilitiesPDF from "../screens/facilities/FacilitiesPDF";
 
 import {
   FacebookSVG,
@@ -138,6 +142,10 @@ function AppDrawer(props: DrawerContentComponentProps) {
           label="Prescription Services"
           onPress={() => Linking.openURL("http://go.scripthero.com/RMHC")}
         />
+        <DrawerItem
+          label="Staff Use"
+          onPress={() => props.navigation.navigate("Staff Use")}
+        />
 
         <Box alignItems={"center"}>
           <Button
@@ -191,6 +199,7 @@ function showHeaderTitle(route: RouteProp<ParamListBase>, navigation: any) {
     case "HospitalHome":
     case "YourStayHome":
     case "NeighborhoodHome":
+    case "FacilitiesPDF":
       return false;
     default:
       return true;
@@ -418,6 +427,23 @@ function BottomTabNavigator() {
           }}
         />
         <BottomTab.Screen
+          name="FacilitiesPDF"
+          component={FacilitiesPDF}
+          options={(props) => {
+            return {
+              headerShown: true,
+              headerTitle: "FLOOR PLAN",
+              headerLeft: (hprops) => (
+                <IconButton
+                  icon={<ChevronLeftIcon />}
+                  onPress={() => props.navigation.navigate("Facilities")}
+                />
+              ),
+              tabBarButton: (props) => <></>,
+            };
+          }}
+        />
+        <BottomTab.Screen
           name="Meals"
           component={Meals}
           options={{
@@ -462,6 +488,13 @@ function BottomTabNavigator() {
         <BottomTab.Screen
           name="YourStayHome"
           component={YourStayStack}
+          options={{
+            tabBarButton: (props) => <></>,
+          }}
+        />
+        <BottomTab.Screen
+          name="Staff Use"
+          component={StaffUse}
           options={{
             tabBarButton: (props) => <></>,
           }}

@@ -1,11 +1,13 @@
 import { Image, Linking, StyleSheet, View } from "react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Box, Text } from "native-base";
 
-import { Text } from "../../components/Themed";
 import useMapLink from "../../hooks/useMapLink";
 import useCallNumber from "../../hooks/useOpenPhone";
 import useOpenEmail from "../../hooks/useOpenEmail";
+import Colors from "../../constants/Colors";
+import Fonts from "../../constants/Fonts";
 
 export default function FindUs() {
   const { openMap } = useMapLink({
@@ -20,19 +22,43 @@ export default function FindUs() {
   });
 
   return (
-    <View style={styles.container}>
-      <View style={{ paddingVertical: 16, flex: 1 }}>
-        <Text style={styles.locationTextMain}>Ronald McDonald House</Text>
-        <Text style={styles.locationTextMain}>Charities Central OH</Text>
-        <Text style={styles.locationTextSub}>711 E Livingston Ave.</Text>
-        <Text style={styles.locationTextSub}>Columbus, OH 43205</Text>
-        <Text style={styles.locationLinkStyle} onPress={openPhone}>
-          614-227-3700
-        </Text>
-        <Text style={styles.locationLinkStyle} onPress={openEmail}>
-          rmhccommunications@rmhc-centralohio.org
-        </Text>
-      </View>
+    <Box flex={1} backgroundColor={Colors.white}>
+      <Box flex={1} px={6} justifyContent={"space-evenly"}>
+        <Box>
+          <Text color={Colors.black} fontFamily={Fonts.Semibold}>
+            Ronald McDonald House
+          </Text>
+          <Text color={Colors.black} fontFamily={Fonts.Semibold}>
+            Charities Central OH
+          </Text>
+        </Box>
+        <Box>
+          <Text color={"#999999"} fontFamily={Fonts.Bold} fontSize={12}>
+            711 E Livingston Ave.
+          </Text>
+          <Text color={"#999999"} fontFamily={Fonts.Bold} fontSize={12}>
+            Columbus, OH 43205
+          </Text>
+        </Box>
+        <Box>
+          <Text
+            color={"#0078d7"}
+            fontSize={12}
+            fontFamily={Fonts.Regular}
+            onPress={openPhone}
+          >
+            614-227-3700
+          </Text>
+          <Text
+            color={"#0078d7"}
+            fontSize={12}
+            fontFamily={Fonts.Regular}
+            onPress={openEmail}
+          >
+            rmhccommunications@rmhc-centralohio.org
+          </Text>
+        </Box>
+      </Box>
       <View style={{ flex: 2, alignItems: "center" }}>
         <TouchableOpacity onPress={openMap}>
           <Image
@@ -42,7 +68,7 @@ export default function FindUs() {
           />
         </TouchableOpacity>
       </View>
-    </View>
+    </Box>
   );
 }
 const styles = StyleSheet.create({

@@ -13,6 +13,7 @@ export const createRichTextRenderOptions = () => {
         if (supported) {
           return Linking.openURL(uri);
         } else {
+          console.log(uri);
         }
       })
       .catch((err) => console.log(err));

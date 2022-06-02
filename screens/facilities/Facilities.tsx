@@ -1,8 +1,12 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
-import { Box, Button } from "native-base";
+import { ImageBackground, StyleSheet, View } from "react-native";
+import { Box, Button, Text } from "native-base";
 
-export default function Facilities() {
+import type { RootTabScreenProps } from "../../types";
+
+export default function Facilities({
+  navigation,
+}: RootTabScreenProps<"Facilities">) {
   return (
     <ImageBackground
       imageStyle={{ resizeMode: "cover", flex: 1 }}
@@ -10,16 +14,20 @@ export default function Facilities() {
       source={require("./assets/floorplan_bckgrd.png")}
     >
       <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-        <View style={styles.floorPlanBackground}>
-          <Box>
+        <Box style={styles.floorPlanBackground}>
+          <Box flex={1} alignItems={"center"} justifyContent={"center"}>
             <Text style={styles.floorPlanText}>FLOOR PLAN</Text>
           </Box>
-          <Box opacity={1}>
-            <Button style={styles.floorPlanButton} opacity={1}>
+          <Box opacity={1} flex={1}>
+            <Button
+              style={styles.floorPlanButton}
+              opacity={1}
+              onPress={() => navigation.navigate("FacilitiesPDF")}
+            >
               <Text style={styles.viewPDF}>View PDF</Text>
             </Button>
           </Box>
-        </View>
+        </Box>
       </Box>
     </ImageBackground>
   );
@@ -29,7 +37,7 @@ const styles = StyleSheet.create({
   floorPlanBackground: {
     borderColor: "black",
     borderWidth: 5,
-    width: "60%",
+    width: "55%",
     height: "37%",
     backgroundColor: "#FFFFFF",
     alignItems: "center",
@@ -37,7 +45,7 @@ const styles = StyleSheet.create({
     opacity: 0.9,
   },
   floorPlanText: {
-    fontSize: 35,
+    fontSize: 20,
     fontFamily: "Raleway-Bold",
     textAlign: "center",
   },

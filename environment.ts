@@ -10,6 +10,8 @@ export interface EnvironmentValues {
   ACTIVITY_FEED: string;
   BHP_FEED: string;
   RIVERSIDE_FEED: string;
+  STAFF_FEED: string;
+  STAFF_PASSWORD: string;
   CONTENTFUL_ACCESS_TOKEN: string;
   CONTENTFUL_SPACE: string;
   CONTENTFUL_ENVIRONMENT: string;

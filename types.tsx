@@ -41,6 +41,7 @@ export type RootTabParamList = {
   "RMHC Central Ohio": undefined;
   "Find Us": undefined;
   Facilities: undefined;
+  FacilitiesPDF: undefined;
   Meals: undefined;
   Updates: undefined;
   Activities: undefined;
@@ -48,6 +49,7 @@ export type RootTabParamList = {
   NeighborhoodHome: undefined;
   AboutHome: undefined;
   YourStayHome: undefined;
+  "Staff Use": undefined;
 };
 
 export type HospitalStackList = {

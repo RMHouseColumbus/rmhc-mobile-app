@@ -5,6 +5,7 @@ export const Feeds = {
   activity: environment.ACTIVITY_FEED,
   bhp: environment.BHP_FEED,
   riverside: environment.RIVERSIDE_FEED,
+  staff: environment.STAFF_FEED,
 };
 
 export type FeedType = keyof typeof Feeds;

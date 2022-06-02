@@ -3,6 +3,7 @@
 // @ts-ignore
 import { createClient } from "contentful/dist/contentful.browser.min.js";
 import type {
+  Asset,
   ContentfulClientApi,
   CreateClientParams,
   Entry,
@@ -12,7 +13,7 @@ import type {
 import BasicCache from "../commons/Cache";
 import { environment } from "../environment";
 
-import type { Entries, CEntry } from "./ContenfulTypes";
+import type { Entries, CEntry, CAsset } from "./ContenfulTypes";
 
 const contentfulClient: ContentfulClientApi = createClient({
   accessToken: environment.CONTENTFUL_ACCESS_TOKEN,
@@ -29,10 +30,21 @@ export class ContentfulClient {
     this._cache = new BasicCache();
   }
 
+  public getAsset = async ({ id }: CAsset) => {
+    if (this._cache.has(id)) {
+      console.log(`Reading Asset ${id} from cache`);
+      return this._cache.read<Asset>(id);
+    } else {
+      console.log(`Fetching Asset ${id}`);
+      const asset = await contentfulClient.getAsset(id);
+      this._cache.put(id, asset);
+      return asset;
+    }
+  };
+
   public getEntry = async <T>({ id }: CEntry): Promise<Entry<T>> => {
     if (this._cache.has(id)) {
       console.log(`Reading ${id} from cache`);
-
       return this._cache.read<Entry<T>>(id);
     } else {
       console.log(`Fetching ${id}`);

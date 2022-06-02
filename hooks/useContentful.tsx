@@ -1,7 +1,7 @@
-import type { Entry, EntryCollection } from "contentful";
+import type { Asset, Entry, EntryCollection } from "contentful";
 import { useContext, useEffect, useState } from "react";
 
-import type { Entries, CEntry } from "../contentful/ContenfulTypes";
+import type { Entries, CEntry, CAsset } from "../contentful/ContenfulTypes";
 import { DataContext } from "../context/DataContext";
 
 export function useContentfulEntries<T>(entries: Entries) {
@@ -43,6 +43,30 @@ export function useContentfulEntry<T>(entry: CEntry) {
   useEffect(() => {
     execute();
   }, [entry]);
+
+  const result = () => ({
+    data: data?.fields,
+    loading,
+  });
+
+  return result();
+}
+
+export function useContentfulAsset(asset: CAsset) {
+  const { client } = useContext(DataContext);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<Asset>();
+
+  const execute = async () => {
+    setLoading(true);
+    const fetched = await client.getAsset(asset);
+    setData(fetched);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    execute();
+  }, [asset]);
 
   const result = () => ({
     data: data?.fields,
