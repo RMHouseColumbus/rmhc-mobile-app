@@ -28,9 +28,11 @@ export default function BeforeYourStay({
 
   return (
     <ScrollView flex={1} py={"4"} px={"4"}>
-      {data.map((qa, i) => (
-        <QACard key={i} qa={qa} options={renderOptions} />
-      ))}
+      {data
+        .sort((a, b) => a.ordinal - b.ordinal)
+        .map((qa, i) => (
+          <QACard key={i} qa={qa} options={renderOptions} />
+        ))}
       <Box height={tabBarHeight} />
     </ScrollView>
   );

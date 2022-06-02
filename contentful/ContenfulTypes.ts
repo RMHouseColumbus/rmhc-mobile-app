@@ -47,6 +47,7 @@ export interface TransportationEntry {
 export interface QuestionAnswer {
   question: string;
   answer: any;
+  ordinal: number;
 }
 
 export const entries: ContentfulEntries = {

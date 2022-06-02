@@ -211,6 +211,8 @@ function getHeaderTitle(route: RouteProp<ParamListBase>) {
   switch (routeName) {
     case "RMHC Central Ohio":
       return routeName;
+    case "Home":
+      return "RMHC Central Ohio";
     default:
       return routeName.toUpperCase();
   }
@@ -219,7 +221,7 @@ function getHeaderTitle(route: RouteProp<ParamListBase>) {
 function RootNavigator() {
   return (
     <Drawer.Navigator
-      initialRouteName={"Tabs"}
+      initialRouteName={"Home"}
       screenOptions={(props) => {
         return {
           ...blueHeaderStyle,
@@ -232,7 +234,7 @@ function RootNavigator() {
       drawerContent={(props) => <AppDrawer {...props} />}
     >
       <Drawer.Screen
-        name="Tabs"
+        name="Home"
         component={BottomTabNavigator}
         options={(props) => {
           return {
