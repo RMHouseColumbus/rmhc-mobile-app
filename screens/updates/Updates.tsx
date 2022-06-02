@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Box, Card, Divider, ScrollView, Text, VStack } from "native-base";
+import { Box, ScrollView, Text, VStack } from "native-base";
 
 import { useContentfulEntries } from "../../hooks/useContentful";
 import type { Update } from "../../contentful/ContenfulTypes";
 import { entries } from "../../contentful/ContenfulTypes";
+import Colors from "../../constants/Colors";
 
 const UpdateCard = ({ title, type }: Update) => {
   return (
@@ -31,7 +31,12 @@ export default function Updates() {
   }
 
   return (
-    <ScrollView flex={1} py={"4"} px={"4"} backgroundColor={"blue.300"}>
+    <ScrollView
+      flex={1}
+      py={"4"}
+      px={"4"}
+      backgroundColor={Colors.backgroundBlue}
+    >
       {data.map((update, idx) => (
         <UpdateCard key={idx} {...update} />
       ))}

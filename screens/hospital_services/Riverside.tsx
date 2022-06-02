@@ -4,6 +4,7 @@ import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import { useFeed } from "../../hooks/useFeed";
 import CalendarItemCard from "../../components/CalendarItemCard";
+import Colors from "../../constants/Colors";
 
 export default function Riverside() {
   const tabBarHeight = useBottomTabBarHeight();
@@ -13,7 +14,12 @@ export default function Riverside() {
     return <></>;
   }
   return (
-    <ScrollView flex={1} py={"4"} px={"4"} backgroundColor={"blue.300"}>
+    <ScrollView
+      flex={1}
+      py={"4"}
+      px={"4"}
+      backgroundColor={Colors.backgroundBlue}
+    >
       {data.map((meal, idx) => (
         <CalendarItemCard key={idx} {...meal} />
       ))}

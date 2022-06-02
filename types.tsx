@@ -38,42 +38,42 @@ export type YourStayStackScreenProps<Screen extends keyof YourStayStackList> =
   NativeStackScreenProps<YourStayStackList, Screen>;
 
 export type RootTabParamList = {
-  Home: undefined;
-  FindUs: undefined;
+  "RMHC Central Ohio": undefined;
+  "Find Us": undefined;
   Facilities: undefined;
   Meals: undefined;
   Updates: undefined;
   Activities: undefined;
-  "In Hospital Services": undefined;
-  Neighborhood: undefined;
-  About: undefined;
-  YourStay: undefined;
+  HospitalHome: undefined;
+  NeighborhoodHome: undefined;
+  AboutHome: undefined;
+  YourStayHome: undefined;
 };
 
 export type HospitalStackList = {
-  Hospitals: undefined;
-  Riverside: undefined;
-  BHP: undefined;
+  "In Hospital Services": undefined;
+  "Riverside Family Room": undefined;
+  "BHP Family Rooms": undefined;
 };
 
 export type NeighborhoodStackList = {
-  NeighborhoodHome: undefined;
+  Neighborhood: undefined;
   Delivery: undefined;
   Transportation: undefined;
 };
 
 export type AboutStackList = {
-  AboutHome: undefined;
+  About: undefined;
   "Stay Involved": undefined;
   "Care Mobile": undefined;
   "Family Room": undefined;
 };
 
 export type YourStayStackList = {
-  YourStayHome: undefined;
-  Before: undefined;
-  During: undefined;
-  After: undefined;
+  "Your Stay": undefined;
+  "Before Your Stay": undefined;
+  "During Your Stay": undefined;
+  "After Your Stay": undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

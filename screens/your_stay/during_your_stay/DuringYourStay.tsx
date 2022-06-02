@@ -11,7 +11,7 @@ import { QACard } from "../components/QACard";
 
 export default function DuringYourStay({
   navigation,
-}: YourStayStackScreenProps<"During">) {
+}: YourStayStackScreenProps<"During Your Stay">) {
   const tabBarHeight = useBottomTabBarHeight();
 
   const { data } = useContentfulEntries<QuestionAnswer>(entries.duringStay);

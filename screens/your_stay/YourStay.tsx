@@ -1,11 +1,12 @@
 import { Box, Pressable, ScrollView, Text } from "native-base";
-import React from "react";
+import React, { useEffect } from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
 import { Linking } from "react-native";
 
 import type { YourStayStackScreenProps } from "../../types";
 import type { SVGCardProps } from "../../components/SVGCard";
+import Colors from "../../constants/Colors";
 
 import {
   AfterYourStaySVG,
@@ -70,26 +71,26 @@ const yourStayCards: SVGCardProps[] = [
   {
     textComponent: <YourStayCardText text={["Before", "Your Stay"]} />,
     component: <BeforeYourStaySVG />,
-    navigationTo: "Before",
+    navigationTo: "Before Your Stay",
     navType: "navigation",
   },
   {
     textComponent: <YourStayCardText text={["During", "Your Stay"]} />,
     component: <DuringYourStaySVG />,
-    navigationTo: "During",
+    navigationTo: "During Your Stay",
     navType: "navigation",
   },
   {
     textComponent: <YourStayCardText text={["After", "Your Stay"]} />,
     component: <AfterYourStaySVG />,
-    navigationTo: "After",
+    navigationTo: "After Your Stay",
     navType: "navigation",
   },
 ];
 
 export default function YourStay({
   navigation,
-}: YourStayStackScreenProps<"YourStayHome">) {
+}: YourStayStackScreenProps<"Your Stay">) {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (

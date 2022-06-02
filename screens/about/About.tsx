@@ -55,9 +55,7 @@ const aboutCardProps: SVGCardProps[] = [
   },
 ];
 
-export default function About({
-  navigation,
-}: AboutStackScreenProps<"AboutHome">) {
+export default function About({ navigation }: AboutStackScreenProps<"About">) {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (

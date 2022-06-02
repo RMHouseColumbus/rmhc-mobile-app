@@ -3,6 +3,7 @@ import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import type { HospitalStackList, HospitalStackScreenProps } from "../../types";
+import Colors from "../../constants/Colors";
 
 const HospitalCard = ({ onPress, content, title }: HospitalCardProps) => {
   return (
@@ -36,13 +37,13 @@ interface HospitalCardData {
 const hospitalCards: HospitalCardData[] = [
   {
     title: "OhioHealth Riverside Methodist Hospital",
-    route: "Riverside",
+    route: "Riverside Family Room",
     content:
       "Ronald McDonald Family Rooms at the OhioHealth Riverside Methodist Hospital",
   },
   {
     title: "Nationwide Children’s Hospital Big Lots Behavioral Health Pavilion",
-    route: "BHP",
+    route: "BHP Family Rooms",
     content:
       "Ronald McDonald Family Rooms at the Nationwide Children’s Hospital Big Lots Behavioral Health Pavilion",
   },
@@ -50,11 +51,16 @@ const hospitalCards: HospitalCardData[] = [
 
 export default function HospitalServices({
   navigation,
-}: HospitalStackScreenProps<"Hospitals">) {
+}: HospitalStackScreenProps<"In Hospital Services">) {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <ScrollView flex={1} py={"4"} px={"4"} backgroundColor={"blue.300"}>
+    <ScrollView
+      flex={1}
+      py={"4"}
+      px={"4"}
+      backgroundColor={Colors.backgroundBlue}
+    >
       {hospitalCards.map((data, idx) => (
         <HospitalCard
           key={idx}

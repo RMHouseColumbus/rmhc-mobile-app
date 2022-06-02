@@ -1,4 +1,3 @@
-import { Dimensions, StyleSheet } from "react-native";
 import { Box, Text } from "native-base";
 
 import type { RootTabScreenProps } from "../../types";
@@ -6,7 +5,9 @@ import type { RootTabScreenProps } from "../../types";
 import Logo from "./components/Logo";
 import LandingHenry from "./components/LandingHenry";
 
-export default function HomeScreen({ navigation }: RootTabScreenProps<"Home">) {
+export default function HomeScreen({
+  navigation,
+}: RootTabScreenProps<"RMHC Central Ohio">) {
   return (
     <Box backgroundColor={"#FFFFFF"} flex={1}>
       <Box flex={1} alignItems={"center"} justifyContent={"center"}>

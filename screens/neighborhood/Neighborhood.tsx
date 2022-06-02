@@ -66,7 +66,7 @@ const neighborhoodCardPops: SVGCardProps[] = [
 
 export default function Neighborhood({
   navigation,
-}: NeighborhoodStackScreenProps<"NeighborhoodHome">) {
+}: NeighborhoodStackScreenProps<"Neighborhood">) {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (

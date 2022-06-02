@@ -11,6 +11,7 @@ import {
   getFocusedRouteNameFromRoute,
   NavigationContainer,
 } from "@react-navigation/native";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import type { ColorSchemeName } from "react-native";
@@ -21,7 +22,10 @@ import {
   DrawerContentScrollView,
   DrawerItem,
 } from "@react-navigation/drawer";
-import { Box, Button, Text } from "native-base";
+import { ArrowBackIcon, Box, Button, ChevronLeftIcon, Text } from "native-base";
+import DrawerToggleButton from "@react-navigation/drawer/src/views/DrawerToggleButton";
+import { ScreenStackHeaderBackButtonImage } from "react-native-screens";
+import { NativeStackNavigationOptions } from "react-native-screens/src/native-stack/types";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
@@ -53,6 +57,7 @@ import YourStay from "../screens/your_stay/YourStay";
 import AfterYourStay from "../screens/your_stay/after_your_stay/AfterYourStay";
 import DuringYourStay from "../screens/your_stay/during_your_stay/DuringYourStay";
 import BeforeYourStay from "../screens/your_stay/before_your_stay/BeforeYourStay";
+import Fonts from "../constants/Fonts";
 
 import {
   FacebookSVG,
@@ -95,7 +100,7 @@ function AppDrawer(props: DrawerContentComponentProps) {
       <DrawerContentScrollView {...props}>
         <DrawerItem
           label="Home"
-          onPress={() => props.navigation.navigate("Home")}
+          onPress={() => props.navigation.navigate("RMHC Central Ohio")}
         />
         <DrawerItem
           label="Updates"
@@ -115,19 +120,19 @@ function AppDrawer(props: DrawerContentComponentProps) {
         />
         <DrawerItem
           label="In Hospital Services"
-          onPress={() => props.navigation.navigate("In Hospital Services")}
+          onPress={() => props.navigation.navigate("HospitalHome")}
         />
         <DrawerItem
           label="Neighborhood Guide"
-          onPress={() => props.navigation.navigate("Neighborhood")}
+          onPress={() => props.navigation.navigate("NeighborhoodHome")}
         />
         <DrawerItem
           label="About"
-          onPress={() => props.navigation.navigate("About")}
+          onPress={() => props.navigation.navigate("AboutHome")}
         />
         <DrawerItem
           label="Your Stay"
-          onPress={() => props.navigation.navigate("YourStay")}
+          onPress={() => props.navigation.navigate("YourStayHome")}
         />
         <DrawerItem
           label="Prescription Services"
@@ -136,7 +141,7 @@ function AppDrawer(props: DrawerContentComponentProps) {
 
         <Box alignItems={"center"}>
           <Button
-            backgroundColor={"#0077B5"}
+            backgroundColor={Colors.buttonBlue}
             borderRadius={10}
             width={"90%"}
             onPress={() =>
@@ -172,8 +177,7 @@ function AppDrawer(props: DrawerContentComponentProps) {
     </>
   );
 }
-
-function getHeaderTitle(route: RouteProp<ParamListBase>, navigation: any) {
+function showHeaderTitle(route: RouteProp<ParamListBase>, navigation: any) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? "Home";
 
   const state = navigation.getState();
@@ -182,14 +186,24 @@ function getHeaderTitle(route: RouteProp<ParamListBase>, navigation: any) {
   while (actualRoute.state) {
     actualRoute = actualRoute.state.routes[actualRoute.state.index];
   }
-  console.log(actualRoute);
   switch (routeName) {
-    case "Home":
-      return "RMHC Central Ohio";
-    case "FindUs":
-      return "FIND US";
+    case "AboutHome":
+    case "HospitalHome":
+    case "YourStayHome":
+    case "NeighborhoodHome":
+      return false;
     default:
-      return actualRoute.name ?? routeName.toUpperCase();
+      return true;
+  }
+}
+
+function getHeaderTitle(route: RouteProp<ParamListBase>) {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? route.name;
+  switch (routeName) {
+    case "RMHC Central Ohio":
+      return routeName;
+    default:
+      return routeName.toUpperCase();
   }
 }
 
@@ -199,7 +213,11 @@ function RootNavigator() {
       initialRouteName={"Tabs"}
       screenOptions={(props) => {
         return {
-          ...defaultHeaderStyle,
+          ...blueHeaderStyle,
+          headerShown: showHeaderTitle(props.route, props.navigation),
+          headerLeft: (drawerProps) => (
+            <DrawerToggleButton {...drawerProps} tintColor={Colors.black} />
+          ),
         };
       }}
       drawerContent={(props) => <AppDrawer {...props} />}
@@ -209,7 +227,7 @@ function RootNavigator() {
         component={BottomTabNavigator}
         options={(props) => {
           return {
-            headerTitle: getHeaderTitle(props.route, props.navigation),
+            headerTitle: getHeaderTitle(props.route),
           };
         }}
       />
@@ -217,16 +235,35 @@ function RootNavigator() {
   );
 }
 
-const defaultHeaderStyle = {
+const blueHeaderStyle = {
   headerTitleStyle: {
-    fontFamily: "Raleway-SemiBold",
-    color: "#FFFFFF",
+    fontFamily: Fonts.Semibold,
+    color: Colors.white,
     fontSize: 20,
   },
   headerStyle: {
-    backgroundColor: "#1c5ca3",
+    backgroundColor: Colors.statusBarBlue,
   },
   tabBarShowLabel: false,
+};
+
+const nestedHeader = ({ route }: NativeStackScreenProps<any>) => {
+  return {
+    headerTintColor: Colors.black,
+    headerShown: true,
+    gestureEnabled: true,
+    headerBackTitleVisible: false,
+    headerTitle: getHeaderTitle(route),
+    headerTitleStyle: {
+      fontFamily: Fonts.Semibold,
+      color: Colors.black,
+      fontSize: 20,
+    },
+    headerStyle: {
+      backgroundColor: Colors.white,
+    },
+    tabBarShowLabel: false,
+  };
 };
 
 const HospitalServiceStack = createNativeStackNavigator<HospitalStackList>();
@@ -239,14 +276,20 @@ const YourStayStackNav = createNativeStackNavigator<YourStayStackList>();
 function AboutStack() {
   return (
     <AboutStackNav.Navigator
-      initialRouteName={"AboutHome"}
-      screenOptions={{
-        headerShown: true,
-        gestureEnabled: true,
-        headerTitle: "",
-      }}
+      initialRouteName={"About"}
+      screenOptions={nestedHeader}
     >
-      <AboutStackNav.Screen name="AboutHome" component={About} />
+      <AboutStackNav.Screen
+        name="About"
+        component={About}
+        options={(props) => {
+          return {
+            headerLeft: (hprops) => (
+              <DrawerToggleButton {...hprops} tintColor={Colors.black} />
+            ),
+          };
+        }}
+      />
       <AboutStackNav.Screen name="Stay Involved" component={StayInvolved} />
       <AboutStackNav.Screen name="Care Mobile" component={CareMobile} />
       <AboutStackNav.Screen name="Family Room" component={FamilyRoom} />
@@ -257,16 +300,19 @@ function AboutStack() {
 function NeighborhoodStack() {
   return (
     <NeighborhoodStackNav.Navigator
-      initialRouteName={"NeighborhoodHome"}
-      screenOptions={{
-        headerShown: true,
-        gestureEnabled: true,
-        headerTitle: "",
-      }}
+      initialRouteName={"Neighborhood"}
+      screenOptions={nestedHeader}
     >
       <NeighborhoodStackNav.Screen
-        name="NeighborhoodHome"
+        name="Neighborhood"
         component={Neighborhood}
+        options={(props) => {
+          return {
+            headerLeft: (hprops) => (
+              <DrawerToggleButton {...hprops} tintColor={Colors.black} />
+            ),
+          };
+        }}
       />
       <NeighborhoodStackNav.Screen name="Delivery" component={Delivery} />
       <NeighborhoodStackNav.Screen
@@ -280,19 +326,25 @@ function NeighborhoodStack() {
 function HospitalStack() {
   return (
     <HospitalServiceStack.Navigator
-      initialRouteName={"Hospitals"}
-      screenOptions={{
-        headerShown: true,
-        gestureEnabled: true,
-        headerTitle: "",
-      }}
+      initialRouteName={"In Hospital Services"}
+      screenOptions={nestedHeader}
     >
       <HospitalServiceStack.Screen
-        name="Hospitals"
+        name="In Hospital Services"
         component={HospitalServices}
+        options={(props) => {
+          return {
+            headerLeft: (hprops) => (
+              <DrawerToggleButton {...hprops} tintColor={Colors.black} />
+            ),
+          };
+        }}
       />
-      <HospitalServiceStack.Screen name="Riverside" component={Riverside} />
-      <HospitalServiceStack.Screen name="BHP" component={BHP} />
+      <HospitalServiceStack.Screen
+        name="Riverside Family Room"
+        component={Riverside}
+      />
+      <HospitalServiceStack.Screen name="BHP Family Rooms" component={BHP} />
     </HospitalServiceStack.Navigator>
   );
 }
@@ -300,17 +352,32 @@ function HospitalStack() {
 function YourStayStack() {
   return (
     <YourStayStackNav.Navigator
-      initialRouteName={"YourStayHome"}
-      screenOptions={{
-        headerShown: true,
-        gestureEnabled: true,
-        headerTitle: "",
-      }}
+      initialRouteName={"Your Stay"}
+      screenOptions={nestedHeader}
     >
-      <YourStayStackNav.Screen name="YourStayHome" component={YourStay} />
-      <YourStayStackNav.Screen name="Before" component={BeforeYourStay} />
-      <YourStayStackNav.Screen name="During" component={DuringYourStay} />
-      <YourStayStackNav.Screen name="After" component={AfterYourStay} />
+      <YourStayStackNav.Screen
+        name="Your Stay"
+        component={YourStay}
+        options={(props) => {
+          return {
+            headerLeft: (hprops) => (
+              <DrawerToggleButton {...hprops} tintColor={Colors.black} />
+            ),
+          };
+        }}
+      />
+      <YourStayStackNav.Screen
+        name="Before Your Stay"
+        component={BeforeYourStay}
+      />
+      <YourStayStackNav.Screen
+        name="During Your Stay"
+        component={DuringYourStay}
+      />
+      <YourStayStackNav.Screen
+        name="After Your Stay"
+        component={AfterYourStay}
+      />
     </YourStayStackNav.Navigator>
   );
 }
@@ -320,7 +387,7 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="RMHC Central Ohio"
       screenOptions={{
         tabBarActiveTintColor: "red",
         tabBarShowLabel: false,
@@ -330,14 +397,14 @@ function BottomTabNavigator() {
     >
       <BottomTab.Group>
         <BottomTab.Screen
-          name="Home"
+          name="RMHC Central Ohio"
           component={HomeScreen}
-          options={({ navigation }: RootTabScreenProps<"Home">) => ({
+          options={{
             tabBarIcon: ({ color }) => <HomeIcon fill={color} />,
-          })}
+          }}
         />
         <BottomTab.Screen
-          name="FindUs"
+          name="Find Us"
           component={FindUs}
           options={{
             tabBarIcon: ({ color }) => <LocationIcon fill={color} />,
@@ -372,28 +439,28 @@ function BottomTabNavigator() {
           }}
         />
         <BottomTab.Screen
-          name="In Hospital Services"
+          name="HospitalHome"
           component={HospitalStack}
           options={{
             tabBarButton: (props) => <></>,
           }}
         />
         <BottomTab.Screen
-          name="Neighborhood"
+          name="NeighborhoodHome"
           component={NeighborhoodStack}
           options={{
             tabBarButton: (props) => <></>,
           }}
         />
         <BottomTab.Screen
-          name="About"
+          name="AboutHome"
           component={AboutStack}
           options={{
             tabBarButton: (props) => <></>,
           }}
         />
         <BottomTab.Screen
-          name="YourStay"
+          name="YourStayHome"
           component={YourStayStack}
           options={{
             tabBarButton: (props) => <></>,
