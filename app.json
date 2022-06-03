@@ -1,4 +1,45 @@
 {
-  "name": "rmhcmobileapp",
-  "displayName": "rmhcmobileapp"
+  "expo": {
+    "name": "RMHC Appp",
+    "slug": "RMHCApp",
+    "owner": "rmhc",
+    "version": "1.0.5",
+    "runtimeVersion": "1.0.5",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "rmhc",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_LOAD",
+      "enabled": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "buildNumber": "4",
+      "supportsTablet": false,
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": [
+          "tel",
+          "telprompt"
+        ]
+      },
+      "bundleIdentifier": "org.rmhc.rmhcmobileapp"
+    },
+    "android": {
+      "versionCode": 6,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "org.rmhc.rmhcmobileapp"
+    }
+  }
 }
