@@ -5,7 +5,16 @@ import { processFontFamily } from "expo-font";
 import { Linking } from "react-native";
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 
-const LandingHenry = (props: SvgProps) => (
+interface LandingHenryProps extends SvgProps {
+  onManageClicked: () => void;
+  onWelcomeClicked: () => void;
+}
+
+const LandingHenry = ({
+  onManageClicked,
+  onWelcomeClicked,
+  ...props
+}: LandingHenryProps) => (
   <Svg width={375} height={336.001} {...props}>
     <Defs />
     <G data-name="Group 385" transform="translate(0 -280.999)">
@@ -127,11 +136,12 @@ const LandingHenry = (props: SvgProps) => (
         fontSize={34}
         fontFamily={processFontFamily("Raleway-Bold") ?? ""}
         fontWeight={700}
+        onPress={onManageClicked}
       >
-        <TSpan x={-109.565} y={0}>
+        <TSpan x={-109.565} y={0} onPress={onManageClicked}>
           {"Manage Your "}
         </TSpan>
-        <TSpan x={-103.19} y={38}>
+        <TSpan x={-103.19} y={38} onPress={onManageClicked}>
           {"Stay with Us."}
         </TSpan>
       </Text>
@@ -166,7 +176,7 @@ const LandingHenry = (props: SvgProps) => (
         fill="#0078d7"
         fontSize={17}
         fontFamily={processFontFamily("Raleway-Medium") ?? ""}
-        onPress={() => Linking.openURL("https://youtu.be/9ypZmfHSiXg")}
+        onPress={onWelcomeClicked}
       >
         <TSpan x={0} y={0}>
           {"Welcome\u2026"}

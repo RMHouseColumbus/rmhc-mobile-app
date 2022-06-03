@@ -5,6 +5,8 @@ import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import type { AboutStackScreenProps } from "../../types";
 import type { SVGCardProps } from "../../components/SVGCard";
 import { SVGCard, SVGCardText } from "../../components/SVGCard";
+import { BeforeYourStaySVG } from "../your_stay/components/YourStayCards";
+import { YourStaySVGCard } from "../your_stay/YourStay";
 
 import {
   CareMobileSVG,
@@ -63,6 +65,12 @@ export default function About({ navigation }: AboutStackScreenProps<"About">) {
       {aboutCardProps.map((data, i) => (
         <SVGCard key={i} {...data} />
       ))}
+      <YourStaySVGCard
+        textComponent={<SVGCardText text={["Staff Use"]} />}
+        component={<BeforeYourStaySVG />}
+        navType={"navigation"}
+        navigationTo={"Staff Use"}
+      />
       <Box height={tabBarHeight} />
     </ScrollView>
   );

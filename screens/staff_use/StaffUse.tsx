@@ -6,10 +6,11 @@ import {
   Text,
   WarningOutlineIcon,
 } from "native-base";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Colors from "../../constants/Colors";
 import { environment } from "../../environment";
+import { read, save } from "../../storage/Storage";
 
 import StaffCalendar from "./staff_calendar/StaffCalendar";
 
@@ -57,10 +58,30 @@ export default function StaffUse() {
   const [value, setValue] = useState("");
   const handleChange = (text: string) => setValue(text);
 
+  const checkStorage = async () => {
+    console.log("Checking for prev password use");
+    const existing = await read<string>("staff_password");
+    if (existing && existing === environment.STAFF_PASSWORD) {
+      console.log("Password correct");
+      setValid(true);
+      setLocked(false);
+    }
+  };
+
+  const savePassword = async (pw: string) => {
+    console.log("Saving password for later use");
+    return await save("staff_password", pw);
+  };
+
+  useEffect(() => {
+    checkStorage();
+  }, []);
+
   const validate = () => {
     if (value === environment.STAFF_PASSWORD) {
       setValid(true);
       setLocked(false);
+      savePassword(value);
     } else {
       setValid(false);
       setLocked(true);

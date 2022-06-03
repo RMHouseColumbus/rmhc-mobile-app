@@ -1,7 +1,6 @@
 import * as React from "react";
 import type { SvgProps } from "react-native-svg";
 import Svg, { G, Path } from "react-native-svg";
-import { Box, Pressable, Text, VStack } from "native-base";
 
 export const BeforeYourStaySVG = (props: SvgProps) => (
   <Svg width={74.931} height={74} {...props}>

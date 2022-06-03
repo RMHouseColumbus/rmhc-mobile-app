@@ -1,4 +1,5 @@
 import { Box, Text } from "native-base";
+import { Linking } from "react-native";
 
 import type { RootTabScreenProps } from "../../types";
 
@@ -19,7 +20,12 @@ export default function HomeScreen({
         <Logo />
       </Box>
       <Box alignItems={"center"}>
-        <LandingHenry />
+        <LandingHenry
+          onWelcomeClicked={() =>
+            Linking.openURL("https://youtu.be/9ypZmfHSiXg")
+          }
+          onManageClicked={() => navigation.navigate("YourStayHome")}
+        />
       </Box>
     </Box>
   );

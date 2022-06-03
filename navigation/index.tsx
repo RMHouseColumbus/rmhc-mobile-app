@@ -142,11 +142,6 @@ function AppDrawer(props: DrawerContentComponentProps) {
           label="Prescription Services"
           onPress={() => Linking.openURL("http://go.scripthero.com/RMHC")}
         />
-        <DrawerItem
-          label="Staff Use"
-          onPress={() => props.navigation.navigate("Staff Use")}
-        />
-
         <Box alignItems={"center"}>
           <Button
             backgroundColor={Colors.buttonBlue}
@@ -185,15 +180,9 @@ function AppDrawer(props: DrawerContentComponentProps) {
     </>
   );
 }
-function showHeaderTitle(route: RouteProp<ParamListBase>, navigation: any) {
-  const routeName = getFocusedRouteNameFromRoute(route) ?? "Home";
+function showHeaderTitle(route: RouteProp<ParamListBase>) {
+  const routeName = getFocusedRouteNameFromRoute(route) ?? route.name;
 
-  const state = navigation.getState();
-  let actualRoute = state.routes[state.index];
-
-  while (actualRoute.state) {
-    actualRoute = actualRoute.state.routes[actualRoute.state.index];
-  }
   switch (routeName) {
     case "AboutHome":
     case "HospitalHome":
@@ -222,10 +211,11 @@ function RootNavigator() {
   return (
     <Drawer.Navigator
       initialRouteName={"Home"}
+      backBehavior={"history"}
       screenOptions={(props) => {
         return {
           ...blueHeaderStyle,
-          headerShown: showHeaderTitle(props.route, props.navigation),
+          headerShown: showHeaderTitle(props.route),
           headerLeft: (drawerProps) => (
             <DrawerToggleButton {...drawerProps} tintColor={Colors.black} />
           ),
