@@ -11,7 +11,7 @@ export default ({ config }) => {
       CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
       CONTENTFUL_SPACE: process.env.CONTENTFUL_SPACE,
       CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT,
-      ...require("./config/production"),
+      // ...require("./config/production"),
     },
   };
 };
