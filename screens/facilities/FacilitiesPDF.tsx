@@ -11,8 +11,8 @@ export default function FacilitiesPDF() {
 
   useFocusEffect(
     useCallback(() => {
-      if (data) {
-        setUrl(`http:${data.file.url}`);
+      if (data?.file) {
+        setUrl(`https://docs.google.com/gview?embedded=true&url=https:${data.file.url}`);
       }
       return () => {
         setUrl(undefined);

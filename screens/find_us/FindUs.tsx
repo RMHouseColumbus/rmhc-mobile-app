@@ -16,7 +16,7 @@ export default function FindUs() {
     city: "Columbus",
   });
 
-  const { openPhone } = useCallNumber({ number: "+16132273700" });
+  const { openPhone } = useCallNumber({ number: "+16142273700" });
   const { openEmail } = useOpenEmail({
     email: "rmhccommunications@rmhc-centralohio.org",
   });

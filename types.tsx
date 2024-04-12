@@ -50,12 +50,14 @@ export type RootTabParamList = {
   AboutHome: undefined;
   YourStayHome: undefined;
   "Staff Use": undefined;
+  "Helpful Resources": undefined;
 };
 
 export type HospitalStackList = {
   "In Hospital Services": undefined;
   "Riverside Family Room": undefined;
   "BHP Family Rooms": undefined;
+  "Helpful Resources": undefined;
 };
 
 export type NeighborhoodStackList = {

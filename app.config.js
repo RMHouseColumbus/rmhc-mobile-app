@@ -13,6 +13,12 @@ export default ({ config }) => {
       CONTENTFUL_ENVIRONMENT: process.env.CONTENTFUL_ENVIRONMENT,
       // uncomment for local dev
       // ...require("./config/production"),
+      eas: {
+        projectId: "ba791d2b-49aa-468e-b4be-059ddd3c6f41",
+      },
+    },
+    updates: {
+      url: "https://u.expo.dev/ba791d2b-49aa-468e-b4be-059ddd3c6f41",
     },
   };
 };

@@ -2,8 +2,11 @@ import { Box, Pressable, ScrollView, Text, VStack } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
-import type { HospitalStackList, HospitalStackScreenProps } from "../../types";
+import type { HospitalStackScreenProps } from "../../types";
 import Colors from "../../constants/Colors";
+import { useContentfulEntries } from "../../hooks/useContentful";
+import { entries, HospitalService } from "../../contentful/ContenfulTypes";
+import { Linking } from "react-native";
 
 const HospitalCard = ({ onPress, content, title }: HospitalCardProps) => {
   return (
@@ -24,35 +27,16 @@ const HospitalCard = ({ onPress, content, title }: HospitalCardProps) => {
   );
 };
 
-interface HospitalCardProps extends HospitalCardData {
+interface HospitalCardProps extends HospitalService {
   onPress: () => void;
 }
 
-interface HospitalCardData {
-  title: string;
-  content: string;
-  route: keyof HospitalStackList;
-}
-
-const hospitalCards: HospitalCardData[] = [
-  {
-    title: "OhioHealth Riverside Methodist Hospital",
-    route: "Riverside Family Room",
-    content:
-      "Ronald McDonald Family Rooms at the OhioHealth Riverside Methodist Hospital",
-  },
-  {
-    title: "Nationwide Children’s Hospital Big Lots Behavioral Health Pavilion",
-    route: "BHP Family Rooms",
-    content:
-      "Ronald McDonald Family Rooms at the Nationwide Children’s Hospital Big Lots Behavioral Health Pavilion",
-  },
-];
 
 export default function HospitalServices({
-  navigation,
-}: HospitalStackScreenProps<"In Hospital Services">) {
+                                           navigation
+                                         }: HospitalStackScreenProps<"In Hospital Services">) {
   const tabBarHeight = useBottomTabBarHeight();
+  const { data } = useContentfulEntries<HospitalService>(entries.hospitalServices);
 
   return (
     <ScrollView
@@ -61,13 +45,16 @@ export default function HospitalServices({
       px={"4"}
       backgroundColor={Colors.backgroundBlue}
     >
-      {hospitalCards.map((data, idx) => (
-        <HospitalCard
-          key={idx}
-          {...data}
-          onPress={() => navigation.navigate(data.route)}
-        />
-      ))}
+      {data.map((data, idx) => {
+
+          const onPress = data.link
+            ? () => Linking.openURL(data.route)
+            : () => navigation.navigate(data.route);
+          return (
+            <HospitalCard key={idx}{...data} onPress={onPress} />
+          );
+        }
+      )}
       <Box height={tabBarHeight} />
     </ScrollView>
   );

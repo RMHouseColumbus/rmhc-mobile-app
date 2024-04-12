@@ -13,6 +13,9 @@ export interface ContentfulEntries {
   beforeStay: Entries;
   duringStay: Entries;
   afterStay: Entries;
+  helpfulResources: Entries;
+  pageLink: Entries;
+  hospitalServices: Entries
 }
 
 export interface CEntry {
@@ -50,6 +53,27 @@ export interface QuestionAnswer {
   ordinal: number;
 }
 
+export interface HelpfulResource {
+  title: string;
+  linkAddress: string;
+  linkDisplay: string;
+  information?: string;
+}
+
+export interface PageLink {
+  pageName: string,
+  link: string
+}
+
+export interface HospitalService {
+  title: string;
+  content: string;
+  link: boolean;
+  route: string
+}
+
+
+
 export const entries: ContentfulEntries = {
   pages: {
     "care-mobile": {
@@ -85,4 +109,13 @@ export const entries: ContentfulEntries = {
   duringStay: {
     contentType: "duringYourStay",
   },
+  helpfulResources :{
+    contentType: "helpfulResources"
+  },
+  pageLink: {
+    contentType: "pageLink"
+  },
+  hospitalServices: {
+    contentType: "hospitalServices"
+  }
 };

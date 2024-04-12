@@ -37,6 +37,7 @@ export default function StaffCalendar() {
                 Open Calendar
               </Text>
             </Button>
+            <Text>Ahmad</Text>
           </Box>
         </VStack>
       </Box>

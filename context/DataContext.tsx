@@ -7,7 +7,7 @@ export interface ContextValues {
   gcal: GCalClient;
 }
 
-export const DataContext = createContext<ContextValues>("app", {
+export const DataContext: React.Context<ContextValues> = createContext<ContextValues>("app", {
   client: new ContentfulClient(),
   gcal: new GCalClient(),
 });

@@ -1,13 +1,14 @@
 /* eslint-disable camelcase,import/extensions,@typescript-eslint/ban-ts-comment */
 
 // @ts-ignore
-import { createClient } from "contentful/dist/contentful.browser.min.js";
+import * as contentful from 'contentful'
+
 import type {
   Asset,
   ContentfulClientApi,
   CreateClientParams,
   Entry,
-  EntryCollection,
+  EntryCollection, EntrySkeletonType, FieldsType
 } from "contentful";
 
 import BasicCache from "../commons/Cache";
@@ -15,14 +16,16 @@ import { environment } from "../environment";
 
 import type { Entries, CEntry, CAsset } from "./ContenfulTypes";
 
-const contentfulClient: ContentfulClientApi = createClient({
+
+
+const contentfulClient: ContentfulClientApi<undefined> = contentful.createClient({
   accessToken: environment.CONTENTFUL_ACCESS_TOKEN,
   space: environment.CONTENTFUL_SPACE,
   environment: environment.CONTENTFUL_ENVIRONMENT,
 });
 
 export class ContentfulClient {
-  private _client: ContentfulClientApi;
+  private _client: ContentfulClientApi<undefined>;
   private _cache: BasicCache;
 
   constructor(options?: CreateClientParams) {
@@ -42,30 +45,31 @@ export class ContentfulClient {
     }
   };
 
-  public getEntry = async <T>({ id }: CEntry): Promise<Entry<T>> => {
+  public getEntry = async <T extends FieldsType>({ id }: CEntry): Promise<Entry<EntrySkeletonType<T>>> => {
     if (this._cache.has(id)) {
       console.log(`Reading ${id} from cache`);
-      return this._cache.read<Entry<T>>(id);
+      return this._cache.read<Entry<EntrySkeletonType<T>>>(id);
     } else {
       console.log(`Fetching ${id}`);
-      const entry = await contentfulClient.getEntry<T>(id);
+      const entry = await contentfulClient.getEntry<EntrySkeletonType<T>>(id);
       this._cache.put(id, entry);
       return entry;
     }
   };
 
-  public getEntries = async <T>({
+  public getEntries = async <T extends FieldsType>({
     contentType: content_type,
-  }: Entries): Promise<EntryCollection<T>> => {
+  }: Entries): Promise<EntryCollection<EntrySkeletonType<T>>> => {
     const key = `entries_${content_type}`;
     if (this._cache.has(key)) {
       console.log(`Reading ${key} from cache`);
-      return Promise.resolve(this._cache.read<EntryCollection<T>>(key));
+      return Promise.resolve(this._cache.read<EntryCollection<EntrySkeletonType<T>>>(key));
     } else {
       console.log(`Fetching ${key}`);
-      const entries = await contentfulClient.getEntries<T>({
+      const entries = await contentfulClient.getEntries<EntrySkeletonType<T>>({
         content_type,
       });
+      console.log(JSON.stringify(entries))
       this._cache.put(key, entries);
       return entries;
     }

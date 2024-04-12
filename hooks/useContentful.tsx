@@ -1,17 +1,17 @@
-import type { Asset, Entry, EntryCollection } from "contentful";
+import type { Asset, AssetFields, Entry, EntryCollection, EntrySkeletonType, FieldsType } from "contentful";
 import { useContext, useEffect, useState } from "react";
 
 import type { Entries, CEntry, CAsset } from "../contentful/ContenfulTypes";
 import { DataContext } from "../context/DataContext";
 
-export function useContentfulEntries<T>(entries: Entries) {
+export function useContentfulEntries<T extends FieldsType>(entries: Entries) {
   const { client } = useContext(DataContext);
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<EntryCollection<T>>();
+  const [data, setData] = useState<EntryCollection<EntrySkeletonType<T>>>();
 
   const execute = async () => {
     setLoading(true);
-    const fetched: EntryCollection<T> = await client.getEntries<T>(entries);
+    const fetched: EntryCollection<EntrySkeletonType<T>> = await client.getEntries<T>(entries);
     setData(fetched);
     setLoading(false);
   };
@@ -21,21 +21,24 @@ export function useContentfulEntries<T>(entries: Entries) {
   }, [entries]);
 
   const result = () => ({
-    data: data?.items.map((a) => a.fields) ?? [],
+    data: data?.items.map((a) => a.fields as T) ?? [],
     loading,
   });
 
   return result();
 }
 
-export function useContentfulEntry<T>(entry: CEntry) {
+export function useContentfulEntry<T extends FieldsType>(entry: CEntry): {
+  data: T,
+  loading: boolean
+} {
   const { client } = useContext(DataContext);
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState<Entry<T>>();
+  const [data, setData] = useState<Entry<EntrySkeletonType<T>>>();
 
   const execute = async () => {
     setLoading(true);
-    const fetched: Entry<T> = await client.getEntry<T>(entry);
+    const fetched: Entry<EntrySkeletonType<T>> = await client.getEntry<T>(entry);
     setData(fetched);
     setLoading(false);
   };
@@ -45,7 +48,7 @@ export function useContentfulEntry<T>(entry: CEntry) {
   }, [entry]);
 
   const result = () => ({
-    data: data?.fields,
+    data: data?.fields as T,
     loading,
   });
 
@@ -69,7 +72,7 @@ export function useContentfulAsset(asset: CAsset) {
   }, [asset]);
 
   const result = () => ({
-    data: data?.fields,
+    data: data?.fields as AssetFields,
     loading,
   });
 

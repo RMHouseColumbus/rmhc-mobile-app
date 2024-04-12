@@ -21,7 +21,7 @@ const aboutCardProps: SVGCardProps[] = [
   {
     textComponent: <SVGCardText text={["Meet the", "Staff"]} />,
     component: <MeetStaffSVG />,
-    navigationTo: "http://rmhc-centralohio.org/who-we-are/staff/",
+    navigationTo: "https://rmhc-centralohio.org/about/our-staff/",
     navType: "link",
   },
   {
