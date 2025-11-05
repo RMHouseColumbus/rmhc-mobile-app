@@ -10,7 +10,7 @@ import * as Linking from "expo-linking";
 import type { RootStackParamList } from "../types";
 
 const linking: LinkingOptions<RootStackParamList> = {
-  prefixes: [Linking.makeUrl("/")],
+  prefixes: [Linking.createURL("/")],
 };
 
 export default linking;

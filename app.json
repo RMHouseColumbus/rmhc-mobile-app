@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "RMHC Appp",
+    "name": "RMHC App",
     "slug": "RMHCApp",
     "owner": "rmhc",
-    "version": "1.0.5",
-    "runtimeVersion": "1.0.5",
+    "version": "1.2.0",
+    "runtimeVersion": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "rmhc",
@@ -23,23 +23,43 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "4",
+      "buildNumber": "6",
       "supportsTablet": false,
       "infoPlist": {
         "LSApplicationQueriesSchemes": [
           "tel",
+          "telprompt",
+          "tel",
           "telprompt"
-        ]
+        ],
+        "ITSAppUsesNonExemptEncryption": false
       },
       "bundleIdentifier": "org.rmhc.rmhcmobileapp"
     },
     "android": {
-      "versionCode": 6,
+      "versionCode": 10,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "org.rmhc.rmhcmobileapp"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ba791d2b-49aa-468e-b4be-059ddd3c6f41"
+      }
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ]
   }
 }

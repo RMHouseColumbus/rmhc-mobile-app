@@ -5,15 +5,12 @@ module.exports = (() => {
 
   const { transformer, resolver } = config;
 
-  config.transformer = {
-    ...transformer,
-    babelTransformerPath: require.resolve("react-native-svg-transformer"),
-  };
-  config.resolver = {
-    ...resolver,
-    assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
-    sourceExts: [...resolver.sourceExts, "svg"],
-  };
+  // Define the babel transformer from react-native-svg
+  transformer.babelTransformerPath = require.resolve('react-native-svg-transformer');
+
+// Make SVG a source extension
+  resolver.assetExts = config.resolver.assetExts.filter(ext => ext !== 'svg');
+  resolver.sourceExts.push('svg');
 
   return config;
 })();

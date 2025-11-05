@@ -1,18 +1,19 @@
 import * as React from "react";
 import type { SvgProps } from "react-native-svg";
 import Svg, { Defs, G, Path, Text, TSpan, Ellipse } from "react-native-svg";
-import { processFontFamily } from "expo-font";
 import { Linking } from "react-native";
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 
 interface LandingHenryProps extends SvgProps {
   onManageClicked: () => void;
   onWelcomeClicked: () => void;
+  welcomeVideo: string;
 }
 
 const LandingHenry = ({
   onManageClicked,
   onWelcomeClicked,
+  welcomeVideo,
   ...props
 }: LandingHenryProps) => (
   <Svg width={375} height={336.001} {...props}>
@@ -134,7 +135,7 @@ const LandingHenry = ({
         transform="translate(187.5 528)"
         fill="#fff"
         fontSize={34}
-        fontFamily={processFontFamily("Raleway-Bold") ?? ""}
+        fontFamily={"Raleway-Bold"}
         fontWeight={700}
         onPress={onManageClicked}
       >
@@ -154,7 +155,7 @@ const LandingHenry = ({
         transform="translate(202.623 282.499)"
         fill="#fff"
         stroke="#000"
-        onPress={() => Linking.openURL("https://youtu.be/9ypZmfHSiXg")}
+        onPress={() => Linking.openURL(welcomeVideo)}
         strokeWidth={3}
       />
       <Path
@@ -175,7 +176,7 @@ const LandingHenry = ({
         transform="translate(250 345)"
         fill="#0078d7"
         fontSize={17}
-        fontFamily={processFontFamily("Raleway-Medium") ?? ""}
+        fontFamily={"Raleway-Medium"}
         onPress={onWelcomeClicked}
       >
         <TSpan x={0} y={0}>

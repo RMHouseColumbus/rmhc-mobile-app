@@ -1,10 +1,31 @@
 {
   "cli": {
-    "version": ">= 0.52.0"
+    "version": ">= 0.52.0",
+    "promptToConfigurePushNotifications": false
   },
   "build": {
+    "development-simulator": {
+      "developmentClient": true,
+      "env": {
+        "ENVIRONMENT": "production"
+      },
+      "distribution": "internal",
+      "ios": {
+        "simulator": true
+      },
+      "channel": "development-simulator"
+    },
+    "preview": {
+      "env": {
+        "ENVIRONMENT": "production"
+      },
+      "ios": {
+        "simulator": true
+      },
+      "channel": "preview"
+    },
     "development": {
-      "releaseChannel": "production",
+      "channel": "developement",
       "distribution": "internal",
       "android": {
         "buildType": "apk",
@@ -12,7 +33,7 @@
       }
     },
     "production": {
-      "releaseChannel": "production",
+      "channel": "production",
       "env": {
         "ENVIRONMENT": "production"
       },

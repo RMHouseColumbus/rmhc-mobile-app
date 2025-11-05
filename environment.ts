@@ -1,7 +1,7 @@
 import Constants from "expo-constants";
 
 export const environment = {
-  ...Constants.manifest?.extra,
+  ...Constants.expoConfig?.extra,
 } as EnvironmentValues;
 
 export interface EnvironmentValues {
