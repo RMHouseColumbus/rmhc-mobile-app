@@ -57,6 +57,7 @@ export class ContentfulClient {
     }
   };
 
+
   public getEntries = async <T extends FieldsType>({
     contentType: content_type,
   }: Entries): Promise<EntryCollection<EntrySkeletonType<T>>> => {

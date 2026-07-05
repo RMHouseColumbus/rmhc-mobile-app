@@ -3,7 +3,7 @@
     "name": "RMHC App",
     "slug": "RMHCApp",
     "owner": "rmhc",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "runtimeVersion": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -23,7 +23,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "6",
+      "buildNumber": "1",
       "supportsTablet": false,
       "infoPlist": {
         "LSApplicationQueriesSchemes": [
@@ -37,7 +37,7 @@
       "bundleIdentifier": "org.rmhc.rmhcmobileapp"
     },
     "android": {
-      "versionCode": 10,
+      "versionCode": 11,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
