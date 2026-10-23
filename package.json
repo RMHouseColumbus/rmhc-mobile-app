@@ -4,6 +4,7 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "ENVIRONMENT=production expo start",
+    "brand:preview": "EXPO_PUBLIC_BRAND_PREVIEW=1 ENVIRONMENT=production expo start --go",
     "android": "ENVIRONMENT=production expo start --android",
     "ios": "ENVIRONMENT=production expo start --ios --clear",
     "web": "expo start --web",

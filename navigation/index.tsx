@@ -90,7 +90,7 @@ export default function Navigation({
         ...DefaultTheme,
         colors: {
           ...DefaultTheme.colors,
-          background: "#638dc9",
+          background: Colors.background,
         },
       }}
     >

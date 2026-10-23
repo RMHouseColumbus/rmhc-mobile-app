@@ -8,7 +8,7 @@ Use a Node version satisfying the installed React Native requirement (`>=20.19.4
 
 ```sh
 git fetch origin
-git switch -c rebrand/100-design-decisions origin/feature/rebrand
+git switch -c rebrand/105-illustrated-card origin/feature/rebrand
 npm ci
 cp .env.example .env.local
 ```
@@ -16,6 +16,28 @@ cp .env.example .env.local
 Ask the maintainer for the values named in `.env.example` and fill `.env.local`. The app reads them through `app.config.js`: Contentful supplies page content; the five feed URLs supply calendar data; `STAFF_PASSWORD` supports the existing Staff Use flow. Use maintainer-approved test data. Do not commit credentials or use a service-account JSON file as a substitute. Values exposed in Expo config are available to the client app.
 
 Start with `npm run ios` or `npm run android`. These scripts set `ENVIRONMENT=production`; that flag alone does not supply credentials. Expo loads `.env.local`. Coordinate with the maintainer before changing shared CMS/calendar data.
+
+## Test brand foundations without credentials
+
+```sh
+npm run brand:preview -- --clear
+```
+
+Press `i` for an iOS simulator, `a` for an Android emulator, or scan the QR code with Expo Go on a phone on the same network. If the default port is occupied, append `--port 8082`. No `.env.local`, Contentful account, or calendar feeds are needed for this page.
+
+The script sets `EXPO_PUBLIC_BRAND_PREVIEW=1`. `App.tsx` uses it only in development to select `screens/dev/BrandPreviewScreen.tsx`, before importing production clients. Both entry points use the same font loader and NativeBase theme. Stop Metro and start normally to return to the real app; don't persist this flag in `.env.local`.
+
+Check on both iOS and Android:
+
+- Cold-start the preview. Its summary should show **Fonts 4/4 · Images 19/19**; individual failures are displayed. A font error must not leave the splash stuck. Counts confirm loading, not visual correctness.
+- Compare the four explicit Audrey samples with the NativeBase regular, bold, italic, bold-italic, and heading samples. Check accented characters/numbers as appropriate and look for fallback or missing-font warnings.
+- Scroll through all logos/illustrations. Check aspect ratio, crisp edges, and transparent backgrounds; reversed logos use a dark surface. Preview illustrations are 112 logical pixels, similar to a card placement.
+- Repeat with device dark appearance and enlarged text. The page remains cream with readable text and scrolls without cutting off labels.
+- In the configured real app, verify navigation titles and ordinary NativeBase text, plus startup after closing/reopening Expo Go. The preview's title sample does not replace checking navigation itself.
+
+Use `constants/Colors.ts` for semantic colors, `constants/Fonts.tsx` for explicit React Native font faces, and the default NativeBase `Text`/`Heading` theme for automatic weight/style selection. NativeBase weights 100–500 map to Audrey Regular/Italic; 600–950 map to Bold/BoldItalic. `Fonts.Semibold` temporarily aliases Bold; old Raleway registrations remain for screens still naming them. The legacy `backgroundBlue`, `statusBarBlue`, and `buttonBlue` exports now map to cream, red, and red respectively. Later screen tickets migrate hard-coded styles.
+
+Asset provenance and export instructions are in `assets/brand/README.md`. Native splash artwork/launcher appearance require native-build checks in #117/#118, beyond this Expo Go preview.
 
 ## Work on one issue
 
