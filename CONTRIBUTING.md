@@ -10,12 +10,14 @@ Use a Node version satisfying the installed React Native requirement (`>=20.19.4
 git fetch origin
 git switch -c rebrand/105-illustrated-card origin/feature/rebrand
 npm ci
-cp .env.example .env.local
+cp .env.example .env
 ```
 
-Ask the maintainer for the values named in `.env.example` and fill `.env.local`. The app reads them through `app.config.js`: Contentful supplies page content; the five feed URLs supply calendar data; `STAFF_PASSWORD` supports the existing Staff Use flow. Use maintainer-approved test data. Do not commit credentials or use a service-account JSON file as a substitute. Values exposed in Expo config are available to the client app.
+Ask the maintainer for the values named in `.env.example` and fill `.env`. The app reads them through `app.config.js`: Contentful supplies page content; the five feed URLs supply calendar data; `STAFF_PASSWORD` supports the existing Staff Use flow. Use maintainer-approved test data. Do not commit credentials or use a service-account JSON file as a substitute. Values exposed in Expo config are available to the client app.
 
-Start with `npm run ios` or `npm run android`. These scripts set `ENVIRONMENT=production`; that flag alone does not supply credentials. Expo loads `.env.local`. Coordinate with the maintainer before changing shared CMS/calendar data.
+Start with `npm run ios` or `npm run android`. Expo automatically loads `.env`; `.env.local` can override it. Both are git-ignored. Restart Expo after changing these values so `app.config.js` is evaluated again. The legacy `ENVIRONMENT=production` script flag does not select credentials. No `config/production.js` import or source-code commenting is needed. Coordinate with the maintainer before changing shared CMS/calendar data.
+
+For EAS builds, configure the same named variables in the appropriate EAS environment; local ignored files are not a substitute for build-service configuration.
 
 ## Test brand foundations without credentials
 
