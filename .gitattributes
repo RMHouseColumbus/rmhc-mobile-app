@@ -1,0 +1,5 @@
+# Preserve design/font source files as binary; do not normalize their line endings.
+*.ai binary
+*.idml binary
+*.pdf binary
+*.otf binary

@@ -60,4 +60,6 @@ buck-out/
 /ios/Pods/
 /config/production.js
 /.expo/
+/.env*
+!/.env.example
 /rmhc-app-424718-c7b687b91ff2.json
