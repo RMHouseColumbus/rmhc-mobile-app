@@ -21,7 +21,7 @@ Start with `npm run ios` or `npm run android`. These scripts set `ENVIRONMENT=pr
 
 1. Claim an unblocked issue and move its Project item to In Progress. Read its acceptance criteria, dependencies, and relevant files before asking a coding assistant to implement it.
 2. Branch from the latest `origin/feature/rebrand` using `rebrand/<issue-number>-<short-name>`.
-3. Use the [design asset guide](App%20Design%20Assets/README.md). Preserve existing routes, content bindings, and destinations. Follow recorded design decisions rather than inventing new colors or artwork.
+3. Use the [design asset guide](App%20Design%20Assets/README.md). Preserve existing routes, content bindings, and destinations. Use the working defaults in `tickets/DECISIONS.md`. #120 tracks later feedback and does not block implementation or acceptance.
 4. Run the relevant checks below and attach screenshots for changed screens, plus a short account of actions exercised. Distinguish existing failures from new ones.
 5. Open a PR **targeting `feature/rebrand`**, link the issue, and request maintainer review. Mention the issue with `Refs #...`; close it after acceptance on the integration branch rather than relying on default-branch auto-close behavior.
 
@@ -47,8 +47,8 @@ Record these separately when comparing a PR's results; do not silently suppress 
 
 ## Maintainer handoff before assignments
 
-- Resolve the design questions in #100, especially palette/contrast, tab states, unmocked screens, and splash composition. Record answers in `tickets/DECISIONS.md` and link them from #100.
+- Share `tickets/DECISIONS.md` with contributors. #100 is complete with working defaults; collect later feedback in #120 and update the log as answers arrive. Do not hold implementation or acceptance for these open questions.
 - Confirm contributors have repository access and local configuration/test data. Have one contributor complete a clean checkout and app launch.
-- Add the rebrand issues to the Project, assign owners, and follow dependency order. Start with decisions, assets, and shared theme/cards.
+- Add the rebrand issues to the Project, assign owners, and follow dependency order. Start with assets and shared theme/cards using the recorded defaults.
 - Configure a review rule for `feature/rebrand` if desired, with the maintainer reviewing PRs; select required checks only after their baseline passes. Keep the repository default branch unchanged during the rebrand.
 - Complete cross-platform acceptance in #119 before merging `feature/rebrand` into `master` or planning a release. This preparation does not publish an app update.

@@ -19,4 +19,4 @@ Removed print-oriented EPS/CMYK/spot logo exports, redundant Illustrator/JPEG lo
 
 The supplied payload was reduced from 70.6 MiB to 14.7 MiB before this README. A complete original archive was retained outside the repository on the maintainer's machine during cleanup.
 
-Decisions about palette differences, navigation states, and unmocked screens belong to [issue #100](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/100). See [CONTRIBUTING.md](../CONTRIBUTING.md) for branch and setup instructions.
+Use the working defaults in `tickets/DECISIONS.md` for palette differences, navigation states, and unmocked screens. Later feedback belongs to non-blocking [issue #120](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/120). See [CONTRIBUTING.md](../CONTRIBUTING.md) for branch and setup instructions.

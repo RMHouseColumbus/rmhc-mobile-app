@@ -4,14 +4,14 @@ A dependency-ordered backlog for applying the supplied Ronald McDonald House Cen
 
 ## GitHub tracking
 
-The 20 tickets are published as GitHub issues #100–#119, with linked dependencies and shared onboarding in [the tracker and contributor guide](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/99). Individual ticket files link to their matching issues.
+The original 20 tickets are published as GitHub issues #100–#119; non-blocking design feedback is TICKET-021 / #120, with linked dependencies and shared onboarding in [the tracker and contributor guide](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/99). Individual ticket files link to their matching issues.
 
 Project: [RMH App Rebrand](https://github.com/orgs/RMHouseColumbus/projects/2). The issues reference this Project; board membership has not been set by this integration.
 
 ## Start here
 
 1. Read this file and the ticket, then inspect its source files and dependencies before editing.
-2. Start with **TICKET-001**. Record design decisions once so contributors and coding assistants use the same answers.
+2. Read `tickets/DECISIONS.md` and use its working defaults. TICKET-001 is complete; start implementation with **TICKET-002** (assets) or **TICKET-003** (shared theme). TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
 3. Implement only the selected ticket. Preserve navigation, CMS/feed behavior, and external destinations unless that ticket explicitly calls for a change.
 4. Record verification evidence and blockers in the ticket. Do not claim a simulator/build check was run if it was not.
 
@@ -29,7 +29,7 @@ All paths below are relative to the repository root:
 - `App Design Assets/Logos/`: horizontal/vertical RGB logos in SVG and transparent PNG formats.
 - `App Design Assets/Audrey Font Family/`: the six native-compatible OTF font faces under `Desktop Fonts/OTF/`. Use this family for application fonts; the distinct package copies are retained for opening the original layout.
 
-The new visual direction is red headers, cream backgrounds, Audrey type, and illustrated colored cards. Bottom-tab states, drawer/detail styling, splash composition, and color discrepancies need decisions in TICKET-001. The supplied design changes presentation, not the app’s information architecture.
+The new visual direction is red headers, cream backgrounds, Audrey type, and illustrated colored cards. Working defaults for bottom tabs, unmocked screens, splash and color discrepancies are recorded in `tickets/DECISIONS.md`; revisit them through TICKET-021 as feedback arrives. The supplied design changes presentation, not the app’s information architecture.
 
 The curated design package is included on `feature/rebrand`. Read `App Design Assets/README.md` for retained sources and cleanup rationale; copy selected runtime assets into the app’s `assets/` tree during implementation.
 
@@ -70,11 +70,11 @@ For UI work, inspect normal and enlarged text on a narrow phone as well as a sta
 - **FEAT-002 — App experience:** EPIC-003 navigation; EPIC-004 primary mockup screens; EPIC-005 supporting screens and shared content.
 - **FEAT-003 — Release readiness:** EPIC-006 native launch assets; EPIC-007 cross-platform acceptance evidence.
 
-Numbers provide a suggested reading/execution order; each ticket’s dependencies determine readiness. After foundations, individual screen tickets can be assigned independently when ready. Dependencies on TICKET-001 require the decisions relevant to that ticket, not unrelated unanswered questions. Where multiple tickets edit the same file (especially navigation), integrate one at a time.
+Numbers provide a suggested reading/execution order; each ticket’s dependencies determine readiness. After foundations, individual screen tickets can be assigned independently when ready. Dependencies on TICKET-001 are satisfied by the recorded working defaults. TICKET-021 is a non-blocking follow-up, including for TICKET-020 acceptance. Where multiple tickets edit the same file (especially navigation), integrate one at a time.
 
 | Ticket | Work | Depends on |
 | --- | --- | --- |
-| [TICKET-001](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-001-resolve-design-details.md) | Record the implementation design decisions | None |
+| [TICKET-001](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-001-resolve-design-details.md) | Record the implementation design decisions (done: working defaults) | None |
 | [TICKET-002](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-002-prepare-artwork.md) | Prepare reusable logo and illustration assets | 001 |
 | [TICKET-003](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey | 001 |
 | [TICKET-004](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-004-headers-and-drawer.md) | Apply the new header and drawer styling | 003 |
@@ -94,6 +94,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-018](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-018-launcher-icon.md) | Prepare and configure the new launcher icon | 001, 002 |
 | [TICKET-019](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
 | [TICKET-020](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-007-validation/TICKET-020-rebrand-acceptance.md) | Record the rebrand acceptance results | 001–019 |
+| [TICKET-021](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-021-design-feedback.md) | Revisit design choices as feedback arrives (non-blocking) | None |
 
 ## Workflow
 
@@ -101,4 +102,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** INIT-001 → FEAT-001 → EPIC-001 → TICKET-001. Nothing is in progress. **Next unblocked ticket:** TICKET-001.
+**Current selection:** INIT-001 → FEAT-001 → EPIC-001 → TICKET-002. Nothing is in progress. **Next unblocked ticket:** TICKET-002; TICKET-003 is also ready. TICKET-021 is deferred feedback, not a gate.
