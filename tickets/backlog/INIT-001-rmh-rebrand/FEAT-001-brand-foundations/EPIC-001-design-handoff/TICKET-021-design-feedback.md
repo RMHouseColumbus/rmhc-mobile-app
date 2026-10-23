@@ -44,4 +44,3 @@ Cross-check the decision log against maintainer feedback and linked change ticke
 ## Implementation notes
 
 Awaiting future feedback; no designer decisions are implied by the defaults.
-

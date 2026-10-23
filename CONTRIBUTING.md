@@ -1,6 +1,6 @@
 # Contributing to the RMH rebrand
 
-The integration branch is **`feature/rebrand`**. Start at the [tracker and contributor guide (#99)](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/99); [issues #100–#119](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues?q=is%3Aissue+%5BRebrand%5D) mirror the local `tickets/` board. The [Project](https://github.com/orgs/RMHouseColumbus/projects/2) tracks assignment and progress.
+The integration branch is **`feature/rebrand`**. Start at the [tracker and contributor guide (#99)](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/99); [issues #100–#119](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues?q=is%3Aissue+%5BRebrand%5D) mirror the local `tickets/` board. [Issue #120](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/120) tracks non-blocking design feedback. The [Project](https://github.com/orgs/RMHouseColumbus/projects/2) tracks assignment and progress.
 
 ## Set up
 
