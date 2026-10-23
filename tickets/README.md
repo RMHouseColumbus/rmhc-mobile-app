@@ -11,7 +11,7 @@ Project: [RMH App Rebrand](https://github.com/orgs/RMHouseColumbus/projects/2). 
 ## Start here
 
 1. Read this file and the ticket, then inspect its source files and dependencies before editing.
-2. Read `tickets/DECISIONS.md` and use its working defaults. TICKET-001 is complete; start implementation with **TICKET-002** (assets) or **TICKET-003** (shared theme). TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
+2. Read `tickets/DECISIONS.md` and use its working defaults. TICKET-001 is complete; TICKET-002 assets are prepared; continue with **TICKET-003** (shared theme). TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
 3. Implement only the selected ticket. Preserve navigation, CMS/feed behavior, and external destinations unless that ticket explicitly calls for a change.
 4. Record verification evidence and blockers in the ticket. Do not claim a simulator/build check was run if it was not.
 
@@ -75,7 +75,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | Ticket | Work | Depends on |
 | --- | --- | --- |
 | [TICKET-001](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-001-resolve-design-details.md) | Record the implementation design decisions (done: working defaults) | None |
-| [TICKET-002](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-002-prepare-artwork.md) | Prepare reusable logo and illustration assets | 001 |
+| [TICKET-002](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-002-prepare-artwork.md) | Prepare reusable logo and illustration assets | 001 |
 | [TICKET-003](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey | 001 |
 | [TICKET-004](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-004-headers-and-drawer.md) | Apply the new header and drawer styling | 003 |
 | [TICKET-005](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-005-bottom-navigation.md) | Apply the agreed bottom navigation design | 001, 003 |
@@ -102,4 +102,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** INIT-001 → FEAT-001 → EPIC-001 → TICKET-002. Nothing is in progress. **Next unblocked ticket:** TICKET-002; TICKET-003 is also ready. TICKET-021 is deferred feedback, not a gate.
+**Current selection:** INIT-001 → FEAT-001 → EPIC-002 → TICKET-003 (#102). TICKET-002 (#101) is done. **Next unblocked ticket:** TICKET-003. TICKET-021 remains deferred feedback.
