@@ -79,7 +79,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-003](in-progress/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey | 001 |
 | [TICKET-004](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-004-headers-and-drawer.md) | Apply the new header and drawer styling | 003 |
 | [TICKET-005](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-005-bottom-navigation.md) | Apply the agreed bottom navigation design | 001, 003 |
-| [TICKET-006](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-006-shared-illustrated-card.md) | Support branded illustrated cards in the shared component | 002, 003 |
+| [TICKET-006](in-progress/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-006-shared-illustrated-card.md) | Support branded illustrated cards in the shared component | 002, 003 |
 | [TICKET-007](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-007-home-screen.md) | Rebuild Home to match the new welcome design | 002, 003, 004, 005 |
 | [TICKET-008](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-008-neighborhood-screen.md) | Rebrand the Neighborhood cards | 006, 004 |
 | [TICKET-009](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-009-about-screen.md) | Rebrand the About cards including Staff Use | 006, 004 |
@@ -102,4 +102,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** INIT-001 → FEAT-001 → EPIC-002 → TICKET-003 (#102), implemented and verified in the iOS preview; Android, dark/enlarged-text, and full-app navigation checks remain. TICKET-002 (#101) is done. **Next planned ticket:** TICKET-004 (#103) after TICKET-003 verification. TICKET-021 remains deferred feedback.
+**Current selection:** INIT-001 → FEAT-001 → EPIC-002 → TICKET-006 (#105), on `rebrand/105-illustrated-card`, as requested by the maintainer. TICKET-003 (#102) remains pending its separate verification; its implementation is available. TICKET-002 (#101) is done. **Next planned work:** integrate #105 after its device checks, then proceed with the dependent screen tickets. TICKET-021 remains deferred feedback.
