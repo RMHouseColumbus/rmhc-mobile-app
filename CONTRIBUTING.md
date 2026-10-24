@@ -4,7 +4,7 @@ The integration branch is **`feature/rebrand`**. Start at the [tracker and contr
 
 ## Set up
 
-Use a Node version satisfying the installed React Native requirement (`>=20.19.4`), npm, and the appropriate iOS Simulator or Android emulator tooling. The initial baseline below used Node 25.2.1/npm 11.6.2; these are observations, not a version pin.
+Use Node 24 LTS (`nvm use` reads `.nvmrc`), npm, and the appropriate iOS Simulator or Android emulator tooling.
 
 ```sh
 git fetch origin
