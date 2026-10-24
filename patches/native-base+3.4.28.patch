@@ -1,0 +1,39 @@
+diff --git a/node_modules/native-base/lib/commonjs/components/composites/AspectRatio/index.js b/node_modules/native-base/lib/commonjs/components/composites/AspectRatio/index.js
+index 85ca62c..213e301 100644
+--- a/node_modules/native-base/lib/commonjs/components/composites/AspectRatio/index.js
++++ b/node_modules/native-base/lib/commonjs/components/composites/AspectRatio/index.js
+@@ -73,7 +73,7 @@ const AspectRatio = (props, ref) => {
+   let computedStyle = resolvedProps.style;
+ 
+   const newChildWithProps = /*#__PURE__*/_react.default.cloneElement(children, { ...(children === null || children === void 0 ? void 0 : children.props),
+-    style: _reactNative.StyleSheet.absoluteFillObject
++    style: _reactNative.StyleSheet.absoluteFill
+   }, children === null || children === void 0 ? void 0 : (_children$props = children.props) === null || _children$props === void 0 ? void 0 : _children$props.children); //TODO: refactor for responsive prop
+ 
+ 
+diff --git a/node_modules/native-base/lib/module/components/composites/AspectRatio/index.js b/node_modules/native-base/lib/module/components/composites/AspectRatio/index.js
+index b65381a..242d4e6 100644
+--- a/node_modules/native-base/lib/module/components/composites/AspectRatio/index.js
++++ b/node_modules/native-base/lib/module/components/composites/AspectRatio/index.js
+@@ -53,7 +53,7 @@ const AspectRatio = (props, ref) => {
+   });
+   let computedStyle = resolvedProps.style;
+   const newChildWithProps = /*#__PURE__*/React.cloneElement(children, { ...(children === null || children === void 0 ? void 0 : children.props),
+-    style: StyleSheet.absoluteFillObject
++    style: StyleSheet.absoluteFill
+   }, children === null || children === void 0 ? void 0 : (_children$props = children.props) === null || _children$props === void 0 ? void 0 : _children$props.children); //TODO: refactor for responsive prop
+ 
+   if (useHasResponsiveProps(resolvedProps)) {
+diff --git a/node_modules/native-base/src/components/composites/AspectRatio/index.tsx b/node_modules/native-base/src/components/composites/AspectRatio/index.tsx
+index edcb8fa..6d07dc4 100644
+--- a/node_modules/native-base/src/components/composites/AspectRatio/index.tsx
++++ b/node_modules/native-base/src/components/composites/AspectRatio/index.tsx
+@@ -42,7 +42,7 @@ const AspectRatio = (props: IAspectRatioProps, ref?: any) => {
+     children,
+     {
+       ...children?.props,
+-      style: StyleSheet.absoluteFillObject,
++      style: StyleSheet.absoluteFill,
+     },
+     children?.props?.children
+   );

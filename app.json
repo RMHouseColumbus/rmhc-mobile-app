@@ -11,11 +11,6 @@
     "icon": "./assets/images/icon.png",
     "scheme": "rmhc",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD",
@@ -61,7 +56,17 @@
             "usesCleartextTraffic": true
           }
         }
-      ]
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-status-bar",
+      "expo-web-browser"
     ]
   }
 }
