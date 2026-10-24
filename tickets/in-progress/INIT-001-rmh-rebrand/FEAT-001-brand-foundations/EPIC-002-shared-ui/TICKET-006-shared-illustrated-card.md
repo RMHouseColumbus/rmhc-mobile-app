@@ -37,4 +37,6 @@ The development preview now has a real two-screen navigation stack and a card se
 
 Checks so far: iOS/Android development and release exports pass; TypeScript diagnostics exactly match the six-error baseline. Isolated callback checks verify that both new and legacy variants dispatch the supplied route/URL only on press; these do not verify native rendering or gestures.
 
-Pending: maintainer Expo Go review of full/narrow layout, enlarged text, navigation/back and website opening, plus screen-reader behavior. Keep open until these checks are recorded. No screen migration is included.
+Maintainer simulator review: reported “looks fine” after reviewing the preview. This records visual acceptance, not a claim that each interaction or accessibility scenario was exercised.
+
+Pending: confirm navigation/back and website opening, plus the enlarged-text and screen-reader checks not explicitly reported. Keep open until verification is recorded. No screen migration is included.
