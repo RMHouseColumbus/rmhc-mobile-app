@@ -41,6 +41,26 @@ Use `constants/Colors.ts` for semantic colors, `constants/Fonts.tsx` for explici
 
 Asset provenance and export instructions are in `assets/brand/README.md`. Native splash artwork/launcher appearance require native-build checks in #117/#118, beyond this Expo Go preview.
 
+### Shared illustrated cards (#105)
+
+The new `SVGCard` variant accepts a plain label, a bundled image, and an explicit color pair. Keep route IDs and URLs unchanged when migrating screens:
+
+```tsx
+<SVGCard
+  label="Food Delivery"
+  artwork={brandImages.meals.source}
+  colors={cardColors.lavender}
+  navType="navigation"
+  navigationTo="Delivery"
+/>
+```
+
+Import `SVGCard` from `components/SVGCard`, `brandImages` from `assets/brand`, and `cardColors` from `constants/Colors`. Use `navType="link"` for an external URL. For typed navigation callbacks or another action, use the layout-only `IllustratedCard` directly with `onPress` and the appropriate `accessibilityRole` (`button` by default).
+
+Labels wrap without a line limit and respect system font scaling. Artwork keeps its aspect ratio in an 88-point square. Cards stack below 300 points wide or at font scales of 1.6× and above. Existing `textComponent`/`component` props, `SVGCardText`, and the separate Your Stay cards remain compatible; screen migrations belong to their own tickets.
+
+The preview's **Illustrated cards · #105** section includes all four color pairs, short/long labels, a 280-point width toggle, an actual stack destination with a Back button, an external website link, and an original card. Check full/narrow width, enlarged device text, and VoiceOver/TalkBack (one named button/link per new card; decorative artwork is not announced). A successful bundle or callback check does not replace these device checks.
+
 ## Work on one issue
 
 1. Claim an unblocked issue and move its Project item to In Progress. Read its acceptance criteria, dependencies, and relevant files before asking a coding assistant to implement it.

@@ -1,18 +1,50 @@
 import { useEffect, useState } from "react";
 import { Image, ScrollView, StyleSheet, Text as NativeText, View } from "react-native";
-import { Heading, Text } from "native-base";
+import { Button, Heading, Text } from "native-base";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { isLoaded } from "expo-font";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { brandImages, BrandImage } from "../../assets/brand";
 import { brandFontAssets } from "../../constants/FontAssets";
 import Colors, { cardColors } from "../../constants/Colors";
 import Fonts from "../../constants/Fonts";
+import { CARD_PREVIEW_ROUTE, CardPreviewSection } from "./CardPreviewSection";
 
 const images: [string, BrandImage][] = Object.entries(brandImages);
 const fonts = Object.keys(brandFontAssets);
 const pairs = Object.values(cardColors);
 
+type PreviewStackParams = { BrandGallery: undefined; CardPreviewDetail: undefined };
+const Stack = createNativeStackNavigator<PreviewStackParams>();
+
 export default function BrandPreviewScreen({ fontError }: { fontError?: Error | null }) {
+  return (
+    <NavigationContainer theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors, background: Colors.background } }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="BrandGallery">
+          {() => <BrandGallery fontError={fontError} />}
+        </Stack.Screen>
+        <Stack.Screen name={CARD_PREVIEW_ROUTE} component={CardPreviewDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+function CardPreviewDetail({ navigation }: NativeStackScreenProps<PreviewStackParams, "CardPreviewDetail">) {
+  return (
+    <SafeAreaView style={styles.page}>
+      <ScrollView contentContainerStyle={styles.content}>
+        <Heading>Card navigation worked</Heading>
+        <Text>This is a real stack destination inside the offline preview. Use Back to return to the gallery.</Text>
+        <Button onPress={() => navigation.goBack()}>Back to brand preview</Button>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+function BrandGallery({ fontError }: { fontError?: Error | null }) {
   const [imageResults, setImageResults] = useState<Record<string, string>>({});
   const loadedImages = Object.values(imageResults).filter((result) => result === "Loaded").length;
   const loadedFonts = fonts.filter(isLoaded).length;
@@ -32,11 +64,13 @@ export default function BrandPreviewScreen({ fontError }: { fontError?: Error | 
     <SafeAreaView style={styles.page}>
       <ScrollView contentContainerStyle={styles.content}>
         <Heading accessibilityRole="header">Brand preview</Heading>
-        <Text>Offline check for #101 and #102. Scroll to inspect every image and font.</Text>
+        <Text>Brand checks for #101, #102, and #105. Only the website test opens an external page.</Text>
         <Text accessibilityLiveRegion="polite" fontWeight="bold">
           Fonts {loadedFonts}/{fonts.length} · Images {loadedImages}/{images.length}
         </Text>
         {fontError && <NativeText style={styles.error}>Font load failed: {fontError.message}</NativeText>}
+
+        <CardPreviewSection />
 
         <Heading size="md">Audrey font files</Heading>
         {fonts.map((font) => (
