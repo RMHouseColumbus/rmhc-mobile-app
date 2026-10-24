@@ -1,7 +1,8 @@
 import React from 'react';
 import { act, create } from 'react-test-renderer';
 import { StyleSheet, View } from 'react-native';
-import { AspectRatio, NativeBaseProvider, Text } from 'native-base';
+import { AspectRatio, Icon, NativeBaseProvider, Text } from 'native-base';
+import { Path } from 'react-native-svg';
 import { brandTheme } from '../constants/Theme';
 
 // Exercise NativeBase against the installed React/RN versions, including the
@@ -28,4 +29,27 @@ test('renders branded NativeBase content and aspect-ratio artwork', async () => 
     position: 'absolute', top: 0, right: 0, bottom: 0, left: 0,
   });
   await act(async () => tree.unmount());
+});
+
+test('renders NativeBase icons without invalid SVG colors', async () => {
+  const warn = jest.spyOn(console, 'warn');
+  let tree;
+  try {
+    await act(async () => {
+      tree = create(
+        <NativeBaseProvider theme={brandTheme} initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 390, height: 844 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}>
+          <Icon color="black" viewBox="0 0 24 24">
+            <Path d="M2 2h20v20H2z" />
+          </Icon>
+        </NativeBaseProvider>
+      );
+    });
+    expect(warn).not.toHaveBeenCalledWith(expect.stringContaining('not a valid color or brush'));
+  } finally {
+    if (tree) await act(async () => tree.unmount());
+    warn.mockRestore();
+  }
 });

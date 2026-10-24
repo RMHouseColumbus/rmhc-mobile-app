@@ -6,7 +6,7 @@ The integration branch is **`feature/rebrand`**. Start at the [tracker and contr
 
 Use Node 24 LTS (`nvm use` reads `.nvmrc`), npm, and the appropriate iOS Simulator or Android emulator tooling.
 
-The app uses Expo SDK 58. Use a matching Expo Go client and restart Metro after SDK changes. `npm ci` also applies the NativeBase compatibility patch in `patches/`; verify it with `npm test -- --watchAll=false --runInBand`.
+The app uses Expo SDK 58. Use a matching Expo Go client and restart Metro after SDK changes. `npm ci` also applies the NativeBase and native drawer compatibility patches in `patches/`; run `npm test -- --watchAll=false --runInBand` and check drawer gestures in the simulator.
 
 ```sh
 git fetch origin

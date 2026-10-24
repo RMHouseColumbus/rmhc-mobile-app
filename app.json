@@ -62,7 +62,10 @@
         {
           "image": "./assets/images/splash.png",
           "resizeMode": "cover",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffffff",
+          "ios": {
+            "enableFullScreenImage_legacy": true
+          }
         }
       ],
       "expo-status-bar",
