@@ -56,8 +56,9 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-# CocoaPods
-/ios/Pods/
+# Generated native projects (Expo Prebuild)
+/ios/
+/android/
 /config/production.js
 /.expo/
 /.env*
