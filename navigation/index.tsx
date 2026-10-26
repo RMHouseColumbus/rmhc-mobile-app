@@ -215,9 +215,8 @@ function getHeaderTitle(route: RouteProp<ParamListBase>) {
   const routeName = getFocusedRouteNameFromRoute(route) ?? route.name;
   switch (routeName) {
     case "RMHC Central Ohio":
-      return routeName;
     case "Home":
-      return "RMHC Central Ohio";
+      return "Ronald McDonald House";
     case "In Hospital Services":
       return "FAMILY ROOMS";
     default:
@@ -236,7 +235,7 @@ function RootNavigator() {
           headerShown: showHeaderTitle(props.route),
           headerLeft: () => (
             <IconButton
-              icon={<HamburgerIcon color={Colors.black} />}
+              icon={<HamburgerIcon color={Colors.onHeader} />}
               onPress={() => props.navigation.openDrawer()}
             />
           ),

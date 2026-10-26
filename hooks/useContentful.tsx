@@ -6,23 +6,35 @@ import { DataContext } from "../context/DataContext";
 
 export function useContentfulEntries<T extends FieldsType>(entries: Entries) {
   const { client } = useContext(DataContext);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState<EntryCollection<EntrySkeletonType<T>>>();
-
-  const execute = async () => {
-    setLoading(true);
-    const fetched: EntryCollection<EntrySkeletonType<T>> = await client.getEntries<T>(entries);
-    setData(fetched);
-    setLoading(false);
-  };
+  const [error, setError] = useState<unknown>();
 
   useEffect(() => {
-    execute();
-  }, [entries]);
+    let active = true;
+    setLoading(true);
+    setError(undefined);
+    const execute = async () => {
+      try {
+        const fetched = await client.getEntries<T>(entries);
+        if (active) setData(fetched);
+      } catch (cause) {
+        if (active) {
+          setData(undefined);
+          setError(cause);
+        }
+      } finally {
+        if (active) setLoading(false);
+      }
+    };
+    void execute();
+    return () => { active = false; };
+  }, [client, entries]);
 
   const result = () => ({
     data: data?.items.map((a) => a.fields as T) ?? [],
     loading,
+    error,
   });
 
   return result();

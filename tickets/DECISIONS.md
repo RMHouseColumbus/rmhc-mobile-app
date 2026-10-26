@@ -15,9 +15,10 @@ Source: `App Design Assets/RMH App Design Package/RMH App Design.pdf`, pages 1�
 | Dark appearance | Use the supplied light appearance consistently for this release, including when the device is in dark mode. | Only a light design was supplied; deliberate implementation choice. |
 | Launcher name | Retain “RMHC App.” Keep bundle/package IDs, scheme, internal route IDs, and destinations unchanged. | No designer-requested rename. This question was optional scope, not a requirement. |
 | Copy | Correct “Vist” to “Visit”; retain content and behavior otherwise. | Typo in the About mockup. |
+| Home panel corners | Use square corners on the cream Home welcome panel. | Maintainer override on 2026-10-25; supersedes the rounded corners on PDF page 3. |
 
 ## When feedback arrives
 
 The maintainer owns collecting and accepting feedback. Add the answer, source, date, and affected default here, then link a focused change ticket from #120 when code needs adjustment. Until an answer arrives, continue with the default; do not invent a new approval gate or silently claim designer approval.
 
-No design feedback has been received yet. Ordinary functional, layout, and accessibility verification still applies to each implementation ticket.
+The Home corner treatment above reflects maintainer feedback. Other defaults remain provisional. Ordinary functional, layout, and accessibility verification still applies to each implementation ticket.
