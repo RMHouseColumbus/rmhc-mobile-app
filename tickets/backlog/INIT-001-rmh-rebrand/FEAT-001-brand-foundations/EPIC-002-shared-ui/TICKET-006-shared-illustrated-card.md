@@ -29,6 +29,8 @@ Run shared checks. Exercise a navigation card and an external-link card; inspect
 
 ## Implementation notes
 
+PR #121 is merged into `feature/rebrand`. Returned to the backlog for the remaining checks below while #110 is active; implementation is complete.
+
 Work started on `rebrand/105-illustrated-card` from `feature/rebrand`, at the maintainer's request. #101 is complete; #102 implementation is available, with its remaining verification tracked separately (not marked complete to start this work).
 
 Implemented `components/IllustratedCard.tsx` and a branded option in `SVGCard`. The layout-only component takes label/artwork/colors/onPress; the existing routing adapter preserves navigation and URL handling. Existing props and the separate Your Stay components remain unchanged. Cards have a single accessible name/role, decorative images, unrestricted label wrapping and responsive stacking for narrow containers/enlarged fonts.
