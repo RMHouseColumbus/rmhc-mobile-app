@@ -36,4 +36,4 @@ Automated tests cover resolved native font faces, both mark orders, link styling
 
 Maintainer accepted the normal app rendering and reported “looks fine” after the iOS simulator narrow-width/enlarged-text check instructions. Link dispatch is covered by the automated tests; Android visual checks remain part of cross-platform acceptance (#119).
 
-Implementation and maintainer review are complete. Changes are still uncommitted on `rebrand/110-rich-text`; close #110 and move this ticket to done after the PR is merged into `feature/rebrand`.
+Implementation and maintainer review are complete. The maintainer committed the implementation in `d4cd955` and authorized merging into `feature/rebrand`. This completion record accompanies that PR; GitHub #110 closes after the merge.

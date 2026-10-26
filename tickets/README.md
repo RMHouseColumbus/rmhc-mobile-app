@@ -11,7 +11,7 @@ Project: [RMH App Rebrand](https://github.com/orgs/RMHouseColumbus/projects/2). 
 ## Start here
 
 1. Read this file and the ticket, then inspect its source files and dependencies before editing.
-2. Read `tickets/DECISIONS.md` and use its working defaults. Assets, theme, and shared cards are implemented; current work is **TICKET-011 / #110** (rich text). TICKET-003 and TICKET-006 retain pending device checks in the backlog. TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
+2. Read `tickets/DECISIONS.md` and use its working defaults. Assets, theme, and shared cards are implemented; **TICKET-011 / #110** (rich text) is complete. TICKET-003 and TICKET-006 retain pending device checks in the backlog. TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
 3. Implement only the selected ticket. Preserve navigation, CMS/feed behavior, and external destinations unless that ticket explicitly calls for a change.
 4. Record verification evidence and blockers in the ticket. Do not claim a simulator/build check was run if it was not.
 
@@ -85,7 +85,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-008](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-008-neighborhood-screen.md) | Rebrand the Neighborhood cards | 006, 004 |
 | [TICKET-009](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-009-about-screen.md) | Rebrand the About cards including Staff Use | 006, 004 |
 | [TICKET-010](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-010-your-stay-screen.md) | Rebrand the Your Stay menu | 006, 004 |
-| [TICKET-011](in-progress/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-011-rich-text-rendering.md) | Apply Audrey typography to Contentful rich text | 003 |
+| [TICKET-011](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-011-rich-text-rendering.md) | Apply Audrey typography to Contentful rich text (done) | 003 |
 | [TICKET-012](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-012-calendar-screens.md) | Rebrand calendar cards and feed screens | 003 |
 | [TICKET-013](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-013-resource-lists.md) | Rebrand updates and resource lists | 003, 011 |
 | [TICKET-014](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-014-stay-and-about-details.md) | Rebrand stay information and About detail pages | 003, 011 |
@@ -104,4 +104,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** INIT-001 → FEAT-002 → EPIC-005 → TICKET-011 (#110), on `rebrand/110-rich-text`. TICKET-003 (#102) and TICKET-006 (#105) are implemented on `feature/rebrand`; their remaining verification is in the backlog, not marked complete. **Next planned work:** review TICKET-015 (#114) against the delivery/transport changes already merged in PR #124 once rich text is accepted. TICKET-021 remains deferred feedback.
+**Current selection:** none. Completed INIT-001 → FEAT-002 → EPIC-005 → TICKET-011 (#110). TICKET-003 (#102) and TICKET-006 (#105) are implemented on `feature/rebrand`; their remaining verification is in the backlog, not marked complete. **Next planned work:** review TICKET-015 (#114) against the delivery/transport changes already merged in PR #124. TICKET-021 remains deferred feedback.
