@@ -4,6 +4,7 @@ import type { Options } from "@contentful/rich-text-react-renderer";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import type { QuestionAnswer } from "../../../contentful/ContenfulTypes";
+import { cardSurface } from "../../../constants/CardStyles";
 
 export interface QACardProps {
   qa: QuestionAnswer;
@@ -15,7 +16,7 @@ export const QACard = ({ qa, options }: QACardProps) => {
   return (
     <Box
       borderRadius={20}
-      backgroundColor={"white"}
+      style={cardSurface}
       my={"1"}
       justifyContent={"center"}
     >

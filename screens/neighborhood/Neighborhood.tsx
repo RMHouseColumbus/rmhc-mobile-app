@@ -10,8 +10,10 @@ import type {
 } from "../../types";
 import { createGeoLink } from "../../hooks/useMapLink";
 import { RMHC_LAT_LONG } from "../../constants/Shared";
-import type { SVGCardProps } from "../../components/SVGCard";
+import type { SVGCardProps, IllustratedSVGCardProps } from "../../components/SVGCard";
 import { SVGCard, SVGCardText } from "../../components/SVGCard";
+import { brandImages } from "../../assets/brand";
+import Colors from "../../constants/Colors";
 
 import {
   AreaRestaurantsSVG,
@@ -21,7 +23,7 @@ import {
   TransportationSVG,
 } from "./components/NeighborhoodCards";
 
-const neighborhoodCardPops: SVGCardProps[] = [
+const neighborhoodCardPops: (SVGCardProps | IllustratedSVGCardProps)[] = [
   {
     textComponent: <SVGCardText text={["Food", "Delivery"]} />,
     component: <FoodDeliverySVG />,
@@ -57,6 +59,13 @@ const neighborhoodCardPops: SVGCardProps[] = [
     navigationTo: "https://www.experiencecolumbus.com/",
   },
   {
+    label: "Tickets",
+    artwork: brandImages.tickets.source,
+    colors: { background: Colors.cardBackground, text: Colors.text },
+    navigationTo: "Tickets",
+    navType: "navigation",
+  },
+  {
     textComponent: <SVGCardText text={["Transportation"]} />,
     component: <TransportationSVG />,
     navType: "navigation",
@@ -72,7 +81,9 @@ export default function Neighborhood({
   return (
     <ScrollView flex={1} py={"4"} px={"4"}>
       {neighborhoodCardPops.map((data, i) => (
-        <SVGCard key={i} {...data} />
+        "label" in data ? (
+          <Box key={i} my={2}><SVGCard {...data} /></Box>
+        ) : <SVGCard key={i} {...data} />
       ))}
       <Box height={tabBarHeight} />
     </ScrollView>

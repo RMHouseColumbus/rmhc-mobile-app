@@ -10,6 +10,7 @@ import { createRichTextRenderOptions } from "../../contentful/ContentfulRender";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Linking } from "react-native";
 import Colors from "../../constants/Colors";
+import { cardSurface } from "../../constants/CardStyles";
 
 
 
@@ -17,7 +18,7 @@ const ResourceCard = ({ linkAddress, linkDisplay, title, information }: HelpfulR
   const openLink = () => Linking.openURL(linkAddress)
   return (
     <Pressable onPress={openLink}>
-      <Box borderRadius={20} backgroundColor={"white"} my={"1"}>
+      <Box borderRadius={20} style={cardSurface} my={"1"}>
         <VStack space={"4"}>
           <Box p={"4"}>
             <Text fontSize={16} fontFamily={"Raleway-Bold"} color={"black"}>

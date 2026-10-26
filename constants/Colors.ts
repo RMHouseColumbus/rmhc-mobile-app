@@ -30,6 +30,8 @@ const light = {
 
 const colors = {
   background: palette.cream,
+  cardBackground: "#FFFEF3",
+  cardBorder: "#E4DFC8",
   header: palette.red,
   onHeader: palette.cream,
   action: palette.red,

@@ -3,6 +3,7 @@ import React from "react";
 
 import type { GoogleCalendarItem } from "../google_calendar/GCalTypes";
 import { dateRangeString } from "../commons/time_helpers";
+import { cardSurface } from "../constants/CardStyles";
 
 export default function CalendarItemCard({
   start,
@@ -11,7 +12,7 @@ export default function CalendarItemCard({
   description,
 }: GoogleCalendarItem) {
   return (
-    <Box borderRadius={20} backgroundColor={"white"} my={"1"}>
+    <Box borderRadius={20} style={cardSurface} my={"1"}>
       <VStack space={"4"}>
         <Box p={"4"}>
           <Text fontSize={16} fontFamily={"Raleway-Bold"} color={"black"}>

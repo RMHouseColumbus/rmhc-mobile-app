@@ -7,6 +7,7 @@ import { BottomTabNavigationOptions, createBottomTabNavigator } from "@react-nav
 import type { ParamListBase, RouteProp } from "@react-navigation/native";
 import {
   DefaultTheme,
+  DrawerActions,
   getFocusedRouteNameFromRoute,
   NavigationContainer,
 } from "@react-navigation/native";
@@ -51,6 +52,7 @@ import BHP from "../screens/hospital_services/BHP";
 import Neighborhood from "../screens/neighborhood/Neighborhood";
 import Delivery from "../screens/neighborhood/food_delivery/Delivery";
 import Transportation from "../screens/neighborhood/transportation/Transportation";
+import Tickets from "../screens/neighborhood/Tickets";
 import About from "../screens/about/About";
 import StayInvolved from "../screens/about/stay_involved/StayInvolved";
 import CareMobile from "../screens/about/care_mobile/CareMobile";
@@ -101,48 +103,57 @@ export default function Navigation({
 const Drawer = createDrawerNavigator();
 
 function AppDrawer(props: DrawerContentComponentProps) {
+  const navigateTo = (screen: keyof RootTabParamList) => {
+    props.navigation.closeDrawer();
+    props.navigation.navigate("Home", { screen });
+  };
+  const openLink = (url: string) => {
+    props.navigation.closeDrawer();
+    return Linking.openURL(url);
+  };
+
   return (
 
-      <DrawerContentScrollView >
+      <DrawerContentScrollView {...props}>
         <DrawerItem
           label="Home"
-          onPress={() => props.navigation.navigate("Home", { screen: "RMHC Central Ohio" })}
+          onPress={() => navigateTo("RMHC Central Ohio")}
         />
         <DrawerItem
           label="Updates"
-          onPress={() => props.navigation.navigate("Home", { screen: "Updates" })}
+          onPress={() => navigateTo("Updates")}
         />
         <DrawerItem
           label="Meals"
-          onPress={() => props.navigation.navigate("Home", { screen: "Meals" })}
+          onPress={() => navigateTo("Meals")}
         />
         <DrawerItem
           label="Activities"
-          onPress={() => props.navigation.navigate("Home", {screen: "Activities"})}
+          onPress={() => navigateTo("Activities")}
         />
         <DrawerItem
           label="Facilities/Floor Plan"
-          onPress={() => props.navigation.navigate("Home", { screen: "Facilities" })}
+          onPress={() => navigateTo("Facilities")}
         />
         <DrawerItem
           label="Helpful Resources"
-          onPress={() => props.navigation.navigate("Home", {screen: "Helpful Resources"})}
+          onPress={() => navigateTo("Helpful Resources")}
         />
         <DrawerItem
-          label="In Hospital Services"
-          onPress={() => props.navigation.navigate("Home", {screen: "HospitalHome"})}
+          label="Family Rooms"
+          onPress={() => navigateTo("HospitalHome")}
         />
         <DrawerItem
           label="Neighborhood Guide"
-          onPress={() => props.navigation.navigate("Home", {screen:"NeighborhoodHome"})}
+          onPress={() => navigateTo("NeighborhoodHome")}
         />
         <DrawerItem
           label="About"
-          onPress={() => props.navigation.navigate("Home", {screen: "AboutHome"})}
+          onPress={() => navigateTo("AboutHome")}
         />
         <DrawerItem
           label="Your Stay"
-          onPress={() => props.navigation.navigate("Home", {screen:"YourStayHome"})}
+          onPress={() => navigateTo("YourStayHome")}
         />
 
         <Box flex={1} flexDirection={"column"} alignSelf={"end"} mb={10}>
@@ -153,7 +164,7 @@ function AppDrawer(props: DrawerContentComponentProps) {
               borderRadius={10}
               width={"90%"}
               onPress={() =>
-                Linking.openURL("http://rmhc-centralohio.org/app_donation_page/")
+                openLink("http://rmhc-centralohio.org/app_donation_page/")
               }
             >
               <Text fontFamily={"Raleway-SemiBold"} color={"white"}>
@@ -164,21 +175,21 @@ function AppDrawer(props: DrawerContentComponentProps) {
           <Box flexDirection={"row"} justifyContent={"space-evenly"}>
             <FacebookSVG
               onPress={() =>
-                Linking.openURL("https://www.facebook.com/RMHCofCentralOhio")
+                openLink("https://www.facebook.com/RMHCofCentralOhio")
               }
             />
             <LinkedinSVG
               onPress={() =>
-                Linking.openURL("https://www.linkedin.com/company/rmhccolumbus")
+                openLink("https://www.linkedin.com/company/rmhccolumbus")
               }
             />
             <YoutubeSVG
               onPress={() =>
-                Linking.openURL("https://www.youtube.com/user/RMHCofCentralOhio")
+                openLink("https://www.youtube.com/user/RMHCofCentralOhio")
               }
             />
             <TwitterSVG
-              onPress={() => Linking.openURL("https://twitter.com/RMHCofCentralOH")}
+              onPress={() => openLink("https://twitter.com/RMHCofCentralOH")}
             />
           </Box>
         </Box>
@@ -207,6 +218,8 @@ function getHeaderTitle(route: RouteProp<ParamListBase>) {
       return routeName;
     case "Home":
       return "RMHC Central Ohio";
+    case "In Hospital Services":
+      return "FAMILY ROOMS";
     default:
       return routeName.toUpperCase();
   }
@@ -296,7 +309,7 @@ function AboutStack() {
             headerLeft: () => (
               <IconButton
                 icon={<HamburgerIcon color={Colors.black} />}
-                onPress={() => navigation.getParent()?.openDrawer()}
+                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
                 color={"transparent"}
               />
             ),
@@ -325,13 +338,14 @@ function NeighborhoodStack() {
             headerLeft: () => (
               <IconButton
                 icon={<HamburgerIcon color={Colors.black} />}
-                onPress={() => navigation.getParent()?.openDrawer()}
+                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
               />
             ),
           };
         }}
       />
       <NeighborhoodStackNav.Screen name="Delivery" component={Delivery} />
+      <NeighborhoodStackNav.Screen name="Tickets" component={Tickets} />
       <NeighborhoodStackNav.Screen
         name="Transportation"
         component={Transportation}
@@ -354,7 +368,7 @@ function HospitalStack() {
             headerLeft: () => (
               <IconButton
                 icon={<HamburgerIcon color={Colors.black} />}
-                onPress={() => navigation.getParent()?.openDrawer()}
+                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
               />
             ),
           };
@@ -390,7 +404,7 @@ function YourStayStack() {
             headerLeft: () => (
               <IconButton
                 icon={<HamburgerIcon color={Colors.black} />}
-                onPress={() => navigation.getParent()?.openDrawer()}
+                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
               />
             ),
           };
