@@ -15,7 +15,7 @@ TICKET-003.
 ## Acceptance criteria
 
 - [ ] Render consistent red headers, light titles/menu/back icons, and Audrey typography; use title case where shown in the mockups.
-- [ ] Display “Ronald McDonald House” on Home without changing internal route names such as `RMHC Central Ohio`, deep links, or types.
+- [x] Display “Ronald McDonald House” on Home without changing internal route names such as `RMHC Central Ohio`, deep links, or types.
 - [ ] Apply the agreed drawer treatment to labels, Donate, and social links, retaining their existing destinations.
 - [ ] Preserve back navigation and drawer opening on nested screens; fit the long Home title on small phones.
 
@@ -29,4 +29,4 @@ Run shared checks. Open Home, About, Neighborhood, Your Stay, a nested detail, a
 
 ## Implementation notes
 
-_Record changed files, verification results, and any remaining blockers when implementing._
+PR #126 supplies the Home title and light root-drawer menu icon. Nested headers and the drawer treatment still need this ticket; retain the existing route IDs and destinations.

@@ -14,10 +14,10 @@ TICKET-002, TICKET-003.
 
 ## Acceptance criteria
 
-- [ ] Support explicit background/text color pairs, a text label, and supplied artwork with consistent rounded corners, padding, and image bounds.
-- [ ] Allow labels to wrap and cards to grow for large text; avoid clipping or overlap from fixed heights or forced line breaks.
-- [ ] Preserve navigation/link behavior and give the whole card an accessible name and appropriate role.
-- [ ] Keep defaults or adapters for existing callers; do not restyle unrelated screens in this commit.
+- [x] Support explicit background/text color pairs, a text label, and supplied artwork with consistent rounded corners, padding, and image bounds.
+- [x] Allow labels to wrap and cards to grow for large text; avoid clipping or overlap from fixed heights or forced line breaks.
+- [x] Preserve navigation/link behavior and give the whole card an accessible name and appropriate role.
+- [x] Keep defaults or adapters for existing callers; do not restyle unrelated screens in this commit.
 
 ## Verification
 
@@ -29,7 +29,7 @@ Run shared checks. Exercise a navigation card and an external-link card; inspect
 
 ## Implementation notes
 
-PR #121 is merged into `feature/rebrand`. Returned to the backlog for the remaining checks below while #110 is active; implementation is complete.
+PR #121 is merged into `feature/rebrand`; GitHub #105 was already closed as completed when audited. The local board now matches that disposition.
 
 Work started on `rebrand/105-illustrated-card` from `feature/rebrand`, at the maintainer's request. #101 is complete; #102 implementation is available, with its remaining verification tracked separately (not marked complete to start this work).
 
@@ -41,4 +41,4 @@ Checks so far: iOS/Android development and release exports pass; TypeScript diag
 
 Maintainer simulator review: reported “looks fine” after reviewing the preview. This records visual acceptance, not a claim that each interaction or accessibility scenario was exercised.
 
-Pending: confirm navigation/back and website opening, plus the enlarged-text and screen-reader checks not explicitly reported. Keep open until verification is recorded. No screen migration is included.
+Native navigation/back, website opening, enlarged-text and screen-reader checks were not individually reported; they remain in cross-platform acceptance #119. No screen migration is included.
