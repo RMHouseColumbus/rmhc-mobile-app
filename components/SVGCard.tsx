@@ -5,6 +5,7 @@ import { Box, Pressable, Text } from "native-base";
 import React from "react";
 import { IllustratedCard } from "./IllustratedCard";
 import type { IllustratedCardProps } from "./IllustratedCard";
+import { cardSurface } from "../constants/CardStyles";
 
 export interface SVGCardProps {
   textComponent: React.ReactNode;
@@ -43,8 +44,7 @@ export const SVGCard = (props: SVGCardProps | IllustratedSVGCardProps) => {
     <Pressable onPress={onPress}>
       <Box
         borderRadius={20}
-        backgroundColor={"white"}
-        borderColor={"white"}
+        style={cardSurface}
         my={"2"}
         flexDirection={"row"}
       >

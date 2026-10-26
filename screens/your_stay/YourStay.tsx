@@ -7,6 +7,7 @@ import { Linking } from "react-native";
 import type { YourStayStackScreenProps } from "../../types";
 import type { SVGCardProps } from "../../components/SVGCard";
 import Colors from "../../constants/Colors";
+import { cardSurface } from "../../constants/CardStyles";
 
 import {
   AfterYourStaySVG,
@@ -33,8 +34,7 @@ export const YourStaySVGCard = ({
     <Pressable onPress={onPress}>
       <Box
         borderRadius={20}
-        backgroundColor={"white"}
-        borderColor={"white"}
+        style={cardSurface}
         py={3}
         mt={4}
         flexDirection={"row"}

@@ -8,6 +8,8 @@ import {
 } from "react-native";
 import type { ImageSourcePropType } from "react-native";
 import Fonts from "../constants/Fonts";
+import Colors from "../constants/Colors";
+import { cardSurface } from "../constants/CardStyles";
 
 export interface IllustratedCardProps {
   label: string;
@@ -39,6 +41,7 @@ export function IllustratedCard({
       onLayout={(event) => setWidth(event.nativeEvent.layout.width)}
       style={({ pressed }) => [
         styles.card,
+        colors.background === Colors.cardBackground && cardSurface,
         { backgroundColor: colors.background, opacity: pressed ? 0.8 : 1 },
         stacked && styles.stacked,
       ]}
