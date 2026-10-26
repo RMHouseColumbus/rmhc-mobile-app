@@ -3,17 +3,14 @@
     "name": "RMHC App",
     "slug": "RMHCApp",
     "owner": "rmhc",
-    "version": "1.2.1",
-    "runtimeVersion": "1.2.0",
+    "version": "1.3.0",
+    "runtimeVersion": {
+      "policy": "fingerprint"
+    },
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "rmhc",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0,
       "checkAutomatically": "ON_LOAD",
@@ -23,7 +20,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "1",
+      "buildNumber": "0",
       "supportsTablet": false,
       "infoPlist": {
         "LSApplicationQueriesSchemes": [
@@ -37,7 +34,7 @@
       "bundleIdentifier": "org.rmhc.rmhcmobileapp"
     },
     "android": {
-      "versionCode": 11,
+      "versionCode": 13,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
@@ -59,7 +56,20 @@
             "usesCleartextTraffic": true
           }
         }
-      ]
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "cover",
+          "backgroundColor": "#ffffff",
+          "ios": {
+            "enableFullScreenImage_legacy": true
+          }
+        }
+      ],
+      "expo-status-bar",
+      "expo-web-browser"
     ]
   }
 }

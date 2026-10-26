@@ -69,6 +69,7 @@ For UI work, inspect normal and enlarged text on a narrow phone as well as a sta
 - **FEAT-001 — Brand foundations:** EPIC-001 design handoff and prepared assets; EPIC-002 shared theme, fonts, and card component.
 - **FEAT-002 — App experience:** EPIC-003 navigation; EPIC-004 primary mockup screens; EPIC-005 supporting screens and shared content.
 - **FEAT-003 — Release readiness:** EPIC-006 native launch assets; EPIC-007 cross-platform acceptance evidence.
+- **FEAT-004 — Post-rebrand maintenance:** EPIC-008 UI library migration; deferred until rebrand acceptance.
 
 Numbers provide a suggested reading/execution order; each ticket’s dependencies determine readiness. After foundations, individual screen tickets can be assigned independently when ready. Dependencies on TICKET-001 are satisfied by the recorded working defaults. TICKET-021 is a non-blocking follow-up, including for TICKET-020 acceptance. Where multiple tickets edit the same file (especially navigation), integrate one at a time.
 
@@ -95,6 +96,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-019](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
 | [TICKET-020](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-007-validation/TICKET-020-rebrand-acceptance.md) | Record the rebrand acceptance results | 001–019 |
 | [TICKET-021](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-021-design-feedback.md) | Revisit design choices as feedback arrives (non-blocking) | None |
+| [TICKET-022](backlog/INIT-001-rmh-rebrand/FEAT-004-post-rebrand-maintenance/EPIC-008-ui-library-migration/TICKET-022-migrate-nativebase.md) | Migrate NativeBase to gluestack after the rebrand ([#123](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/123)) | 020, Expo 58 PR #122 |
 
 ## Workflow
 
