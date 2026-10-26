@@ -63,6 +63,10 @@ Labels wrap without a line limit and respect system font scaling. Artwork keeps 
 
 The preview's **Illustrated cards · #105** section includes all four color pairs, short/long labels, a 280-point width toggle, an actual stack destination with a Back button, an external website link, and an original card. Check full/narrow width, enlarged device text, and VoiceOver/TalkBack (one named button/link per new card; decorative artwork is not announced). A successful bundle or callback check does not replace these device checks.
 
+### Contentful rich text (#110)
+
+The preview's **Rich text · #110** section uses the shared renderer and a local Contentful fixture. Check regular/bold/italic/combined emphasis, headings, nested bullet/numbered lists, line breaks, and long links at full/280-point width and enlarged device text. Tap a link to confirm it opens the RMHC website. Also check Transportation and an expanded Your Stay answer in the real app. No CMS edits are needed.
+
 ## Work on one issue
 
 1. Claim an unblocked issue and move its Project item to In Progress. Read its acceptance criteria, dependencies, and relevant files before asking a coding assistant to implement it.

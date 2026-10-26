@@ -11,6 +11,7 @@ import { brandFontAssets } from "../../constants/FontAssets";
 import Colors, { cardColors } from "../../constants/Colors";
 import Fonts from "../../constants/Fonts";
 import { CARD_PREVIEW_ROUTE, CardPreviewSection } from "./CardPreviewSection";
+import { RichTextPreviewSection } from "./RichTextPreviewSection";
 
 const images: [string, BrandImage][] = Object.entries(brandImages);
 const fonts = Object.keys(brandFontAssets);
@@ -64,12 +65,13 @@ function BrandGallery({ fontError }: { fontError?: Error | null }) {
     <SafeAreaView style={styles.page}>
       <ScrollView contentContainerStyle={styles.content}>
         <Heading accessibilityRole="header">Brand preview</Heading>
-        <Text>Brand checks for #101, #102, and #105. Only the website test opens an external page.</Text>
+        <Text>Brand checks for #101, #102, #105, and #110. Website test links open external pages.</Text>
         <Text accessibilityLiveRegion="polite" fontWeight="bold">
           Fonts {loadedFonts}/{fonts.length} · Images {loadedImages}/{images.length}
         </Text>
         {fontError && <NativeText style={styles.error}>Font load failed: {fontError.message}</NativeText>}
 
+        <RichTextPreviewSection />
         <CardPreviewSection />
 
         <Heading size="md">Audrey font files</Heading>

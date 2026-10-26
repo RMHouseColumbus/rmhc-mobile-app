@@ -29,6 +29,8 @@ Run shared checks and cold-start on iOS/Android. Inspect a default NativeBase Te
 
 ## Implementation notes
 
+Returned to the backlog for remaining verification while #110 is active; implementation remains on `feature/rebrand`.
+
 Implementation is ready on `feature/rebrand` (2026-10-22). Shared semantic palette/card pairs, four canonical Audrey Text faces, NativeBase weight/style mappings, and compatibility aliases are in `constants/`. The font hook holds the splash until fonts resolve; the root hides it after content layout, including the error path. Light appearance is configured in both Expo and NativeBase.
 
 `npm run brand:preview -- --clear` launches a development-only, credential-free gallery with real font/image load status, NativeBase samples, card pairs and all artwork. `AppContent.tsx` retains the normal providers/navigation and is not evaluated in preview mode. Instructions and compatibility mappings are in `CONTRIBUTING.md`.
