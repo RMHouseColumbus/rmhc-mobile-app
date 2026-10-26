@@ -63,6 +63,10 @@ Labels wrap without a line limit and respect system font scaling. Artwork keeps 
 
 The preview's **Illustrated cards · #105** section includes all four color pairs, short/long labels, a 280-point width toggle, an actual stack destination with a Back button, an external website link, and an original card. Check full/narrow width, enlarged device text, and VoiceOver/TalkBack (one named button/link per new card; decorative artwork is not announced). A successful bundle or callback check does not replace these device checks.
 
+### Home screen (#106)
+
+Open **Home screen · #106** from the brand preview to switch between Ready, Loading, and Unavailable video states using local fixtures. Ready opens the RMHC website as a test destination; the stay action shows a test confirmation. In the normal app, verify the configured welcome video and navigation to Your Stay. Check a small phone and larger device text: Home scrolls to keep both actions reachable. Home's title is now “Ronald McDonald House”; remaining header/tab styling is tracked separately in #103/#104.
+
 ### Contentful rich text (#110)
 
 The preview's **Rich text · #110** section uses the shared renderer and a local Contentful fixture. Check regular/bold/italic/combined emphasis, headings, nested bullet/numbered lists, line breaks, and long links at full/280-point width and enlarged device text. Tap a link to confirm it opens the RMHC website. Also check Transportation and an expanded Your Stay answer in the real app. No CMS edits are needed.

@@ -30,4 +30,4 @@ Run shared checks plus the full manual matrix. Use `rg -n "Raleway|#638dc9|#4872
 
 ## Implementation notes
 
-_Record changed files, verification results, and any remaining blockers when implementing._
+Home (#106) was accepted by the maintainer with square panel corners. Include native video/stay taps, small-screen/enlarged-text scrolling, and Android visual review in the acceptance matrix; these were not individually confirmed during implementation. Automated Home/request tests and iOS/Android exports passed.

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Image, ScrollView, StyleSheet, Text as NativeText, View } from "react-native";
 import { Button, Heading, Text } from "native-base";
-import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
+import { DefaultTheme, NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack";
 import { isLoaded } from "expo-font";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { brandImages, BrandImage } from "../../assets/brand";
@@ -12,12 +12,13 @@ import Colors, { cardColors } from "../../constants/Colors";
 import Fonts from "../../constants/Fonts";
 import { CARD_PREVIEW_ROUTE, CardPreviewSection } from "./CardPreviewSection";
 import { RichTextPreviewSection } from "./RichTextPreviewSection";
+import HomePreviewScreen from "./HomePreviewScreen";
 
 const images: [string, BrandImage][] = Object.entries(brandImages);
 const fonts = Object.keys(brandFontAssets);
 const pairs = Object.values(cardColors);
 
-type PreviewStackParams = { BrandGallery: undefined; CardPreviewDetail: undefined };
+type PreviewStackParams = { BrandGallery: undefined; CardPreviewDetail: undefined; HomePreview: undefined };
 const Stack = createNativeStackNavigator<PreviewStackParams>();
 
 export default function BrandPreviewScreen({ fontError }: { fontError?: Error | null }) {
@@ -28,6 +29,10 @@ export default function BrandPreviewScreen({ fontError }: { fontError?: Error | 
           {() => <BrandGallery fontError={fontError} />}
         </Stack.Screen>
         <Stack.Screen name={CARD_PREVIEW_ROUTE} component={CardPreviewDetail} />
+        <Stack.Screen name="HomePreview" component={HomePreviewScreen} options={{
+          headerShown: true, title: "Home · #106", headerTintColor: Colors.onHeader,
+          headerStyle: { backgroundColor: Colors.header }, headerTitleStyle: { fontFamily: Fonts.Bold },
+        }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -46,6 +51,7 @@ function CardPreviewDetail({ navigation }: NativeStackScreenProps<PreviewStackPa
 }
 
 function BrandGallery({ fontError }: { fontError?: Error | null }) {
+  const navigation = useNavigation<NativeStackNavigationProp<PreviewStackParams>>();
   const [imageResults, setImageResults] = useState<Record<string, string>>({});
   const loadedImages = Object.values(imageResults).filter((result) => result === "Loaded").length;
   const loadedFonts = fonts.filter(isLoaded).length;
@@ -65,12 +71,13 @@ function BrandGallery({ fontError }: { fontError?: Error | null }) {
     <SafeAreaView style={styles.page}>
       <ScrollView contentContainerStyle={styles.content}>
         <Heading accessibilityRole="header">Brand preview</Heading>
-        <Text>Brand checks for #101, #102, #105, and #110. Website test links open external pages.</Text>
+        <Text>Brand checks for #101, #102, #105, #106, and #110. Website test links open external pages.</Text>
         <Text accessibilityLiveRegion="polite" fontWeight="bold">
           Fonts {loadedFonts}/{fonts.length} · Images {loadedImages}/{images.length}
         </Text>
         {fontError && <NativeText style={styles.error}>Font load failed: {fontError.message}</NativeText>}
 
+        <Button onPress={() => navigation.navigate("HomePreview")}>Home screen · #106</Button>
         <RichTextPreviewSection />
         <CardPreviewSection />
 
