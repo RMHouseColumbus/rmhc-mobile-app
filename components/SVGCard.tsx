@@ -14,7 +14,7 @@ export interface SVGCardProps {
   navigationTo: string;
 }
 
-// Keep the legacy props exported for YourStaySVGCard and unmigrated callers.
+// Keep the legacy props exported for unmigrated callers.
 export type IllustratedSVGCardProps = Omit<IllustratedCardProps, "onPress" | "accessibilityRole"> &
   Pick<SVGCardProps, "navType" | "navigationTo">;
 

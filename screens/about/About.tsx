@@ -1,77 +1,77 @@
-import { Box, ScrollView } from "native-base";
+import { ScrollView } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
-import type { AboutStackScreenProps } from "../../types";
-import type { SVGCardProps } from "../../components/SVGCard";
-import { SVGCard, SVGCardText } from "../../components/SVGCard";
-import { BeforeYourStaySVG } from "../your_stay/components/YourStayCards";
-import { YourStaySVGCard } from "../your_stay/YourStay";
+import type { IllustratedSVGCardProps } from "../../components/SVGCard";
+import { SVGCard } from "../../components/SVGCard";
+import { brandImages } from "../../assets/brand";
+import Colors, { cardColors } from "../../constants/Colors";
 
-import {
-  CareMobileSVG,
-  FamilyRoomSVG,
-  MeetStaffSVG,
-  ShareStorySVG,
-  StayInvolvedSVG,
-  VisitGlobeSVG,
-} from "./components/AboutCards";
-
-const aboutCardProps: SVGCardProps[] = [
+const aboutCardProps: IllustratedSVGCardProps[] = [
   {
-    textComponent: <SVGCardText text={["Meet the", "Staff"]} />,
-    component: <MeetStaffSVG />,
+    label: "Meet the Staff",
+    artwork: brandImages.team.source,
+    colors: cardColors.lavender,
     navigationTo: "https://rmhc-centralohio.org/about/our-staff/",
     navType: "link",
   },
   {
-    textComponent: <SVGCardText text={["Visit Our", "Website"]} />,
-    component: <VisitGlobeSVG />,
+    label: "Visit our Website",
+    artwork: brandImages.website.source,
+    colors: cardColors.aqua,
     navType: "link",
     navigationTo: "http://rmhc-centralohio.org/",
   },
   {
-    textComponent: <SVGCardText text={["Ways To Stay", "Involved"]} />,
-    component: <StayInvolvedSVG />,
+    label: "Ways to Stay Involved",
+    artwork: brandImages.involvement.source,
+    colors: cardColors.lime,
     navType: "navigation",
     navigationTo: "Stay Involved",
   },
   {
-    textComponent: <SVGCardText text={["Share Your", "Story"]} />,
-    component: <ShareStorySVG />,
+    label: "Share Your Story",
+    artwork: brandImages.story.source,
+    colors: cardColors.gold,
     navType: "link",
     navigationTo:
       "https://docs.google.com/forms/d/e/1FAIpQLSeJ3tFZTZ8QfSintJzB2d2gfHyFZKipkXFFLn7DM00xXQz9fA/viewform?vc=0&c=0&w=1",
   },
   {
-    textComponent: <SVGCardText text={["Family Room"]} />,
-    component: <FamilyRoomSVG />,
+    label: "Family Room",
+    artwork: brandImages.familyRoom.source,
+    colors: cardColors.lavender,
     navType: "navigation",
     navigationTo: "Family Room",
   },
   {
-    textComponent: <SVGCardText text={["Care", "Mobile"]} />,
-    component: <CareMobileSVG />,
+    label: "Care Mobile",
+    artwork: brandImages.careMobile.source,
+    colors: cardColors.aqua,
     navType: "navigation",
     navigationTo: "Care Mobile",
   },
+  {
+    label: "Staff Use",
+    artwork: brandImages.staffChecklist.source,
+    colors: cardColors.lime,
+    navType: "navigation",
+    navigationTo: "Staff Use",
+  },
 ];
 
-export default function About({ navigation }: AboutStackScreenProps<"About">) {
+export default function About() {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <ScrollView flex={1} py={"4"} px={"4"}>
-      {aboutCardProps.map((data, i) => (
-        <SVGCard key={i} {...data} />
+    <ScrollView
+      flex={1}
+      backgroundColor={Colors.background}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
+    >
+      {aboutCardProps.map((card) => (
+        <SVGCard key={card.label} {...card} />
       ))}
-      <YourStaySVGCard
-        textComponent={<SVGCardText text={["Staff Use"]} />}
-        component={<BeforeYourStaySVG />}
-        navType={"navigation"}
-        navigationTo={"Staff Use"}
-      />
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }
