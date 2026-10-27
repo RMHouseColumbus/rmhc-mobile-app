@@ -84,7 +84,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-007](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-007-home-screen.md) | Rebuild Home to match the new welcome design (done) | 002, 003, 004, 005 |
 | [TICKET-008](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-008-neighborhood-screen.md) | Rebrand the Neighborhood cards | 006, 004 |
 | [TICKET-009](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-009-about-screen.md) | Rebrand the About cards including Staff Use | 006, 004 |
-| [TICKET-010](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-010-your-stay-screen.md) | Rebrand the Your Stay menu | 006, 004 |
+| [TICKET-010](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-010-your-stay-screen.md) | Rebrand the Your Stay menu (done) | 006, 004 |
 | [TICKET-011](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-011-rich-text-rendering.md) | Apply Audrey typography to Contentful rich text (done) | 003 |
 | [TICKET-012](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-012-calendar-screens.md) | Rebrand calendar cards and feed screens (done) | 003 |
 | [TICKET-013](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-013-resource-lists.md) | Rebrand updates and resource lists (done) | 003, 011 |
@@ -104,4 +104,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** none. TICKET-016 (#115), Staff Use unlock, is complete. **Next candidate:** TICKET-010 (#109), Your Stay menu cards, requested for consideration by the maintainer; coordinate its navigation dependency with #103. TICKET-021 remains deferred feedback.
+**Current selection:** none. TICKET-010 (#109), Your Stay cards, is complete. **Next candidate:** TICKET-009 (#108), About cards under INIT-001 / FEAT-002 / EPIC-004. Header styling remains with #103.
