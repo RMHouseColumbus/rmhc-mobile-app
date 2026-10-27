@@ -41,3 +41,5 @@ Resource lists (#112): maintainer accepted iOS appearance. Record Android, enlar
 Stay/About details (#113): maintainer accepted implementation. Record the six detail screens on iOS/Android with long answers, enlarged text, links, and final-content scrolling; these device scenarios were not individually reported. TypeScript, 22 tests, and both platform exports pass.
 
 Staff unlock (#115): verify native keyboard/enlarged-text layout and focus/error/disabled appearance on iOS and Android, plus unlock and remembered unlock with authorized local credentials. Automated tests with dummy credentials cover empty, invalid, valid, matching-saved, and outdated-saved passwords; native visual review remains pending. TypeScript, 26 tests, and both platform exports pass.
+
+Staff unlock follow-up: compact controls verified in iOS simulator; maintainer confirmed phone focus/keyboard fix after using native TextInput. Retain enlarged-text, Android keyboard, and real-credential unlock/remembered-unlock checks. TypeScript and 28 tests pass.

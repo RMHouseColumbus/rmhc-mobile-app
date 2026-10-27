@@ -33,3 +33,9 @@ Run shared checks. With an authorized local test configuration, verify empty, in
 - Credential comparison, password masking, saved-password key/behavior, and StaffCalendar destination are unchanged. Tests use only a dummy credential and mocked storage/calendar.
 - TypeScript, all 26 tests, and iOS/Android release exports pass (`/tmp/rmhc-115-release-export`). New tests cover empty, invalid, valid, remembered matching, and remembered outdated password states.
 - Native keyboard/enlarged-text layout, focus/error appearance, and real-device interaction were not visually tested in this pass; recorded in #119. Maintainer authorized the implementation/merge/closure workflow.
+
+### Follow-up: control sizing and focus
+
+- Replaced the password field with React Native TextInput after immediate focus loss on phone and simulator. Validation and password masking remain unchanged.
+- Used explicit point sizing: NativeBase token `48` resolved to 192 points. Unlock now uses `48px`; the staff calendar button also uses explicit `44px`.
+- Verified compact controls in the iOS simulator screenshot; maintainer confirmed the focus fix works on their phone. TypeScript and 28 tests pass, including native size resolution and input identity through focus/typing. Enlarged-text and Android keyboard checks remain in #119.

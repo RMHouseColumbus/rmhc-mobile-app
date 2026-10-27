@@ -2,12 +2,12 @@ import {
   Box,
   Button,
   FormControl,
-  Input,
   ScrollView,
   Text,
   WarningOutlineIcon,
 } from "native-base";
 import React, { useEffect, useState } from "react";
+import { TextInput } from "react-native";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import Colors from "../../constants/Colors";
@@ -26,6 +26,7 @@ interface PassProps {
 
 const PasswordInput = ({ valid, value, onChangeText, onUnlock }: PassProps) => {
   const tabBarHeight = useBottomTabBarHeight();
+  const [focused, setFocused] = useState(false);
   return (
     <ScrollView
       flex={1}
@@ -39,25 +40,30 @@ const PasswordInput = ({ valid, value, onChangeText, onUnlock }: PassProps) => {
           <FormControl.Label _text={{ fontFamily: Fonts.Bold, fontSize: 18, color: Colors.text }}>
             Password
           </FormControl.Label>
-          <Input
+          <TextInput
             accessibilityLabel="Password"
             placeholder="Enter password"
             placeholderTextColor={Colors.textMuted}
-            fontFamily={Fonts.Regular}
-            fontSize={16}
-            color={Colors.text}
-            backgroundColor={Colors.cardBackground}
-            borderColor={Colors.textMuted}
-            borderRadius={10}
-            minHeight={48}
-            _focus={{ borderColor: Colors.action, backgroundColor: Colors.cardBackground }}
-            _invalid={{ borderColor: Colors.action }}
+            style={{
+              fontFamily: Fonts.Regular,
+              fontSize: 16,
+              color: Colors.text,
+              backgroundColor: Colors.cardBackground,
+              borderColor: focused || !valid ? Colors.action : Colors.textMuted,
+              borderWidth: 1,
+              borderRadius: 10,
+              minHeight: 48,
+              paddingHorizontal: 12,
+              paddingVertical: 8,
+            }}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
             selectionColor={Colors.action}
             autoCapitalize="none"
             autoCorrect={false}
             value={value}
             onChangeText={onChangeText}
-            type={"password"}
+            secureTextEntry
           />
           <FormControl.ErrorMessage
             _text={{ fontFamily: Fonts.Regular, fontSize: 14, color: Colors.action }}
@@ -71,7 +77,7 @@ const PasswordInput = ({ valid, value, onChangeText, onUnlock }: PassProps) => {
           _pressed={{ backgroundColor: Colors.action, opacity: 0.8 }}
           _disabled={{ backgroundColor: Colors.gray, opacity: 1 }}
           borderRadius={10}
-          minHeight={48}
+          minHeight="48px"
           mt={5}
           onPress={onUnlock}
           isDisabled={value.length <= 0}

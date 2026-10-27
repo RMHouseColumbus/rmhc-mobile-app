@@ -25,7 +25,7 @@ export default function StaffCalendar() {
         borderRadius={10}
         backgroundColor={Colors.action}
         _pressed={{ backgroundColor: Colors.action, opacity: 0.8 }}
-        minHeight={44}
+        minHeight="44px"
         my={"1"}
         mb={"4"}
         accessibilityRole="link"
