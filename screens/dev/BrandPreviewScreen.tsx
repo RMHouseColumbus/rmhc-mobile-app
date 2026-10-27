@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Image, ScrollView, StyleSheet, Text as NativeText, View } from "react-native";
-import { Button, Heading, Text } from "native-base";
+import { Button, ChevronLeftIcon, Heading, IconButton, Text } from "native-base";
 import { DefaultTheme, NavigationContainer, useNavigation } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { NativeStackNavigationProp, NativeStackScreenProps } from "@react-navigation/native-stack";
@@ -24,7 +24,7 @@ const Stack = createNativeStackNavigator<PreviewStackParams>();
 export default function BrandPreviewScreen({ fontError }: { fontError?: Error | null }) {
   return (
     <NavigationContainer theme={{ ...DefaultTheme, colors: { ...DefaultTheme.colors, background: Colors.background } }}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false, headerBackButtonDisplayMode: "minimal" }}>
         <Stack.Screen name="BrandGallery">
           {() => <BrandGallery fontError={fontError} />}
         </Stack.Screen>
@@ -44,7 +44,12 @@ function CardPreviewDetail({ navigation }: NativeStackScreenProps<PreviewStackPa
       <ScrollView contentContainerStyle={styles.content}>
         <Heading>Card navigation worked</Heading>
         <Text>This is a real stack destination inside the offline preview. Use Back to return to the gallery.</Text>
-        <Button onPress={() => navigation.goBack()}>Back to brand preview</Button>
+        <IconButton
+          accessibilityLabel="Back to brand preview"
+          alignSelf="flex-start"
+          icon={<ChevronLeftIcon color={Colors.text} />}
+          onPress={() => navigation.goBack()}
+        />
       </ScrollView>
     </SafeAreaView>
   );

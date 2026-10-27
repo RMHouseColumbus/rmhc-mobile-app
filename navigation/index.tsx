@@ -273,7 +273,7 @@ const nestedHeader = ({ route }: NativeStackScreenProps<any>) => {
     headerTintColor: Colors.black,
     headerShown: true,
     gestureEnabled: true,
-    headerBackTitleVisible: false,
+    headerBackButtonDisplayMode: "minimal" as const,
     headerTitle: getHeaderTitle(route),
     headerTitleStyle: {
       fontFamily: Fonts.Semibold,
@@ -384,6 +384,7 @@ function HospitalStack() {
 
 function BackButton(props: { onPress: () => any }) {
   return <IconButton
+    accessibilityLabel="Back"
     icon={<ChevronLeftIcon color={Colors.black} />}
     onPress={props.onPress}
   />;
