@@ -33,3 +33,5 @@ Run shared checks plus the full manual matrix. Use `rg -n "Raleway|#638dc9|#4872
 Home (#106) was accepted by the maintainer with square panel corners. Include native video/stay taps, small-screen/enlarged-text scrolling, and Android visual review in the acceptance matrix; these were not individually confirmed during implementation. Automated Home/request tests and iOS/Android exports passed.
 
 Shared cards (#105): record native navigation/back, website opening, enlarged text, and VoiceOver/TalkBack checks. Delivery/transport (#114): record long provider content at enlarged text and external link/contact dispatch. Their implementations are complete; these device scenarios were not individually reported.
+
+Calendar feeds (#111): maintainer accepted the styling. Record all five feeds with long descriptions, narrow/enlarged text, empty/loading states, bottom-card clearance, activity/staff links, and Android appearance; these scenarios were not individually reported. Existing tests and both native exports passed.

@@ -1,4 +1,4 @@
-import { Box, ScrollView } from "native-base";
+import { ScrollView } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
@@ -16,14 +16,12 @@ export default function Meals() {
   return (
     <ScrollView
       flex={1}
-      py={"4"}
-      px={"4"}
-      backgroundColor={Colors.backgroundBlue}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      backgroundColor={Colors.background}
     >
       {data.map((meal, idx) => (
         <CalendarItemCard key={idx} {...meal} />
       ))}
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }

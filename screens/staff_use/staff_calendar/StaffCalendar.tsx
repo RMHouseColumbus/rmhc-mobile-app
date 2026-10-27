@@ -1,4 +1,4 @@
-import { Box, Button, ScrollView, Text, VStack } from "native-base";
+import { Button, ScrollView, Text } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { Linking } from "react-native";
@@ -6,8 +6,7 @@ import { Linking } from "react-native";
 import { useFeed } from "../../../hooks/useFeed";
 import CalendarItemCard from "../../../components/CalendarItemCard";
 import Colors from "../../../constants/Colors";
-import { dateRangeString } from "../../../commons/time_helpers";
-import { environment } from "../../../environment";
+import Fonts from "../../../constants/Fonts";
 
 export default function StaffCalendar() {
   const tabBarHeight = useBottomTabBarHeight();
@@ -19,31 +18,28 @@ export default function StaffCalendar() {
   return (
     <ScrollView
       flex={1}
-      py={"4"}
-      px={"4"}
-      backgroundColor={Colors.backgroundBlue}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      backgroundColor={Colors.background}
     >
-      <Box borderRadius={20} backgroundColor={"transparent"} my={"1"}>
-        <VStack space={"4"}>
-          <Box p={"4"}>
-            <Button
-              borderRadius={10}
-              backgroundColor={"white"}
-              onPress={() =>
-                Linking.openURL("https://rmhc-centralohio.org/fsmschedule/")
-              }
-            >
-              <Text fontSize={12} fontFamily={"Raleway-Bold"}>
-                Open Calendar
-              </Text>
-            </Button>
-          </Box>
-        </VStack>
-      </Box>
+      <Button
+        borderRadius={10}
+        backgroundColor={Colors.action}
+        _pressed={{ backgroundColor: Colors.action, opacity: 0.8 }}
+        minHeight={44}
+        my={"1"}
+        mb={"4"}
+        accessibilityRole="link"
+        onPress={() =>
+          Linking.openURL("https://rmhc-centralohio.org/fsmschedule/")
+        }
+      >
+        <Text fontSize={16} fontFamily={Fonts.Bold} color={Colors.onAction}>
+          Open Calendar
+        </Text>
+      </Button>
       {data.map((meal, idx) => (
         <CalendarItemCard key={idx} {...meal} />
       ))}
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }
