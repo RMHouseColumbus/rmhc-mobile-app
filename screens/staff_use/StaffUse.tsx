@@ -3,12 +3,15 @@ import {
   Button,
   FormControl,
   Input,
+  ScrollView,
   Text,
   WarningOutlineIcon,
 } from "native-base";
 import React, { useEffect, useState } from "react";
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import Colors from "../../constants/Colors";
+import Fonts from "../../constants/Fonts";
 import { environment } from "../../environment";
 import { read, save } from "../../storage/Storage";
 
@@ -21,36 +24,66 @@ interface PassProps {
   onUnlock: () => void;
 }
 
-const PasswordInput = ({ valid, value, onChangeText, onUnlock }: PassProps) => (
-  <Box flex={1} py={"4"} px={"4"} backgroundColor={Colors.white}>
-    <Box alignItems="center">
-      <FormControl isInvalid={!valid} w="75%" maxW="300px">
-        <FormControl.Label>Password</FormControl.Label>
-        <Input
-          placeholder="Enter password"
-          value={value}
-          onChangeText={onChangeText}
-          type={"password"}
-        />
-        <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
-          Incorrect Password.
-        </FormControl.ErrorMessage>
-      </FormControl>
-      <Button
-        backgroundColor={value.length > 0 ? Colors.buttonBlue : Colors.gray}
-        borderRadius={10}
-        width={"75%"}
-        mt={5}
-        onPress={onUnlock}
-        disabled={value.length <= 0}
-      >
-        <Text fontFamily={"Raleway-SemiBold"} color={"white"}>
-          Unlock
-        </Text>
-      </Button>
-    </Box>
-  </Box>
-);
+const PasswordInput = ({ valid, value, onChangeText, onUnlock }: PassProps) => {
+  const tabBarHeight = useBottomTabBarHeight();
+  return (
+    <ScrollView
+      flex={1}
+      backgroundColor={Colors.background}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      automaticallyAdjustKeyboardInsets
+      keyboardShouldPersistTaps="handled"
+    >
+      <Box width="100%" maxWidth={400} alignSelf="center">
+        <FormControl isInvalid={!valid}>
+          <FormControl.Label _text={{ fontFamily: Fonts.Bold, fontSize: 18, color: Colors.text }}>
+            Password
+          </FormControl.Label>
+          <Input
+            accessibilityLabel="Password"
+            placeholder="Enter password"
+            placeholderTextColor={Colors.textMuted}
+            fontFamily={Fonts.Regular}
+            fontSize={16}
+            color={Colors.text}
+            backgroundColor={Colors.cardBackground}
+            borderColor={Colors.textMuted}
+            borderRadius={10}
+            minHeight={48}
+            _focus={{ borderColor: Colors.action, backgroundColor: Colors.cardBackground }}
+            _invalid={{ borderColor: Colors.action }}
+            selectionColor={Colors.action}
+            autoCapitalize="none"
+            autoCorrect={false}
+            value={value}
+            onChangeText={onChangeText}
+            type={"password"}
+          />
+          <FormControl.ErrorMessage
+            _text={{ fontFamily: Fonts.Regular, fontSize: 14, color: Colors.action }}
+            leftIcon={<WarningOutlineIcon size="xs" color={Colors.action} />}
+          >
+            Incorrect Password.
+          </FormControl.ErrorMessage>
+        </FormControl>
+        <Button
+          backgroundColor={Colors.action}
+          _pressed={{ backgroundColor: Colors.action, opacity: 0.8 }}
+          _disabled={{ backgroundColor: Colors.gray, opacity: 1 }}
+          borderRadius={10}
+          minHeight={48}
+          mt={5}
+          onPress={onUnlock}
+          isDisabled={value.length <= 0}
+        >
+          <Text fontFamily={Fonts.Bold} fontSize={16} color={Colors.onAction}>
+            Unlock
+          </Text>
+        </Button>
+      </Box>
+    </ScrollView>
+  );
+};
 
 export default function StaffUse() {
   const [locked, setLocked] = useState(true);

@@ -90,7 +90,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-013](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-013-resource-lists.md) | Rebrand updates and resource lists (done) | 003, 011 |
 | [TICKET-014](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-014-stay-and-about-details.md) | Rebrand stay information and About detail pages (done) | 003, 011 |
 | [TICKET-015](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-015-neighborhood-details.md) | Rebrand delivery and transportation details (done) | 003, 011 |
-| [TICKET-016](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-016-staff-unlock.md) | Rebrand the Staff Use unlock form | 003 |
+| [TICKET-016](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-016-staff-unlock.md) | Rebrand the Staff Use unlock form (done) | 003 |
 | [TICKET-017](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-017-find-us-and-facilities.md) | Rebrand location and floor-plan entry screens | 003, 004 |
 | [TICKET-018](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-018-launcher-icon.md) | Prepare and configure the new launcher icon | 001, 002 |
 | [TICKET-019](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
@@ -104,4 +104,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** none. TICKET-014 (#113), stay and About details, is complete. **Next candidate:** TICKET-016 (#115), Staff Use unlock under INIT-001 / FEAT-002 / EPIC-005. TICKET-021 remains deferred feedback.
+**Current selection:** none. TICKET-016 (#115), Staff Use unlock, is complete. **Next candidate:** TICKET-010 (#109), Your Stay menu cards, requested for consideration by the maintainer; coordinate its navigation dependency with #103. TICKET-021 remains deferred feedback.
