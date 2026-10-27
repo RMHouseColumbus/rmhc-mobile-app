@@ -25,13 +25,13 @@ const HospitalCard = ({ onPress, content, title, link }: HospitalCardProps) => {
     >
       <Text
         accessibilityRole={onPress ? undefined : "header"}
-        fontSize={16}
+        fontSize={18}
         fontFamily={Fonts.Bold}
         color={Colors.text}
       >
         {title}
       </Text>
-      <Text fontSize={12} fontFamily={Fonts.Regular} mt={1}>
+      <Text fontSize={14} fontFamily={Fonts.Regular} color={Colors.text} mt={2}>
         {content}
       </Text>
     </Box>
@@ -59,9 +59,8 @@ export default function HospitalServices({
   return (
     <ScrollView
       flex={1}
-      py={"4"}
-      px={"4"}
-      backgroundColor={Colors.backgroundBlue}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      backgroundColor={Colors.background}
     >
       {cards.map((card, idx) => {
         const route = card.route?.trim();
@@ -73,7 +72,6 @@ export default function HospitalServices({
         }
         return <HospitalCard key={idx} {...card} onPress={onPress} />;
       })}
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }
