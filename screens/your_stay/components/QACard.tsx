@@ -1,10 +1,12 @@
-import { Box, Pressable, Text, VStack } from "native-base";
+import { Box, Text } from "native-base";
 import * as React from "react";
 import type { Options } from "@contentful/rich-text-react-renderer";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import type { QuestionAnswer } from "../../../contentful/ContenfulTypes";
 import { cardSurface } from "../../../constants/CardStyles";
+import Colors from "../../../constants/Colors";
+import Fonts from "../../../constants/Fonts";
 
 export interface QACardProps {
   qa: QuestionAnswer;
@@ -18,18 +20,17 @@ export const QACard = ({ qa, options }: QACardProps) => {
       borderRadius={20}
       style={cardSurface}
       my={"1"}
-      justifyContent={"center"}
+      p={"4"}
     >
-      <VStack>
-        <Box px={"4"} py={2}>
-          <Text fontSize={16} fontFamily={"Raleway-Bold"} color={"black"}>
-            {question}
-          </Text>
-        </Box>
-        <Box px={4} pb={2}>
-          {documentToReactComponents(answer, options)}
-        </Box>
-      </VStack>
+      <Text
+        fontSize={18}
+        fontFamily={Fonts.Bold}
+        color={Colors.text}
+        accessibilityRole="header"
+      >
+        {question}
+      </Text>
+      {documentToReactComponents(answer, options)}
     </Box>
   );
 };

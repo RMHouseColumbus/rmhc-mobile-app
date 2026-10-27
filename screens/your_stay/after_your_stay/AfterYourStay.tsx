@@ -1,4 +1,4 @@
-import { Box, ScrollView } from "native-base";
+import { ScrollView } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
@@ -6,6 +6,7 @@ import type { YourStayStackScreenProps } from "../../../types";
 import { useContentfulEntries } from "../../../hooks/useContentful";
 import type { QuestionAnswer } from "../../../contentful/ContenfulTypes";
 import { entries } from "../../../contentful/ContenfulTypes";
+import Colors from "../../../constants/Colors";
 import { createRichTextRenderOptions } from "../../../contentful/ContentfulRender";
 import { QACard } from "../components/QACard";
 
@@ -23,13 +24,16 @@ export default function AfterYourStay({
   }
 
   return (
-    <ScrollView flex={1} py={"4"} px={"4"}>
+    <ScrollView
+      flex={1}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      backgroundColor={Colors.background}
+    >
       {data
         .sort((a, b) => a.ordinal - b.ordinal)
         .map((qa, i) => (
           <QACard key={i} qa={qa} options={renderOptions} />
         ))}
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }

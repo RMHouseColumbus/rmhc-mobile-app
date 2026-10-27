@@ -1,4 +1,4 @@
-import { Box, ScrollView } from "native-base";
+import { ScrollView } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -7,6 +7,7 @@ import type { AboutStackScreenProps } from "../../../types";
 import { useContentfulEntry } from "../../../hooks/useContentful";
 import type { Page } from "../../../contentful/ContenfulTypes";
 import { entries } from "../../../contentful/ContenfulTypes";
+import Colors from "../../../constants/Colors";
 import { createRichTextRenderOptions } from "../../../contentful/ContentfulRender";
 
 export default function FamilyRoom({
@@ -27,9 +28,12 @@ export default function FamilyRoom({
   }
 
   return (
-    <ScrollView flex={1} py={"4"} px={"4"} backgroundColor={"white"}>
+    <ScrollView
+      flex={1}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      backgroundColor={Colors.background}
+    >
       <Content content={data?.content ?? {}} page={data?.page ?? ""} />
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }

@@ -37,3 +37,5 @@ Shared cards (#105): record native navigation/back, website opening, enlarged te
 Calendar feeds (#111): maintainer accepted the styling. Record all five feeds with long descriptions, narrow/enlarged text, empty/loading states, bottom-card clearance, activity/staff links, and Android appearance; these scenarios were not individually reported. Existing tests and both native exports passed.
 
 Resource lists (#112): maintainer accepted iOS appearance. Record Android, enlarged text, empty data, final-item clearance, resource links, and internal Family Rooms navigation; these scenarios were not individually reported. TypeScript, 22 tests, and both platform exports pass.
+
+Stay/About details (#113): maintainer accepted implementation. Record the six detail screens on iOS/Android with long answers, enlarged text, links, and final-content scrolling; these device scenarios were not individually reported. TypeScript, 22 tests, and both platform exports pass.
