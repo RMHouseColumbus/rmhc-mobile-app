@@ -45,3 +45,5 @@ Staff unlock (#115): verify native keyboard/enlarged-text layout and focus/error
 Staff unlock follow-up: compact controls verified in iOS simulator; maintainer confirmed phone focus/keyboard fix after using native TextInput. Retain enlarged-text, Android keyboard, and real-credential unlock/remembered-unlock checks. TypeScript and 28 tests pass.
 
 Your Stay cards (#109): maintainer accepted the visuals. Record all three detail tap/back actions, narrow/enlarged-text layout, and Android appearance; these scenarios were not individually reported. TypeScript, 28 tests, and both platform exports pass.
+
+About cards (#108): maintainer accepted implementation. Record all seven destinations, final Staff Use card clearance, narrow/enlarged-text layout, and Android appearance; these checks were not individually reported. TypeScript, 28 tests, and both platform exports pass.
