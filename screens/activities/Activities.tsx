@@ -1,4 +1,4 @@
-import { Box, Pressable, ScrollView } from "native-base";
+import { Pressable, ScrollView } from "native-base";
 import React from "react";
 import { Linking } from "react-native";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
@@ -18,9 +18,8 @@ export default function Activities() {
   return (
     <ScrollView
       flex={1}
-      py={"4"}
-      px={"4"}
-      backgroundColor={Colors.backgroundBlue}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+      backgroundColor={Colors.background}
     >
       {data.map((activity, idx) => (
         <Pressable
@@ -32,7 +31,6 @@ export default function Activities() {
           <CalendarItemCard {...activity} />
         </Pressable>
       ))}
-      <Box height={tabBarHeight} />
     </ScrollView>
   );
 }
