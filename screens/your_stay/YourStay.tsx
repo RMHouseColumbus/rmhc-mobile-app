@@ -1,20 +1,15 @@
-import { Box, Pressable, ScrollView, Text } from "native-base";
-import React, { useEffect } from "react";
+import { Box, Pressable, ScrollView } from "native-base";
+import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { useNavigation } from "@react-navigation/native";
 import { Linking } from "react-native";
 
 import type { YourStayStackScreenProps } from "../../types";
 import type { SVGCardProps } from "../../components/SVGCard";
-import Colors from "../../constants/Colors";
+import Colors, { cardColors } from "../../constants/Colors";
+import { IllustratedCard } from "../../components/IllustratedCard";
+import { brandImages } from "../../assets/brand";
 import { cardSurface } from "../../constants/CardStyles";
-
-import {
-  AfterYourStaySVG,
-  BeforeYourStaySVG,
-  DuringYourStaySVG,
-} from "./components/YourStayCards";
-import HenryWoofSVG from "./components/HenryWoofSVG";
 
 export const YourStaySVGCard = ({
   navigationTo,
@@ -48,45 +43,11 @@ export const YourStaySVGCard = ({
   );
 };
 
-export const YourStayCardText = ({ text }: { text: string[] }) => {
-  return (
-    <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-      <Box>
-        {text.map((t, i) => (
-          <Text
-            key={i}
-            fontFamily={"Raleway-Bold"}
-            fontSize={20}
-            textAlign={"left"}
-          >
-            {t}
-          </Text>
-        ))}
-      </Box>
-    </Box>
-  );
-};
-
-const yourStayCards: SVGCardProps[] = [
-  {
-    textComponent: <YourStayCardText text={["Before", "Your Stay"]} />,
-    component: <BeforeYourStaySVG />,
-    navigationTo: "Before Your Stay",
-    navType: "navigation",
-  },
-  {
-    textComponent: <YourStayCardText text={["During", "Your Stay"]} />,
-    component: <DuringYourStaySVG />,
-    navigationTo: "During Your Stay",
-    navType: "navigation",
-  },
-  {
-    textComponent: <YourStayCardText text={["After", "Your Stay"]} />,
-    component: <AfterYourStaySVG />,
-    navigationTo: "After Your Stay",
-    navType: "navigation",
-  },
-];
+const yourStayCards = [
+  { route: "Before Your Stay", artwork: brandImages.video.source, colors: cardColors.lavender },
+  { route: "During Your Stay", artwork: brandImages.handsHeart.source, colors: cardColors.aqua },
+  { route: "After Your Stay", artwork: brandImages.house.source, colors: cardColors.lime },
+] as const;
 
 export default function YourStay({
   navigation,
@@ -95,16 +56,19 @@ export default function YourStay({
 
   return (
     <ScrollView
-      contentContainerStyle={{ flexGrow: 1, justifyContent: "space-evenly" }}
+      flex={1}
+      backgroundColor={Colors.background}
+      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
     >
-      <Box px={3}>
-        {yourStayCards.map((data, i) => (
-          <YourStaySVGCard key={i} {...data} />
-        ))}
-      </Box>
-      <Box alignItems={"flex-end"}>
-        <HenryWoofSVG width={375} height={375} />
-      </Box>
+      {yourStayCards.map(({ route, artwork, colors }) => (
+        <IllustratedCard
+          key={route}
+          label={route}
+          artwork={artwork}
+          colors={colors}
+          onPress={() => navigation.navigate(route)}
+        />
+      ))}
     </ScrollView>
   );
 }
