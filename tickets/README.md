@@ -87,7 +87,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-010](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-010-your-stay-screen.md) | Rebrand the Your Stay menu | 006, 004 |
 | [TICKET-011](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-011-rich-text-rendering.md) | Apply Audrey typography to Contentful rich text (done) | 003 |
 | [TICKET-012](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-012-calendar-screens.md) | Rebrand calendar cards and feed screens (done) | 003 |
-| [TICKET-013](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-013-resource-lists.md) | Rebrand updates and resource lists | 003, 011 |
+| [TICKET-013](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-013-resource-lists.md) | Rebrand updates and resource lists (done) | 003, 011 |
 | [TICKET-014](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-014-stay-and-about-details.md) | Rebrand stay information and About detail pages | 003, 011 |
 | [TICKET-015](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-015-neighborhood-details.md) | Rebrand delivery and transportation details (done) | 003, 011 |
 | [TICKET-016](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-016-staff-unlock.md) | Rebrand the Staff Use unlock form | 003 |
@@ -104,4 +104,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** none. TICKET-012 (#111), calendar cards and feeds, is complete. **Next candidate:** TICKET-013 (#112), updates and resource lists under INIT-001 / FEAT-002 / EPIC-005. TICKET-021 remains deferred feedback.
+**Current selection:** none. TICKET-013 (#112), updates and resource lists, is complete. **Next candidate:** TICKET-014 (#113), stay and About details under INIT-001 / FEAT-002 / EPIC-005. TICKET-021 remains deferred feedback.
