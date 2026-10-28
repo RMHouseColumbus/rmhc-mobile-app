@@ -92,8 +92,8 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-015](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-015-neighborhood-details.md) | Rebrand delivery and transportation details (done) | 003, 011 |
 | [TICKET-016](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-016-staff-unlock.md) | Rebrand the Staff Use unlock form (done) | 003 |
 | [TICKET-017](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-017-find-us-and-facilities.md) | Rebrand location and floor-plan entry screens | 003, 004 |
-| [TICKET-018](in-progress/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-018-launcher-icon.md) | Prepare and configure the new launcher icon | 001, 002 |
-| [TICKET-019](in-progress/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
+| [TICKET-018](done/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-018-launcher-icon.md) | Prepare and configure the new launcher icon | 001, 002 |
+| [TICKET-019](done/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
 | [TICKET-020](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-007-validation/TICKET-020-rebrand-acceptance.md) | Record the rebrand acceptance results | 001–019 |
 | [TICKET-021](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-021-design-feedback.md) | Revisit design choices as feedback arrives (non-blocking) | None |
 | [TICKET-022](backlog/INIT-001-rmh-rebrand/FEAT-004-post-rebrand-maintenance/EPIC-008-ui-library-migration/TICKET-022-migrate-nativebase.md) | Migrate NativeBase to gluestack after the rebrand ([#123](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/123)) | 020, Expo 58 PR #122 |
@@ -104,4 +104,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** TICKET-018 (#117), launcher icon, and TICKET-019 (#118), splash screen under INIT-001 / FEAT-003 / EPIC-006: implementation merged with iOS build 3 successful; installed-build checks pending. #104/#107/#116 are accepted and complete; remaining device QA is recorded in #119. Header styling remains with #103. **Next candidate:** TICKET-020 (#119), final acceptance after header work and installed-build checks.
+**Current selection:** none. #104/#107/#116/#117/#118 are complete. The maintainer accepted launcher/splash on an iPhone installed from TestFlight; remaining Android and extended device checks belong to #119. Header styling remains with #103. **Next candidate:** TICKET-020 (#119), final acceptance; coordinate completion with #103.
