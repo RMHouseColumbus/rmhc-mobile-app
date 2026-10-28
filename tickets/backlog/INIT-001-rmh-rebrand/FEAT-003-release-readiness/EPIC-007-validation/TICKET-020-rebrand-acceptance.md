@@ -49,3 +49,7 @@ Your Stay cards (#109): maintainer accepted the visuals. Record all three detail
 About cards (#108): maintainer accepted implementation. Record all seven destinations, final Staff Use card clearance, narrow/enlarged-text layout, and Android appearance; these checks were not individually reported. TypeScript, 28 tests, and both platform exports pass.
 
 Theme/fonts (#102): closed at maintainer request with light-only appearance; no dark theme is required. Retain Android cold-start/font rendering, enlarged-text, and full-app typography checks here; these were not individually completed in #102.
+
+Bottom tabs (#104), Neighborhood cards (#107), and Find Us/Facilities (#116): maintainer approved implementation on 2026-10-27. Record all five tab states, six Neighborhood actions, contact/map/PDF and back interactions, narrow/enlarged-text and safe-area behavior, accessibility, and Android visuals. Find Us and Facilities were visually inspected in the iPhone 12 simulator at standard text size. TypeScript, 28 tests, and both platform exports pass.
+
+Launcher/splash (#117/#118): native prebuild and asset/mask checks pass; iOS production 1.3.0 (3), build 95ee21e0-f76a-4a30-9d90-13561b4bd42d, finished successfully. Installed launcher, cold-launch/font transition, and Android native review remain pending in those tickets.

@@ -455,7 +455,14 @@ function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName="RMHC Central Ohio"
       screenOptions={{
-        tabBarActiveTintColor: "red",
+        tabBarActiveTintColor: Colors.light.tabIconSelected,
+        tabBarInactiveTintColor: Colors.light.tabIconDefault,
+        tabBarStyle: {
+          backgroundColor: Colors.background,
+          borderTopColor: Colors.cardBorder,
+        },
+        // Center icons in the button now that labels are hidden.
+        tabBarIconStyle: { flex: 1 },
         tabBarShowLabel: false,
         headerShown: false,
       }}
@@ -465,21 +472,24 @@ function BottomTabNavigator() {
           name="RMHC Central Ohio"
           component={HomeScreen}
           options={{
-            tabBarIcon: ({ color }) => <HomeIcon fill={color} />,
+            tabBarAccessibilityLabel: "Home",
+            tabBarIcon: ({ color, size }) => <HomeIcon fill={color} width={size} height={size} accessible={false} />,
           }}
         />
         <BottomTab.Screen
           name="Find Us"
           component={FindUs}
           options={{
-            tabBarIcon: ({ color }) => <LocationIcon fill={color} />,
+            tabBarAccessibilityLabel: "Find Us",
+            tabBarIcon: ({ color, size }) => <LocationIcon fill={color} width={size} height={size} accessible={false} />,
           }}
         />
         <BottomTab.Screen
           name="Facilities"
           component={Facilities}
           options={{
-            tabBarIcon: ({ color }) => <FloorPlanIcon fill={color} />,
+            tabBarAccessibilityLabel: "Facilities",
+            tabBarIcon: ({ color, size }) => <FloorPlanIcon fill={color} width={size} height={size} accessible={false} />,
           }}
         />
         <BottomTab.Screen
@@ -502,14 +512,16 @@ function BottomTabNavigator() {
           name="Meals"
           component={Meals}
           options={{
-            tabBarIcon: ({ color }) => <MealsIcon fill={color} />,
+            tabBarAccessibilityLabel: "Meals",
+            tabBarIcon: ({ color, size }) => <MealsIcon fill={color} width={size * 1.25} height={size} accessible={false} />,
           }}
         />
         <BottomTab.Screen
           name="Updates"
           component={Updates}
           options={{
-            tabBarIcon: ({ color }) => <UpdatesIcon fill={color} />,
+            tabBarAccessibilityLabel: "Updates",
+            tabBarIcon: ({ color, size }) => <UpdatesIcon fill={color} width={size} height={size} accessible={false} />,
           }}
         />
         <BottomTab.Screen
