@@ -12,7 +12,7 @@ Source: `App Design Assets/RMH App Design Package/RMH App Design.pdf`, pages 1�
 | Fonts | Audrey Text Regular for body, Text Bold for headings/navigation/cards; supplied italic/bold-italic faces for emphasis. Do not introduce Display styling unless later feedback calls for it. | The supplied layout uses Text Regular/Bold. Additional font faces alone do not require new type styles. |
 | Unmocked screens | Extend red headers with light titles/icons, cream page surfaces, black body text, and shared cards/controls to drawer/detail screens. | Consistent extension of the supplied screens; no separate mockups provided. |
 | Splash | Center the horizontal Central Ohio logo on cream with safe margins and preserved aspect ratio. | No supplied splash design; provisional composition. |
-| Dark appearance | Use the supplied light appearance consistently for this release, including when the device is in dark mode. | Only a light design was supplied; deliberate implementation choice. |
+| Dark appearance | Use the supplied light appearance consistently for this release, including when the device is in dark mode. | Only a light design was supplied; maintainer confirmed no dark theme is wanted and requested closure of #102. |
 | Launcher name | Retain “RMHC App.” Keep bundle/package IDs, scheme, internal route IDs, and destinations unchanged. | No designer-requested rename. This question was optional scope, not a requirement. |
 | Copy | Correct “Vist” to “Visit”; retain content and behavior otherwise. | Typo in the About mockup. |
 | Home panel corners | Use square corners on the cream Home welcome panel. | Maintainer override on 2026-10-25; supersedes the rounded corners on PDF page 3. |

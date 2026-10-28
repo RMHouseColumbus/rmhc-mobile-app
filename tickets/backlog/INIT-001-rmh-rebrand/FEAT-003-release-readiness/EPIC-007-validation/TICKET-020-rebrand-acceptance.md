@@ -47,3 +47,5 @@ Staff unlock follow-up: compact controls verified in iOS simulator; maintainer c
 Your Stay cards (#109): maintainer accepted the visuals. Record all three detail tap/back actions, narrow/enlarged-text layout, and Android appearance; these scenarios were not individually reported. TypeScript, 28 tests, and both platform exports pass.
 
 About cards (#108): maintainer accepted implementation. Record all seven destinations, final Staff Use card clearance, narrow/enlarged-text layout, and Android appearance; these checks were not individually reported. TypeScript, 28 tests, and both platform exports pass.
+
+Theme/fonts (#102): closed at maintainer request with light-only appearance; no dark theme is required. Retain Android cold-start/font rendering, enlarged-text, and full-app typography checks here; these were not individually completed in #102.

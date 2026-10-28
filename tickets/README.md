@@ -11,7 +11,7 @@ Project: [RMH App Rebrand](https://github.com/orgs/RMHouseColumbus/projects/2). 
 ## Start here
 
 1. Read this file and the ticket, then inspect its source files and dependencies before editing.
-2. Read `tickets/DECISIONS.md` and use its working defaults. **TICKET-006 / #105** (shared cards), **TICKET-007 / #106** (Home), **TICKET-011 / #110** (rich text), and **TICKET-015 / #114** (delivery/transport details) are complete. TICKET-003 / #102 retains its explicit pending device checks in the backlog. TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
+2. Read `tickets/DECISIONS.md` and use its working defaults. **TICKET-006 / #105** (shared cards), **TICKET-007 / #106** (Home), **TICKET-011 / #110** (rich text), and **TICKET-015 / #114** (delivery/transport details) are complete. TICKET-003 / #102 is complete with light-only appearance; remaining device verification belongs to #119. TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
 3. Implement only the selected ticket. Preserve navigation, CMS/feed behavior, and external destinations unless that ticket explicitly calls for a change.
 4. Record verification evidence and blockers in the ticket. Do not claim a simulator/build check was run if it was not.
 
@@ -77,7 +77,7 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | --- | --- | --- |
 | [TICKET-001](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-001-resolve-design-details.md) | Record the implementation design decisions (done: working defaults) | None |
 | [TICKET-002](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-002-prepare-artwork.md) | Prepare reusable logo and illustration assets | 001 |
-| [TICKET-003](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey (implemented; verification pending) | 001 |
+| [TICKET-003](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey (done; light-only appearance) | 001 |
 | [TICKET-004](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-004-headers-and-drawer.md) | Apply the new header and drawer styling | 003 |
 | [TICKET-005](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-005-bottom-navigation.md) | Apply the agreed bottom navigation design | 001, 003 |
 | [TICKET-006](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-006-shared-illustrated-card.md) | Support branded illustrated cards in the shared component (done) | 002, 003 |
