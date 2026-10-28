@@ -20,7 +20,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "1",
+      "buildNumber": "3",
       "supportsTablet": false,
       "infoPlist": {
         "LSApplicationQueriesSchemes": [
@@ -36,8 +36,8 @@
     "android": {
       "versionCode": 13,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#8EE7F8"
       },
       "package": "org.rmhc.rmhcmobileapp"
     },
@@ -61,10 +61,11 @@
         "expo-splash-screen",
         {
           "image": "./assets/images/splash.png",
-          "resizeMode": "cover",
-          "backgroundColor": "#ffffff",
-          "ios": {
-            "enableFullScreenImage_legacy": true
+          "resizeMode": "contain",
+          "backgroundColor": "#FFFDE9",
+          "imageWidth": 280,
+          "android": {
+            "imageWidth": 200
           }
         }
       ],

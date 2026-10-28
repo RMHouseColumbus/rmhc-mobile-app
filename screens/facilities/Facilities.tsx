@@ -1,63 +1,41 @@
 import React from "react";
-import { ImageBackground, StyleSheet, View } from "react-native";
-import { Box, Button, Text } from "native-base";
+import { ImageBackground, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 
 import type { RootTabScreenProps } from "../../types";
+import Colors from "../../constants/Colors";
+import Fonts from "../../constants/Fonts";
+import { cardSurface } from "../../constants/CardStyles";
 
-export default function Facilities({
-  navigation,
-}: RootTabScreenProps<"Facilities">) {
+export default function Facilities({ navigation }: RootTabScreenProps<"Facilities">) {
   return (
     <ImageBackground
-      imageStyle={{ resizeMode: "cover", flex: 1 }}
-      style={{ flex: 1 }}
+      resizeMode="cover"
+      style={styles.screen}
       source={require("./assets/floorplan_bckgrd.png")}
     >
-      <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-        <Box style={styles.floorPlanBackground}>
-          <Box flex={1} alignItems={"center"} justifyContent={"center"}>
-            <Text style={styles.floorPlanText}>FLOOR PLAN</Text>
-          </Box>
-          <Box opacity={1} flex={1}>
-            <Button
-              style={styles.floorPlanButton}
-              opacity={1}
-              onPress={() => navigation.navigate("FacilitiesPDF")}
-            >
-              <Text style={styles.viewPDF}>View PDF</Text>
-            </Button>
-          </Box>
-        </Box>
-      </Box>
+      <ScrollView contentContainerStyle={styles.content}>
+        <View style={styles.panel}>
+          <Text style={styles.heading} accessibilityRole="header">Floor Plan</Text>
+          <Pressable
+            onPress={() => navigation.navigate("FacilitiesPDF")}
+            accessibilityRole="button"
+            accessibilityLabel="View floor plan PDF"
+            style={({ pressed }) => [styles.button, pressed && styles.pressed]}
+          >
+            <Text style={styles.buttonLabel}>View PDF</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  floorPlanBackground: {
-    borderColor: "black",
-    borderWidth: 5,
-    width: "55%",
-    height: "37%",
-    backgroundColor: "#FFFFFF",
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    opacity: 0.9,
-  },
-  floorPlanText: {
-    fontSize: 20,
-    fontFamily: "Raleway-Bold",
-    textAlign: "center",
-  },
-  floorPlanButton: {
-    borderRadius: 10,
-    backgroundColor: "#FCC300",
-    opacity: 1,
-  },
-  viewPDF: {
-    color: "#000000",
-    textAlign: "center",
-    fontSize: 20,
-    fontFamily: "Raleway-Regular",
-  },
+  screen: { flex: 1, backgroundColor: Colors.background },
+  content: { flexGrow: 1, justifyContent: "center", alignItems: "center", padding: 24 },
+  panel: { ...cardSurface, width: "100%", maxWidth: 400, borderRadius: 20, padding: 24, gap: 24 },
+  heading: { fontFamily: Fonts.Bold, fontSize: 24, color: Colors.text, textAlign: "center" },
+  button: { backgroundColor: Colors.action, borderRadius: 10, minHeight: 48, padding: 12, justifyContent: "center" },
+  buttonLabel: { fontFamily: Fonts.Bold, fontSize: 18, color: Colors.onAction, textAlign: "center" },
+  pressed: { opacity: 0.8 },
 });

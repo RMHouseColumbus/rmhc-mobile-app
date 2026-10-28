@@ -11,7 +11,7 @@ Project: [RMH App Rebrand](https://github.com/orgs/RMHouseColumbus/projects/2). 
 ## Start here
 
 1. Read this file and the ticket, then inspect its source files and dependencies before editing.
-2. Read `tickets/DECISIONS.md` and use its working defaults. **TICKET-006 / #105** (shared cards), **TICKET-007 / #106** (Home), **TICKET-011 / #110** (rich text), and **TICKET-015 / #114** (delivery/transport details) are complete. TICKET-003 / #102 retains its explicit pending device checks in the backlog. TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
+2. Read `tickets/DECISIONS.md` and use its working defaults. **TICKET-006 / #105** (shared cards), **TICKET-007 / #106** (Home), **TICKET-011 / #110** (rich text), and **TICKET-015 / #114** (delivery/transport details) are complete. TICKET-003 / #102 is complete with light-only appearance; remaining device verification belongs to #119. TICKET-021 tracks later feedback and blocks neither implementation nor acceptance.
 3. Implement only the selected ticket. Preserve navigation, CMS/feed behavior, and external destinations unless that ticket explicitly calls for a change.
 4. Record verification evidence and blockers in the ticket. Do not claim a simulator/build check was run if it was not.
 
@@ -77,12 +77,12 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | --- | --- | --- |
 | [TICKET-001](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-001-resolve-design-details.md) | Record the implementation design decisions (done: working defaults) | None |
 | [TICKET-002](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-002-prepare-artwork.md) | Prepare reusable logo and illustration assets | 001 |
-| [TICKET-003](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey (implemented; verification pending) | 001 |
+| [TICKET-003](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-003-brand-theme-and-fonts.md) | Introduce shared brand tokens and load Audrey (done; light-only appearance) | 001 |
 | [TICKET-004](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-004-headers-and-drawer.md) | Apply the new header and drawer styling | 003 |
-| [TICKET-005](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-005-bottom-navigation.md) | Apply the agreed bottom navigation design | 001, 003 |
+| [TICKET-005](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-003-navigation/TICKET-005-bottom-navigation.md) | Apply the agreed bottom navigation design | 001, 003 |
 | [TICKET-006](done/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-002-shared-ui/TICKET-006-shared-illustrated-card.md) | Support branded illustrated cards in the shared component (done) | 002, 003 |
 | [TICKET-007](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-007-home-screen.md) | Rebuild Home to match the new welcome design (done) | 002, 003, 004, 005 |
-| [TICKET-008](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-008-neighborhood-screen.md) | Rebrand the Neighborhood cards | 006, 004 |
+| [TICKET-008](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-008-neighborhood-screen.md) | Rebrand the Neighborhood cards | 006, 004 |
 | [TICKET-009](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-009-about-screen.md) | Rebrand the About cards including Staff Use (done) | 006, 004 |
 | [TICKET-010](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-004-primary-screens/TICKET-010-your-stay-screen.md) | Rebrand the Your Stay menu (done) | 006, 004 |
 | [TICKET-011](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-011-rich-text-rendering.md) | Apply Audrey typography to Contentful rich text (done) | 003 |
@@ -91,9 +91,9 @@ Numbers provide a suggested reading/execution order; each ticket’s dependencie
 | [TICKET-014](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-014-stay-and-about-details.md) | Rebrand stay information and About detail pages (done) | 003, 011 |
 | [TICKET-015](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-015-neighborhood-details.md) | Rebrand delivery and transportation details (done) | 003, 011 |
 | [TICKET-016](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-016-staff-unlock.md) | Rebrand the Staff Use unlock form (done) | 003 |
-| [TICKET-017](backlog/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-017-find-us-and-facilities.md) | Rebrand location and floor-plan entry screens | 003, 004 |
-| [TICKET-018](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-018-launcher-icon.md) | Prepare and configure the new launcher icon | 001, 002 |
-| [TICKET-019](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
+| [TICKET-017](done/INIT-001-rmh-rebrand/FEAT-002-app-experience/EPIC-005-supporting-screens/TICKET-017-find-us-and-facilities.md) | Rebrand location and floor-plan entry screens | 003, 004 |
+| [TICKET-018](in-progress/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-018-launcher-icon.md) | Prepare and configure the new launcher icon | 001, 002 |
+| [TICKET-019](in-progress/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-006-launch-assets/TICKET-019-splash-screen.md) | Prepare and configure the branded splash screen | 001, 002, 003 |
 | [TICKET-020](backlog/INIT-001-rmh-rebrand/FEAT-003-release-readiness/EPIC-007-validation/TICKET-020-rebrand-acceptance.md) | Record the rebrand acceptance results | 001–019 |
 | [TICKET-021](backlog/INIT-001-rmh-rebrand/FEAT-001-brand-foundations/EPIC-001-design-handoff/TICKET-021-design-feedback.md) | Revisit design choices as feedback arrives (non-blocking) | None |
 | [TICKET-022](backlog/INIT-001-rmh-rebrand/FEAT-004-post-rebrand-maintenance/EPIC-008-ui-library-migration/TICKET-022-migrate-nativebase.md) | Migrate NativeBase to gluestack after the rebrand ([#123](https://github.com/RMHouseColumbus/rmhc-mobile-app/issues/123)) | 020, Expo 58 PR #122 |
@@ -104,4 +104,4 @@ Status is the directory: `backlog/`, `in-progress/`, or `done/`. Move the ticket
 
 Before moving to `done/`, check every acceptance item and add concise implementation/verification notes. Record a blocker in the ticket if completion is not verifiable. Any new defects or missing scope get small linked tickets under the appropriate epic. Proposed commit subjects are suggestions, not authorization to commit.
 
-**Current selection:** none. TICKET-009 (#108), About cards, is complete. **Next candidate:** TICKET-008 (#107), Neighborhood cards under INIT-001 / FEAT-002 / EPIC-004. Header styling remains with #103.
+**Current selection:** TICKET-018 (#117), launcher icon, and TICKET-019 (#118), splash screen under INIT-001 / FEAT-003 / EPIC-006: implementation merged with iOS build 3 successful; installed-build checks pending. #104/#107/#116 are accepted and complete; remaining device QA is recorded in #119. Header styling remains with #103. **Next candidate:** TICKET-020 (#119), final acceptance after header work and installed-build checks.
