@@ -114,45 +114,59 @@ function AppDrawer(props: DrawerContentComponentProps) {
 
   return (
 
-      <DrawerContentScrollView {...props}>
+      <DrawerContentScrollView
+        {...props}
+        style={{ backgroundColor: Colors.background }}
+        contentContainerStyle={{ backgroundColor: Colors.background }}
+      >
         <DrawerItem
           label="Home"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("RMHC Central Ohio")}
         />
         <DrawerItem
           label="Updates"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("Updates")}
         />
         <DrawerItem
           label="Meals"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("Meals")}
         />
         <DrawerItem
           label="Activities"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("Activities")}
         />
         <DrawerItem
           label="Facilities/Floor Plan"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("Facilities")}
         />
         <DrawerItem
           label="Helpful Resources"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("Helpful Resources")}
         />
         <DrawerItem
           label="Family Rooms"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("HospitalHome")}
         />
         <DrawerItem
           label="Neighborhood Guide"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("NeighborhoodHome")}
         />
         <DrawerItem
           label="About"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("AboutHome")}
         />
         <DrawerItem
           label="Your Stay"
+          labelStyle={drawerLabelStyle}
           onPress={() => navigateTo("YourStayHome")}
         />
 
@@ -160,14 +174,14 @@ function AppDrawer(props: DrawerContentComponentProps) {
 
           <Box alignItems={"center"} paddingY={10} >
             <Button
-              backgroundColor={Colors.buttonBlue}
+              backgroundColor={Colors.action}
               borderRadius={10}
               width={"90%"}
               onPress={() =>
                 openLink("http://rmhc-centralohio.org/app_donation_page/")
               }
             >
-              <Text fontFamily={"Raleway-SemiBold"} color={"white"}>
+              <Text fontFamily={Fonts.Bold} color={Colors.onAction}>
                 Donate
               </Text>
             </Button>
@@ -220,7 +234,7 @@ function getHeaderTitle(route: RouteProp<ParamListBase>) {
     case "In Hospital Services":
       return "FAMILY ROOMS";
     default:
-      return routeName.toUpperCase();
+      return routeName;
   }
 }
 
@@ -257,31 +271,37 @@ function RootNavigator() {
   );
 }
 
+const drawerLabelStyle = {
+  fontFamily: Fonts.Regular,
+  color: Colors.text,
+  fontSize: 16,
+};
+
 const blueHeaderStyle = {
   headerTitleStyle: {
-    fontFamily: Fonts.Semibold,
-    color: Colors.white,
+    fontFamily: Fonts.Bold,
+    color: Colors.onHeader,
     fontSize: 20,
   },
   headerStyle: {
-    backgroundColor: Colors.statusBarBlue,
+    backgroundColor: Colors.header,
   }
 };
 
 const nestedHeader = ({ route }: NativeStackScreenProps<any>) => {
   return {
-    headerTintColor: Colors.black,
+    headerTintColor: Colors.onHeader,
     headerShown: true,
     gestureEnabled: true,
     headerBackButtonDisplayMode: "minimal" as const,
     headerTitle: getHeaderTitle(route),
     headerTitleStyle: {
-      fontFamily: Fonts.Semibold,
-      color: Colors.black,
+      fontFamily: Fonts.Bold,
+      color: Colors.onHeader,
       fontSize: 20,
     },
     headerStyle: {
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.header,
     },
     tabBarShowLabel: false,
   };
@@ -307,7 +327,7 @@ function AboutStack() {
           return {
             headerLeft: () => (
               <IconButton
-                icon={<HamburgerIcon color={Colors.black} />}
+                icon={<HamburgerIcon color={Colors.onHeader} />}
                 onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
                 color={"transparent"}
               />
@@ -336,7 +356,7 @@ function NeighborhoodStack() {
 
             headerLeft: () => (
               <IconButton
-                icon={<HamburgerIcon color={Colors.black} />}
+                icon={<HamburgerIcon color={Colors.onHeader} />}
                 onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
               />
             ),
@@ -366,7 +386,7 @@ function HospitalStack() {
           return {
             headerLeft: () => (
               <IconButton
-                icon={<HamburgerIcon color={Colors.black} />}
+                icon={<HamburgerIcon color={Colors.onHeader} />}
                 onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
               />
             ),
@@ -385,7 +405,7 @@ function HospitalStack() {
 function BackButton(props: { onPress: () => any }) {
   return <IconButton
     accessibilityLabel="Back"
-    icon={<ChevronLeftIcon color={Colors.black} />}
+    icon={<ChevronLeftIcon color={Colors.onHeader} />}
     onPress={props.onPress}
   />;
 }
@@ -403,7 +423,7 @@ function YourStayStack() {
           return {
             headerLeft: () => (
               <IconButton
-                icon={<HamburgerIcon color={Colors.black} />}
+                icon={<HamburgerIcon color={Colors.onHeader} />}
                 onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
               />
             ),
@@ -500,6 +520,14 @@ function BottomTabNavigator() {
               ...HideTab,
               headerShown: true,
               headerTitle: "FLOOR PLAN",
+              headerTitleStyle: {
+                fontFamily: Fonts.Bold,
+                color: Colors.onHeader,
+                fontSize: 20,
+              },
+              headerStyle: {
+                backgroundColor: Colors.header,
+              },
               headerLeft: () => (
                 <BackButton
                   onPress={() => props.navigation.navigate("Facilities")}
