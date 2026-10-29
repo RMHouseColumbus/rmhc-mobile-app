@@ -1,0 +1,3 @@
+# Local planning files do not affect the native runtime.
+tickets
+tickets/**/*
