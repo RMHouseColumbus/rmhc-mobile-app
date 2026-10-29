@@ -39,13 +39,13 @@ Check on both iOS and Android:
 - Repeat with device dark appearance and enlarged text. The page remains cream with readable text and scrolls without cutting off labels.
 - In the configured real app, verify navigation titles and ordinary NativeBase text, plus startup after closing/reopening Expo Go. The preview's title sample does not replace checking navigation itself.
 
-Use `constants/Colors.ts` for semantic colors, `constants/Fonts.tsx` for explicit React Native font faces, and the default NativeBase `Text`/`Heading` theme for automatic weight/style selection. NativeBase weights 100–500 map to Audrey Regular/Italic; 600–950 map to Bold/BoldItalic. `Fonts.Semibold` temporarily aliases Bold; old Raleway registrations remain for screens still naming them. The legacy `backgroundBlue`, `statusBarBlue`, and `buttonBlue` exports now map to cream, red, and red respectively. Later screen tickets migrate hard-coded styles.
+Use `constants/Colors.ts` for semantic colors, `constants/Fonts.tsx` for explicit React Native font faces, and the default NativeBase `Text`/`Heading` theme for automatic weight/style selection. NativeBase weights 100–500 map to Audrey Regular/Italic; 600–950 map to Bold/BoldItalic. `Fonts.Semibold` temporarily aliases Bold; all Raleway registrations have been removed. Space Mono remains the theme’s monospace face. The legacy `backgroundBlue`, `statusBarBlue`, and `buttonBlue` exports now map to cream, red, and red respectively. Later screen tickets migrate hard-coded styles.
 
 Asset provenance and export instructions are in `assets/brand/README.md`. Native splash artwork/launcher appearance require native-build checks in #117/#118, beyond this Expo Go preview.
 
 ### Shared illustrated cards (#105)
 
-The new `SVGCard` variant accepts a plain label, a bundled image, and an explicit color pair. Keep route IDs and URLs unchanged when migrating screens:
+`SVGCard` accepts a plain label, a bundled image, and an explicit color pair. Keep route IDs and URLs unchanged when migrating screens:
 
 ```tsx
 <SVGCard
@@ -59,9 +59,9 @@ The new `SVGCard` variant accepts a plain label, a bundled image, and an explici
 
 Import `SVGCard` from `components/SVGCard`, `brandImages` from `assets/brand`, and `cardColors` from `constants/Colors`. Use `navType="link"` for an external URL. For typed navigation callbacks or another action, use the layout-only `IllustratedCard` directly with `onPress` and the appropriate `accessibilityRole` (`button` by default).
 
-Labels wrap without a line limit and respect system font scaling. Artwork keeps its aspect ratio in an 88-point square. Cards stack below 300 points wide or at font scales of 1.6× and above. Existing `textComponent`/`component` props, `SVGCardText`, and the separate Your Stay cards remain compatible; screen migrations belong to their own tickets.
+Labels wrap without a line limit and respect system font scaling. Artwork keeps its aspect ratio in an 88-point square. Cards stack below 300 points wide or at font scales of 1.6× and above.
 
-The preview's **Illustrated cards · #105** section includes all four color pairs, short/long labels, a 280-point width toggle, an actual stack destination with a Back button, an external website link, and an original card. Check full/narrow width, enlarged device text, and VoiceOver/TalkBack (one named button/link per new card; decorative artwork is not announced). A successful bundle or callback check does not replace these device checks.
+The preview's **Illustrated cards · #105** section includes all four color pairs, short/long labels, a 280-point width toggle, an actual stack destination with a Back button, and an external website link. Check full/narrow width, enlarged device text, and VoiceOver/TalkBack (one named button/link per new card; decorative artwork is not announced). A successful bundle or callback check does not replace these device checks.
 
 ### Home screen (#106)
 
@@ -75,7 +75,7 @@ The preview's **Rich text · #110** section uses the shared renderer and a local
 
 1. Claim an unblocked issue and move its Project item to In Progress. Read its acceptance criteria, dependencies, and relevant files before asking a coding assistant to implement it.
 2. Branch from the latest `origin/feature/rebrand` using `rebrand/<issue-number>-<short-name>`.
-3. Use the [design asset guide](App%20Design%20Assets/README.md). Preserve existing routes, content bindings, and destinations. Use the working defaults in `tickets/DECISIONS.md`. #120 tracks later feedback and does not block implementation or acceptance.
+3. Use the [design asset guide](App%20Design%20Assets/README.md). Preserve existing routes, content bindings, and destinations. Use the working defaults in [the decision log on `feature/rebrand`](https://github.com/RMHouseColumbus/rmhc-mobile-app/blob/feature/rebrand/tickets/DECISIONS.md). #120 tracks later feedback and does not block implementation or acceptance.
 4. Run the relevant checks below and attach screenshots for changed screens, plus a short account of actions exercised. Distinguish existing failures from new ones.
 5. Open a PR **targeting `feature/rebrand`**, link the issue, and request maintainer review. Mention the issue with `Refs #...`; close it after acceptance on the integration branch rather than relying on default-branch auto-close behavior.
 
@@ -101,8 +101,29 @@ Record these separately when comparing a PR's results; do not silently suppress 
 
 ## Maintainer handoff before assignments
 
-- Share `tickets/DECISIONS.md` with contributors. #100 is complete with working defaults; collect later feedback in #120 and update the log as answers arrive. Do not hold implementation or acceptance for these open questions.
+- Share [the decision log on `feature/rebrand`](https://github.com/RMHouseColumbus/rmhc-mobile-app/blob/feature/rebrand/tickets/DECISIONS.md) with contributors. #100 is complete with working defaults; collect later feedback in #120 and update the log as answers arrive. Do not hold implementation or acceptance for these open questions.
 - Confirm contributors have repository access and local configuration/test data. Have one contributor complete a clean checkout and app launch.
 - Add the rebrand issues to the Project, assign owners, and follow dependency order. Start with assets and shared theme/cards using the recorded defaults.
 - Configure a review rule for `feature/rebrand` if desired, with the maintainer reviewing PRs; select required checks only after their baseline passes. Keep the repository default branch unchanged during the rebrand.
-- Complete cross-platform acceptance in #119 before merging `feature/rebrand` into `master` or planning a release. This preparation does not publish an app update.
+- Complete cross-platform acceptance in #119 before preparing a release PR to `master` using the workflow below. This preparation does not publish an app update.
+
+## Keep the ticket board on the feature branch
+
+`tickets/` belongs only on `feature/rebrand` and its working branches. Do not open a direct merge PR from `feature/rebrand` to `master`: tracked files are included even if added to `.gitignore`.
+
+After acceptance, prepare a separate release branch from `master`. Start with a clean working tree:
+
+```sh
+git fetch origin
+git switch -c release/rebrand origin/master
+git merge --squash origin/feature/rebrand
+# Resolve any conflicts before continuing; exclude the board from this release only.
+git rm -r -- tickets
+git diff --cached --stat
+git diff --cached --exit-code -- tickets
+git commit -m "Rebrand app"
+```
+
+The ticket diff check must be empty. Review the staged changes and run the app checks before committing. Open the release PR against `master`; verify its Files changed tab contains no `tickets/` files. Squashing locally keeps ticket commits out of the release branch’s ancestry as well as its file tree.
+
+Keep `feature/rebrand` intact. Do not delete its board or merge a ticket-removal commit back into it. Link to the feature branch’s board when referencing tickets from documentation that ships to `master`.

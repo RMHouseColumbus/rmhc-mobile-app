@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { StyleSheet, useWindowDimensions, View } from "react-native";
 import { Button, Heading, Text } from "native-base";
-import { SVGCard, SVGCardText } from "../../components/SVGCard";
+import { SVGCard } from "../../components/SVGCard";
 import { brandImages } from "../../assets/brand";
 import { cardColors } from "../../constants/Colors";
-import { FoodDeliverySVG } from "../neighborhood/components/NeighborhoodCards";
 
 export const CARD_PREVIEW_ROUTE = "CardPreviewDetail";
 
@@ -56,14 +55,6 @@ export function CardPreviewSection() {
           navigationTo={CARD_PREVIEW_ROUTE}
         />
       </View>
-      <Heading size="sm">Existing card compatibility</Heading>
-      <Text>This uses the original props and artwork. Its existing styling is retained.</Text>
-      <SVGCard
-        textComponent={<SVGCardText text={["Food", "Delivery"]} />}
-        component={<FoodDeliverySVG />}
-        navType="navigation"
-        navigationTo={CARD_PREVIEW_ROUTE}
-      />
     </View>
   );
 }

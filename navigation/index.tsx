@@ -11,7 +11,7 @@ import {
   getFocusedRouteNameFromRoute,
   NavigationContainer,
 } from "@react-navigation/native";
-import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { NativeStackNavigationOptions, NativeStackScreenProps } from "@react-navigation/native-stack";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
 import type { ColorSchemeName } from "react-native";
@@ -103,6 +103,22 @@ export default function Navigation({
 const Drawer = createDrawerNavigator();
 
 function AppDrawer(props: DrawerContentComponentProps) {
+  // Select the top-level section so nested details keep their parent highlighted.
+  const activeRoute = getFocusedRouteNameFromRoute(props.state.routes[props.state.index])
+    ?? "RMHC Central Ohio";
+  const activeSection = activeRoute === "FacilitiesPDF" ? "Facilities" : activeRoute;
+  const drawerItemProps = (screen: keyof RootTabParamList) => ({
+    focused: activeSection === screen,
+    activeBackgroundColor: "transparent",
+    activeTintColor: Colors.action,
+    pressOpacity: 0.55,
+    pressColor: `${Colors.action}20`,
+    labelStyle: [
+      drawerLabelStyle,
+      activeSection === screen && { color: Colors.action, textDecorationLine: "underline" as const },
+    ],
+  });
+
   const navigateTo = (screen: keyof RootTabParamList) => {
     props.navigation.closeDrawer();
     props.navigation.navigate("Home", { screen });
@@ -121,52 +137,52 @@ function AppDrawer(props: DrawerContentComponentProps) {
       >
         <DrawerItem
           label="Home"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("RMHC Central Ohio")}
           onPress={() => navigateTo("RMHC Central Ohio")}
         />
         <DrawerItem
           label="Updates"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("Updates")}
           onPress={() => navigateTo("Updates")}
         />
         <DrawerItem
           label="Meals"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("Meals")}
           onPress={() => navigateTo("Meals")}
         />
         <DrawerItem
           label="Activities"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("Activities")}
           onPress={() => navigateTo("Activities")}
         />
         <DrawerItem
           label="Facilities/Floor Plan"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("Facilities")}
           onPress={() => navigateTo("Facilities")}
         />
         <DrawerItem
           label="Helpful Resources"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("Helpful Resources")}
           onPress={() => navigateTo("Helpful Resources")}
         />
         <DrawerItem
           label="Family Rooms"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("HospitalHome")}
           onPress={() => navigateTo("HospitalHome")}
         />
         <DrawerItem
           label="Neighborhood Guide"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("NeighborhoodHome")}
           onPress={() => navigateTo("NeighborhoodHome")}
         />
         <DrawerItem
           label="About"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("AboutHome")}
           onPress={() => navigateTo("AboutHome")}
         />
         <DrawerItem
           label="Your Stay"
-          labelStyle={drawerLabelStyle}
+          {...drawerItemProps("YourStayHome")}
           onPress={() => navigateTo("YourStayHome")}
         />
 
@@ -219,6 +235,7 @@ function showHeaderTitle(route: RouteProp<ParamListBase>) {
     case "YourStayHome":
     case "NeighborhoodHome":
     case "FacilitiesPDF":
+    case "Staff Use":
       return false;
     default:
       return true;
@@ -288,12 +305,20 @@ const blueHeaderStyle = {
   }
 };
 
-const nestedHeader = ({ route }: NativeStackScreenProps<any>) => {
+const nestedHeader = ({ route, navigation }: NativeStackScreenProps<any>): NativeStackNavigationOptions => {
   return {
     headerTintColor: Colors.onHeader,
     headerShown: true,
     gestureEnabled: true,
-    headerBackButtonDisplayMode: "minimal" as const,
+    headerBackVisible: false,
+    headerLeft: ({ canGoBack }) => canGoBack
+      ? <BackButton onPress={() => navigation.goBack()} />
+      : null,
+    unstable_headerLeftItems: ({ canGoBack }) => canGoBack ? [{
+      type: "custom",
+      element: <BackButton onPress={() => navigation.goBack()} />,
+      hidesSharedBackground: true,
+    }] : [],
     headerTitle: getHeaderTitle(route),
     headerTitleStyle: {
       fontFamily: Fonts.Bold,
@@ -303,9 +328,29 @@ const nestedHeader = ({ route }: NativeStackScreenProps<any>) => {
     headerStyle: {
       backgroundColor: Colors.header,
     },
-    tabBarShowLabel: false,
   };
 };
+
+function drawerHeaderOptions(onPress: () => void): NativeStackNavigationOptions {
+  const button = (
+    <IconButton
+      accessibilityLabel="Open menu"
+      variant="unstyled"
+      backgroundColor="transparent"
+      _pressed={{ backgroundColor: "transparent", opacity: 0.55 }}
+      icon={<HamburgerIcon color={Colors.onHeader} />}
+      onPress={onPress}
+    />
+  );
+
+  return {
+    headerLeft: () => button,
+    // iOS 26 adds a system background around custom native header buttons.
+    unstable_headerLeftItems: () => [
+      { type: "custom", element: button, hidesSharedBackground: true },
+    ],
+  };
+}
 
 const HospitalServiceStack = createNativeStackNavigator<HospitalStackList>();
 const NeighborhoodStackNav =
@@ -323,17 +368,9 @@ function AboutStack() {
       <AboutStackNav.Screen
         name="About"
         component={About}
-        options={({ navigation }) => {
-          return {
-            headerLeft: () => (
-              <IconButton
-                icon={<HamburgerIcon color={Colors.onHeader} />}
-                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-                color={"transparent"}
-              />
-            ),
-          };
-        }}
+        options={({ navigation }) => drawerHeaderOptions(
+          () => navigation.dispatch(DrawerActions.openDrawer())
+        )}
       />
       <AboutStackNav.Screen name="Stay Involved" component={StayInvolved} />
       <AboutStackNav.Screen name="Care Mobile" component={CareMobile} />
@@ -351,17 +388,9 @@ function NeighborhoodStack() {
       <NeighborhoodStackNav.Screen
         name="Neighborhood"
         component={Neighborhood}
-        options={({ navigation }) => {
-          return {
-
-            headerLeft: () => (
-              <IconButton
-                icon={<HamburgerIcon color={Colors.onHeader} />}
-                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-              />
-            ),
-          };
-        }}
+        options={({ navigation }) => drawerHeaderOptions(
+          () => navigation.dispatch(DrawerActions.openDrawer())
+        )}
       />
       <NeighborhoodStackNav.Screen name="Delivery" component={Delivery} />
       <NeighborhoodStackNav.Screen name="Tickets" component={Tickets} />
@@ -382,16 +411,9 @@ function HospitalStack() {
       <HospitalServiceStack.Screen
         name="In Hospital Services"
         component={HospitalServices}
-        options={({ navigation }) => {
-          return {
-            headerLeft: () => (
-              <IconButton
-                icon={<HamburgerIcon color={Colors.onHeader} />}
-                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-              />
-            ),
-          };
-        }}
+        options={({ navigation }) => drawerHeaderOptions(
+          () => navigation.dispatch(DrawerActions.openDrawer())
+        )}
       />
       <HospitalServiceStack.Screen
         name="Riverside Family Room"
@@ -402,9 +424,12 @@ function HospitalStack() {
   );
 }
 
-function BackButton(props: { onPress: () => any }) {
+function BackButton(props: { onPress: () => void }) {
   return <IconButton
     accessibilityLabel="Back"
+    variant="unstyled"
+    backgroundColor="transparent"
+    _pressed={{ backgroundColor: "transparent", opacity: 0.55 }}
     icon={<ChevronLeftIcon color={Colors.onHeader} />}
     onPress={props.onPress}
   />;
@@ -419,49 +444,21 @@ function YourStayStack() {
       <YourStayStackNav.Screen
         name="Your Stay"
         component={YourStay}
-        options={({ navigation }) => {
-          return {
-            headerLeft: () => (
-              <IconButton
-                icon={<HamburgerIcon color={Colors.onHeader} />}
-                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
-              />
-            ),
-          };
-        }}
+        options={({ navigation }) => drawerHeaderOptions(
+          () => navigation.dispatch(DrawerActions.openDrawer())
+        )}
       />
       <YourStayStackNav.Screen
         name="Before Your Stay"
         component={BeforeYourStay}
-        options={({ navigation }) => {
-          return {
-            headerLeft: () => (
-              <BackButton onPress={() => navigation.goBack()} />
-            ),
-          };
-        }}
       />
       <YourStayStackNav.Screen
         name="During Your Stay"
         component={DuringYourStay}
-        options={({ navigation }) => {
-          return {
-            headerLeft: () => (
-              <BackButton onPress={() => navigation.goBack()} />
-            ),
-          };
-        }}
       />
       <YourStayStackNav.Screen
         name="After Your Stay"
         component={AfterYourStay}
-        options={({ navigation }) => {
-          return {
-            headerLeft: () => (
-              <BackButton onPress={() => navigation.goBack()} />
-            ),
-          };
-        }}
       />
     </YourStayStackNav.Navigator>
   );
@@ -474,6 +471,7 @@ function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="RMHC Central Ohio"
+      backBehavior="history"
       screenOptions={{
         tabBarActiveTintColor: Colors.light.tabIconSelected,
         tabBarInactiveTintColor: Colors.light.tabIconDefault,
@@ -585,7 +583,18 @@ function BottomTabNavigator() {
         <BottomTab.Screen
           name="Staff Use"
           component={StaffUse}
-          options={HideTab}
+          options={({ navigation }) => ({
+            ...HideTab,
+            ...blueHeaderStyle,
+            headerShown: true,
+            headerTitle: "Staff Use",
+            headerLeft: () => (
+              <BackButton onPress={() => {
+                if (navigation.canGoBack()) navigation.goBack();
+                else navigation.navigate("RMHC Central Ohio");
+              }} />
+            ),
+          })}
         />
       </BottomTab.Group>
     </BottomTab.Navigator>
