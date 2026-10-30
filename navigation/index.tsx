@@ -52,7 +52,6 @@ import BHP from "../screens/hospital_services/BHP";
 import Neighborhood from "../screens/neighborhood/Neighborhood";
 import Delivery from "../screens/neighborhood/food_delivery/Delivery";
 import Transportation from "../screens/neighborhood/transportation/Transportation";
-import Tickets from "../screens/neighborhood/Tickets";
 import About from "../screens/about/About";
 import StayInvolved from "../screens/about/stay_involved/StayInvolved";
 import CareMobile from "../screens/about/care_mobile/CareMobile";
@@ -393,7 +392,6 @@ function NeighborhoodStack() {
         )}
       />
       <NeighborhoodStackNav.Screen name="Delivery" component={Delivery} />
-      <NeighborhoodStackNav.Screen name="Tickets" component={Tickets} />
       <NeighborhoodStackNav.Screen
         name="Transportation"
         component={Transportation}
