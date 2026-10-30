@@ -20,7 +20,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "3",
+      "buildNumber": "4",
       "supportsTablet": false,
       "infoPlist": {
         "LSApplicationQueriesSchemes": [
@@ -34,7 +34,7 @@
       "bundleIdentifier": "org.rmhc.rmhcmobileapp"
     },
     "android": {
-      "versionCode": 13,
+      "versionCode": 14,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#8EE7F8"

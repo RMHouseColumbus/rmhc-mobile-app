@@ -16,7 +16,6 @@ export interface ContentfulEntries {
   helpfulResources: Entries;
   pageLink: Entries;
   hospitalServices: Entries
-  tickets: Entries;
 }
 
 export interface CEntry {
@@ -39,13 +38,6 @@ export interface Update {
 export interface Page {
   page: string;
   content: any;
-}
-
-export interface Ticket {
-  title: string;
-  description: string;
-  link?: string;
-  order?: number;
 }
 
 export interface TransportationEntry {
@@ -126,7 +118,4 @@ export const entries: ContentfulEntries = {
   hospitalServices: {
     contentType: "hospitalServices"
   },
-  tickets: {
-    contentType: "tickets",
-  }
 };

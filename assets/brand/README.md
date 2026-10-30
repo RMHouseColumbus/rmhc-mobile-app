@@ -16,7 +16,7 @@ All sources below are beneath `App Design Assets/`. **Links** means `RMH App Des
 | `mcdonalds` / `illustrations/mcdonalds.png` | Links `McDonalds-RMH_icon-RGB.png` | Neighborhood / McDonald’s |
 | `shopping` / `illustrations/shopping.png` | Links `Shopping_cart-Dollar_icon-RGB.png` | Neighborhood / shopping |
 | `city` / `illustrations/city.png` | Links `city_icon-RGB.png` | Neighborhood / transportation |
-| `tickets` / `illustrations/tickets.png` | Links `Online_Ticket_icon-RGB.png` | Neighborhood / tickets |
+| `tickets` / `illustrations/tickets.png` | Links `Online_Ticket_icon-RGB.png` | Neighborhood / transportation |
 | `team` / `illustrations/team.png` | `App Icons/Team_icon-RGB.ai` | About / Meet the Staff |
 | `website` / `illustrations/website.png` | Links `Website_icon-RGB.png` | About / Visit our Website |
 | `involvement` / `illustrations/involvement.png` | `App Icons/Volunteers_icon-RGB.ai` | About / Ways to Stay Involved (raised hand) |

@@ -64,7 +64,6 @@ export type NeighborhoodStackList = {
   Neighborhood: undefined;
   Delivery: undefined;
   Transportation: undefined;
-  Tickets: undefined;
 };
 
 export type AboutStackList = {

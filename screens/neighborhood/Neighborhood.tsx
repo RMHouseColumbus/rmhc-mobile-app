@@ -48,13 +48,6 @@ const neighborhoodCardProps: IllustratedSVGCardProps[] = [
     navigationTo: "https://www.experiencecolumbus.com/",
   },
   {
-    label: "Tickets",
-    artwork: brandImages.tickets.source,
-    colors: cardColors.aqua,
-    navigationTo: "Tickets",
-    navType: "navigation",
-  },
-  {
     label: "Transportation",
     artwork: brandImages.tickets.source,
     colors: cardColors.lavender,

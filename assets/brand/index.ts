@@ -16,7 +16,7 @@ export const brandImages = {
   mcdonalds: { source: require("./illustrations/mcdonalds.png"), label: "Neighborhood · McDonald’s" },
   shopping: { source: require("./illustrations/shopping.png"), label: "Neighborhood · Shopping" },
   city: { source: require("./illustrations/city.png"), label: "Neighborhood · City" },
-  tickets: { source: require("./illustrations/tickets.png"), label: "Neighborhood · Tickets" },
+  tickets: { source: require("./illustrations/tickets.png"), label: "Neighborhood · Transportation" },
   team: { source: require("./illustrations/team.png"), label: "About · Meet the Staff" },
   website: { source: require("./illustrations/website.png"), label: "About · Visit our Website" },
   involvement: { source: require("./illustrations/involvement.png"), label: "About · Ways to Stay Involved" },
