@@ -68,10 +68,10 @@ import {
   FacebookSVG,
   FloorPlanIcon,
   HomeIcon,
+  InstagramSVG,
   LinkedinSVG,
   LocationIcon,
   MealsIcon,
-  TwitterSVG,
   UpdatesIcon,
   YoutubeSVG,
 } from "./Icons";
@@ -217,8 +217,10 @@ function AppDrawer(props: DrawerContentComponentProps) {
                 openLink("https://www.youtube.com/user/RMHCofCentralOhio")
               }
             />
-            <TwitterSVG
-              onPress={() => openLink("https://twitter.com/RMHCofCentralOH")}
+            <InstagramSVG
+              onPress={() =>
+                openLink("https://www.instagram.com/ronaldmcdonaldhousecentraloh/")
+              }
             />
           </Box>
         </Box>
