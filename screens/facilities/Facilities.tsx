@@ -6,7 +6,7 @@ import Colors from "../../constants/Colors";
 import Fonts from "../../constants/Fonts";
 import { cardSurface } from "../../constants/CardStyles";
 
-export default function Facilities({ navigation }: RootTabScreenProps<"Facilities">) {
+export default function Facilities({ navigation }: RootTabScreenProps<"Floor Plans">) {
   return (
     <ImageBackground
       resizeMode="cover"
@@ -17,7 +17,7 @@ export default function Facilities({ navigation }: RootTabScreenProps<"Facilitie
         <View style={styles.panel}>
           <Text style={styles.heading} accessibilityRole="header">Floor Plan</Text>
           <Pressable
-            onPress={() => navigation.navigate("FacilitiesPDF")}
+            onPress={() => navigation.navigate("FloorPlanPDF")}
             accessibilityRole="button"
             accessibilityLabel="View floor plan PDF"
             style={({ pressed }) => [styles.button, pressed && styles.pressed]}
