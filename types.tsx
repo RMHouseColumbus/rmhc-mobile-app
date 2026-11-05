@@ -40,8 +40,8 @@ export type YourStayStackScreenProps<Screen extends keyof YourStayStackList> =
 export type RootTabParamList = {
   "RMHC Central Ohio": undefined;
   "Find Us": undefined;
-  Facilities: undefined;
-  FacilitiesPDF: undefined;
+  "Floor Plans": undefined;
+  FloorPlanPDF: undefined;
   Meals: undefined;
   Updates: undefined;
   Activities: undefined;

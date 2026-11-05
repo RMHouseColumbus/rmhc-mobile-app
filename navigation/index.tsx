@@ -105,7 +105,7 @@ function AppDrawer(props: DrawerContentComponentProps) {
   // Select the top-level section so nested details keep their parent highlighted.
   const activeRoute = getFocusedRouteNameFromRoute(props.state.routes[props.state.index])
     ?? "RMHC Central Ohio";
-  const activeSection = activeRoute === "FacilitiesPDF" ? "Facilities" : activeRoute;
+  const activeSection = activeRoute === "FloorPlanPDF" ? "Floor Plans" : activeRoute;
   const drawerItemProps = (screen: keyof RootTabParamList) => ({
     focused: activeSection === screen,
     activeBackgroundColor: "transparent",
@@ -140,9 +140,14 @@ function AppDrawer(props: DrawerContentComponentProps) {
           onPress={() => navigateTo("RMHC Central Ohio")}
         />
         <DrawerItem
-          label="Updates"
-          {...drawerItemProps("Updates")}
-          onPress={() => navigateTo("Updates")}
+          label="About"
+          {...drawerItemProps("AboutHome")}
+          onPress={() => navigateTo("AboutHome")}
+        />
+        <DrawerItem
+          label="Your Stay"
+          {...drawerItemProps("YourStayHome")}
+          onPress={() => navigateTo("YourStayHome")}
         />
         <DrawerItem
           label="Meals"
@@ -150,14 +155,19 @@ function AppDrawer(props: DrawerContentComponentProps) {
           onPress={() => navigateTo("Meals")}
         />
         <DrawerItem
+          label="Updates"
+          {...drawerItemProps("Updates")}
+          onPress={() => navigateTo("Updates")}
+        />
+        <DrawerItem
           label="Activities"
           {...drawerItemProps("Activities")}
           onPress={() => navigateTo("Activities")}
         />
         <DrawerItem
-          label="Facilities/Floor Plan"
-          {...drawerItemProps("Facilities")}
-          onPress={() => navigateTo("Facilities")}
+          label="Floor Plans"
+          {...drawerItemProps("Floor Plans")}
+          onPress={() => navigateTo("Floor Plans")}
         />
         <DrawerItem
           label="Helpful Resources"
@@ -173,16 +183,6 @@ function AppDrawer(props: DrawerContentComponentProps) {
           label="Neighborhood Guide"
           {...drawerItemProps("NeighborhoodHome")}
           onPress={() => navigateTo("NeighborhoodHome")}
-        />
-        <DrawerItem
-          label="About"
-          {...drawerItemProps("AboutHome")}
-          onPress={() => navigateTo("AboutHome")}
-        />
-        <DrawerItem
-          label="Your Stay"
-          {...drawerItemProps("YourStayHome")}
-          onPress={() => navigateTo("YourStayHome")}
         />
 
         <Box flex={1} flexDirection={"column"} alignSelf={"end"} mb={10}>
@@ -235,7 +235,7 @@ function showHeaderTitle(route: RouteProp<ParamListBase>) {
     case "HospitalHome":
     case "YourStayHome":
     case "NeighborhoodHome":
-    case "FacilitiesPDF":
+    case "FloorPlanPDF":
     case "Staff Use":
       return false;
     default:
@@ -250,7 +250,7 @@ function getHeaderTitle(route: RouteProp<ParamListBase>) {
     case "Home":
       return "Ronald McDonald House";
     case "In Hospital Services":
-      return "FAMILY ROOMS";
+      return "Family Rooms";
     default:
       return routeName;
   }
@@ -503,21 +503,21 @@ function BottomTabNavigator() {
           }}
         />
         <BottomTab.Screen
-          name="Facilities"
+          name="Floor Plans"
           component={Facilities}
           options={{
-            tabBarAccessibilityLabel: "Facilities",
+            tabBarAccessibilityLabel: "Floor Plans",
             tabBarIcon: ({ color, size }) => <FloorPlanIcon fill={color} width={size} height={size} accessible={false} />,
           }}
         />
         <BottomTab.Screen
-          name="FacilitiesPDF"
+          name="FloorPlanPDF"
           component={FacilitiesPDF}
           options={(props) => {
             return {
               ...HideTab,
               headerShown: true,
-              headerTitle: "FLOOR PLAN",
+              headerTitle: "Floor Plan",
               headerTitleStyle: {
                 fontFamily: Fonts.Bold,
                 color: Colors.onHeader,
@@ -528,7 +528,7 @@ function BottomTabNavigator() {
               },
               headerLeft: () => (
                 <BackButton
-                  onPress={() => props.navigation.navigate("Facilities")}
+                  onPress={() => props.navigation.navigate("Floor Plans")}
                 />
               ),
             };
