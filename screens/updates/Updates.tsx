@@ -1,3 +1,4 @@
+import HeartBackground from "../../components/HeartBackground";
 import React from "react";
 import { Box, ScrollView, Text } from "native-base";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
@@ -26,19 +27,17 @@ export default function Updates() {
   const tabBarHeight = useBottomTabBarHeight();
   const { loading, data } = useContentfulEntries<Update>(entries.updates);
 
-  if (loading) {
-    return <></>;
-  }
-
   return (
-    <ScrollView
-      flex={1}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
-    >
-      {data.map((update, idx) => (
-        <UpdateCard key={idx} {...update} />
-      ))}
-    </ScrollView>
+    <HeartBackground variant="updates">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {!loading && data.map((update, idx) => (
+          <UpdateCard key={idx} {...update} />
+        ))}
+      </ScrollView>
+    </HeartBackground>
   );
 }

@@ -1,3 +1,4 @@
+import HeartBackground from "../../components/HeartBackground";
 import { Box, Pressable, ScrollView, Text } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
@@ -40,14 +41,16 @@ export default function HelpfulResources() {
   const { data } = useContentfulEntries<HelpfulResource>(entries.helpfulResources);
 
   return (
-    <ScrollView
-      flex={1}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
-    >
-      {data.map((resource, idx) => (
-        <ResourceCard key={idx} {...resource} />
-      ))}
-    </ScrollView>
+    <HeartBackground variant="resources">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {data.map((resource, idx) => (
+          <ResourceCard key={idx} {...resource} />
+        ))}
+      </ScrollView>
+    </HeartBackground>
   );
 }
