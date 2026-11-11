@@ -56,8 +56,11 @@ buck-out/
 # Bundle artifact
 *.jsbundle
 
-# CocoaPods
-/ios/Pods/
+# Generated native projects (Expo Prebuild)
+/ios/
+/android/
 /config/production.js
 /.expo/
+/.env*
+!/.env.example
 /rmhc-app-424718-c7b687b91ff2.json

@@ -1,92 +1,18 @@
-import { Box, Pressable, ScrollView, Text } from "native-base";
-import React, { useEffect } from "react";
+import HeartBackground from "../../components/HeartBackground";
+import { ScrollView } from "native-base";
+import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
-import { useNavigation } from "@react-navigation/native";
-import { Linking } from "react-native";
 
 import type { YourStayStackScreenProps } from "../../types";
-import type { SVGCardProps } from "../../components/SVGCard";
-import Colors from "../../constants/Colors";
+import { cardColors } from "../../constants/Colors";
+import { IllustratedCard } from "../../components/IllustratedCard";
+import { brandImages } from "../../assets/brand";
 
-import {
-  AfterYourStaySVG,
-  BeforeYourStaySVG,
-  DuringYourStaySVG,
-} from "./components/YourStayCards";
-import HenryWoofSVG from "./components/HenryWoofSVG";
-
-export const YourStaySVGCard = ({
-  navigationTo,
-  navType,
-  textComponent,
-  component,
-}: SVGCardProps) => {
-  const navigation = useNavigation();
-  const isLink = navType === "link";
-  const onPress = isLink
-    ? () => Linking.openURL(navigationTo as string)
-    : // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      () => navigation.navigate(navigationTo);
-
-  return (
-    <Pressable onPress={onPress}>
-      <Box
-        borderRadius={20}
-        backgroundColor={"white"}
-        borderColor={"white"}
-        py={3}
-        mt={4}
-        flexDirection={"row"}
-      >
-        {textComponent}
-        <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-          {component}
-        </Box>
-      </Box>
-    </Pressable>
-  );
-};
-
-export const YourStayCardText = ({ text }: { text: string[] }) => {
-  return (
-    <Box flex={1} justifyContent={"center"} alignItems={"center"}>
-      <Box>
-        {text.map((t, i) => (
-          <Text
-            key={i}
-            fontFamily={"Raleway-Bold"}
-            fontSize={20}
-            textAlign={"left"}
-          >
-            {t}
-          </Text>
-        ))}
-      </Box>
-    </Box>
-  );
-};
-
-const yourStayCards: SVGCardProps[] = [
-  {
-    textComponent: <YourStayCardText text={["Before", "Your Stay"]} />,
-    component: <BeforeYourStaySVG />,
-    navigationTo: "Before Your Stay",
-    navType: "navigation",
-  },
-  {
-    textComponent: <YourStayCardText text={["During", "Your Stay"]} />,
-    component: <DuringYourStaySVG />,
-    navigationTo: "During Your Stay",
-    navType: "navigation",
-  },
-  {
-    textComponent: <YourStayCardText text={["After", "Your Stay"]} />,
-    component: <AfterYourStaySVG />,
-    navigationTo: "After Your Stay",
-    navType: "navigation",
-  },
-];
+const yourStayCards = [
+  { route: "Before Your Stay", artwork: brandImages.video.source, colors: cardColors.lavender },
+  { route: "During Your Stay", artwork: brandImages.handsHeart.source, colors: cardColors.aqua },
+  { route: "After Your Stay", artwork: brandImages.house.source, colors: cardColors.lime },
+] as const;
 
 export default function YourStay({
   navigation,
@@ -94,17 +20,22 @@ export default function YourStay({
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <ScrollView
-      contentContainerStyle={{ flexGrow: 1, justifyContent: "space-evenly" }}
-    >
-      <Box px={3}>
-        {yourStayCards.map((data, i) => (
-          <YourStaySVGCard key={i} {...data} />
+    <HeartBackground variant="yourStay">
+      <ScrollView
+        flex={1}
+        backgroundColor="transparent"
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
+      >
+        {yourStayCards.map(({ route, artwork, colors }) => (
+          <IllustratedCard
+            key={route}
+            label={route}
+            artwork={artwork}
+            colors={colors}
+            onPress={() => navigation.navigate(route)}
+          />
         ))}
-      </Box>
-      <Box alignItems={"flex-end"}>
-        <HenryWoofSVG width={375} height={375} />
-      </Box>
-    </ScrollView>
+      </ScrollView>
+    </HeartBackground>
   );
 }

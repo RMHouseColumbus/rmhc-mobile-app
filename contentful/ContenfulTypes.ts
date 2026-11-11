@@ -69,7 +69,7 @@ export interface HospitalService {
   title: string;
   content: string;
   link: boolean;
-  route: string
+  route?: string;
 }
 
 
@@ -117,5 +117,5 @@ export const entries: ContentfulEntries = {
   },
   hospitalServices: {
     contentType: "hospitalServices"
-  }
+  },
 };

@@ -1,35 +1,35 @@
-import { Box, ScrollView } from "native-base";
+import { ScrollView } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import type { AboutStackScreenProps } from "../../../types";
 import { useContentfulEntry } from "../../../hooks/useContentful";
 import type { Page } from "../../../contentful/ContenfulTypes";
 import { entries } from "../../../contentful/ContenfulTypes";
+import HeartBackground from "../../../components/HeartBackground";
+import InformationCard from "../../../components/InformationCard";
 import { createRichTextRenderOptions } from "../../../contentful/ContentfulRender";
 
-export default function FamilyRoom({
-  navigation,
-}: AboutStackScreenProps<"Family Room">) {
+export default function FamilyRoom() {
   const tabBarHeight = useBottomTabBarHeight();
 
   const { data } = useContentfulEntry<Page>(entries.pages["family-room"]);
 
   const renderOptions = createRichTextRenderOptions();
 
-  const Content = ({ content }: Page) => (
-    <>{documentToReactComponents(content, renderOptions)}</>
-  );
-
-  if (!data) {
-    return <></>;
-  }
-
   return (
-    <ScrollView flex={1} py={"4"} px={"4"} backgroundColor={"white"}>
-      <Content content={data?.content ?? {}} page={data?.page ?? ""} />
-      <Box height={tabBarHeight} />
-    </ScrollView>
+    <HeartBackground variant="information">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {data && (
+          <InformationCard>
+            {documentToReactComponents(data.content, renderOptions)}
+          </InformationCard>
+        )}
+      </ScrollView>
+    </HeartBackground>
   );
 }

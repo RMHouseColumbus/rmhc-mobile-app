@@ -1,6 +1,7 @@
 {
   "cli": {
     "version": ">= 0.52.0",
+    "appVersionSource": "local",
     "promptToConfigurePushNotifications": false
   },
   "build": {
@@ -32,14 +33,22 @@
         "autoIncrement": false
       }
     },
+    "production-retry": {
+      "extends": "production",
+      "ios": { "autoIncrement": false },
+      "android": { "autoIncrement": false }
+    },
     "production": {
       "channel": "production",
+      "environment": "production",
+      "node": "24.22.1",
       "env": {
         "ENVIRONMENT": "production"
       },
       "distribution": "store",
       "android": {
-        "buildType": "app-bundle"
+        "buildType": "app-bundle",
+        "autoIncrement": "versionCode"
       },
       "ios": {
         "autoIncrement": "buildNumber"

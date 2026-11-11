@@ -51,7 +51,7 @@ export class GCalClient {
       singleEvents: "true",
       timeZone: "American_New_York",
       maxAttendees: "1",
-      maxResults: "15",
+      maxResults: "100",
       sanitizeHtml: "true",
       timeMin: today.toISOString(),
       timeMax: nextweek.toISOString(),

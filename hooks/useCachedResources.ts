@@ -1,49 +1,21 @@
 import { FontAwesome } from "@expo/vector-icons";
-import * as Font from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useState } from "react";
 import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+import { brandFontAssets, legacyFontAssets } from "../constants/FontAssets";
+
+// Run before React mounts so the splash does not disappear during font loading.
+void SplashScreen.preventAutoHideAsync().catch(console.warn);
+
+const fontAssets = { ...FontAwesome.font, ...legacyFontAssets, ...brandFontAssets };
 
 export default function useCachedResources() {
-  const [isLoadingComplete, setLoadingComplete] = useState(false);
-  // const [fontLoaded, error] = useFonts({
-  //   ...FontAwesome.font,
-  //   "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
-  //   "Raleway-Regular": require("../assets/fonts/Raleway-Regular.ttf"),
-  //   "Raleway-Bold": require("../assets/fonts/Raleway-Bold.ttf"),
-  //   "Raleway-Medium": require("../assets/fonts/Raleway-Medium.ttf"),
-  //   "Raleway-SemiBold": require("../assets/fonts/Raleway-SemiBold.ttf"),
-  //   "Raleway-Italic": require("../assets/fonts/Raleway-Italic.ttf"),
-  // });
+  const [loaded, error] = useFonts(fontAssets);
 
-  // Load any resources or data that we need prior to rendering the app
   useEffect(() => {
-    async function loadResourcesAndDataAsync() {
-      try {
-        SplashScreen.preventAutoHideAsync();
+    if (error) console.warn("Unable to load application fonts", error);
+  }, [error]);
 
-        // Load fonts
-        await Font.loadAsync({
-          ...FontAwesome.font,
-          "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
-          "Raleway-Regular": require("../assets/fonts/Raleway-Regular.ttf"),
-          "Raleway-Bold": require("../assets/fonts/Raleway-Bold.ttf"),
-          "Raleway-Medium": require("../assets/fonts/Raleway-Medium.ttf"),
-          "Raleway-SemiBold": require("../assets/fonts/Raleway-SemiBold.ttf"),
-          "Raleway-Italic": require("../assets/fonts/Raleway-Italic.ttf"),
-        });
-
-      } catch (e) {
-        // We might want to provide this error information to an error reporting service
-        console.warn(e);
-      } finally {
-        setLoadingComplete(true);
-        SplashScreen.hideAsync();
-      }
-    }
-
-    loadResourcesAndDataAsync();
-  }, []);
-
-  return isLoadingComplete;
+  // Allow an error screen/fallback to render instead of leaving the splash stuck.
+  return { ready: loaded || Boolean(error), error };
 }
