@@ -1,3 +1,4 @@
+import HeartBackground from "../../../components/HeartBackground";
 import { Box, ScrollView, Text } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
@@ -21,16 +22,18 @@ export default function Transportation() {
   const renderOptions = createRichTextRenderOptions();
 
   return (
-    <ScrollView py={4} px={4} backgroundColor={Colors.background}>
-      {[...data]
-        .sort((a, b) => a.ordinal - b.ordinal)
-        .map((a, i) => (
-          <Box key={i} p={4} my={1} borderRadius={20} style={cardSurface}>
-            <Text fontSize={16} fontFamily={Fonts.Bold} color={Colors.text}>{a.name}</Text>
-            {documentToReactComponents(a.content, renderOptions)}
-          </Box>
-        ))}
-      <Box height={tabBarHeight} />
-    </ScrollView>
+    <HeartBackground variant="updates">
+      <ScrollView py={4} px={4} backgroundColor="transparent">
+        {[...data]
+          .sort((a, b) => a.ordinal - b.ordinal)
+          .map((a, i) => (
+            <Box key={i} p={4} my={1} borderRadius={20} style={cardSurface}>
+              <Text fontSize={16} fontFamily={Fonts.Bold} color={Colors.text}>{a.name}</Text>
+              {documentToReactComponents(a.content, renderOptions)}
+            </Box>
+          ))}
+        <Box height={tabBarHeight} />
+      </ScrollView>
+    </HeartBackground>
   );
 }

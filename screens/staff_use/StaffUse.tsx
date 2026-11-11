@@ -1,3 +1,4 @@
+import HeartBackground from "../../components/HeartBackground";
 import {
   Box,
   Button,
@@ -30,7 +31,7 @@ const PasswordInput = ({ valid, value, onChangeText, onUnlock }: PassProps) => {
   return (
     <ScrollView
       flex={1}
-      backgroundColor={Colors.background}
+      backgroundColor="transparent"
       contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
       automaticallyAdjustKeyboardInsets
       keyboardShouldPersistTaps="handled"
@@ -127,14 +128,18 @@ export default function StaffUse() {
     }
   };
 
-  return locked ? (
-    <PasswordInput
-      onChangeText={handleChange}
-      value={value}
-      valid={valid}
-      onUnlock={validate}
-    />
-  ) : (
-    <StaffCalendar />
+  return (
+    <HeartBackground variant="updates">
+      {locked ? (
+        <PasswordInput
+          onChangeText={handleChange}
+          value={value}
+          valid={valid}
+          onUnlock={validate}
+        />
+      ) : (
+        <StaffCalendar />
+      )}
+    </HeartBackground>
   );
 }

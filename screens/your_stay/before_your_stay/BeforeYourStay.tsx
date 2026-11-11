@@ -10,7 +10,7 @@ import {
 } from "../../../hooks/useContentful";
 import type { Page, QuestionAnswer } from "../../../contentful/ContenfulTypes";
 import { entries } from "../../../contentful/ContenfulTypes";
-import Colors from "../../../constants/Colors";
+import HeartBackground from "../../../components/HeartBackground";
 import { createRichTextRenderOptions } from "../../../contentful/ContentfulRender";
 import { QACard } from "../components/QACard";
 
@@ -28,16 +28,18 @@ export default function BeforeYourStay({
   }
 
   return (
-    <ScrollView
-      flex={1}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
-    >
-      {data
-        .sort((a, b) => a.ordinal - b.ordinal)
-        .map((qa, i) => (
-          <QACard key={i} qa={qa} options={renderOptions} />
-        ))}
-    </ScrollView>
+    <HeartBackground variant="updates">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {data
+          .sort((a, b) => a.ordinal - b.ordinal)
+          .map((qa, i) => (
+            <QACard key={i} qa={qa} options={renderOptions} />
+          ))}
+      </ScrollView>
+    </HeartBackground>
   );
 }

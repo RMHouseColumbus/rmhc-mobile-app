@@ -1,3 +1,4 @@
+import HeartBackground from "../../components/HeartBackground";
 import { Box, Pressable, ScrollView, Text } from "native-base";
 import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
@@ -57,21 +58,23 @@ export default function HospitalServices({
   ];
 
   return (
-    <ScrollView
-      flex={1}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
-    >
-      {cards.map((card, idx) => {
-        const route = card.route?.trim();
-        let onPress: (() => void) | undefined;
-        if (route && card.link) {
-          onPress = () => Linking.openURL(route);
-        } else if (route === "BHP Family Rooms" || route === "Riverside Family Room") {
-          onPress = () => navigation.navigate(route);
-        }
-        return <HospitalCard key={idx} {...card} onPress={onPress} />;
-      })}
-    </ScrollView>
+    <HeartBackground variant="familyRooms">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {cards.map((card, idx) => {
+          const route = card.route?.trim();
+          let onPress: (() => void) | undefined;
+          if (route && card.link) {
+            onPress = () => Linking.openURL(route);
+          } else if (route === "BHP Family Rooms" || route === "Riverside Family Room") {
+            onPress = () => navigation.navigate(route);
+          }
+          return <HospitalCard key={idx} {...card} onPress={onPress} />;
+        })}
+      </ScrollView>
+    </HeartBackground>
   );
 }

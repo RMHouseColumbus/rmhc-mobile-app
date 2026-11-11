@@ -1,3 +1,5 @@
+import HeartBackground from "../../../components/HeartBackground";
+import InformationCard from "../../../components/InformationCard";
 import { Box, Pressable, ScrollView, Text } from "native-base";
 import React from "react";
 import { Linking } from "react-native";
@@ -24,8 +26,9 @@ export default function Delivery() {
     [BLOCKS.PARAGRAPH]: (node, children) => {
       // A standalone provider link becomes a card; other content keeps its formatting.
       const content = node.content.filter(child => child.nodeType !== "text" || child.value.trim());
+      if (!content.length) return null;
       const link = content.length === 1 && content[0].nodeType === INLINES.HYPERLINK ? content[0] : undefined;
-      if (!link) return <Text mt={2} mb={4}>{children}</Text>;
+      if (!link) return <InformationCard><Text>{children}</Text></InformationCard>;
 
       const label = link.content.map(child => child.nodeType === "text" ? child.value : "").join("");
       return (
@@ -47,9 +50,11 @@ export default function Delivery() {
   }
 
   return (
-    <ScrollView flex={1} py={4} px={4} backgroundColor={Colors.background}>
-      {documentToReactComponents(data.content, renderOptions)}
-      <Box height={tabBarHeight} />
-    </ScrollView>
+    <HeartBackground variant="resources">
+      <ScrollView flex={1} py={4} px={4} backgroundColor="transparent">
+        {documentToReactComponents(data.content, renderOptions)}
+        <Box height={tabBarHeight} />
+      </ScrollView>
+    </HeartBackground>
   );
 }

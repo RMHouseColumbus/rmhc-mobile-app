@@ -19,7 +19,7 @@ export default function StaffCalendar() {
     <ScrollView
       flex={1}
       contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
+      backgroundColor="transparent"
     >
       <Button
         borderRadius={10}

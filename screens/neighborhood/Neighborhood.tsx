@@ -5,8 +5,9 @@ import { createGeoLink } from "../../hooks/useMapLink";
 import { RMHC_LAT_LONG } from "../../constants/Shared";
 import type { IllustratedSVGCardProps } from "../../components/SVGCard";
 import { SVGCard } from "../../components/SVGCard";
+import HeartBackground from "../../components/HeartBackground";
 import { brandImages } from "../../assets/brand";
-import Colors, { cardColors } from "../../constants/Colors";
+import { cardColors } from "../../constants/Colors";
 
 const neighborhoodCardProps: IllustratedSVGCardProps[] = [
   {
@@ -60,14 +61,16 @@ export default function Neighborhood() {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <ScrollView
-      flex={1}
-      backgroundColor={Colors.background}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
-    >
-      {neighborhoodCardProps.map((card) => (
-        <SVGCard key={card.label} {...card} />
-      ))}
-    </ScrollView>
+    <HeartBackground variant="updates">
+      <ScrollView
+        flex={1}
+        backgroundColor="transparent"
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
+      >
+        {neighborhoodCardProps.map((card) => (
+          <SVGCard key={card.label} {...card} />
+        ))}
+      </ScrollView>
+    </HeartBackground>
   );
 }
