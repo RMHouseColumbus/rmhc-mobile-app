@@ -11,7 +11,7 @@ export default function Meals() {
 
   const { data, loading } = useFeed("meals");
   return (
-    <HeartBackground variant="resources">
+    <HeartBackground variant="meals">
       <ScrollView
         flex={1}
         contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}

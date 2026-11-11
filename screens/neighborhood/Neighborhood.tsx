@@ -61,7 +61,7 @@ export default function Neighborhood() {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <HeartBackground variant="updates">
+    <HeartBackground variant="neighborhood">
       <ScrollView
         flex={1}
         backgroundColor="transparent"

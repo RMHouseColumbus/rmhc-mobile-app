@@ -65,7 +65,7 @@ export default function About() {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <HeartBackground variant="familyRooms">
+    <HeartBackground variant="about">
       <ScrollView
         flex={1}
         backgroundColor="transparent"

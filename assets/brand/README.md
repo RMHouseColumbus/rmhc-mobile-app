@@ -55,3 +55,7 @@ Run `node scripts/generate-launch-assets.mjs` with `rsvg-convert` installed (`br
 - `assets/images/splash.png`: transparent 1200 × 756 horizontal logo. The splash plugin centers it on cream using `contain`, with image widths of 280 on iOS and 200 on Android.
 
 Native builds are required to review installed icons and the splash transition; Expo Go does not verify these assets. Logo path geometry, colors, and source files remain unchanged.
+
+## Expressive hearts
+
+`hearts/` contains all five supplied shapes in aqua, gold, lavender, lime, red, and soft white (30 transparent PNGs). Runtime copies are proportionally downsampled to a maximum edge of 1024 px. `hearts/index.ts` provides static imports; `components/HeartBackground.tsx` assigns fixed combinations to screens. Soft-white hearts sit over colored hearts as small accents. No colors or shapes are altered, and layouts never randomize.

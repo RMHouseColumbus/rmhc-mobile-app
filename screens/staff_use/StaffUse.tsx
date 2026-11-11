@@ -129,7 +129,7 @@ export default function StaffUse() {
   };
 
   return (
-    <HeartBackground variant="updates">
+    <HeartBackground variant="staff">
       {locked ? (
         <PasswordInput
           onChangeText={handleChange}

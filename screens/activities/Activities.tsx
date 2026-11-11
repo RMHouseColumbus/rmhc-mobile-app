@@ -15,7 +15,7 @@ export default function Activities() {
 
   const { data, loading } = useFeed("activity");
   return (
-    <HeartBackground variant="resources">
+    <HeartBackground variant="activities">
       <ScrollView
         flex={1}
         contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}

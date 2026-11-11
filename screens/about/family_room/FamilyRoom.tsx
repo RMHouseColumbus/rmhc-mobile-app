@@ -18,7 +18,7 @@ export default function FamilyRoom() {
   const renderOptions = createRichTextRenderOptions();
 
   return (
-    <HeartBackground variant="familyRooms">
+    <HeartBackground variant="information">
       <ScrollView
         flex={1}
         contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}

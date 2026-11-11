@@ -24,7 +24,7 @@ export default function AfterYourStay({
   }
 
   return (
-    <HeartBackground variant="familyRooms">
+    <HeartBackground variant="information">
       <ScrollView
         flex={1}
         contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}

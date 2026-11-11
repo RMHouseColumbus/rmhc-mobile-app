@@ -20,7 +20,7 @@ export default function YourStay({
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <HeartBackground variant="familyRooms">
+    <HeartBackground variant="yourStay">
       <ScrollView
         flex={1}
         backgroundColor="transparent"

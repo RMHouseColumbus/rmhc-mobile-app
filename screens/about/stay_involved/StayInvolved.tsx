@@ -19,7 +19,7 @@ export default function StayInvolved() {
   const renderOptions = createRichTextRenderOptions();
 
   return (
-    <HeartBackground variant="resources">
+    <HeartBackground variant="about">
       <ScrollView
         flex={1}
         contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
