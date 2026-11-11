@@ -33,6 +33,11 @@
         "autoIncrement": false
       }
     },
+    "production-retry": {
+      "extends": "production",
+      "ios": { "autoIncrement": false },
+      "android": { "autoIncrement": false }
+    },
     "production": {
       "channel": "production",
       "environment": "production",
