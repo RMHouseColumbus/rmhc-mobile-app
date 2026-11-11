@@ -3,37 +3,33 @@ import React from "react";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
-import type { AboutStackScreenProps } from "../../../types";
 import { useContentfulEntry } from "../../../hooks/useContentful";
 import type { Page } from "../../../contentful/ContenfulTypes";
 import { entries } from "../../../contentful/ContenfulTypes";
-import Colors from "../../../constants/Colors";
+import HeartBackground from "../../../components/HeartBackground";
+import InformationCard from "../../../components/InformationCard";
 import { createRichTextRenderOptions } from "../../../contentful/ContentfulRender";
 
-export default function CareMobile({
-  navigation,
-}: AboutStackScreenProps<"Care Mobile">) {
+export default function CareMobile() {
   const tabBarHeight = useBottomTabBarHeight();
 
   const { data } = useContentfulEntry<Page>(entries.pages["care-mobile"]);
 
   const renderOptions = createRichTextRenderOptions();
 
-  const Content = ({ content }: Page) => (
-    <>{documentToReactComponents(content, renderOptions)}</>
-  );
-
-  if (!data) {
-    return <></>;
-  }
-
   return (
-    <ScrollView
-      flex={1}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
-    >
-      <Content content={data?.content ?? {}} page={data?.page ?? ""} />
-    </ScrollView>
+    <HeartBackground variant="updates">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {data && (
+          <InformationCard>
+            {documentToReactComponents(data.content, renderOptions)}
+          </InformationCard>
+        )}
+      </ScrollView>
+    </HeartBackground>
   );
 }

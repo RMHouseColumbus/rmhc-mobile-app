@@ -4,24 +4,23 @@ import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import { useFeed } from "../../hooks/useFeed";
 import CalendarItemCard from "../../components/CalendarItemCard";
-import Colors from "../../constants/Colors";
+import HeartBackground from "../../components/HeartBackground";
 
 export default function Meals() {
   const tabBarHeight = useBottomTabBarHeight();
 
   const { data, loading } = useFeed("meals");
-  if (loading) {
-    return <></>;
-  }
   return (
-    <ScrollView
-      flex={1}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
-      backgroundColor={Colors.background}
-    >
-      {data.map((meal, idx) => (
-        <CalendarItemCard key={idx} {...meal} />
-      ))}
-    </ScrollView>
+    <HeartBackground variant="resources">
+      <ScrollView
+        flex={1}
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16 }}
+        backgroundColor="transparent"
+      >
+        {!loading && data.map((meal, idx) => (
+          <CalendarItemCard key={idx} {...meal} />
+        ))}
+      </ScrollView>
+    </HeartBackground>
   );
 }

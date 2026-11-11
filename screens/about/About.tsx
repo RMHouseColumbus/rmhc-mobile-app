@@ -4,8 +4,9 @@ import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 
 import type { IllustratedSVGCardProps } from "../../components/SVGCard";
 import { SVGCard } from "../../components/SVGCard";
+import HeartBackground from "../../components/HeartBackground";
 import { brandImages } from "../../assets/brand";
-import Colors, { cardColors } from "../../constants/Colors";
+import { cardColors } from "../../constants/Colors";
 
 const aboutCardProps: IllustratedSVGCardProps[] = [
   {
@@ -64,14 +65,16 @@ export default function About() {
   const tabBarHeight = useBottomTabBarHeight();
 
   return (
-    <ScrollView
-      flex={1}
-      backgroundColor={Colors.background}
-      contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
-    >
-      {aboutCardProps.map((card) => (
-        <SVGCard key={card.label} {...card} />
-      ))}
-    </ScrollView>
+    <HeartBackground variant="familyRooms">
+      <ScrollView
+        flex={1}
+        backgroundColor="transparent"
+        contentContainerStyle={{ padding: 16, paddingBottom: tabBarHeight + 16, gap: 16 }}
+      >
+        {aboutCardProps.map((card) => (
+          <SVGCard key={card.label} {...card} />
+        ))}
+      </ScrollView>
+    </HeartBackground>
   );
 }
